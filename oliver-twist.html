@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Twist 2026 — Sommarteatern Ystad</title>
+  <meta name="description" content="Oliver Twist 2026 — Sommarteaterns storslagna familjemusikal. 25 föreställningar, 5 juli – 2 augusti på utomhusscenen i Öja, Ystad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+
+    body {
+      padding-top: 76px;
+      background-color: #010810;
+    }
+
+    /* Fixerad stadsvy-bakgrund */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url('images/Blå bakgrund med stad och lampljus.png');
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .page-bg-veil {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: rgba(1, 6, 18, 0.76);
+    }
+
+
+    /* ══════════════════════════════════════════
+       STICKY NAV
+    ══════════════════════════════════════════ */
+
+    .subpage-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(1, 6, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .subpage-nav-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      padding: 8px 0 7px;
+    }
+
+    .nav-logo { flex-shrink: 0; line-height: 1; }
+    .nav-logo img {
+      height: 26px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.28));
+      display: block;
+    }
+
+    .subpage-nav .nav-pills-row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      overflow: visible;
+    }
+
+    .subpage-nav .nav-pill {
+      min-height: 24px;
+      line-height: 24px;
+      padding: 0 11px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .subpage-nav .nav-pill:hover {
+      background: rgba(255,255,255,0.11);
+      transform: none;
+      box-shadow: none;
+    }
+    .subpage-nav .nav-pill--show {
+      background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%);
+    }
+    .subpage-nav .nav-pill--active {
+      outline: 1.5px solid rgba(201,168,76,0.50);
+      outline-offset: -1.5px;
+    }
+    .subpage-nav .nav-pill--more {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.42);
+      margin-left: 4px;
+    }
+    .subpage-nav .nav-pill--more:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.70);
+    }
+
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+
+    .ot-hero {
+      position: relative;
+      height: 100vh;
+      min-height: 660px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .ot-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/Blå bakgrund med lampa liggande.png');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .ot-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(1,6,18,0.20) 0%,
+        rgba(1,6,18,0.42) 38%,
+        rgba(1,6,18,0.88) 72%,
+        rgba(1,6,18,1.00) 100%
+      );
+    }
+
+    /* Cinematic vignette */
+    .ot-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 35%, transparent 20%, rgba(0,0,0,0.42) 100%);
+    }
+
+    .ot-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 72px;
+    }
+
+    .ot-hero-inner {
+      max-width: min(calc(100% - 32px), 1280px);
+      margin: 0 auto;
+    }
+
+    .ot-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+
+    .ot-hero-title {
+      font-size: clamp(80px, 13vw, 156px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.85;
+      color: #ffffff;
+      margin: 0 0 36px;
+      text-shadow: 0 4px 80px rgba(0,0,0,0.65);
+    }
+
+    /* Meta row */
+    .ot-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .ot-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 0 28px 0 0;
+    }
+
+    .ot-meta-item:first-child { padding-left: 0; }
+
+    .ot-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.30);
+    }
+
+    .ot-meta-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: -0.02em;
+    }
+
+    .ot-meta-sep {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.12);
+      margin: 0 28px 0 0;
+      flex-shrink: 0;
+    }
+
+    .ot-hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Scroll arrow */
+    .ot-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.28);
+      animation: scrollBounce 2.4s ease-in-out infinite;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SHARED SECTION STYLES
+    ══════════════════════════════════════════ */
+
+    .ot-section {
+      padding: 96px 0;
+    }
+
+    .ot-section--tight { padding: 72px 0; }
+
+    .ot-kicker {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .ot-h2 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      color: #ffffff;
+      margin: 0 0 24px;
+    }
+
+    .ot-body {
+      font-size: 16px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.80;
+    }
+
+    .ot-body p { margin: 0 0 18px; }
+    .ot-body p:last-child { margin: 0; }
+
+    /* Dark glass panel */
+    .glass-panel {
+      background: rgba(1,10,28,0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .glass-panel--gold {
+      background: rgba(10,12,4,0.76);
+      border-color: rgba(201,168,76,0.18);
+    }
+
+
+    /* ══════════════════════════════════════════
+       OM FÖRESTÄLLNINGEN — text + photo split
+    ══════════════════════════════════════════ */
+
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-photo {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Gold accent bar beside photo */
+    .about-photo::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 15%;
+      bottom: 15%;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    /* Fade at bottom */
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(1,6,18,0.65), transparent);
+    }
+
+    .about-highlights {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .highlight-item { display: flex; flex-direction: column; gap: 3px; }
+
+    .highlight-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .highlight-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-value--gold { color: var(--gold); }
+
+
+    /* ══════════════════════════════════════════
+       QUOTE FEATURE — photo left, quote right
+    ══════════════════════════════════════════ */
+
+    .quote-feature {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .quote-photo {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 2/3;
+    }
+
+    .quote-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Subtle top-left corner accent */
+    .quote-photo::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 60px; height: 60px;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+      border-radius: 4px 0 0 0;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .quote-text-wrap {
+      padding: 20px 0 20px 12px;
+      position: relative;
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      font-size: 130px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.13;
+      font-family: Georgia, serif;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .quote-headline,
+    .quote-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-headline {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #ffffff;
+      margin: 0 0 22px;
+    }
+
+    .quote-headline em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .quote-body {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+
+    /* ══════════════════════════════════════════
+       BILJETTER
+    ══════════════════════════════════════════ */
+
+    .price-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .price-panel {
+      padding: 36px 40px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .price-row:last-of-type { border-bottom: none; }
+
+    .price-row-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .price-row-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.30);
+      margin-top: 2px;
+    }
+
+    .price-row-amount {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+    }
+
+    .price-row-amount--free {
+      font-size: 16px;
+      color: rgba(255,255,255,0.40);
+    }
+
+    .price-footnote {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    .offers-panel {
+      padding: 36px 40px;
+    }
+
+    .offer-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 18px;
+    }
+
+    .offer-card {
+      display: block;
+      padding: 20px 22px;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .offer-card:hover {
+      background: rgba(201,168,76,0.13);
+      border-color: rgba(201,168,76,0.32);
+      transform: translateY(-2px);
+    }
+
+    .offer-card--plain {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.06);
+    }
+
+    .offer-card--plain:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+
+    .offer-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .offer-title--plain { color: rgba(255,255,255,0.55); }
+
+    .offer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.55;
+    }
+
+    .offer-desc strong { color: rgba(255,255,255,0.78); }
+    .offer-desc a { color: rgba(201,168,76,0.75); }
+
+    .price-cta-block {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .price-cta-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.28);
+    }
+
+
+    /* ══════════════════════════════════════════
+       PHOTO BREAK — full width cinematic
+    ══════════════════════════════════════════ */
+
+    .photo-break {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .photo-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .photo-break::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(1,6,18,0.70) 0%,
+        rgba(1,6,18,0.22) 40%,
+        rgba(1,6,18,0.22) 60%,
+        rgba(1,6,18,0.70) 100%
+      );
+      z-index: 1;
+    }
+
+    .photo-break-text {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .photo-break-quote {
+      font-size: clamp(20px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: rgba(255,255,255,0.90);
+      max-width: 640px;
+      line-height: 1.20;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.70);
+    }
+
+    .photo-break-attr {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      opacity: 0.75;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SPELSCHEMA — kompakt
+    ══════════════════════════════════════════ */
+
+    .schedule-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .schedule-legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-bottom: 4px;
+    }
+
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.38);
+      white-space: nowrap;
+    }
+
+    .leg-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .leg-dot--premiere { background: var(--gold); }
+    .leg-dot--sign     { background: #5a9cc5; }
+    .leg-dot--matinee  { background: #a877d4; }
+    .leg-dot--finale   { background: var(--crimson); }
+
+    .schedule-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .schedule-week {
+      background: rgba(1,10,28,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .schedule-week-head {
+      padding: 12px 20px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 0 14px;
+      align-items: center;
+      padding: 11px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row:hover { background: rgba(201,168,76,0.06); }
+
+    .schedule-row--premiere {
+      background: rgba(201,168,76,0.07);
+      border-color: rgba(201,168,76,0.10);
+    }
+
+    .schedule-row--sign {
+      background: rgba(90,156,197,0.05);
+    }
+
+    .schedule-row--matinee {
+      background: rgba(168,119,212,0.05);
+    }
+
+    .schedule-row--finale {
+      background: rgba(139,26,46,0.08);
+    }
+
+    .sched-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      justify-self: center;
+      flex-shrink: 0;
+    }
+
+    .sched-dot--premiere { background: var(--gold); }
+    .sched-dot--sign     { background: #5a9cc5; }
+    .sched-dot--matinee  { background: #a877d4; }
+    .sched-dot--finale   { background: var(--crimson); }
+
+    .sched-date {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: -0.01em;
+    }
+
+    .sched-day {
+      font-size: 11px;
+      color: rgba(255,255,255,0.30);
+      font-weight: 500;
+    }
+
+    .sched-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .sched-time {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+    }
+
+    .sched-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: rgba(90,156,197,0.90);
+    }
+
+    .sched-tag--premiere { color: var(--gold); }
+    .sched-tag--matinee  { color: rgba(168,119,212,0.90); }
+    .sched-tag--finale   { color: rgba(220,80,100,0.90); }
+
+    .schedule-cta {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .schedule-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.28);
+    }
+
+
+    /* ══════════════════════════════════════════
+       FAQ — med sidofoto
+    ══════════════════════════════════════════ */
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .faq-side-photo {
+      position: sticky;
+      top: 92px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 2/3;
+    }
+
+    .faq-side-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .faq-side-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(1,6,18,0.70) 0%, transparent 50%);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .faq-item {
+      background: rgba(1,10,28,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(201,168,76,0.20);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.01em;
+      user-select: none;
+      transition: background 0.15s;
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-item[open] .faq-question {
+      background: rgba(201,168,76,0.05);
+      color: #fff;
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.38);
+      transition: background 0.18s, color 0.18s, transform 0.2s;
+    }
+
+    .faq-item[open] .faq-icon {
+      background: var(--gold);
+      color: #1a1000;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 2px 22px 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.78;
+    }
+
+    .faq-answer p { margin: 0 0 10px; }
+    .faq-answer p:last-child { margin: 0; }
+    .faq-answer strong { color: rgba(255,255,255,0.75); }
+    .faq-answer a { color: rgba(201,168,76,0.72); }
+    .faq-answer a:hover { color: var(--gold); }
+
+    .faq-contact {
+      margin-top: 28px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.30);
+    }
+
+    .faq-contact a { color: rgba(201,168,76,0.65); }
+    .faq-contact a:hover { color: var(--gold); }
+
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+
+    /* Schedule rows — clickable */
+    .schedule-row {
+      cursor: pointer;
+    }
+    .schedule-row:hover {
+      background: rgba(201,168,76,0.08);
+    }
+
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — TABLET
+    ══════════════════════════════════════════ */
+
+    @media (max-width: 1050px) {
+      .about-split {
+        grid-template-columns: 1fr;
+      }
+      .about-photo {
+        aspect-ratio: 16/9;
+        max-height: 400px;
+      }
+      .about-photo::before { display: none; }
+
+      .quote-feature {
+        grid-template-columns: 1fr;
+      }
+      .quote-photo {
+        aspect-ratio: 16/7;
+        max-height: 320px;
+      }
+
+      .price-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+      .faq-side-photo { display: none; }
+
+      .schedule-body {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — MOBIL (≤ 720px)
+    ══════════════════════════════════════════ */
+
+    @media (max-width: 720px) {
+
+      body { padding-top: 72px; }
+
+      /* Nav — liten skärm */
+      .subpage-nav .nav-pills-row {
+        gap: 3px;
+      }
+      .subpage-nav .nav-pill {
+        font-size: 10.5px;
+        padding: 0 9px;
+        min-height: 22px;
+        line-height: 22px;
+      }
+
+      /* Hero */
+      .ot-hero {
+        min-height: 100svh;
+        align-items: flex-end;
+      }
+      .ot-hero-content {
+        padding: 0 0 56px;
+      }
+      .ot-hero-title {
+        font-size: clamp(58px, 17vw, 100px);
+        margin-bottom: 24px;
+      }
+      .ot-hero-eyebrow {
+        font-size: 10px;
+        margin-bottom: 12px;
+      }
+
+      /* Hero meta — 2×2 grid on small screens */
+      .ot-hero-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 0;
+        margin-bottom: 28px;
+      }
+      .ot-meta-sep { display: none; }
+      .ot-meta-item { padding: 0; }
+      .ot-meta-label { font-size: 9px; }
+      .ot-meta-value { font-size: 13px; }
+
+      .ot-hero-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .ot-hero-actions .btn {
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Sections */
+      .ot-section { padding: 60px 0; }
+      .ot-section--tight { padding: 0 0 60px; }
+
+      .ot-h2 {
+        font-size: clamp(28px, 8vw, 46px);
+      }
+
+      /* About */
+      .about-highlights {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      /* Quote */
+      .quote-feature {
+        gap: 28px;
+      }
+      .quote-photo {
+        aspect-ratio: 4/3;
+        max-height: 260px;
+      }
+      .quote-text-wrap { padding: 16px 0 0 8px; }
+      .quote-headline { font-size: clamp(22px, 6vw, 34px); }
+
+      /* Photo break */
+      .photo-break { height: 240px; }
+      .photo-break-quote { font-size: clamp(16px, 4.5vw, 24px); }
+
+      /* Schedule */
+      .schedule-top { gap: 16px; margin-bottom: 24px; }
+      .schedule-legend { gap: 12px; }
+      .sched-date { font-size: 13px; }
+      .sched-time { font-size: 13px; }
+      .schedule-cta { flex-direction: column; gap: 10px; }
+      .schedule-cta .btn { width: 100%; text-align: center; justify-content: center; }
+
+      /* Priser */
+      .price-panel,
+      .offers-panel { padding: 22px 18px; }
+      .price-row-amount { font-size: 18px; }
+      .price-cta-block { flex-direction: column; gap: 10px; }
+      .price-cta-block .btn { width: 100%; text-align: center; justify-content: center; }
+
+      /* FAQ */
+      .faq-question { font-size: 13px; padding: 16px 18px; }
+      .faq-answer { padding: 2px 18px 16px; font-size: 13px; }
+    }
+
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — LITEN MOBIL (≤ 400px)
+    ══════════════════════════════════════════ */
+
+    @media (max-width: 400px) {
+      body { padding-top: 80px; }
+
+      .subpage-nav .nav-pill {
+        font-size: 10px;
+        padding: 0 8px;
+      }
+
+      .ot-section { padding: 48px 0; }
+
+      .ot-hero-title {
+        font-size: clamp(52px, 16vw, 80px);
+      }
+
+      .ot-hero-meta {
+        gap: 12px 0;
+      }
+
+      .about-photo {
+        aspect-ratio: 3/2;
+        max-height: 220px;
+      }
+
+      .offer-card { padding: 14px 16px; }
+      .offer-title, .offer-desc { font-size: 12px; }
+    }
+
+    /* ══════════════════════════════════════════
+       SIDFOT — blå tema istället för lila
+    ══════════════════════════════════════════ */
+
+    .site-footer {
+      background: linear-gradient(160deg, #01080f 0%, #010d1e 50%, #000a14 100%);
+    }
+
+    .site-footer .footer-wave-top {
+      background: transparent !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-veil" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="#" class="nav-pill nav-pill--show nav-pill--active">
+          <span class="nav-pill-badge">2026</span>
+          Oliver Twist
+        </a>
+        <a href="index.html#om-sommarteatern" class="nav-pill">Om Sommarteatern</a>
+        <a href="index.html#tidigare" class="nav-pill">Tidigare föreställningar</a>
+        <a href="index.html#kontakt" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="ot-hero" id="top">
+    <div class="ot-hero-bg" aria-hidden="true"></div>
+
+    <div class="ot-hero-content">
+      <div class="ot-hero-inner">
+
+        <p class="ot-hero-eyebrow">Sommarteatern Ystad · Sommaren 2026</p>
+
+        <h1 class="ot-hero-title">Oliver<br>Twist</h1>
+
+        <div class="ot-hero-meta">
+          <div class="ot-meta-item">
+            <span class="ot-meta-label">Spelperiod</span>
+            <span class="ot-meta-value">5 juli – 2 aug 2026</span>
+          </div>
+          <div class="ot-meta-sep" aria-hidden="true"></div>
+          <div class="ot-meta-item">
+            <span class="ot-meta-label">Föreställningar</span>
+            <span class="ot-meta-value">25 föreställningar</span>
+          </div>
+          <div class="ot-meta-sep" aria-hidden="true"></div>
+          <div class="ot-meta-item">
+            <span class="ot-meta-label">Plats</span>
+            <span class="ot-meta-value">Utomhusteatern i Öja, Ystad</span>
+          </div>
+          <div class="ot-meta-sep" aria-hidden="true"></div>
+          <div class="ot-meta-item">
+            <span class="ot-meta-label">Speltid</span>
+            <span class="ot-meta-value">2 h 40 min inkl. paus</span>
+          </div>
+        </div>
+
+        <div class="ot-hero-actions">
+          <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Köp biljetter</a>
+          <a href="#spelschema" class="btn btn-ghost">Se spelschema</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ot-scroll" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       OM FÖRESTÄLLNINGEN — text + DodgerOliver 02
+  ════════════════════════════════════════ -->
+  <section class="ot-section" id="om">
+    <div class="container">
+      <div class="about-split">
+
+        <div>
+          <span class="ot-kicker">Om föreställningen</span>
+          <h2 class="ot-h2">En klassiker<br>återföds</h2>
+
+          <div class="ot-body">
+            <p>Sommaren 2026 tar Sommarteatern Ystad sig an ett av litteraturens mest älskade äventyr — Charles Dickens <em>Oliver Twist</em>. Under öppen himmel på vår utomhusscen i Öja bjuder vi på musik, dans och ett drama som berör hjärtat.</p>
+            <p>Följ den unge Oliver på hans färd genom 1800-talets London: från det dystra fattighuset och gatans hårda lagar till hopp, vänskap och en framtid värd att kämpa för. En familjemusikal som talar till barn och vuxna på lika villkor — med egenskriven musik av <strong>Frida Green</strong> och eget manus av <strong>Anna Ståhl, Hilda Ståhl, Filip Jönsson</strong> och <strong>Max Ivarsson</strong>.</p>
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="highlight-label">Premiär</span>
+              <span class="highlight-value highlight-value--gold">5 juli 2026</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-label">Ålder</span>
+              <span class="highlight-value">Alla åldrar</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-label">Speltid</span>
+              <span class="highlight-value">2 h 40 min</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-label">Platser</span>
+              <span class="highlight-value">268 numrerade</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 36px;">
+            <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Köp biljetter →</a>
+          </div>
+        </div>
+
+        <div class="about-photo">
+          <img src="images/DodgerOliver 02.jpg" alt="Oliver Twist — Rollinnehavarna">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       QUOTE — DodgerOliver 01 + citat
+  ════════════════════════════════════════ -->
+  <section class="ot-section--tight" style="padding: 0 0 96px;">
+    <div class="container">
+      <div class="quote-feature">
+
+        <div class="quote-photo">
+          <img src="images/DodgerOliver 01.jpg" alt="Oliver Twist — Scenbild">
+        </div>
+
+        <div class="quote-text-wrap">
+          <span class="quote-mark">"</span>
+          <h2 class="quote-headline">Vågar du<br>be om <em>mer?</em></h2>
+          <p class="quote-body">Följ med in i 1800-talets London. En värld av skuggor, men också av hopp, gemenskap och modet att hitta hem. Årets storslagna familjemusikal under bar himmel — i Öja.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       BILJETTER & PRISER
+  ════════════════════════════════════════ -->
+  <section class="ot-section" id="biljetter" style="border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+
+      <span class="ot-kicker">Biljetter &amp; priser</span>
+      <h2 class="ot-h2">Biljetter</h2>
+
+      <div class="price-layout">
+
+        <div class="glass-panel price-panel">
+          <div class="price-row">
+            <div>
+              <div class="price-row-label">Vuxen</div>
+              <div class="price-row-sub">18 år och äldre</div>
+            </div>
+            <div class="price-row-amount">365 kr</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row-label">Pensionär</div>
+              <div class="price-row-sub">65 år och äldre</div>
+            </div>
+            <div class="price-row-amount">295 kr</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row-label">Ungdom</div>
+              <div class="price-row-sub">7–17 år</div>
+            </div>
+            <div class="price-row-amount">265 kr</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row-label">Barn</div>
+              <div class="price-row-sub">2–6 år</div>
+            </div>
+            <div class="price-row-amount">100 kr</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row-label">Barn under 2 år</div>
+              <div class="price-row-sub">Sitter i knä</div>
+            </div>
+            <div class="price-row-amount price-row-amount--free">Gratis</div>
+          </div>
+          <p class="price-footnote">Biljetter säljs via Nortic. Serviceavgifter tillkommer.</p>
+        </div>
+
+        <div class="glass-panel offers-panel">
+          <p class="offer-label">Erbjudanden</p>
+
+          <a href="https://www.sparbankenskane.se/privat/mervarde.html" target="_blank" rel="noopener" class="offer-card">
+            <div class="offer-title">Sparbanken Skåne</div>
+            <div class="offer-desc">Kund hos Sparbanken Skåne? Få <strong>15% rabatt</strong> på ordinarie pris.</div>
+          </a>
+
+          <div class="offer-card">
+            <div class="offer-title">Gruppbokning</div>
+            <div class="offer-desc">Är ni fler än 10 personer? Kontakta oss för <strong>10% grupprabatt</strong>.</div>
+          </div>
+
+          <div class="offer-card offer-card--plain" style="margin-top: 8px;">
+            <div class="offer-title offer-title--plain">Ledsagare</div>
+            <div class="offer-desc">Ledsagare går alltid gratis. Boka via <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="price-cta-block">
+        <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Boka på Nortic →</a>
+        <p class="price-cta-note">Välj datum och plats direkt vid bokning</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOTO-BREAK — DodgerOliver 04
+  ════════════════════════════════════════ -->
+  <div class="photo-break" aria-hidden="false">
+    <img src="images/DodgerOliver 04.jpg" alt="Oliver Twist — Utomhusscenen i Öja">
+    <div class="photo-break-text">
+      <p class="photo-break-quote">Under öppen himmel i Öja — varje kväll en ny berättelse</p>
+      <span class="photo-break-attr">Sommarteatern Ystad · Sommaren 2026</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       SPELSCHEMA — kompakt
+  ════════════════════════════════════════ -->
+  <section class="ot-section" id="spelschema">
+    <div class="container">
+
+      <div class="schedule-top">
+        <div>
+          <span class="ot-kicker">Spelschema 2026</span>
+          <h2 class="ot-h2" style="margin-bottom: 8px;">25 föreställningar</h2>
+          <p style="font-size: 15px; color: rgba(255,255,255,0.40); margin: 0;">5 juli – 2 augusti · Utomhusteatern i Öja</p>
+        </div>
+        <div class="schedule-legend">
+          <div class="leg-item"><div class="leg-dot leg-dot--premiere"></div>Premiär</div>
+          <div class="leg-item"><div class="leg-dot leg-dot--sign"></div>Teckenspråk</div>
+          <div class="leg-item"><div class="leg-dot leg-dot--matinee"></div>Matinée</div>
+          <div class="leg-item"><div class="leg-dot leg-dot--finale"></div>Sista föreställning</div>
+        </div>
+      </div>
+
+      <div class="schedule-body">
+
+        <!-- Vecka 1 -->
+        <div class="schedule-week">
+          <div class="schedule-week-head">5 – 9 juli</div>
+
+          <div class="schedule-row schedule-row--premiere">
+            <div class="sched-dot sched-dot--premiere"></div>
+            <div><div class="sched-date">5 juli</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div><div class="sched-tag sched-tag--premiere">Premiär!</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">6 juli</div><div class="sched-day">Måndag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">7 juli</div><div class="sched-day">Tisdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row schedule-row--sign">
+            <div class="sched-dot sched-dot--sign"></div>
+            <div><div class="sched-date">8 juli</div><div class="sched-day">Onsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div><div class="sched-tag">Teckenspråk</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">9 juli</div><div class="sched-day">Torsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+        </div>
+
+        <!-- Vecka 2 -->
+        <div class="schedule-week">
+          <div class="schedule-week-head">12 – 16 juli</div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">12 juli</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">13 juli</div><div class="sched-day">Måndag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">14 juli</div><div class="sched-day">Tisdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">15 juli</div><div class="sched-day">Onsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">16 juli</div><div class="sched-day">Torsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+        </div>
+
+        <!-- Vecka 3 -->
+        <div class="schedule-week">
+          <div class="schedule-week-head">19 – 23 juli</div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">19 juli</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">20 juli</div><div class="sched-day">Måndag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">21 juli</div><div class="sched-day">Tisdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">22 juli</div><div class="sched-day">Onsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">23 juli</div><div class="sched-day">Torsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+        </div>
+
+        <!-- Vecka 4 + avslutning -->
+        <div class="schedule-week">
+          <div class="schedule-week-head">26 juli – 2 aug</div>
+
+          <div class="schedule-row schedule-row--matinee">
+            <div class="sched-dot sched-dot--matinee"></div>
+            <div><div class="sched-date">26 juli</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">13:00</div><div class="sched-tag sched-tag--matinee">Matinée</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">26 juli</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">27 juli</div><div class="sched-day">Måndag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">28 juli</div><div class="sched-day">Tisdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">29 juli</div><div class="sched-day">Onsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">30 juli</div><div class="sched-day">Torsdag</div></div>
+            <div class="sched-right"><div class="sched-time">18:30</div></div>
+          </div>
+
+          <div class="schedule-row schedule-row--matinee">
+            <div class="sched-dot sched-dot--matinee"></div>
+            <div><div class="sched-date">1 aug</div><div class="sched-day">Lördag</div></div>
+            <div class="sched-right"><div class="sched-time">13:00</div><div class="sched-tag sched-tag--matinee">Matinée</div></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="sched-dot"></div>
+            <div><div class="sched-date">1 aug</div><div class="sched-day">Lördag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div></div>
+          </div>
+
+          <div class="schedule-row schedule-row--matinee">
+            <div class="sched-dot sched-dot--matinee"></div>
+            <div><div class="sched-date">2 aug</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">13:00</div><div class="sched-tag sched-tag--matinee">Matinée</div></div>
+          </div>
+
+          <div class="schedule-row schedule-row--finale">
+            <div class="sched-dot sched-dot--finale"></div>
+            <div><div class="sched-date">2 aug</div><div class="sched-day">Söndag</div></div>
+            <div class="sched-right"><div class="sched-time">17:00</div><div class="sched-tag sched-tag--finale">Sista föreställning</div></div>
+          </div>
+
+        </div>
+
+      </div><!-- /schedule-body -->
+
+      <div class="schedule-cta">
+        <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Boka biljetter på Nortic →</a>
+        <p class="schedule-note">Välj datum och tid direkt vid bokning</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FAQ — med DodgerOliver 05 som sidofoto
+  ════════════════════════════════════════ -->
+  <section class="ot-section" id="faq" style="border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+
+      <span class="ot-kicker">Vanliga frågor</span>
+      <h2 class="ot-h2" style="margin-bottom: 16px;">Allt du vill veta</h2>
+      <p class="ot-body" style="max-width: 680px; margin-bottom: 44px;">Varje år är det många som återkommer till oss för att se sommarens föreställning. Men alla vet inte hur det ser ut på området. Här har vi samlat vanliga frågor och svar. Saknas din fråga? Kontakta oss på <a href="mailto:info@sommarteaternystad.com" style="color: rgba(201,168,76,0.75);">mail</a> så får du rätt svar.</p>
+
+      <div class="faq-layout">
+
+        <div>
+          <div class="faq-list">
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🎟️ &nbsp;Biljetter
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Vi säljer biljetter på olika sätt, allt för att du ska kunna köpa biljetter hos oss på ett sätt som passar dig. Du hittar biljetter på vår hemsida, via Nortic.se eller på plats i biljettluckan.</p>
+                <p>Tänk på att om du köper biljetter på plats är det inte säkert att det finns ledigt till föreställningen samma dag. Du får heller inte tillgång till de rabatterade biljettpriserna i biljettluckan. Glöm inte att vara ute i god tid om du ska köpa biljetter i biljettluckan.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🔄 &nbsp;Återköp &amp; avbokning
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Köpta biljetter återköpes ej. Du kan i mån av plats byta datum på dina biljetter.</p>
+                <p>I vårt biljettbokningssystem går det att köpa försäkring till biljetterna. Om denna köpts till, är det tillåtet att återköpa biljetterna enligt Nortic.se egna villkor.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🎭 &nbsp;Om föreställningen
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Föreställningen är ungefär 2 timmar och 40 minuter inklusive paus. Föreställningen är i två akter med en paus på 20 minuter.</p>
+                <p>Föreställningen passar alla åldrar. Det finns många olika perspektiv att se föreställningen ur, oavsett om du är 5 år eller 105 år.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                ☔ &nbsp;Dåligt väder?
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Sommarteatern genomför föreställningen i alla väder. Vid kraftig åska avbryts spelet och återupptas när åskvädret passerat. Vi har ständig kontakt med vädersatelliter. <strong>Paraplyer är inte tillåtna</strong> med tanke på sikten för bakomvarande.</p>
+                <p>Om vi mot förmodan skulle vara tvungna att ställa in en föreställning kontaktas alla biljettinnehavare. Biljetter ombokas till ett annat speldatum.</p>
+                <p>Sommarteatern har en utomhusscen med läktare utan tak. Du kan låna regnkappor hos oss vid regn.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                ♿ &nbsp;Tillgänglighet &amp; rullstol
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p><strong>Rullstol:</strong> Är du i behov av en rullstolsplats behöver du boka detta via <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a>. Rullstols- och handikappanpassade platser finns vid vår läktare.</p>
+                <p><strong>Nedsatt hörsel:</strong> Vi använder förstärkning i repliker och sång via mikrofoner och högtalare. Hörslinga finns från och med sommaren 2024.</p>
+                <p><strong>Teckenspråksgestaltad föreställning:</strong> 1 av 25 föreställningar är teckenspråksgestaltad — <strong>onsdag 8 juli</strong>.</p>
+                <p><strong>Ledsagare:</strong> Ledsagare går alltid gratis. Boka via <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🍔 &nbsp;Café &amp; område
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Vi har ett café som säljer smått och gott — popcorn, godis, chips, toast, korv med bröd, läsk, vatten, glass och mer.</p>
+                <p>Vi ser helst att du betalar med Swish. Vi tar även kortbetalning och kontanter.</p>
+                <p>Det går bra att ta med egen picknickkorg. Det finns fem toaletter på området samt en rullstolsvänlig toalett.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🪑 &nbsp;Vår läktare
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Vi har en amfiteaterläktare som tar in <strong>268 personer</strong>. Alla platser har ryggstöd och är numrerade — man ser bra var man än sitter.</p>
+                <p>Det finns inget tak över scen eller läktare. Har du svårt att ta dig upp för trappor bör du boka plats närmast scenen.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                📍 &nbsp;Spelplats &amp; hitta hit
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Sommarteaterns utomhusscen finns i Öja precis utanför Ystad — <strong>Karlshemsvägen 51</strong>, bredvid Åbergs Handelsträdgård. Gratis parkering finns på området.</p>
+                <p>Med kollektivtrafik: Skåneexpressen 4 stannar vid hållplatsen <strong>Ystad Öja</strong>, sedan en kort promenad till scenen.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                🐕 &nbsp;Får man ta med hund?
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Vår policy är att hundar får följa med, så länge de inte stör föreställningen eller annan publik. Det kan vara bra att veta om att det finns en del katter på området.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                📸 &nbsp;Foto &amp; film
+                <span class="faq-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Det är tillåtet att ta bilder och filma delar av föreställningen. Lägg gärna ut på sociala medier! Tagga oss med <strong>@sommarteaternystad</strong> och <strong>#sommarteaternystad</strong></p>
+              </div>
+            </details>
+
+          </div>
+
+          <p class="faq-contact">Saknas din fråga? Kontakta oss på <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+        </div>
+
+        <!-- Sidofoto — DodgerOliver 05 -->
+        <div class="faq-side-photo">
+          <img src="images/DodgerOliver 05.jpg" alt="Oliver Twist — Föreställningen">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,35 C300,80 600,0 900,40 C1100,65 1300,15 1440,35 L1440,0 L0,0 Z" fill="rgba(1,6,18,0.76)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 802402-8293</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0e0421"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="index.html#om-sommarteatern">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="index.html#tidigare">Tidigare föreställningar</a>
+            <a href="#">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="#">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="#">Press</a>
+            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="index.html#kontakt">Kontakt</a>
+            <a href="index.html#kontakt">Hitta hit</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-subsites-row">
+        <p class="footer-col-title footer-subsites-label">Sommarteaterns världar</p>
+        <div class="footer-subsites">
+
+          <a href="https://teaterskolan.sommarteatern.se" class="subsite-card" target="_blank" rel="noopener">
+            <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+            <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="index.html#jul" class="subsite-card">
+            <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+            <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+            <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+            <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon" style="background: linear-gradient(135deg, #7a1a2e 0%, #4a0e1c 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="subsite-text"><strong>Bli Medlem</strong><span>Stöd teatern, få förmåner</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener">
+            <div class="subsite-icon" style="background: linear-gradient(135deg, #1a3a5c 0%, #0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div class="subsite-text"><strong>Medlemssidor</strong><span>Nyheter &amp; repetitionsmaterial</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon" style="background: linear-gradient(135deg, #1e0e3c 0%, #0e0820 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <div class="subsite-text"><strong>Musik</strong><span>Låtar &amp; inspelningar</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon" style="background: linear-gradient(135deg, #0e2030 0%, #060e18 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <div class="subsite-text"><strong>Bilder</strong><span>Foton från föreställningarna</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="#" class="subsite-card">
+            <div class="subsite-icon" style="background: linear-gradient(135deg, #0a1e12 0%, #050f08 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div class="subsite-text"><strong>Presentkort</strong><span>Ge bort teatermagi</span></div>
+            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* Gör varje rad i spelschemat klickbar → Nortic-biljetter */
+    document.querySelectorAll('.schedule-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        window.open('https://www.nortic.se/ticket/event/77689', '_blank', 'noopener,noreferrer');
+      });
+    });
+  </script>
+
+</body>
+</html>
