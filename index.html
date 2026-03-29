@@ -46,7 +46,7 @@
   <section class="nav-pills-section">
     <div class="container">
       <nav class="nav-pills-row" aria-label="Snabbnavigation">
-        <a href="#oliver-twist" class="nav-pill nav-pill--show">
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
           <span class="nav-pill-badge">Nyhet</span>
           Oliver Twist 2026
         </a>
@@ -71,24 +71,49 @@
         <h2>Just nu hos Sommarteatern</h2>
       </header>
 
-      <div class="bento-grid">
+      <!-- ═══ NYHETSBRICKOR — stora, pampiga ═══ -->
+      <div class="news-grid">
 
-        <!-- Oliver Twist — Featured big tile -->
-        <article class="bento-tile bento-tile--featured" id="oliver-twist">
-          <div class="bento-tile-inner" style="background-image: linear-gradient(to top, rgba(10,3,22,0.95) 0%, rgba(10,3,22,0.60) 45%, rgba(10,3,22,0.20) 100%), url('images/DodgerOliver 05.jpg'); background-size: cover; background-position: center top;">
-            <div class="bento-body">
-              <span class="bento-tag">Sommaren 2026</span>
-              <h3 class="bento-title">Oliver Twist</h3>
-              <p class="bento-desc">Sommaren 2026 fylls Öja igen av musik, skratt och starka berättelser när Oliver Twist tar plats på vår utomhusscen. En storslagen musikal för hela familjen.<br><br><strong style="color:rgba(255,255,255,0.55); font-size:13px; font-weight:600;">Spelperiod: 5 juli – 2 augusti</strong></p>
-              <div class="bento-actions">
-                <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Köp biljetter</a>
-                <a href="oliver-twist.html" class="btn btn-ghost">Läs mer</a>
-              </div>
+        <!-- Oliver Twist — stor nyhetsbricka med foto -->
+        <article class="news-tile">
+          <div class="news-tile-inner" style="background-image: linear-gradient(to top, rgba(10,3,22,0.96) 0%, rgba(10,3,22,0.65) 45%, rgba(10,3,22,0.25) 100%), url('images/DodgerOliver 05.jpg'); background-size: cover; background-position: center top;">
+            <span class="news-tile-kicker">Sommaren 2026</span>
+            <h3 class="news-tile-title">Oliver Twist</h3>
+            <p class="news-tile-desc">Sommaren 2026 fylls Öja igen av musik, skratt och starka berättelser när Oliver Twist tar plats på vår utomhusscen. En storslagen musikal för hela familjen.<br><br><strong style="color:rgba(255,255,255,0.50); font-size:12px; font-weight:600;">Spelperiod: 5 juli – 2 augusti</strong></p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a href="https://www.nortic.se/ticket/event/77689" target="_blank" rel="noopener" class="btn btn-gold">Köp biljetter</a>
+              <a href="oliver-twist.html" class="btn btn-ghost">Läs mer</a>
             </div>
           </div>
         </article>
 
-        <!-- Teaterskolan -->
+        <!-- Teaterskolan — biljettnyhet -->
+        <article class="news-tile">
+          <div class="news-tile-inner" style="
+            background-image:
+              linear-gradient(to bottom, rgba(10,4,28,0.38) 0%, rgba(8,2,18,0.92) 55%),
+              url('images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #0a0418;">
+            <img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan" class="news-tile-watermark" style="width:140px; margin-bottom: 12px; opacity:0.88;">
+            <span class="news-tile-kicker">Biljetter terminsföreställningar</span>
+            <h3 class="news-tile-title">Nu har Teaterskolan släppt biljetterna till vårens stora terminsavslutningar!</h3>
+            <p class="news-tile-desc">Först ut på scenen är Steg 1 och Steg 2 under första helgen i maj, och därefter tar nya grupper över scenen varje helg. Ta del av elevernas arbete och säkra dina platser redan idag.</p>
+            <a href="https://nortic.se/ticket/organizer/1010" target="_blank" rel="noopener" class="btn btn-gold">Köp biljetter →</a>
+          </div>
+        </article>
+
+      </div><!-- /news-grid -->
+
+      <!-- ═══ MER FRÅN VERKSAMHETEN ═══ -->
+      <div class="activities-divider">
+        <p class="activities-divider-label">Mer från verksamheten</p>
+      </div>
+
+      <div class="activity-grid">
+
         <article class="bento-tile bento-tile--school">
           <div class="bento-tile-inner">
             <div class="bento-body">
@@ -96,25 +121,11 @@
               <span class="bento-tag">Teaterskolan</span>
               <h3 class="bento-title">Kurser &amp; utbildning</h3>
               <p class="bento-desc">Teater, musikal och sång för alla åldrar.</p>
-              <a href="https://teaterskolan.sommarteatern.se" class="bento-link">Anmäl dig nu →</a>
+              <a href="https://teaterskolan.sommarteaternystad.com" class="bento-link">Läs mer →</a>
             </div>
           </div>
         </article>
 
-        <!-- Sommarteatern Play -->
-        <article class="bento-tile bento-tile--play" id="play">
-          <div class="bento-tile-inner">
-            <div class="bento-body">
-              <img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play" class="bento-logo">
-              <span class="bento-tag">Sommarteatern Play</span>
-              <h3 class="bento-title">Se föreställningar online</h3>
-              <p class="bento-desc">Streama inspelade föreställningar när och var du vill.</p>
-              <a href="#" class="bento-link">Öppna Play →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Jul hos Sommarteatern -->
         <article class="bento-tile bento-tile--jul" id="jul">
           <div class="bento-tile-inner">
             <div class="bento-body">
@@ -122,24 +133,23 @@
               <span class="bento-tag">Jul hos Sommarteatern</span>
               <h3 class="bento-title">Jul i Ystad</h3>
               <p class="bento-desc">Julgranar, julmarknad och julkonserter — upplev magin med Sommarteatern.</p>
-              <a href="#" class="bento-link">Utforska →</a>
+              <a href="https://jul.sommarteaternystad.com" class="bento-link">Se mer →</a>
             </div>
           </div>
         </article>
 
-        <!-- Bli Medlem -->
-        <article class="bento-tile bento-tile--member">
+        <article class="bento-tile bento-tile--play" id="play">
           <div class="bento-tile-inner">
             <div class="bento-body">
-              <span class="bento-tag">Bli Medlem</span>
-              <h3 class="bento-title">Stöd Sommarteatern</h3>
-              <p class="bento-desc">Som medlem stödjer du svensk teater och får exklusiva förmåner och rabatter.</p>
-              <a href="#" class="bento-link">Gå med idag →</a>
+              <img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play" class="bento-logo">
+              <span class="bento-tag">Sommarteatern Play</span>
+              <h3 class="bento-title">Se föreställningar online</h3>
+              <p class="bento-desc">Streama inspelade föreställningar när och var du vill.</p>
+              <a href="https://sommarteaternplay.com" class="bento-link">Se mer →</a>
             </div>
           </div>
         </article>
 
-        <!-- Webbshop -->
         <article class="bento-tile bento-tile--shop">
           <div class="bento-tile-inner">
             <div class="bento-body">
@@ -152,7 +162,19 @@
           </div>
         </article>
 
-      </div><!-- /bento-grid -->
+        <article class="bento-tile bento-tile--member">
+          <div class="bento-tile-inner">
+            <div class="bento-body">
+              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.75)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px; display:block;" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span class="bento-tag">Bli Medlem</span>
+              <h3 class="bento-title">Stöd Sommarteatern</h3>
+              <p class="bento-desc">Som medlem stödjer du svensk teater och får exklusiva förmåner och rabatter.</p>
+              <a href="https://medlem.sommarteaternystad.com" class="bento-link">Läs mer →</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /activity-grid -->
 
       <!-- Sponsorer — full-width tile -->
       <article class="bento-tile bento-tile--sponsors" id="sponsorer">
@@ -194,7 +216,7 @@
     <!-- Wave from news section into footer -->
     <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,35 C300,80 600,0 900,40 C1100,65 1300,15 1440,35 L1440,0 L0,0 Z" fill="#f7f7f5"/>
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="#f7f7f5"/>
       </svg>
     </div>
 
@@ -225,7 +247,7 @@
               </div>
             </div>
           </address>
-          <p class="footer-org">Org.nr: 802402-8293</p>
+          <p class="footer-org">Org.nr: 848001-2452</p>
           <p class="footer-contact-info">
             <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a>
           </p>
@@ -262,7 +284,7 @@
 
         <!-- Col 2: Page navigation -->
         <div class="footer-col footer-col--nav">
-          <p class="footer-col-title">På denna sida</p>
+          <p class="footer-col-title">Sommarteatern</p>
           <nav class="footer-nav" aria-label="Sidfotslänkar">
             <a href="#om-sommarteatern">Om Sommarteatern</a>
             <a href="#oliver-twist">Oliver Twist 2026</a>
@@ -278,79 +300,47 @@
           </nav>
         </div>
 
-      </div><!-- /footer-main -->
+        <!-- Col 3: Sommarteaterns världar -->
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
 
-      <!-- ─── Liseberg-inspirerade sub-hemsidekort (full bredd) ─── -->
-      <div class="footer-subsites-row">
-        <p class="footer-col-title footer-subsites-label">Sommarteaterns världar</p>
-        <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-          <a href="https://teaterskolan.sommarteatern.se" class="subsite-card" target="_blank" rel="noopener">
-            <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
-            <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-          <a href="#jul" class="subsite-card">
-            <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
-            <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
-            <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+            <a href="#" class="subsite-card" style="border-left: 2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
-            <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column: 1 / -1; border-left: 2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background: linear-gradient(135deg, #1a3a5c 0%, #0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
 
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon" style="background: linear-gradient(135deg, #7a1a2e 0%, #4a0e1c 100%); display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <div class="subsite-text"><strong>Bli Medlem</strong><span>Stöd teatern, få förmåner</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener">
-            <div class="subsite-icon" style="background: linear-gradient(135deg, #1a3a5c 0%, #0a1e38 100%); display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            </div>
-            <div class="subsite-text"><strong>Medlemssidor</strong><span>Nyheter &amp; repetitionsmaterial</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon" style="background: linear-gradient(135deg, #1e0e3c 0%, #0e0820 100%); display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-            </div>
-            <div class="subsite-text"><strong>Musik</strong><span>Låtar &amp; inspelningar</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon" style="background: linear-gradient(135deg, #0e2030 0%, #060e18 100%); display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            </div>
-            <div class="subsite-text"><strong>Bilder</strong><span>Foton från föreställningarna</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a href="#" class="subsite-card">
-            <div class="subsite-icon" style="background: linear-gradient(135deg, #0a1e12 0%, #050f08 100%); display:flex; align-items:center; justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-            </div>
-            <div class="subsite-text"><strong>Presentkort</strong><span>Ge bort teatermagi</span></div>
-            <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
+          </div>
         </div>
-      </div><!-- /footer-subsites-row -->
+
+      </div><!-- /footer-main -->
 
       <div class="footer-bottom">
         <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
