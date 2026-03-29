@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilder — Sommarteatern Ystad</title>
+  <meta name="description" content="Bilder från Sommarteaterns föreställningar — Romeo &amp; Julia 2023, Hans &amp; Greta 2024 och Skattkammarön 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #06040a;
+    }
+
+    .page-bg {
+      position: fixed; inset: 0; z-index: -2;
+      background-image: url('images/SKATT47.jpg');
+      background-size: cover;
+      background-position: center 40%;
+    }
+
+    .page-bg-veil {
+      position: fixed; inset: 0; z-index: -1;
+      background: rgba(4, 3, 8, 0.88);
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(4,3,8,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row { flex: 1; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; box-shadow: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+    /* ── HERO ── */
+    .gal-hero {
+      position: relative; height: 56vh; min-height: 380px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .gal-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/RJ1.jpg');
+      background-size: cover; background-position: center 30%;
+    }
+    .gal-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(4,3,8,0.20) 0%, rgba(4,3,8,0.88) 80%, rgba(4,3,8,1) 100%);
+    }
+    .gal-hero-content {
+      position: relative; z-index: 2; width: 100%; padding: 0 0 56px;
+      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+    }
+    .gal-eyebrow {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); display: block; margin-bottom: 12px; opacity: 0.85;
+    }
+    .gal-title {
+      font-size: clamp(52px, 9vw, 110px); font-weight: 900;
+      letter-spacing: -0.045em; line-height: 0.88; color: #fff; margin: 0 0 20px;
+    }
+    .gal-desc {
+      font-size: 15px; color: rgba(255,255,255,0.45); max-width: 540px; line-height: 1.70;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar {
+      position: sticky; top: 66px; z-index: 50;
+      background: rgba(4,3,8,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 14px 0;
+    }
+    .filter-inner {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 18px; border-radius: 999px;
+      font-size: 12px; font-weight: 700; letter-spacing: -0.01em;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent; color: rgba(255,255,255,0.50);
+      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { background: rgba(255,255,255,0.07); color: #fff; border-color: rgba(255,255,255,0.22); }
+    .filter-btn.active { background: var(--gold); color: #1a1000; border-color: var(--gold); }
+
+    /* ── PRODUCTION SECTION ── */
+    .prod-section { padding: 72px 0 80px; }
+    .prod-section + .prod-section { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .prod-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 24px; margin-bottom: 36px; flex-wrap: wrap;
+    }
+
+    .prod-year-tag {
+      display: inline-block; font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.20em;
+      padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .prod-year-tag--rj  { background: rgba(139,26,46,0.18); color: rgba(220,100,110,0.90); border: 1px solid rgba(139,26,46,0.28); }
+    .prod-year-tag--hg  { background: rgba(40,120,70,0.15); color: rgba(100,200,130,0.90); border: 1px solid rgba(40,120,70,0.28); }
+    .prod-year-tag--sk  { background: rgba(180,130,20,0.15); color: rgba(220,180,60,0.90); border: 1px solid rgba(180,130,20,0.28); }
+
+    .prod-name {
+      font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 0.92; color: #fff; margin: 0;
+    }
+    .prod-meta {
+      font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 10px;
+    }
+    .prod-count {
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.28);
+      white-space: nowrap; flex-shrink: 0; align-self: flex-end;
+    }
+
+    /* ── MASONRY GALLERY ── */
+    .gallery-masonry {
+      columns: 4;
+      column-gap: 10px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      display: block;
+    }
+
+    .gallery-item img {
+      width: 100%; display: block;
+      transition: transform 0.40s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(4,3,8,0);
+      transition: background 0.25s;
+    }
+    .gallery-item:hover::after { background: rgba(201,168,76,0.08); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(2,1,6,0.97);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lb-img-wrap {
+      position: relative; max-width: 92vw; max-height: 88vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .lb-img-wrap img {
+      max-width: 92vw; max-height: 84vh;
+      object-fit: contain; display: block;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.70);
+    }
+
+    .lb-close {
+      position: fixed; top: 20px; right: 24px;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.70); font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.16); }
+
+    .lb-arrow {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.70); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; font-size: 22px;
+    }
+    .lb-arrow:hover { background: rgba(255,255,255,0.18); }
+    .lb-prev { left: 16px; }
+    .lb-next { right: 16px; }
+
+    .lb-caption {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.16em; color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+    }
+
+    .lb-counter {
+      position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.30);
+      letter-spacing: 0.10em;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
+    .site-footer .footer-wave-top { background: transparent !important; clip-path: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1050px) { .gallery-masonry { columns: 3; } }
+    @media (max-width: 720px) {
+      .gallery-masonry { columns: 2; }
+      .gal-title { font-size: clamp(40px, 13vw, 72px); }
+      .lb-arrow { width: 38px; height: 38px; font-size: 18px; }
+      .lb-prev { left: 8px; } .lb-next { right: 8px; }
+      .prod-section { padding: 48px 0 56px; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 22px; line-height: 22px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-masonry { columns: 2; column-gap: 6px; }
+      .gallery-item { margin-bottom: 6px; border-radius: 8px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-veil" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="#" class="nav-pill nav-pill--active">Bilder</a>
+        <a href="index.html#kontakt" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="gal-hero">
+    <div class="gal-hero-bg" aria-hidden="true"></div>
+    <div class="gal-hero-content">
+      <span class="gal-eyebrow">Sommarteatern Ystad · 2023 – 2025</span>
+      <h1 class="gal-title">Bilder</h1>
+      <p class="gal-desc">158 bilder från tre år av storslagen utomhusteater — Romeo &amp; Julia, Hans &amp; Greta och Skattkammarön.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-inner">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">Alla (158)</button>
+        <button class="filter-btn" onclick="filterGallery('rj', this)">Romeo &amp; Julia 2023 (69)</button>
+        <button class="filter-btn" onclick="filterGallery('hg', this)">Hans &amp; Greta 2024 (42)</button>
+        <button class="filter-btn" onclick="filterGallery('sk', this)">Skattkammarön 2025 (47)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SKATTKAMMARÖN 2025
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="skattkammaon" data-prod="sk">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag prod-year-tag--sk">2025</span>
+          <h2 class="prod-name">Skattkammarön</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2025</p>
+        </div>
+        <span class="prod-count">47 bilder</span>
+      </div>
+
+      <div class="gallery-masonry" id="gallery-sk">
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT1.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT1.jpg" alt="Skattkammarön 2025 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT2.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT2.jpg" alt="Skattkammarön 2025 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT3.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT3.jpg" alt="Skattkammarön 2025 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT4.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT4.jpg" alt="Skattkammarön 2025 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT5.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT5.jpg" alt="Skattkammarön 2025 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT6.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT6.jpg" alt="Skattkammarön 2025 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT7.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT7.jpg" alt="Skattkammarön 2025 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT8.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT8.jpg" alt="Skattkammarön 2025 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT9.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT9.jpg" alt="Skattkammarön 2025 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT10.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT10.jpg" alt="Skattkammarön 2025 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT11.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT11.jpg" alt="Skattkammarön 2025 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT12.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT12.jpg" alt="Skattkammarön 2025 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT13.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT13.jpg" alt="Skattkammarön 2025 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT14.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT14.jpg" alt="Skattkammarön 2025 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT15.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT15.jpg" alt="Skattkammarön 2025 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT16.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT16.jpg" alt="Skattkammarön 2025 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT17.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT17.jpg" alt="Skattkammarön 2025 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT18.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT18.jpg" alt="Skattkammarön 2025 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT19.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT19.jpg" alt="Skattkammarön 2025 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT20.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT20.jpg" alt="Skattkammarön 2025 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT21.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT21.jpg" alt="Skattkammarön 2025 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT22.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT22.jpg" alt="Skattkammarön 2025 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT23.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT23.jpg" alt="Skattkammarön 2025 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT24.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT24.jpg" alt="Skattkammarön 2025 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT25.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT25.jpg" alt="Skattkammarön 2025 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT26.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT26.jpg" alt="Skattkammarön 2025 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT27.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT27.jpg" alt="Skattkammarön 2025 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT28.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT28.jpg" alt="Skattkammarön 2025 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT29.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT29.jpg" alt="Skattkammarön 2025 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT30.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT30.jpg" alt="Skattkammarön 2025 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT31.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT31.jpg" alt="Skattkammarön 2025 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT32.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT32.jpg" alt="Skattkammarön 2025 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT33.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT33.jpg" alt="Skattkammarön 2025 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT34.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT34.jpg" alt="Skattkammarön 2025 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT35.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT35.jpg" alt="Skattkammarön 2025 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT36.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT36.jpg" alt="Skattkammarön 2025 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT37.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT37.jpg" alt="Skattkammarön 2025 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT38.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT38.jpg" alt="Skattkammarön 2025 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT39.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT39.jpg" alt="Skattkammarön 2025 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT40.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT40.jpg" alt="Skattkammarön 2025 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT41.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT41.jpg" alt="Skattkammarön 2025 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT42.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT42.jpg" alt="Skattkammarön 2025 — bild 42" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT43.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT43.jpg" alt="Skattkammarön 2025 — bild 43" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT44.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT44.jpg" alt="Skattkammarön 2025 — bild 44" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT45.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT45.jpg" alt="Skattkammarön 2025 — bild 45" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT46.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT46.jpg" alt="Skattkammarön 2025 — bild 46" loading="lazy"></div>
+        <div class="gallery-item" data-prod="sk" data-src="images/SKATT47.jpg" data-caption="Skattkammarön 2025"><img src="images/SKATT47.jpg" alt="Skattkammarön 2025 — bild 47" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HANS & GRETA 2024
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="hans-greta" data-prod="hg">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag prod-year-tag--hg">2024</span>
+          <h2 class="prod-name">Hans &amp; Greta</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2024</p>
+        </div>
+        <span class="prod-count">42 bilder</span>
+      </div>
+
+      <div class="gallery-masonry" id="gallery-hg">
+        <div class="gallery-item" data-prod="hg" data-src="images/HG1.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG1.jpg" alt="Hans &amp; Greta 2024 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG2.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG2.jpg" alt="Hans &amp; Greta 2024 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG3.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG3.jpg" alt="Hans &amp; Greta 2024 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG4.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG4.jpg" alt="Hans &amp; Greta 2024 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG5.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG5.jpg" alt="Hans &amp; Greta 2024 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG6.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG6.jpg" alt="Hans &amp; Greta 2024 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG7.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG7.jpg" alt="Hans &amp; Greta 2024 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG8.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG8.jpg" alt="Hans &amp; Greta 2024 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG9.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG9.jpg" alt="Hans &amp; Greta 2024 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG10.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG10.jpg" alt="Hans &amp; Greta 2024 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG11.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG11.jpg" alt="Hans &amp; Greta 2024 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG12.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG12.jpg" alt="Hans &amp; Greta 2024 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG13.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG13.jpg" alt="Hans &amp; Greta 2024 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG14.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG14.jpg" alt="Hans &amp; Greta 2024 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG15.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG15.jpg" alt="Hans &amp; Greta 2024 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG16.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG16.jpg" alt="Hans &amp; Greta 2024 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG17.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG17.jpg" alt="Hans &amp; Greta 2024 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG18.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG18.jpg" alt="Hans &amp; Greta 2024 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG19.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG19.jpg" alt="Hans &amp; Greta 2024 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG20.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG20.jpg" alt="Hans &amp; Greta 2024 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG21.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG21.jpg" alt="Hans &amp; Greta 2024 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG22.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG22.jpg" alt="Hans &amp; Greta 2024 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG23.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG23.jpg" alt="Hans &amp; Greta 2024 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG24.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG24.jpg" alt="Hans &amp; Greta 2024 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG25.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG25.jpg" alt="Hans &amp; Greta 2024 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG26.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG26.jpg" alt="Hans &amp; Greta 2024 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG27.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG27.jpg" alt="Hans &amp; Greta 2024 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG28.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG28.jpg" alt="Hans &amp; Greta 2024 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG29.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG29.jpg" alt="Hans &amp; Greta 2024 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG30.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG30.jpg" alt="Hans &amp; Greta 2024 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG31.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG31.jpg" alt="Hans &amp; Greta 2024 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG32.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG32.jpg" alt="Hans &amp; Greta 2024 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG33.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG33.jpg" alt="Hans &amp; Greta 2024 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG34.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG34.jpg" alt="Hans &amp; Greta 2024 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG35.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG35.jpg" alt="Hans &amp; Greta 2024 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG36.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG36.jpg" alt="Hans &amp; Greta 2024 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG37.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG37.jpg" alt="Hans &amp; Greta 2024 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG38.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG38.jpg" alt="Hans &amp; Greta 2024 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG39.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG39.jpg" alt="Hans &amp; Greta 2024 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG40.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG40.jpg" alt="Hans &amp; Greta 2024 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG41.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG41.jpg" alt="Hans &amp; Greta 2024 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="hg" data-src="images/HG42.jpg" data-caption="Hans &amp; Greta 2024"><img src="images/HG42.jpg" alt="Hans &amp; Greta 2024 — bild 42" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ROMEO & JULIA 2023
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="romeo-julia" data-prod="rj">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag prod-year-tag--rj">2023</span>
+          <h2 class="prod-name">Romeo &amp; Julia</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2023</p>
+        </div>
+        <span class="prod-count">69 bilder</span>
+      </div>
+
+      <div class="gallery-masonry" id="gallery-rj">
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ1.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ1.jpg" alt="Romeo &amp; Julia 2023 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ2.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ2.jpg" alt="Romeo &amp; Julia 2023 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ3.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ3.jpg" alt="Romeo &amp; Julia 2023 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ4.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ4.jpg" alt="Romeo &amp; Julia 2023 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ5.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ5.jpg" alt="Romeo &amp; Julia 2023 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ6.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ6.jpg" alt="Romeo &amp; Julia 2023 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ7.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ7.jpg" alt="Romeo &amp; Julia 2023 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ8.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ8.jpg" alt="Romeo &amp; Julia 2023 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ9.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ9.jpg" alt="Romeo &amp; Julia 2023 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ10.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ10.jpg" alt="Romeo &amp; Julia 2023 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ11.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ11.jpg" alt="Romeo &amp; Julia 2023 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ12.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ12.jpg" alt="Romeo &amp; Julia 2023 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ13.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ13.jpg" alt="Romeo &amp; Julia 2023 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ14.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ14.jpg" alt="Romeo &amp; Julia 2023 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ15.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ15.jpg" alt="Romeo &amp; Julia 2023 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ16.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ16.jpg" alt="Romeo &amp; Julia 2023 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ17.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ17.jpg" alt="Romeo &amp; Julia 2023 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ18.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ18.jpg" alt="Romeo &amp; Julia 2023 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ19.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ19.jpg" alt="Romeo &amp; Julia 2023 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ20.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ20.jpg" alt="Romeo &amp; Julia 2023 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ21.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ21.jpg" alt="Romeo &amp; Julia 2023 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ22.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ22.jpg" alt="Romeo &amp; Julia 2023 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ23.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ23.jpg" alt="Romeo &amp; Julia 2023 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ24.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ24.jpg" alt="Romeo &amp; Julia 2023 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ25.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ25.jpg" alt="Romeo &amp; Julia 2023 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ26.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ26.jpg" alt="Romeo &amp; Julia 2023 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ27.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ27.jpg" alt="Romeo &amp; Julia 2023 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ28.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ28.jpg" alt="Romeo &amp; Julia 2023 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ29.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ29.jpg" alt="Romeo &amp; Julia 2023 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ30.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ30.jpg" alt="Romeo &amp; Julia 2023 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ31.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ31.jpg" alt="Romeo &amp; Julia 2023 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ32.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ32.jpg" alt="Romeo &amp; Julia 2023 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ33.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ33.jpg" alt="Romeo &amp; Julia 2023 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ34.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ34.jpg" alt="Romeo &amp; Julia 2023 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ35.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ35.jpg" alt="Romeo &amp; Julia 2023 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ36.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ36.jpg" alt="Romeo &amp; Julia 2023 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ37.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ37.jpg" alt="Romeo &amp; Julia 2023 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ38.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ38.jpg" alt="Romeo &amp; Julia 2023 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ39.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ39.jpg" alt="Romeo &amp; Julia 2023 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ40.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ40.jpg" alt="Romeo &amp; Julia 2023 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ41.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ41.jpg" alt="Romeo &amp; Julia 2023 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ42.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ42.jpg" alt="Romeo &amp; Julia 2023 — bild 42" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ43.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ43.jpg" alt="Romeo &amp; Julia 2023 — bild 43" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ44.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ44.jpg" alt="Romeo &amp; Julia 2023 — bild 44" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ45.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ45.jpg" alt="Romeo &amp; Julia 2023 — bild 45" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ46.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ46.jpg" alt="Romeo &amp; Julia 2023 — bild 46" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ47.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ47.jpg" alt="Romeo &amp; Julia 2023 — bild 47" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ48.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ48.jpg" alt="Romeo &amp; Julia 2023 — bild 48" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ49.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ49.jpg" alt="Romeo &amp; Julia 2023 — bild 49" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ50.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ50.jpg" alt="Romeo &amp; Julia 2023 — bild 50" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ51.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ51.jpg" alt="Romeo &amp; Julia 2023 — bild 51" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ52.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ52.jpg" alt="Romeo &amp; Julia 2023 — bild 52" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ53.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ53.jpg" alt="Romeo &amp; Julia 2023 — bild 53" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ54.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ54.jpg" alt="Romeo &amp; Julia 2023 — bild 54" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ55.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ55.jpg" alt="Romeo &amp; Julia 2023 — bild 55" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ56.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ56.jpg" alt="Romeo &amp; Julia 2023 — bild 56" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ57.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ57.jpg" alt="Romeo &amp; Julia 2023 — bild 57" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ58.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ58.jpg" alt="Romeo &amp; Julia 2023 — bild 58" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ59.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ59.jpg" alt="Romeo &amp; Julia 2023 — bild 59" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ60.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ60.jpg" alt="Romeo &amp; Julia 2023 — bild 60" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ61.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ61.jpg" alt="Romeo &amp; Julia 2023 — bild 61" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ62.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ62.jpg" alt="Romeo &amp; Julia 2023 — bild 62" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ63.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ63.jpg" alt="Romeo &amp; Julia 2023 — bild 63" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ64.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ64.jpg" alt="Romeo &amp; Julia 2023 — bild 64" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ65.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ65.jpg" alt="Romeo &amp; Julia 2023 — bild 65" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ66.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ66.jpg" alt="Romeo &amp; Julia 2023 — bild 66" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ67.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ67.jpg" alt="Romeo &amp; Julia 2023 — bild 67" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ68.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ68.jpg" alt="Romeo &amp; Julia 2023 — bild 68" loading="lazy"></div>
+        <div class="gallery-item" data-prod="rj" data-src="images/RJ69.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ69.jpg" alt="Romeo &amp; Julia 2023 — bild 69" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildvisare">
+    <button class="lb-close" id="lb-close" aria-label="Stäng">✕</button>
+    <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Föregående bild">‹</button>
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt="">
+    </div>
+    <button class="lb-arrow lb-next" id="lb-next" aria-label="Nästa bild">›</button>
+    <div class="lb-counter" id="lb-counter"></div>
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-wave-top" aria-hidden="true" style="background:transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(4,3,8,0.90)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="#">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="#">Press</a>
+            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="index.html#kontakt">Kontakt</a>
+            <a href="index.html#kontakt">Hitta hit</a>
+          </nav>
+        </div>
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1;border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%);display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── BUILD FLAT IMAGE LIST ──
+    const allItems = Array.from(document.querySelectorAll('.gallery-item'));
+
+    // ── LIGHTBOX ──
+    const lb        = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbCounter = document.getElementById('lb-counter');
+    let visibleItems = allItems.slice();
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const item = visibleItems[currentIndex];
+      lbImg.src = item.dataset.src;
+      lbImg.alt = item.querySelector('img').alt;
+      lbCaption.textContent = item.dataset.caption;
+      lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + visibleItems.length) % visibleItems.length;
+      const item = visibleItems[currentIndex];
+      lbImg.src = item.dataset.src;
+      lbImg.alt = item.querySelector('img').alt;
+      lbCaption.textContent = item.dataset.caption;
+      lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
+    }
+
+    allItems.forEach(function(item, i) {
+      item.addEventListener('click', function() {
+        visibleItems = allItems.filter(el => el.style.display !== 'none');
+        const idx = visibleItems.indexOf(item);
+        openLightbox(idx >= 0 ? idx : 0);
+      });
+    });
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', function() { navigate(-1); });
+    document.getElementById('lb-next').addEventListener('click', function() { navigate(1); });
+
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+
+    // ── FILTER ──
+    function filterGallery(prod, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      allItems.forEach(function(item) {
+        if (prod === 'all' || item.dataset.prod === prod) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Show/hide section headers
+      document.querySelectorAll('.prod-section').forEach(function(sec) {
+        if (prod === 'all' || sec.dataset.prod === prod) {
+          sec.style.display = '';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Sommarteatern — Sommarteatern Ystad</title>
+  <meta name="description" content="Lär känna Sommarteatern Ystad — föreningen, ensemblen, Teaterskolan, styrelsen och visionen bakom en av Skånes mest uppskattade sommarupplevelser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+    body {
+      padding-top: 67px;
+      background-color: #080608;
+    }
+
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url('images/HG1.jpg');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .page-bg-veil {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: rgba(6, 4, 10, 0.84);
+    }
+
+
+    /* ══════════════════════════════════════════
+       STICKY NAV
+    ══════════════════════════════════════════ */
+    .subpage-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(6, 4, 10, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .subpage-nav-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      height: 66px;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      line-height: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-right: 22px;
+      margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 0 10px rgba(201,168,76,0.32));
+      display: block;
+    }
+
+    .subpage-nav .nav-pills-row {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+    }
+
+    .subpage-nav .nav-pill {
+      min-height: 30px;
+      line-height: 30px;
+      padding: 0 13px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: -0.01em;
+    }
+
+    .subpage-nav .nav-pill:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .subpage-nav .nav-pill--show {
+      background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%);
+      color: #fff;
+    }
+
+    .subpage-nav .nav-pill--active {
+      outline: 1.5px solid rgba(201,168,76,0.55);
+      outline-offset: -1.5px;
+      color: var(--gold);
+    }
+
+    .subpage-nav .nav-pill--more {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.38);
+    }
+
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .oms-hero {
+      position: relative;
+      height: 88vh;
+      min-height: 580px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .oms-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/SKATT1.jpg');
+      background-size: cover;
+      background-position: center 40%;
+    }
+
+    .oms-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(6,4,10,0.18) 0%,
+        rgba(6,4,10,0.45) 40%,
+        rgba(6,4,10,0.90) 75%,
+        rgba(6,4,10,1.00) 100%
+      );
+    }
+
+    .oms-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 35%, transparent 25%, rgba(0,0,0,0.40) 100%);
+    }
+
+    .oms-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 72px;
+    }
+
+    .oms-hero-inner {
+      max-width: min(calc(100% - 32px), 1280px);
+      margin: 0 auto;
+    }
+
+    .oms-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+
+    .oms-hero-title {
+      font-size: clamp(56px, 10vw, 124px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.88;
+      color: #ffffff;
+      margin: 0 0 36px;
+      text-shadow: 0 4px 80px rgba(0,0,0,0.60);
+    }
+
+    .oms-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .oms-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0 28px 0 0;
+    }
+
+    .oms-meta-sep {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.12);
+      margin: 0 28px 0 0;
+      flex-shrink: 0;
+    }
+
+    .oms-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.30);
+    }
+
+    .oms-meta-value {
+      font-size: 17px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.90);
+      letter-spacing: -0.02em;
+    }
+
+    .oms-meta-value--gold { color: var(--gold); }
+
+    .oms-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.25);
+      animation: scrollBounce 2.4s ease-in-out infinite;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SHARED SECTION UTILITIES
+    ══════════════════════════════════════════ */
+    .oms-section {
+      padding: 96px 0;
+    }
+
+    .oms-section--tight {
+      padding: 64px 0;
+    }
+
+    .oms-kicker {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .oms-h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      color: #ffffff;
+      margin: 0 0 24px;
+    }
+
+    .oms-body {
+      font-size: 16px;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.82;
+    }
+
+    .oms-body p { margin: 0 0 18px; }
+    .oms-body p:last-child { margin: 0; }
+    .oms-body strong { color: rgba(255,255,255,0.80); }
+
+    .glass-panel {
+      background: rgba(6, 4, 14, 0.76);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+
+    /* ══════════════════════════════════════════
+       STATS STRIP
+    ══════════════════════════════════════════ */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 80px;
+    }
+
+    .stat-cell {
+      background: rgba(6,4,14,0.80);
+      padding: 40px 28px;
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-cell::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 20%; right: 20%;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .stat-cell:hover::after { opacity: 0.55; }
+
+    .stat-number {
+      font-size: clamp(44px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-suffix {
+      font-size: 0.48em;
+      font-weight: 700;
+      vertical-align: super;
+      color: rgba(201,168,76,0.60);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.30);
+      margin-top: 8px;
+      display: block;
+    }
+
+
+    /* ══════════════════════════════════════════
+       OM FÖRENINGEN — text + mosaic
+    ══════════════════════════════════════════ */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .img-mosaic {
+      position: relative;
+      height: 500px;
+    }
+
+    .mosaic-frame {
+      position: absolute;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+
+    .mosaic-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mosaic-frame--a {
+      top: 0; left: 0;
+      width: 66%;
+      height: 68%;
+    }
+
+    .mosaic-frame--b {
+      bottom: 0; right: 0;
+      width: 66%;
+      height: 60%;
+    }
+
+    .mosaic-frame--c {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38%;
+      height: 38%;
+      z-index: 2;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.60), 0 0 0 3px rgba(6,4,14,0.90);
+    }
+
+
+    /* ══════════════════════════════════════════
+       QUOTE BANNER
+    ══════════════════════════════════════════ */
+    .quote-banner {
+      position: relative;
+      padding: 56px 0;
+      overflow: hidden;
+    }
+
+    .quote-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(201,168,76,0.06) 0%,
+        rgba(139,26,46,0.04) 50%,
+        rgba(201,168,76,0.06) 100%);
+      border-top: 1px solid rgba(201,168,76,0.14);
+      border-bottom: 1px solid rgba(201,168,76,0.14);
+    }
+
+    .quote-banner-inner {
+      position: relative;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .quote-mark-lg {
+      font-size: 120px;
+      line-height: 0.6;
+      color: rgba(201,168,76,0.14);
+      font-family: Georgia, serif;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .quote-text-lg {
+      font-size: clamp(22px, 3.2vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+      color: rgba(255,255,255,0.90);
+    }
+
+    .quote-text-lg em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .quote-source {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.28);
+      margin-top: 20px;
+      display: block;
+    }
+
+
+    /* ══════════════════════════════════════════
+       VALUES CARDS
+    ══════════════════════════════════════════ */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      padding: 36px 32px;
+      border-radius: var(--radius-lg);
+      background: rgba(6,4,14,0.75);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .value-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-3px);
+    }
+
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.10);
+      border: 1px solid rgba(201,168,76,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .value-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .value-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.72;
+    }
+
+
+    /* ══════════════════════════════════════════
+       PHOTO BREAK
+    ══════════════════════════════════════════ */
+    .oms-photo-break {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .oms-photo-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .oms-photo-break::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(6,4,10,0.70) 0%,
+        rgba(6,4,10,0.15) 40%,
+        rgba(6,4,10,0.15) 60%,
+        rgba(6,4,10,0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    .oms-photo-break-text {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .oms-photo-break-quote {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: rgba(255,255,255,0.90);
+      max-width: 680px;
+      line-height: 1.22;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.80);
+      padding: 0 20px;
+    }
+
+    .oms-photo-break-attr {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      opacity: 0.75;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SOMMARTEATER — key facts + split
+    ══════════════════════════════════════════ */
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    .fact-card {
+      padding: 32px 28px;
+      border-radius: var(--radius-md);
+      background: rgba(6,4,14,0.80);
+      border: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+
+    .fact-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 16px;
+      color: var(--gold);
+      opacity: 0.80;
+    }
+
+    .fact-number {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .fact-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.80);
+      margin: 6px 0 4px;
+    }
+
+    .fact-desc {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.6;
+    }
+
+    .production-split {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .production-photo {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .production-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .production-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,4,10,0.55) 0%, transparent 50%);
+    }
+
+    /* Image strip — 3 images staggered heights */
+    .img-strip {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .img-strip-frame {
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .img-strip-frame:nth-child(2) { margin-top: -20px; }
+
+    .img-strip-frame img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .img-strip-frame:hover img { transform: scale(1.05); }
+
+
+    /* ══════════════════════════════════════════
+       TEATERSKOLAN
+    ══════════════════════════════════════════ */
+    .ts-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 64px;
+    }
+
+    .ts-stat {
+      background: rgba(6,4,14,0.82);
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    .ts-stat-number {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #b094e0;
+      line-height: 1;
+      display: block;
+    }
+
+    .ts-stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.28);
+      margin-top: 6px;
+      display: block;
+    }
+
+    .ts-split {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .ts-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .ts-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .ts-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,4,10,0.60) 0%, transparent 55%);
+    }
+
+    .ts-photo { position: relative; }
+
+
+    /* ══════════════════════════════════════════
+       VISION — cinematic full-screen section
+    ══════════════════════════════════════════ */
+    .vision-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/RJ30.jpg');
+      background-size: cover;
+      background-position: center 25%;
+      background-attachment: fixed;
+    }
+
+    .vision-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(6,4,10,0.86);
+    }
+
+    .vision-inner {
+      position: relative;
+      z-index: 2;
+      padding: 100px 0;
+    }
+
+    .timeline-wrap {
+      margin: 40px 0 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-row {
+      display: flex;
+      position: relative;
+      margin: 0;
+    }
+
+    .timeline-row::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.40), transparent);
+    }
+
+    .timeline-v-connector {
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+    }
+
+    .timeline-v-connector::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.35), rgba(201,168,76,0.10));
+    }
+
+    .timeline-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid rgba(6,4,10,1);
+      outline: 1px solid rgba(201,168,76,0.40);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .timeline-year {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--gold);
+    }
+
+    .timeline-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.55;
+      max-width: 160px;
+    }
+
+    .vision-pull-quote {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 56px;
+    }
+
+    .vision-quote-text {
+      font-size: clamp(24px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.18;
+      color: rgba(255,255,255,0.90);
+    }
+
+    .vision-quote-text em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+
+    /* ══════════════════════════════════════════
+       STYRELSE
+    ══════════════════════════════════════════ */
+    .styrelse-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .styrelse-panel {
+      padding: 36px 40px;
+    }
+
+    .styrelse-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 24px;
+    }
+
+    .ledning-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .ledning-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .ledning-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: -0.02em;
+    }
+
+    .ledning-role {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(201,168,76,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .styrelse-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .styrelse-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .styrelse-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .styrelse-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .styrelse-title {
+      font-size: 11px;
+      color: rgba(255,255,255,0.32);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+
+    /* ══════════════════════════════════════════
+       BLI MEDLEM CTA
+    ══════════════════════════════════════════ */
+    .member-cta-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .member-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(201,168,76,0.05) 0%,
+        rgba(80,58,10,0.08) 100%);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .member-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .member-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .member-card {
+      padding: 32px 28px;
+      border-radius: var(--radius-md);
+      background: rgba(6,4,14,0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .member-card:hover {
+      border-color: rgba(201,168,76,0.28);
+      transform: translateY(-3px);
+    }
+
+    .member-card--highlight {
+      border-color: rgba(201,168,76,0.22);
+      background: rgba(16,10,2,0.82);
+    }
+
+    .member-type {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.30);
+      margin-bottom: 10px;
+    }
+
+    .member-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .member-card--highlight .member-name { color: var(--gold); }
+
+    .member-desc {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.70;
+      flex: 1;
+    }
+
+    .member-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 22px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.80;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+
+    .member-link:hover { opacity: 1; gap: 10px; }
+
+
+    /* ══════════════════════════════════════════
+       FOOTER (Oliver Twist dark variant)
+    ══════════════════════════════════════════ */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+
+    .site-footer .footer-wave-top {
+      background: transparent !important;
+      clip-path: none;
+    }
+
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1050px) {
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .img-mosaic { height: 360px; }
+      .production-split { grid-template-columns: 1fr; }
+      .ts-split { grid-template-columns: 1fr; }
+      .styrelse-layout { grid-template-columns: 1fr; }
+      .member-card[style*="flex-direction: row"] { flex-direction: column !important; }
+      .member-card[style*="flex-direction: row"] > div:last-child { flex-shrink: 1; width: 100%; }
+      .member-card[style*="flex-direction: row"] .btn { width: 100%; text-align: center; justify-content: center; }
+      .oms-hero-meta { gap: 0; }
+    }
+
+    @media (max-width: 720px) {
+      body { padding-top: 67px; }
+
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 22px; line-height: 22px; }
+
+      .oms-hero { min-height: 100svh; }
+      .oms-hero-content { padding: 0 0 56px; }
+      .oms-hero-title { font-size: clamp(48px, 15vw, 80px); margin-bottom: 24px; }
+
+      .oms-hero-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 0;
+      }
+      .oms-meta-sep { display: none; }
+      .oms-meta-item { padding: 0; }
+
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .facts-strip { grid-template-columns: 1fr; }
+      .ts-stats { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .img-strip { grid-template-columns: 1fr; }
+      .img-strip-frame:nth-child(2) { margin-top: 0; }
+      .img-strip-frame img { height: 200px; }
+
+      .timeline-wrap { gap: 0; }
+      .timeline-row { flex-direction: column; gap: 24px; }
+      .timeline-row::before { display: none; }
+      .timeline-v-connector { display: none; }
+
+      .oms-section { padding: 60px 0; }
+      .oms-section--tight { padding: 44px 0; }
+
+      .quote-text-lg { font-size: clamp(20px, 5.5vw, 28px); }
+      .vision-quote-text { font-size: clamp(20px, 5.5vw, 30px); }
+      .styrelse-panel { padding: 24px 22px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-veil" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>
+          Oliver Twist
+        </a>
+        <a href="#" class="nav-pill nav-pill--active">Om Sommarteatern</a>
+        <a href="https://teaterskolan.sommarteaternystad.com" class="nav-pill" target="_blank" rel="noopener">Teaterskolan</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="#kontakt" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="oms-hero" id="top">
+    <div class="oms-hero-bg" aria-hidden="true"></div>
+
+    <div class="oms-hero-content">
+      <div class="oms-hero-inner">
+
+        <p class="oms-eyebrow">Sommarteatern Ystad · Sedan 2001</p>
+
+        <h1 class="oms-hero-title">Om<br>Sommarteatern</h1>
+
+        <div class="oms-hero-meta">
+          <div class="oms-meta-item">
+            <span class="oms-meta-label">Grundad</span>
+            <span class="oms-meta-value oms-meta-value--gold">2001</span>
+          </div>
+          <div class="oms-meta-sep" aria-hidden="true"></div>
+          <div class="oms-meta-item">
+            <span class="oms-meta-label">Medlemmar</span>
+            <span class="oms-meta-value">~300</span>
+          </div>
+          <div class="oms-meta-sep" aria-hidden="true"></div>
+          <div class="oms-meta-item">
+            <span class="oms-meta-label">Besökare 2025</span>
+            <span class="oms-meta-value">~10 000</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="oms-scroll" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       OM FÖRENINGEN — stats + text + mosaic
+  ════════════════════════════════════════ -->
+  <section class="oms-section" id="om-foreningen">
+    <div class="container">
+
+      <!-- Stats strip -->
+      <div class="stats-strip">
+        <div class="stat-cell">
+          <span class="stat-number">25<span class="stat-suffix">+</span></span>
+          <span class="stat-label">År som förening</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">~300</span>
+          <span class="stat-label">Aktiva medlemmar</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">10k</span>
+          <span class="stat-label">Besökare per år</span>
+        </div>
+      </div>
+
+      <!-- Text + image mosaic -->
+      <div class="about-layout">
+
+        <div>
+          <span class="oms-kicker">Om föreningen</span>
+          <h2 class="oms-h2">En förening<br>som växer</h2>
+
+          <div class="oms-body">
+            <p>Sommarteatern i Ystad har funnits som förening i över 25 år och har idag omkring 300 medlemmar — barn, ungdomar och vuxna i alla åldrar. Det konstnärliga arbetet leds sedan 2012 av <strong>Anna Ståhl</strong> och <strong>Hilda Ståhl</strong>, och sedan 2020 utgör de tillsammans med <strong>Hannes Nilsson</strong> det konstnärliga ledarteamet och verksamhetsledare.</p>
+            <p>Tillsammans med arbetsgruppen — engagerade föräldrar och ungdomar ur föreningen — styrelsen och alla hängivna medlemmar har de byggt upp Sommarteatern till vad den är idag, och fortsätter driva den mot allt större och mer storslagna projekt.</p>
+            <p>Föreningen driver flera projekt under hela året. Under höst- och vårterminerna körs <strong>Teaterskolan</strong> med kurser i teater, musikal och sång. Den allra största satsningen sker under sommaren: fyra intensiva veckor med 25 föreställningar av en storslagen familjemusikal med egenskrivet manus och originalmusik — på den egna utomhusscenen i Öja.</p>
+          </div>
+
+          <div style="margin-top: 36px;">
+            <a href="oliver-twist.html" class="btn btn-gold">Se sommarens föreställning →</a>
+          </div>
+        </div>
+
+        <!-- Image mosaic -->
+        <div class="img-mosaic" aria-hidden="true">
+          <div class="mosaic-frame mosaic-frame--a">
+            <img src="images/HG40.jpg" alt="Föreställning — Hans &amp; Greta">
+          </div>
+          <div class="mosaic-frame mosaic-frame--b">
+            <img src="images/SKATT20.jpg" alt="Föreställning — Skattkammarön">
+          </div>
+          <div class="mosaic-frame mosaic-frame--c">
+            <img src="images/RJ24.jpg" alt="Föreställning — Romeo &amp; Julia">
+          </div>
+        </div>
+
+      </div><!-- /about-layout -->
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       QUOTE BANNER — "alla är lika mycket värda"
+  ════════════════════════════════════════ -->
+  <div class="quote-banner">
+    <div class="container">
+      <div class="quote-banner-inner">
+        <span class="quote-mark-lg">"</span>
+        <p class="quote-text-lg">Alla är lika mycket värda,<br><em>oavsett roll eller scentid.</em></p>
+        <span class="quote-source">Sommarteatern Ystads motto</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       VÄRDERINGAR — 3 cards
+  ════════════════════════════════════════ -->
+  <section class="oms-section--tight" style="padding-bottom: 96px;">
+    <div class="container">
+
+      <div style="text-align: center; max-width: 560px; margin: 0 auto 44px;">
+        <span class="oms-kicker">Våra kärnvärderingar</span>
+        <h2 class="oms-h2" style="font-size: clamp(28px, 3.5vw, 44px);">Vad vi tror på</h2>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.75;">Som medlem i Sommarteatern utvecklas man inte bara som skådespelare — man växer som människa.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="value-title">Sammanhållning</div>
+          <div class="value-desc">Sommarteatern vilar på en stark övertygelse om att alla är lika viktiga. En ensemble på 50 personer — barn, unga och vuxna — som tillsammans skapar något som ingen kan åstadkomma ensam.</div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="value-title">Samarbete</div>
+          <div class="value-desc">Genom samarbete levererar vi föreställningar av professionell kvalitet inför fullsatta läktare. Produktioner som kräver att alla drar åt samma håll — oavsett ålder, erfarenhet eller scentid.</div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="value-title">Personlig utveckling</div>
+          <div class="value-desc">Scenkonsten formar individer som är redo att möta världen med öppna sinnen och ett starkt hjärta. Barnkonventionen och ett aktivt arbete mot vår barnrättsplan genomsyrar varje kreativ process.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PHOTO BREAK 1
+  ════════════════════════════════════════ -->
+  <div class="oms-photo-break">
+    <img src="images/RJ15.jpg" alt="Sommarteaterns ensemble på scen">
+    <div class="oms-photo-break-text">
+      <p class="oms-photo-break-quote">Under bar himmel i Öja — femtio röster, ett hjärta</p>
+      <span class="oms-photo-break-attr">Sommarteatern Ystad</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       SOMMARTEATER
+  ════════════════════════════════════════ -->
+  <section class="oms-section" id="sommarteater">
+    <div class="container">
+
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 56px;">
+        <span class="oms-kicker">Sommarteater</span>
+        <h2 class="oms-h2">Fyra veckor.<br>25 föreställningar.</h2>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.78;">Varje sommar sätter Sommarteatern upp en storslagen familjemusikal baserad på kända berättelser — men alltid i en helt ny, egenskriven tappning.</p>
+      </div>
+
+      <!-- Facts strip -->
+      <div class="facts-strip">
+        <div class="fact-card">
+          <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="fact-number">~5 000</span>
+          <div class="fact-title">Besökare per sommar</div>
+          <div class="fact-desc">Snitt 210 åskådare per föreställning på fullsatta läktare</div>
+        </div>
+        <div class="fact-card">
+          <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="fact-number">25</span>
+          <div class="fact-title">Föreställningar</div>
+          <div class="fact-desc">4 spelveckor i juli — inklusive matinéer, teckenspråk och premiärkväll</div>
+        </div>
+        <div class="fact-card">
+          <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="fact-number">268</span>
+          <div class="fact-title">Numrerade platser</div>
+          <div class="fact-desc">Stor amfiteaterläktare i Åbergs trädgård i Öja, utanför Ystad</div>
+        </div>
+        <div class="fact-card">
+          <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="fact-number">50<span style="font-size:0.55em; vertical-align:super; color:rgba(201,168,76,0.60);">+</span></span>
+          <div class="fact-title">Artister på scen</div>
+          <div class="fact-desc">Barn, ungdomar och vuxna — många har spelat med varje sommar i mer än tio år</div>
+        </div>
+      </div>
+
+      <!-- Production split: photo + text -->
+      <div class="production-split">
+
+        <div class="production-photo" style="aspect-ratio: 4/5;">
+          <img src="images/SKATT10.jpg" alt="Skattkammarön 2025 — Sommarteatern">
+        </div>
+
+        <div>
+          <span class="oms-kicker">Produktion &amp; kreativt team</span>
+          <h3 class="oms-h2" style="font-size: clamp(28px, 3.5vw, 46px);">Egenskrivet.<br>Originalt. Skånskt.</h3>
+
+          <div class="oms-body">
+            <p>Musikalerna är alltid baserade på kända berättelser — Askungen, Lilla Sjöjungfrun, Kung Arthur, Törnrosa, Romeo &amp; Julia — men skrivs alltid om i helt egen tappning av föreningens manusförfattare <strong>Filip Jönsson, Anna Ståhl, Hilda Ståhl</strong> och <strong>Max Ivarsson</strong>.</p>
+            <p>Föreställningarna riktar sig till <em>alla</em>. Oavsett om du är fem eller femtio — gammal eller ung, stamgäst eller förstagångsbesökare. Kort sagt: hela familjen, och alla ser den ur sitt eget perspektiv.</p>
+            <p>Föreställningen får helt nyskriven musik av <strong>Frida Green</strong>. Musiken och arrangemangen produceras av <strong>Dick Örnå</strong> på Gil Media. Med sång på skånska förmedlas en känsla av igenkänning och tillhörighet som bara hittas under den bara sommarhimlen.</p>
+            <p>På scenen står över <strong>45 barn, unga och vuxna</strong> — varav många återkommit varje sommar i över tio år. En ensemble som bokstavligen växt upp tillsammans på scen. Det är något som är svårt att förklara, men omöjligt att missa.</p>
+          </div>
+        </div>
+
+      </div><!-- /production-split -->
+
+      <!-- Image strip: 3 from different productions -->
+      <div class="img-strip" aria-hidden="true">
+        <div class="img-strip-frame">
+          <img src="images/RJ40.jpg" alt="Romeo &amp; Julia 2023">
+        </div>
+        <div class="img-strip-frame">
+          <img src="images/HG28.jpg" alt="Hans &amp; Greta 2024">
+        </div>
+        <div class="img-strip-frame">
+          <img src="images/SKATT35.jpg" alt="Skattkammarön 2025">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       TEATERSKOLAN
+  ════════════════════════════════════════ -->
+  <section class="oms-section" id="teaterskolan" style="position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div style="position:absolute; inset:0; background-image:url('images/hero-bg.png'); background-size:cover; background-position:center; z-index:0;"></div>
+    <div style="position:absolute; inset:0; background:rgba(4,3,10,0.88); z-index:1;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+
+      <div style="max-width: 640px; margin-bottom: 48px;">
+        <span class="oms-kicker">Teaterskolan</span>
+        <h2 class="oms-h2">Teater för<br>alla åldrar</h2>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.78;">Alla skådespelare du ser på scenen sommartid är nuvarande eller tidigare elever i Teaterskolan. Det är grunden till allt.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="ts-stats">
+        <div class="ts-stat">
+          <span class="ts-stat-number">3 500</span>
+          <span class="ts-stat-label">Biljetter säljs/år</span>
+        </div>
+        <div class="ts-stat">
+          <span class="ts-stat-number">250<span style="font-size:0.55em; vertical-align:super;">+</span></span>
+          <span class="ts-stat-label">Inskrivna elever</span>
+        </div>
+        <div class="ts-stat">
+          <span class="ts-stat-number">20</span>
+          <span class="ts-stat-label">Grupper</span>
+        </div>
+        <div class="ts-stat">
+          <span class="ts-stat-number">~50</span>
+          <span class="ts-stat-label">Föreställningar/år</span>
+        </div>
+      </div>
+
+      <!-- Text + photo -->
+      <div class="ts-split">
+
+        <div>
+          <div class="oms-body">
+            <p>Sommarteatern erbjuder kurser i teater, musikal och sång för barn, ungdomar och vuxna. Ledarna i varje grupp är skådespelare direkt från sommarens ensemble — det skapar en unik kontinuitet och ett tydligt konstnärligt sammanhang.</p>
+            <p>I slutet av varje termin ges en föreställning för familj och vänner, där eleverna visar vad de arbetat med. Ledarna skriver ett eget manus och väljer en föreställning som passar gruppen — rollerna delas ut utifrån vad som utvecklar varje enskild elev.</p>
+            <p>Teaterskolan har grupper från <strong>3 års ålder</strong> och uppåt, uppdelade efter steg som symboliserar både ålder och nivå. Steg 1–2 pågår under en termin, medan Steg 3, musikalgrupperna och vuxengrupperna löper under två terminer. Med <strong>20 grupper</strong> och fler än <strong>250 inskrivna elever</strong> är Teaterskolan en av de mest aktiva teaterskolorna i södra Sverige.</p>
+            <p>Varje termin ges en avslutningsföreställning för familj och vänner — med eget manus, rollbesättning och scenografi anpassad för varje grupp. Totalt ger Teaterskolan <strong>ca 50 föreställningar per år</strong>.</p>
+          </div>
+
+          <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://teaterskolan.sommarteaternystad.com" target="_blank" rel="noopener" class="btn btn-gold">Utforska Teaterskolan →</a>
+            <a href="https://nortic.se/ticket/organizer/1010" target="_blank" rel="noopener" class="btn btn-ghost">Biljetter terminsföreställningar</a>
+          </div>
+        </div>
+
+        <div class="ts-photo">
+          <img src="images/HG5.jpg" alt="Teaterskolan — elever på scen">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PHOTO BREAK 2
+  ════════════════════════════════════════ -->
+  <div class="oms-photo-break">
+    <img src="images/HG20.jpg" alt="Sommarteatern — ensemble">
+    <div class="oms-photo-break-text">
+      <p class="oms-photo-break-quote">~75 föreställningar om året. Tusentals ögonblick som lever vidare.</p>
+      <span class="oms-photo-break-attr">Sommarteatern Ystad · Teaterskolan &amp; Sommarteater</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       STYRELSE
+  ════════════════════════════════════════ -->
+  <section class="oms-section--tight" id="styrelse" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="container">
+
+      <span class="oms-kicker">Organisation</span>
+      <h2 class="oms-h2" style="margin-bottom: 8px;">Ledning &amp; styrelse</h2>
+      <p style="font-size: 15px; color: rgba(255,255,255,0.38); max-width: 520px; line-height: 1.70; margin: 0 0 0;">Sommarteatern är en ideell förening. Föreningen jobbar hårt för allas lika värde och har en strikt drog&shy;policy.</p>
+
+      <div class="styrelse-layout">
+
+        <!-- Verksamhetsledare -->
+        <div class="glass-panel styrelse-panel">
+          <p class="styrelse-label">Konstnärlig ledning &amp; Verksamhetsledare</p>
+
+          <div class="ledning-item">
+            <span class="ledning-name">Anna Ståhl</span>
+            <span class="ledning-role">Verksamhetsledare &amp; Konstnärlig ledare</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;">
+              <span style="font-size:10px; color:rgba(255,255,255,0.38); font-weight:500;">Musikansvarig</span>
+              <span style="font-size:10px; color:rgba(255,255,255,0.18);">·</span>
+              <a href="https://jul.sommarteaternystad.com" target="_blank" rel="noopener" style="font-size:10px; color:rgba(201,168,76,0.70); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.25);">Julgransansvarig ↗</a>
+            </div>
+          </div>
+          <div class="ledning-item">
+            <span class="ledning-name">Hilda Ståhl</span>
+            <span class="ledning-role">Verksamhetsledare &amp; Konstnärlig ledare</span>
+            <div style="margin-top:6px;">
+              <span style="font-size:10px; color:rgba(255,255,255,0.38); font-weight:500;">Regissör Sommarföreställning</span>
+            </div>
+          </div>
+          <div class="ledning-item">
+            <span class="ledning-name">Hannes Nilsson</span>
+            <span class="ledning-role">Verksamhetsledare &amp; Konstnärlig ledare</span>
+            <div style="margin-top:6px;">
+              <a href="https://teaterskolan.sommarteaternystad.com" target="_blank" rel="noopener" style="font-size:10px; color:rgba(201,168,76,0.70); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.25);">Verksamhetschef Teaterskolan ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Styrelse -->
+        <div class="glass-panel styrelse-panel">
+          <p class="styrelse-label">Föreningens styrelse</p>
+
+          <div class="styrelse-list">
+            <div class="styrelse-row">
+              <span class="styrelse-name">Roger Persson Krook</span>
+              <span class="styrelse-title">Ordförande</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Alexander Ståhl</span>
+              <span class="styrelse-title">Vice ordförande</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Eva Åberg</span>
+              <span class="styrelse-title">Kassör</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Kristin Skoog</span>
+              <span class="styrelse-title">Sekreterare</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Jane Svensson</span>
+              <span class="styrelse-title">Vice sekreterare</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Ann-Sofie Penca</span>
+              <span class="styrelse-title">Ledamot</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Elise Isaksson</span>
+              <span class="styrelse-title">Ledamot</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Hilda Mårtensson</span>
+              <span class="styrelse-title">Ungdomsledamot</span>
+            </div>
+            <div class="styrelse-row">
+              <span class="styrelse-name">Adrian Skoog</span>
+              <span class="styrelse-title">Ungdomsledamot</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       KONCEPT & VISION — cinematic + timeline
+  ════════════════════════════════════════ -->
+  <section class="vision-section" id="vision">
+    <div class="vision-bg" aria-hidden="true"></div>
+
+    <div class="vision-inner">
+      <div class="container">
+
+        <div style="text-align: center; max-width: 640px; margin: 0 auto 16px;">
+          <span class="oms-kicker">Koncept &amp; Vision</span>
+          <h2 class="oms-h2">Från frö<br>till paradis</h2>
+        </div>
+
+        <!-- Timeline — multi-row -->
+        <div class="timeline-wrap">
+
+          <!-- Row 1: 2001 · 2006 · 2007 · 2010 -->
+          <div class="timeline-row">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2001</div>
+              <div class="timeline-desc">Föreningen grundas formellt i Ystad</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2006</div>
+              <div class="timeline-desc">Sommarteatern hittar sin framtida plats vid Åbergs Trädgård — tidigare spelades på skiftande platser i Ystad och Österlen</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2007</div>
+              <div class="timeline-desc">David Hansson skriver för första gången egenskriven musik — 5–7 låtar per föreställning, ett uppdrag han håller till 2018</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2010</div>
+              <div class="timeline-desc">Scenen byggs i Öja och finns sedan dess på samma plats år efter år</div>
+            </div>
+          </div>
+
+          <div class="timeline-v-connector" aria-hidden="true"></div>
+
+          <!-- Row 2: 2012 · 2017 · 2019 · 2020 -->
+          <div class="timeline-row">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2012</div>
+              <div class="timeline-desc">Anna &amp; Hilda Ståhl tar över den konstnärliga ledningen</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2017</div>
+              <div class="timeline-desc">Manuset skrivs för första gången av en manusgrupp i föreningen: Anna Ståhl, Hilda Ståhl, Filip Jönsson, Hannes Nilsson &amp; Elise Isaksson</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2019</div>
+              <div class="timeline-desc">Frida Green &amp; Christoffer Zaar tar över som låtskrivare — antalet låtar ökar till 15–18 per föreställning</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2020</div>
+              <div class="timeline-desc">Hannes Nilsson — sedan länge en del av föreningen — kliver upp som tredje verksamhetsledare</div>
+            </div>
+          </div>
+
+          <div class="timeline-v-connector" aria-hidden="true"></div>
+
+          <!-- Row 3: 2026 · Idag — centered, 2 items -->
+          <div class="timeline-row" style="max-width: 52%; margin-left: auto; margin-right: auto;">
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background: var(--gold); outline-color: rgba(201,168,76,0.55);"></div>
+              <div class="timeline-year">2026</div>
+              <div class="timeline-desc">Föreningen firar 25 år — och scenen i Öja fyller 20</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background: #fff; outline-color: rgba(255,255,255,0.30);"></div>
+              <div class="timeline-year" style="color: #fff;">Idag</div>
+              <div class="timeline-desc">~75 föreställningar/år, ~10 000 besökare, hela Skåne</div>
+            </div>
+          </div>
+
+        </div><!-- /timeline-wrap -->
+
+        <!-- Pull quote -->
+        <div class="vision-pull-quote">
+          <p class="vision-quote-text">
+            Att sammankoppla generation till generation med ett gemensamt intresse —<br>
+            <em>bra teater, helt enkelt.</em>
+          </p>
+        </div>
+
+        <!-- Closing text -->
+        <div style="max-width: 780px; margin: 0 auto;">
+          <div class="oms-body" style="font-size: 15px; line-height: 1.86; text-align: center; color: rgba(255,255,255,0.50);">
+            <p>Sommarteatern har existerat som förening sedan 2001, men var under flera år innan det en plats där professionella såväl som amatörer kunde leva ut sin passion för scenens alla konstformer. I hjärtat av Österlen startade <strong style="color:rgba(255,255,255,0.75)">Tommy Hansson</strong> det som idag har växt till ett paradis i Åbergs trädgård i Öja.</p>
+            <p>Idag är Sommarteatern en helårsverksamhet med flera parallella projekt och runt <strong style="color:rgba(255,255,255,0.75)">75 föreställningar om året</strong>. Publiksiffrorna växer varje säsong — under 2025 besökte nästan <strong style="color:rgba(255,255,255,0.75)">10 000 personer</strong> någon av Sommarteaterns föreställningar.</p>
+            <p>Varje sommar tar vi en klassisk berättelse, omarbetar den för en modern värld och fyller den med helt egenskriven musik. Med sång på skånska förmedlar vi en känsla av igenkänning som bara hittas under den bara sommarhimlen. Vår ambition är att sudda ut gränserna mellan barn- och vuxenteater — och skapa föreställningar där gamla, unga och alla däremellan går hem med ett leende och något att tänka på.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       BLI MEDLEM CTA
+  ════════════════════════════════════════ -->
+  <section class="member-cta-section" id="bli-medlem">
+    <div class="container member-cta-inner">
+
+      <div style="text-align: center; max-width: 580px; margin: 0 auto;">
+        <span class="oms-kicker">Bli en del av oss</span>
+        <h2 class="oms-h2" style="font-size: clamp(30px, 4vw, 50px);">Bli Medlem</h2>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.78;">Sommarteatern har olika typer av medlemskap — beroende på om du är med på scen eller vill stödja oss utifrån.</p>
+      </div>
+
+      <!-- Aktiv Medlem — for participants -->
+      <div style="margin-top: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <div class="member-card" style="flex-direction: row; align-items: center; gap: 32px; padding: 36px 40px; border-color: rgba(201,168,76,0.20); background: rgba(16,10,2,0.82);">
+          <div style="flex: 1;">
+            <div class="member-type" style="color: var(--gold); opacity: 0.70;">För medverkande</div>
+            <div class="member-name" style="color: var(--gold);">Aktiv Medlem</div>
+            <div class="member-desc">Om du deltar i Teaterskolan eller är en del av sommarensemblen är du aktiv medlem — det är grunden för allt. Som aktiv medlem är du med på scen och skapar magi tillsammans med dina kollegor, säsong efter säsong.</div>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="btn btn-gold" target="_blank" rel="noopener" style="white-space:nowrap;">Teaterskolan →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stödmedlem + VIP — external membership -->
+      <div style="margin-top: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <p style="text-align:center; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:rgba(255,255,255,0.25); margin-bottom:16px;">Stödja föreningen utifrån</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="member-card">
+            <div class="member-type">Stödmedlem</div>
+            <div class="member-name">Stödmedlem</div>
+            <div class="member-desc">Stöd Sommarteatern och dess verksamhet. Det enklaste sättet att bidra till att teatern fortsätter leva och växa — öppet för alla utanför föreningen.</div>
+            <a href="https://medlem.sommarteaternystad.com" class="member-link" target="_blank" rel="noopener">
+              Ansök
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="member-card member-card--highlight">
+            <div class="member-type">VIP-Medlem</div>
+            <div class="member-name">VIP-Medlem</div>
+            <div class="member-desc">Exklusiva förmåner, rabatter och tillgång till specialevenemang. Det ultimata sättet att uppleva Sommarteatern på nära håll — för den som vill mer.</div>
+            <a href="https://medlem.sommarteaternystad.com" class="member-link" target="_blank" rel="noopener">
+              Ansök
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#070710"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#070710" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#070710" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#070710" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="#">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="#">Press</a>
+            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#kontakt">Hitta hit</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="subsite-card" style="border-left: 2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column: 1 / -1; border-left: 2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background: linear-gradient(135deg, #1a3a5c 0%, #0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
