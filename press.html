@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press — Sommarteatern Ystad</title>
+  <meta name="description" content="Pressida för Sommarteatern Ystad. Pressmeddelanden, högupplösta pressbilder och kontaktuppgifter för mediaförfrågningar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #06040a;
+    }
+
+    .page-bg {
+      position: fixed; inset: 0; z-index: -2;
+      background: #06040a;
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+
+    /* ── HERO ── */
+    .press-hero {
+      position: relative;
+      padding: 80px 0 64px;
+      overflow: hidden;
+    }
+    .press-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/hero-bg.png');
+      background-size: cover; background-position: center;
+    }
+    .press-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,4,10,0.68) 0%, rgba(6,4,10,0.94) 100%);
+    }
+    .press-hero-inner {
+      position: relative; z-index: 2;
+      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+    }
+    .press-eyebrow {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85;
+    }
+    .press-title {
+      font-size: clamp(52px, 8vw, 100px); font-weight: 900;
+      letter-spacing: -0.045em; line-height: 0.88; color: #fff;
+      margin: 0 0 22px;
+    }
+    .press-subtitle {
+      font-size: 16px; color: rgba(255,255,255,0.48); line-height: 1.7;
+      max-width: 560px; margin: 0 0 32px;
+    }
+    .press-hero-cta {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 11px 20px;
+      font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.80);
+      text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .press-hero-cta:hover {
+      background: rgba(255,255,255,0.12); border-color: rgba(201,168,76,0.35);
+      color: var(--gold);
+    }
+    .press-hero-cta svg { flex-shrink: 0; }
+
+
+    /* ── PRESS MATERIAL ── */
+    .press-material-section {
+      padding: 80px 0 72px;
+    }
+
+    .press-material-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .press-card {
+      background: rgba(8,6,18,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.2s;
+      text-decoration: none;
+    }
+    .press-card:hover {
+      border-color: rgba(201,168,76,0.28);
+      transform: translateY(-3px);
+    }
+
+    /* Coloured top band */
+    .press-card-band {
+      height: 6px;
+    }
+    .press-card--release .press-card-band {
+      background: linear-gradient(90deg, rgba(201,168,76,0.80) 0%, rgba(201,168,76,0.25) 100%);
+    }
+    .press-card--images .press-card-band {
+      background: linear-gradient(90deg, rgba(120,160,255,0.70) 0%, rgba(80,120,220,0.20) 100%);
+    }
+
+    .press-card-inner {
+      padding: 32px 36px 36px;
+      flex: 1; display: flex; flex-direction: column;
+    }
+
+    .press-card-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px; flex-shrink: 0;
+    }
+    .press-card--release .press-card-icon {
+      background: rgba(201,168,76,0.10);
+      border: 1px solid rgba(201,168,76,0.20);
+      color: rgba(201,168,76,0.85);
+    }
+    .press-card--images .press-card-icon {
+      background: rgba(120,160,255,0.08);
+      border: 1px solid rgba(120,160,255,0.18);
+      color: rgba(140,175,255,0.85);
+    }
+
+    .press-card-label {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.18em; margin-bottom: 10px;
+    }
+    .press-card--release .press-card-label { color: rgba(201,168,76,0.70); }
+    .press-card--images .press-card-label { color: rgba(140,175,255,0.65); }
+
+    .press-card-title {
+      font-size: 22px; font-weight: 900; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 14px; line-height: 1.1;
+    }
+
+    .press-card-desc {
+      font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7;
+      flex: 1; margin-bottom: 28px;
+    }
+
+    .press-card-action {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
+      border-radius: 9px; padding: 10px 18px;
+      align-self: flex-start; transition: gap 0.2s, opacity 0.2s;
+    }
+    .press-card--release .press-card-action {
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.22);
+    }
+    .press-card--images .press-card-action {
+      background: rgba(120,160,255,0.10);
+      color: rgba(160,195,255,0.90);
+      border: 1px solid rgba(120,160,255,0.20);
+    }
+    .press-card:hover .press-card-action { gap: 12px; }
+
+    /* ── PRESSKONTAKT SECTION ── */
+    .presscontact-section {
+      padding: 0 0 100px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .presscontact-inner {
+      padding-top: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .presscontact-card {
+      background: rgba(8,6,18,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .presscontact-card:hover { border-color: rgba(201,168,76,0.22); }
+
+    .presscontact-photo {
+      position: relative; width: 100%; height: 260px; overflow: hidden;
+    }
+    .presscontact-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top; display: block;
+    }
+    .presscontact-photo::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 70%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(8,6,18,0.82) 100%);
+    }
+    .presscontact-photo--placeholder {
+      background: linear-gradient(160deg, rgba(28,18,50,0.90) 0%, rgba(14,8,28,0.95) 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .presscontact-photo--placeholder .placeholder-figure {
+      width: 120px; height: 220px;
+      background: linear-gradient(to bottom,
+        rgba(201,168,76,0.08) 0%,
+        rgba(100,70,180,0.10) 60%,
+        transparent 100%);
+      border-radius: 60px 60px 0 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: -1px;
+    }
+    .presscontact-photo--placeholder::after { display: none; }
+    .placeholder-figure svg { opacity: 0.18; }
+
+    .presscontact-body { padding: 4px 28px 32px; }
+    .presscontact-name {
+      font-size: 22px; font-weight: 900;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 4px;
+    }
+    .presscontact-role {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(201,168,76,0.65); margin-bottom: 20px;
+    }
+    .presscontact-divider {
+      height: 1px; background: rgba(255,255,255,0.06); margin: 0 0 18px;
+    }
+    .presscontact-info { display: flex; flex-direction: column; gap: 10px; }
+    .presscontact-info-row { display: flex; align-items: center; gap: 10px; }
+    .presscontact-info-icon {
+      width: 30px; height: 30px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.38);
+    }
+    .presscontact-info-text {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.72); line-height: 1.35;
+    }
+    .presscontact-info-text a {
+      color: rgba(255,255,255,0.72); text-decoration: none;
+    }
+    .presscontact-info-text a:hover { color: var(--gold); }
+    .presscontact-info-text small {
+      display: block; font-size: 10px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.25); margin-bottom: 1px;
+    }
+
+    /* Right side: text content */
+    .presscontact-text-col { padding-top: 8px; }
+
+    .presscontact-text-col h2 {
+      font-size: clamp(26px, 3.5vw, 40px); font-weight: 900;
+      letter-spacing: -0.04em; color: #fff; margin: 0 0 18px; line-height: 1.05;
+    }
+
+    .presscontact-intro {
+      font-size: 15px; color: rgba(255,255,255,0.50); line-height: 1.72;
+      margin: 0 0 28px;
+    }
+
+    .presscontact-quote {
+      border-left: 2px solid rgba(201,168,76,0.30);
+      padding: 14px 0 14px 22px;
+      margin: 0;
+    }
+    .presscontact-quote p {
+      font-size: 15px; font-style: italic;
+      color: rgba(255,255,255,0.60); line-height: 1.7; margin: 0;
+    }
+    .presscontact-quote cite {
+      display: block; margin-top: 10px;
+      font-size: 11px; font-weight: 700; font-style: normal;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(201,168,76,0.55);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+    .site-footer .footer-wave-top {
+      background: transparent !important; clip-path: none;
+    }
+
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 900px) {
+      .press-material-grid { grid-template-columns: 1fr; }
+      .presscontact-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 720px) {
+      /* NAV */
+      .subpage-nav .nav-pills-row {
+        min-width: 0; overflow-x: auto; flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding-right: 40px; justify-content: flex-start;
+        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+      }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+
+      .press-hero { padding: 60px 0 48px; }
+      .press-title { font-size: clamp(44px, 13vw, 70px); }
+      .press-subtitle { font-size: 15px; margin-bottom: 24px; }
+
+      .press-material-section { padding: 52px 0 56px; }
+      .press-card-inner { padding: 24px 24px 28px; }
+      .press-card-title { font-size: 19px; }
+
+      .presscontact-section { padding-bottom: 72px; }
+      .presscontact-inner { padding-top: 52px; gap: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo img { height: 38px; }
+      .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
+      .press-card-inner { padding: 20px 20px 24px; }
+      .presscontact-body { padding: 4px 20px 26px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="#" class="nav-pill nav-pill--active">Press</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="press-hero">
+    <div class="press-hero-bg" aria-hidden="true"></div>
+    <div class="press-hero-inner">
+      <span class="press-eyebrow">Sommarteatern Ystad · Press</span>
+      <h1 class="press-title">Press</h1>
+      <p class="press-subtitle">Välkommen till vår pressida! Här hittar du aktuell information om vår verksamhet – inklusive pressmeddelanden, högupplösta bilder för publicering och kontaktuppgifter för mediaförfrågningar. Sidan uppdateras löpande inför och under våra produktioner.</p>
+      <a href="#presskontakt" class="press-hero-cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Kontakta presskontakt
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PRESSMATERIAL
+  ════════════════════════════════════════ -->
+  <section class="press-material-section" id="pressmaterial">
+    <div class="container">
+
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Pressmaterial</span>
+      <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 4px;">Ladda ned &amp; använd fritt</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.38); margin:0;">Allt du behöver för att skriva om årets produktion.</p>
+
+      <div class="press-material-grid">
+
+        <!-- Pressmeddelande -->
+        <a href="https://drive.google.com/file/d/1WGEGzEfS8fQgneQqZz3EZRkMgpgv9ax-/view" target="_blank" rel="noopener" class="press-card press-card--release">
+          <div class="press-card-band"></div>
+          <div class="press-card-inner">
+            <div class="press-card-icon">
+              <!-- Document icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <span class="press-card-label">Pressmeddelande · 2026</span>
+            <div class="press-card-title">Oliver Twist — Sommarteatern Ystad 2026</div>
+            <p class="press-card-desc">Läs det officiella pressmeddelandet om årets produktion. Innehåller bakgrund, citat och praktisk information om föreställningen.</p>
+            <span class="press-card-action">
+              Öppna pressmeddelande
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Pressbilder -->
+        <a href="https://drive.google.com/drive/folders/1po4Umw0boTEEXGEP7UAwcCpbpPnUKW-8" target="_blank" rel="noopener" class="press-card press-card--images">
+          <div class="press-card-band"></div>
+          <div class="press-card-inner">
+            <div class="press-card-icon">
+              <!-- Image icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <span class="press-card-label">Pressbilder · Fria att använda</span>
+            <div class="press-card-title">Högupplösta pressbilder 2026</div>
+            <p class="press-card-desc">Här hittar du högupplösta pressbilder från årets produktion, fria att använda i tidningar och annan media.<br><br>Fotograf: <strong style="color:rgba(255,255,255,0.65);">Hilda Ståhl</strong><br><br>Behöver du andra bilder eller har frågor? Tveka inte att höra av dig – vi hjälper gärna till!</p>
+            <span class="press-card-action">
+              Öppna bildmapp
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PRESSKONTAKT
+  ════════════════════════════════════════ -->
+  <section class="presscontact-section" id="presskontakt">
+    <div class="container">
+      <div class="presscontact-inner">
+
+        <!-- Kontaktkort: Hannes -->
+        <div class="presscontact-card">
+          <div class="presscontact-photo presscontact-photo--placeholder" aria-hidden="true">
+            <div class="placeholder-figure">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="presscontact-body">
+            <div class="presscontact-name">Hannes Nilsson</div>
+            <div class="presscontact-role">Presskontakt &amp; Kommunikation</div>
+            <div class="presscontact-divider"></div>
+            <div class="presscontact-info">
+              <div class="presscontact-info-row">
+                <div class="presscontact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="presscontact-info-text">
+                  <small>E-post</small>
+                  <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+                </div>
+              </div>
+              <div class="presscontact-info-row">
+                <div class="presscontact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="presscontact-info-text">
+                  <small>Telefon</small>
+                  <a href="tel:+46706389161">070‑638 91 61</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text: intervju / mer info -->
+        <div class="presscontact-text-col">
+          <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:12px;">Presskontakt</span>
+          <h2>Har du frågor eller behöver du mer?</h2>
+          <p class="presscontact-intro">Har du frågor eller behöver ytterligare material är du varmt välkommen att höra av dig till Hannes Nilsson.</p>
+
+          <blockquote class="presscontact-quote">
+            <p>Vill ni intervjua konstnärliga ledare, låtskrivare eller skådespelare? Välkommen att höra av er — vi bjuder gärna på både historier och ett smakprov från årets största äventyr.</p>
+            <cite>— Hannes Nilsson, Presskontakt</cite>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="press.html">Press</a>
+            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html#hitta-hit">Hitta hit</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -23,16 +23,11 @@
       position: fixed;
       inset: 0;
       z-index: -2;
-      background-image: url('images/HG1.jpg');
-      background-size: cover;
-      background-position: center 30%;
+      background: #06040a;
     }
 
     .page-bg-veil {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: rgba(6, 4, 10, 0.84);
+      display: none;
     }
 
 
@@ -1071,9 +1066,11 @@
     /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
+
+    /* ── Tablet ≤ 1050px ── */
     @media (max-width: 1050px) {
       .about-layout { grid-template-columns: 1fr; gap: 48px; }
-      .img-mosaic { height: 360px; }
+      .img-mosaic { height: 340px; }
       .production-split { grid-template-columns: 1fr; }
       .ts-split { grid-template-columns: 1fr; }
       .styrelse-layout { grid-template-columns: 1fr; }
@@ -1083,42 +1080,165 @@
       .oms-hero-meta { gap: 0; }
     }
 
+    /* ── Mobile ≤ 720px ── */
     @media (max-width: 720px) {
-      body { padding-top: 67px; }
 
-      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 22px; line-height: 22px; }
+      /* NAV — horizontal scroll, no wrapping */
+      /* min-width: 0 is critical: flex children default to min-width:auto
+         which prevents overflow-x:auto from engaging */
+      .subpage-nav { overflow: hidden; }
+      .subpage-nav .nav-pills-row {
+        min-width: 0;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-right: 40px; /* space for fade */
+        justify-content: flex-start;
+        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+      }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; flex-shrink: 0; }
 
+      /* HERO */
       .oms-hero { min-height: 100svh; }
-      .oms-hero-content { padding: 0 0 56px; }
-      .oms-hero-title { font-size: clamp(48px, 15vw, 80px); margin-bottom: 24px; }
-
+      .oms-hero-content { padding: 0 0 48px; }
+      .oms-hero-title { font-size: clamp(40px, 12vw, 66px); margin-bottom: 20px; }
       .oms-hero-meta {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px 0;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 4px;
       }
       .oms-meta-sep { display: none; }
       .oms-meta-item { padding: 0; }
+      .oms-meta-label { font-size: 9px; }
+      .oms-meta-value { font-size: 14px; }
 
-      .stats-strip { grid-template-columns: 1fr 1fr; }
-      .facts-strip { grid-template-columns: 1fr; }
-      .ts-stats { grid-template-columns: 1fr 1fr; }
-      .values-grid { grid-template-columns: 1fr; }
-      .img-strip { grid-template-columns: 1fr; }
+      /* SECTIONS */
+      .oms-section { padding: 52px 0; }
+      .oms-section--tight { padding: 40px 0; }
+
+      /* Fix parallax bg: background-attachment: fixed not supported on iOS Safari */
+      [style*="background-attachment"] {
+        background-attachment: scroll, scroll !important;
+      }
+      .vision-bg { background-attachment: scroll; }
+
+      /* STATS STRIP — 3 cols, compact */
+      .stats-strip { grid-template-columns: repeat(3, 1fr); }
+      .stat-cell { padding: 22px 10px; }
+      .stat-number { font-size: clamp(26px, 6.5vw, 40px); }
+      .stat-label { font-size: 9px; letter-spacing: 0.10em; }
+
+      /* OM FÖRENINGEN */
+      .img-mosaic { height: 240px; }
+
+      /* QUOTE BANNER */
+      .quote-text-lg { font-size: clamp(19px, 5vw, 26px); }
+
+      /* VALUES CARDS */
+      .values-grid { grid-template-columns: 1fr; gap: 12px; }
+      .value-card { padding: 22px 18px; }
+
+      /* PHOTO BREAKS */
+      .oms-photo-break { height: 220px; }
+      .oms-photo-break-quote { font-size: clamp(16px, 4.5vw, 22px); }
+
+      /* FACTS STRIP — 2 cols (4 cards → 2×2) */
+      .facts-strip { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
+      .fact-card { padding: 20px 14px; }
+      .fact-icon { width: 28px; height: 28px; margin-bottom: 10px; }
+      .fact-number { font-size: 24px; }
+
+      /* PRODUCTION SPLIT — photo first on mobile */
+      .production-split { grid-template-columns: 1fr; gap: 32px; }
+      .production-photo { order: -1; aspect-ratio: 16/9 !important; }
+
+      /* IMG STRIP — 2 col, third spans full width */
+      .img-strip { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 28px; }
       .img-strip-frame:nth-child(2) { margin-top: 0; }
-      .img-strip-frame img { height: 200px; }
+      .img-strip-frame:nth-child(3) { grid-column: 1 / -1; }
+      .img-strip-frame img { height: 150px; }
 
+      /* TEATERSKOLAN */
+      .ts-stats { grid-template-columns: 1fr 1fr; }
+      .ts-stat { padding: 22px 12px; }
+      .ts-stat-number { font-size: clamp(24px, 6vw, 36px); }
+      .ts-split { grid-template-columns: 1fr; }
+
+      /* VISION — TIMELINE horizontal layout per item */
       .timeline-wrap { gap: 0; }
-      .timeline-row { flex-direction: column; gap: 24px; }
+      .timeline-row { flex-direction: column; gap: 14px; }
       .timeline-row::before { display: none; }
       .timeline-v-connector { display: none; }
+      /* Row 3: remove desktop centering */
+      .timeline-row[style*="max-width: 52%"] {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      /* Items: horizontal [dot] · [year] · [desc] */
+      .timeline-item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 12px;
+      }
+      .timeline-dot { margin-top: 5px; flex-shrink: 0; }
+      .timeline-year { font-size: 16px; min-width: 42px; flex-shrink: 0; }
+      .timeline-desc { font-size: 12px; max-width: none; line-height: 1.52; }
 
-      .oms-section { padding: 60px 0; }
-      .oms-section--tight { padding: 44px 0; }
+      .vision-inner { padding: 60px 0; }
+      .vision-quote-text { font-size: clamp(19px, 5vw, 28px); }
 
-      .quote-text-lg { font-size: clamp(20px, 5.5vw, 28px); }
-      .vision-quote-text { font-size: clamp(20px, 5.5vw, 30px); }
-      .styrelse-panel { padding: 24px 22px; }
+      /* STYRELSE */
+      .styrelse-layout { gap: 16px; }
+      .styrelse-panel { padding: 22px 18px; }
+      .ledning-name { font-size: 15px; }
+      .ledning-item { margin-bottom: 14px; padding-bottom: 14px; }
+
+      /* MEMBER SECTION */
+      .member-cta-section { padding: 52px 0; }
+      /* External member cards → single column */
+      .member-external-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Small phones ≤ 480px ── */
+    @media (max-width: 480px) {
+      .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
+      .nav-logo img { height: 38px; }
+
+      .oms-hero-title { font-size: clamp(34px, 11vw, 50px); }
+      .oms-hero-meta { grid-template-columns: 1fr 1fr 1fr; gap: 12px 4px; }
+
+      .oms-h2 { font-size: clamp(26px, 9vw, 38px); }
+      .oms-body { font-size: 15px; }
+      .oms-kicker { font-size: 9px; }
+
+      /* Stats: single column with inline layout */
+      .stats-strip { grid-template-columns: 1fr; border-radius: 14px; }
+      .stat-cell {
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+      }
+      .stat-cell .stat-number { font-size: clamp(28px, 8vw, 40px); }
+      .stat-cell .stat-label { margin-top: 0; text-align: right; max-width: 100px; }
+
+      /* Facts: single column */
+      .facts-strip { grid-template-columns: 1fr; }
+
+      /* Img strip: single column */
+      .img-strip { grid-template-columns: 1fr; }
+      .img-strip-frame:nth-child(3) { grid-column: auto; }
+      .img-strip-frame img { height: 180px; }
+
+      .timeline-year { font-size: 14px; min-width: 36px; }
+      .timeline-desc { font-size: 11.5px; }
     }
 
   </style>
@@ -1146,7 +1266,7 @@
         <a href="#" class="nav-pill nav-pill--active">Om Sommarteatern</a>
         <a href="https://teaterskolan.sommarteaternystad.com" class="nav-pill" target="_blank" rel="noopener">Teaterskolan</a>
         <a href="bilder.html" class="nav-pill">Bilder</a>
-        <a href="#kontakt" class="nav-pill">Kontakt</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
         <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
       </nav>
     </div>
@@ -1197,7 +1317,7 @@
   <!-- ═══════════════════════════════════════
        OM FÖRENINGEN — stats + text + mosaic
   ════════════════════════════════════════ -->
-  <section class="oms-section" id="om-foreningen">
+  <section class="oms-section" id="om-foreningen" style="background-image: linear-gradient(rgba(6,4,10,0.82),rgba(6,4,10,0.82)),url('images/RJ8.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container">
 
       <!-- Stats strip -->
@@ -1256,7 +1376,7 @@
   <!-- ═══════════════════════════════════════
        QUOTE BANNER — "alla är lika mycket värda"
   ════════════════════════════════════════ -->
-  <div class="quote-banner">
+  <div class="quote-banner" style="background-image: linear-gradient(rgba(6,4,10,0.78),rgba(6,4,10,0.78)),url('images/HG18.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container">
       <div class="quote-banner-inner">
         <span class="quote-mark-lg">"</span>
@@ -1270,7 +1390,7 @@
   <!-- ═══════════════════════════════════════
        VÄRDERINGAR — 3 cards
   ════════════════════════════════════════ -->
-  <section class="oms-section--tight" style="padding-bottom: 96px;">
+  <section class="oms-section--tight" style="padding-bottom: 96px; background-image: linear-gradient(rgba(6,4,10,0.82),rgba(6,4,10,0.82)),url('images/HG18.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container">
 
       <div style="text-align: center; max-width: 560px; margin: 0 auto 44px;">
@@ -1324,7 +1444,7 @@
   <!-- ═══════════════════════════════════════
        SOMMARTEATER
   ════════════════════════════════════════ -->
-  <section class="oms-section" id="sommarteater">
+  <section class="oms-section" id="sommarteater" style="background-image: linear-gradient(rgba(6,4,10,0.82),rgba(6,4,10,0.82)),url('images/SKATT6.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container">
 
       <div style="text-align: center; max-width: 640px; margin: 0 auto 56px;">
@@ -1385,13 +1505,13 @@
       <!-- Image strip: 3 from different productions -->
       <div class="img-strip" aria-hidden="true">
         <div class="img-strip-frame">
-          <img src="images/RJ40.jpg" alt="Romeo &amp; Julia 2023">
+          <img src="images/RJ40.jpg" alt="Romeo &amp; Julia 2023" style="object-position: center 15%;">
         </div>
         <div class="img-strip-frame">
           <img src="images/HG28.jpg" alt="Hans &amp; Greta 2024">
         </div>
         <div class="img-strip-frame">
-          <img src="images/SKATT35.jpg" alt="Skattkammarön 2025">
+          <img src="images/SKATT35.jpg" alt="Skattkammarön 2025" style="object-position: center 15%;">
         </div>
       </div>
 
@@ -1475,7 +1595,7 @@
   <!-- ═══════════════════════════════════════
        STYRELSE
   ════════════════════════════════════════ -->
-  <section class="oms-section--tight" id="styrelse" style="padding-top: 80px; padding-bottom: 80px;">
+  <section class="oms-section--tight" id="styrelse" style="padding-top: 80px; padding-bottom: 80px; background-image: linear-gradient(rgba(6,4,10,0.84),rgba(6,4,10,0.84)),url('images/RJ48.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container">
 
       <span class="oms-kicker">Organisation</span>
@@ -1611,7 +1731,7 @@
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-year">2012</div>
-              <div class="timeline-desc">Anna &amp; Hilda Ståhl tar över den konstnärliga ledningen</div>
+              <div class="timeline-desc">Anna &amp; Hilda Ståhl — efter ~10 år som skådespelare i föreningen — tar över den konstnärliga ledningen</div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
@@ -1673,7 +1793,7 @@
   <!-- ═══════════════════════════════════════
        BLI MEDLEM CTA
   ════════════════════════════════════════ -->
-  <section class="member-cta-section" id="bli-medlem">
+  <section class="member-cta-section" id="bli-medlem" style="background-image: linear-gradient(rgba(6,4,10,0.80),rgba(6,4,10,0.80)),url('images/HG32.jpg'); background-attachment: scroll,fixed; background-size: auto,cover; background-position: 0 0,center;">
     <div class="container member-cta-inner">
 
       <div style="text-align: center; max-width: 580px; margin: 0 auto;">
@@ -1699,7 +1819,7 @@
       <!-- Stödmedlem + VIP — external membership -->
       <div style="margin-top: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
         <p style="text-align:center; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:rgba(255,255,255,0.25); margin-bottom:16px;">Stödja föreningen utifrån</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="member-external-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <div class="member-card">
             <div class="member-type">Stödmedlem</div>
             <div class="member-name">Stödmedlem</div>
@@ -1767,12 +1887,12 @@
             <a href="oliver-twist.html">Oliver Twist 2026</a>
             <a href="bilder.html">Bilder</a>
             <a href="#">Musik</a>
-            <a href="#">Bli Medlem</a>
+            <a href="#bli-medlem">Bli Medlem</a>
             <a href="#">Presentkort</a>
             <a href="#">Press</a>
             <a href="index.html#sponsorer">Sponsorer</a>
-            <a href="#kontakt">Kontakt</a>
-            <a href="#kontakt">Hitta hit</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html#hitta-hit">Hitta hit</a>
           </nav>
         </div>
 

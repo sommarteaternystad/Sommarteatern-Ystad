@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Sommarteatern Ystad</title>
+  <meta name="description" content="Kontakta Sommarteaterns ledning — Hannes Nilsson, Anna Ståhl och Hilda Ståhl. Hitta oss i Ystad och Öja.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #06040a;
+    }
+
+    .page-bg {
+      position: fixed; inset: 0; z-index: -2;
+      background: #06040a;
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+    /* ── HERO ── */
+    .kt-hero {
+      position: relative;
+      padding: 80px 0 64px;
+      overflow: hidden;
+    }
+    .kt-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/hero-bg.png');
+      background-size: cover; background-position: center;
+    }
+    .kt-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,4,10,0.72) 0%, rgba(6,4,10,0.92) 100%);
+    }
+    .kt-hero-inner {
+      position: relative; z-index: 2;
+      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+    }
+    .kt-eyebrow {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85;
+    }
+    .kt-title {
+      font-size: clamp(52px, 8vw, 100px); font-weight: 900;
+      letter-spacing: -0.045em; line-height: 0.88; color: #fff;
+      margin: 0 0 20px;
+    }
+    .kt-subtitle {
+      font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.65;
+      max-width: 480px; margin: 0;
+    }
+
+
+    /* ── CONTACT CARDS ── */
+    .contact-section {
+      padding: 80px 0 60px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .contact-card {
+      background: rgba(8,6,18,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .contact-card:hover {
+      border-color: rgba(201,168,76,0.22);
+      transform: translateY(-3px);
+    }
+
+    /* Photo area — smooth gradient fade into card */
+    .contact-photo {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .contact-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    /* Smooth blend: bottom of photo fades into card bg */
+    .contact-photo::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 70%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(8,6,18,0.82) 100%);
+    }
+
+    /* Placeholder when no photo */
+    .contact-photo--placeholder {
+      background: linear-gradient(160deg, rgba(28,18,50,0.90) 0%, rgba(14,8,28,0.95) 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .contact-photo--placeholder .placeholder-figure {
+      width: 140px; height: 260px;
+      background: linear-gradient(to bottom,
+        rgba(201,168,76,0.08) 0%,
+        rgba(100,70,180,0.10) 60%,
+        transparent 100%);
+      border-radius: 70px 70px 0 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: -1px;
+    }
+    .placeholder-figure svg { opacity: 0.18; }
+    /* No ::after needed for placeholder */
+    .contact-photo--placeholder::after { display: none; }
+
+    /* Card body */
+    .contact-body {
+      padding: 4px 28px 32px;
+    }
+    .contact-name {
+      font-size: 22px; font-weight: 900;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 4px;
+    }
+    .contact-title {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(201,168,76,0.65); margin-bottom: 12px;
+    }
+    .contact-subroles {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+    }
+    .contact-subrole {
+      font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,0.40);
+    }
+    .contact-subrole a {
+      color: rgba(201,168,76,0.70);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .contact-subrole a:hover { color: var(--gold); }
+    .contact-subrole-sep {
+      color: rgba(255,255,255,0.15); font-weight: 400;
+    }
+    .contact-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 0 0 18px;
+    }
+    .contact-info {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .contact-info-row {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .contact-info-icon {
+      width: 30px; height: 30px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.38);
+    }
+    .contact-info-text {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.72); line-height: 1.35;
+    }
+    .contact-info-text a {
+      color: rgba(255,255,255,0.72); text-decoration: none;
+    }
+    .contact-info-text a:hover { color: var(--gold); }
+    .contact-info-text small {
+      display: block; font-size: 10px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.25); margin-bottom: 1px;
+    }
+
+
+    /* ── HITTA HIT ── */
+    .hitta-section {
+      padding: 80px 0 100px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .hitta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .hitta-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(8,6,18,0.80);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .hitta-map {
+      width: 100%; height: 280px; display: block;
+      filter: grayscale(30%) contrast(0.92) brightness(0.85);
+    }
+    .hitta-map iframe {
+      width: 100%; height: 100%;
+      border: 0; display: block;
+    }
+    .hitta-body { padding: 24px 28px 28px; }
+    .hitta-label {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--gold); opacity: 0.75;
+      display: block; margin-bottom: 8px;
+    }
+    .hitta-name {
+      font-size: 19px; font-weight: 800; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 10px;
+    }
+    .hitta-address {
+      font-size: 14px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .hitta-desc {
+      font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.65;
+    }
+    .hitta-directions {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: 12px; font-weight: 700;
+      color: rgba(201,168,76,0.75); text-decoration: none;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .hitta-directions:hover { color: var(--gold); gap: 10px; }
+
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+    .site-footer .footer-wave-top {
+      background: transparent !important; clip-path: none;
+    }
+
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid .contact-card:first-child {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+      }
+      .contact-grid .contact-card:first-child .contact-photo {
+        height: 100%; min-height: 260px;
+      }
+      .contact-grid .contact-card:first-child .contact-photo::after {
+        /* For horizontal card: fade right instead of bottom */
+        background: linear-gradient(to right, transparent 55%, rgba(8,6,18,0.82) 100%);
+        height: 100%; width: 60%; right: 0; left: auto; bottom: 0;
+      }
+      .contact-grid .contact-card:first-child .contact-body {
+        padding: 28px 28px 32px;
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 720px) {
+      /* NAV */
+      .subpage-nav .nav-pills-row {
+        min-width: 0; overflow-x: auto; flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding-right: 40px; justify-content: flex-start;
+        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+      }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+
+      .kt-hero { padding: 60px 0 48px; }
+      .kt-title { font-size: clamp(44px, 13vw, 70px); }
+
+      .contact-section { padding: 52px 0 40px; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .contact-grid .contact-card:first-child {
+        display: block;
+        grid-column: auto;
+      }
+      .contact-grid .contact-card:first-child .contact-photo {
+        height: 260px;
+      }
+      .contact-grid .contact-card:first-child .contact-photo::after {
+        background: linear-gradient(to bottom, transparent 0%, rgba(8,6,18,0.82) 100%);
+        height: 70%; width: 100%; left: 0; bottom: 0;
+      }
+      .contact-photo { height: 240px; }
+
+      .hitta-section { padding: 52px 0 72px; }
+      .hitta-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
+      .hitta-map { height: 220px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo img { height: 38px; }
+      .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
+      .contact-body { padding: 4px 20px 26px; }
+      .hitta-body { padding: 18px 20px 22px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="#" class="nav-pill nav-pill--active">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="kt-hero">
+    <div class="kt-hero-bg" aria-hidden="true"></div>
+    <div class="kt-hero-inner">
+      <span class="kt-eyebrow">Sommarteatern Ystad · Kontakt</span>
+      <h1 class="kt-title">Kontakt</h1>
+      <p class="kt-subtitle">Tre verksamhetsledare driver Sommarteatern tillsammans. Hör av dig till den som passar din fråga bäst.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       KONTAKTKORT
+  ════════════════════════════════════════ -->
+  <section class="contact-section" id="kontakt">
+    <div class="container">
+
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Ledning</span>
+      <h2 style="font-size: clamp(30px, 4vw, 48px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0;">Verksamhetsledare</h2>
+
+      <div class="contact-grid">
+
+        <!-- ── Hannes Nilsson ── -->
+        <div class="contact-card">
+          <div class="contact-photo contact-photo--placeholder" aria-hidden="true">
+            <div class="placeholder-figure">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="contact-body">
+            <div class="contact-name">Hannes Nilsson</div>
+            <div class="contact-title">Verksamhetsledare &amp; Konstnärlig ledare</div>
+            <div class="contact-subroles">
+              <span class="contact-subrole">
+                <a href="https://teaterskolan.sommarteaternystad.com" target="_blank" rel="noopener">Verksamhetschef Teaterskolan ↗</a>
+              </span>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-info">
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>E-post</small>
+                  <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>Telefon</small>
+                  <a href="tel:+46706389161">070-638 91 61</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Anna Ståhl ── -->
+        <div class="contact-card">
+          <div class="contact-photo contact-photo--placeholder" aria-hidden="true">
+            <div class="placeholder-figure">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="contact-body">
+            <div class="contact-name">Anna Ståhl</div>
+            <div class="contact-title">Verksamhetsledare &amp; Konstnärlig ledare</div>
+            <div class="contact-subroles">
+              <span class="contact-subrole">Musikansvarig</span>
+              <span class="contact-subrole-sep">·</span>
+              <span class="contact-subrole">
+                <a href="https://jul.sommarteaternystad.com" target="_blank" rel="noopener">Julgransansvarig ↗</a>
+              </span>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-info">
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>E-post</small>
+                  <a href="mailto:anna.stahl@sommarteaternystad.com">anna.stahl@sommarteaternystad.com</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>Telefon</small>
+                  <a href="tel:+46732437895">073-243 78 95</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Hilda Ståhl ── -->
+        <div class="contact-card">
+          <div class="contact-photo contact-photo--placeholder" aria-hidden="true">
+            <div class="placeholder-figure">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="contact-body">
+            <div class="contact-name">Hilda Ståhl</div>
+            <div class="contact-title">Verksamhetsledare &amp; Konstnärlig ledare</div>
+            <div class="contact-subroles">
+              <span class="contact-subrole">Regissör Sommarföreställning</span>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-info">
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>E-post</small>
+                  <a href="mailto:hilda.stahl@sommarteaternystad.com">hilda.stahl@sommarteaternystad.com</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-info-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-info-text">
+                  <small>Telefon</small>
+                  <a href="tel:+46701702047">070-170 20 47</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       HITTA HIT
+  ════════════════════════════════════════ -->
+  <section class="hitta-section" id="hitta-hit">
+    <div class="container">
+
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Hitta hit</span>
+      <h2 style="font-size: clamp(30px, 4vw, 48px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 4px;">Våra platser</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.38); margin:0;">Sommarteatern har två hemmaplatser i Ystadstrakten.</p>
+
+      <div class="hitta-grid">
+
+        <!-- Utomhusteatern i Öja -->
+        <div class="hitta-card">
+          <div class="hitta-map">
+            <iframe
+              src="https://maps.google.com/maps?q=Karlshemsv%C3%A4gen+51+%C3%96ja+Ystad+Sverige&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              title="Karta — Utomhusteatern i Öja"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="hitta-body">
+            <span class="hitta-label">Sommarscenen</span>
+            <div class="hitta-name">Utomhusteatern i Öja</div>
+            <address class="hitta-address" style="font-style:normal;">
+              Karlshemsvägen 51<br>271 98 Ystad
+            </address>
+            <p class="hitta-desc">Vår utomhusscen i Åbergs trädgård i Öja — en amfiteater med 268 numrerade platser under bar himmel. Här sätts sommarföreställningen upp varje år i juli.</p>
+            <a href="https://maps.google.com/maps?q=Karlshemsv%C3%A4gen+51+%C3%96ja+Ystad+Sverige" target="_blank" rel="noopener" class="hitta-directions">
+              Öppna i Google Maps
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Replokalen -->
+        <div class="hitta-card">
+          <div class="hitta-map">
+            <iframe
+              src="https://maps.google.com/maps?q=Bj%C3%B6rnstjernegatan+18+27139+Ystad+Sverige&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Karta — Replokalen på Björnstjernegatan"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="hitta-body">
+            <span class="hitta-label">Replokalen</span>
+            <div class="hitta-name">Björnstjernegatan 18</div>
+            <address class="hitta-address" style="font-style:normal;">
+              Björnstjernegatan 18<br>271 39 Ystad
+            </address>
+            <p class="hitta-desc">Teaterskolans hem och repetitionslokalen för sommarproduktionen. Här övar ensemblen, håller Teaterskolan sina kurser och träffas föreningen under resten av året.</p>
+            <a href="https://maps.google.com/maps?q=Bj%C3%B6rnstjernegatan+18+27139+Ystad+Sverige" target="_blank" rel="noopener" class="hitta-directions">
+              Öppna i Google Maps
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /hitta-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="#">Press</a>
+            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="#hitta-hit">Hitta hit</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

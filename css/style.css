@@ -556,17 +556,17 @@ h2 {
 /* Sponsors tile */
 .bento-tile--sponsors {
   grid-column: 1 / -1;
-  min-height: 220px;
+  min-height: 340px;
   margin-top: 18px;
 }
 
 .bento-tile--sponsors .bento-tile-inner {
   background: linear-gradient(135deg, #1a1030 0%, #0e0820 100%);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 28px 32px;
+  padding: 44px 40px;
   flex-direction: row;
   align-items: center;
-  gap: 40px;
+  gap: 56px;
   justify-content: flex-start;
 }
 
@@ -591,9 +591,9 @@ h2 {
 .sponsor-track {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   width: max-content;
-  animation: sponsorScroll 28s linear infinite;
+  animation: sponsorScroll 65s linear infinite;
 }
 
 .sponsor-track:hover {
@@ -605,21 +605,30 @@ h2 {
   100% { transform: translateX(-50%); }
 }
 
-.sponsor-logo-placeholder {
+/* Real sponsor logo cards */
+.sponsor-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72px;
-  min-width: 140px;
-  padding: 0 24px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.40);
-  white-space: nowrap;
+  height: 140px;
+  padding: 20px 32px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
   flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.sponsor-logo:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.sponsor-logo img {
+  height: 90px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
 }
 
 /* ══════════════════════════════════════════════
