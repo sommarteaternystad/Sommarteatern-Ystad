@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorer — Sommarteatern Ystad</title>
+  <meta name="description" content="Bli sponsor hos Sommarteatern Ystad. Fyra paket — Spotlight, Musikal, Komedi och Revy — för företag som vill synas och göra skillnad för barn, unga och kulturen i Skåne.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    body { padding-top: 67px; background-color: #06040a; }
+    .page-bg { position: fixed; inset: 0; z-index: -2; background: #06040a; }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+    .subpage-nav-inner { display: flex; flex-direction: row; align-items: center; gap: 0; padding: 0; height: 66px; }
+    .nav-logo { flex-shrink: 0; height: 100%; display: flex; align-items: center; padding-right: 22px; margin-right: 22px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+    .subpage-nav .nav-pill { min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600; border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none; flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em; }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+
+    /* ══════════════════════════════════════════
+       HERO — full bleed photo background
+    ══════════════════════════════════════════ */
+    .sp-hero {
+      position: relative;
+      padding: 96px 0 80px;
+      overflow: hidden;
+    }
+    .sp-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/HG38.jpg');
+      background-size: cover;
+      background-position: center 20%;
+    }
+    .sp-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.52) 0%,
+        rgba(6,4,10,0.72) 55%,
+        rgba(6,4,10,0.96) 100%);
+    }
+    .sp-hero-inner { position: relative; z-index: 2; }
+
+    .sp-eyebrow { display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85; }
+    .sp-hero-title {
+      font-size: clamp(52px, 7vw, 100px); font-weight: 900;
+      letter-spacing: -0.045em; line-height: 0.88; color: #fff; margin: 0 0 20px;
+    }
+    .sp-hero-text { font-size: 16px; color: rgba(255,255,255,0.48); line-height: 1.72; max-width: 560px; margin: 0; }
+
+    /* Stats row */
+    .sp-hero-stats {
+      display: flex; gap: 0; flex-wrap: wrap;
+      margin-top: 40px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px; overflow: hidden;
+      max-width: 620px;
+      background: rgba(6,4,10,0.55);
+      backdrop-filter: blur(12px);
+    }
+    .sp-stat {
+      flex: 1; min-width: 130px;
+      padding: 20px 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .sp-stat:last-child { border-right: none; }
+    .sp-stat-num { font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--gold); line-height: 1; }
+    .sp-stat-label { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
+
+
+    /* ══════════════════════════════════════════
+       PACKAGES — 4 columns, all visible
+    ══════════════════════════════════════════ */
+    .packages-section { padding: 72px 0 64px; }
+
+    .pkg-grid-4 {
+      display: grid;
+      grid-template-columns: 1.55fr 1.2fr 1fr 0.85fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 40px;
+    }
+
+    .pkg-card {
+      border-radius: 20px;
+      padding: 26px 24px 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8,6,18,0.80);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .pkg-card:hover { transform: translateY(-2px); }
+
+    /* Top accent line */
+    .pkg-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .pkg-card--spotlight {
+      border-color: rgba(201,168,76,0.35);
+      background: linear-gradient(160deg, rgba(14,10,22,0.97) 0%, rgba(22,16,8,0.97) 100%);
+    }
+    .pkg-card--spotlight::before { background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.20) 100%); }
+    .pkg-card--musikal { border-color: rgba(160,120,255,0.25); background: linear-gradient(160deg, rgba(10,6,22,0.97) 0%, rgba(8,6,18,0.97) 100%); }
+    .pkg-card--musikal::before { background: linear-gradient(90deg, rgba(160,120,255,0.80) 0%, rgba(160,120,255,0.10) 100%); }
+    .pkg-card--komedi { border-color: rgba(80,200,150,0.22); background: linear-gradient(160deg, rgba(6,14,12,0.97) 0%, rgba(8,6,18,0.97) 100%); }
+    .pkg-card--komedi::before { background: linear-gradient(90deg, rgba(80,200,150,0.70) 0%, rgba(80,200,150,0.08) 100%); }
+    .pkg-card--revy::before { background: linear-gradient(90deg, rgba(255,255,255,0.22) 0%, transparent 100%); }
+
+    /* Glow for Spotlight */
+    .pkg-glow {
+      position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pkg-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 8.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
+      border-radius: 5px; padding: 3px 9px; margin-bottom: 12px; align-self: flex-start;
+    }
+    .pkg-badge--spotlight { background: rgba(201,168,76,0.14); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+    .pkg-badge--musikal { background: rgba(160,120,255,0.12); color: rgba(180,150,255,0.90); border: 1px solid rgba(160,120,255,0.22); }
+    .pkg-badge--komedi { background: rgba(80,200,150,0.10); color: rgba(100,210,160,0.90); border: 1px solid rgba(80,200,150,0.18); }
+    .pkg-badge--revy { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.10); }
+
+    .pkg-name { font-size: 24px; font-weight: 900; letter-spacing: -0.04em; color: #fff; margin: 0 0 4px; line-height: 1; }
+    .pkg-price { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .pkg-price strong { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; display: block; line-height: 1.1; margin-bottom: 1px; }
+    .pkg-price--spotlight strong { color: var(--gold); font-size: 24px; }
+    .pkg-price--musikal strong { color: rgba(180,150,255,0.90); }
+    .pkg-price--komedi strong { color: rgba(100,210,160,0.90); }
+    .pkg-price--revy strong { color: rgba(255,255,255,0.65); }
+
+    .pkg-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0 0 14px; }
+
+    .pkg-benefits { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+    .pkg-benefit { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.62); line-height: 1.4; }
+    .pkg-check { width: 15px; height: 15px; border-radius: 4px; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; }
+    .pkg-check--gold { background: rgba(201,168,76,0.14); color: var(--gold); }
+    .pkg-check--purple { background: rgba(160,120,255,0.12); color: rgba(180,150,255,0.80); }
+    .pkg-check--green { background: rgba(80,200,150,0.10); color: rgba(100,210,160,0.80); }
+    .pkg-check--white { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.40); }
+
+    .pkg-extra {
+      margin-top: 10px; font-size: 11px; font-style: italic;
+      color: rgba(201,168,76,0.50);
+    }
+
+    .pkg-cta {
+      display: inline-flex; align-items: center; gap: 7px; margin-top: 20px;
+      padding: 10px 16px; border-radius: 9px;
+      font-size: 12px; font-weight: 700; text-decoration: none;
+      background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.25);
+      transition: gap 0.2s, background 0.2s;
+    }
+    .pkg-cta:hover { gap: 12px; background: rgba(201,168,76,0.20); }
+
+
+    /* ══════════════════════════════════════════
+       WHY SECTION
+    ══════════════════════════════════════════ */
+    .sp-why {
+      padding: 80px 0;
+      position: relative; overflow: hidden;
+      background-image: linear-gradient(rgba(6,4,10,0.84), rgba(6,4,10,0.84)), url('images/HG36.jpg');
+      background-size: auto, cover;
+      background-position: 0 0, center 15%;
+      background-attachment: scroll, fixed;
+    }
+    .sp-why-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .sp-why-text h2 {
+      font-size: clamp(26px, 3.2vw, 40px); font-weight: 900; letter-spacing: -0.04em;
+      color: #fff; margin: 0 0 18px; line-height: 1.05;
+    }
+    .sp-why-text p { font-size: 15px; color: rgba(255,255,255,0.48); line-height: 1.75; margin: 0 0 14px; }
+    .sp-why-text p:last-child { margin: 0; }
+
+    .sp-why-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .sp-stat-card {
+      background: rgba(8,6,18,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 22px 20px;
+    }
+    .sp-stat-card-num { font-size: 36px; font-weight: 900; letter-spacing: -0.05em; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+    .sp-stat-card-label { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.45; }
+
+
+    /* ══════════════════════════════════════════
+       PHOTO COLLAGE — 5 images
+    ══════════════════════════════════════════ */
+    .sp-collage {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 4px;
+    }
+    .sp-collage-item { overflow: hidden; position: relative; }
+    .sp-collage-item:first-child { grid-row: 1 / 3; }
+    .sp-collage-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .sp-collage-item:hover img { transform: scale(1.04); }
+    .sp-collage-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(6,4,10,0.45) 100%); }
+
+
+    /* ══════════════════════════════════════════
+       SPONSORS — clean staircase, no collage interruptions
+    ══════════════════════════════════════════ */
+    .sponsors-section { padding: 88px 0 80px; }
+
+    .sponsor-tier { margin-bottom: 56px; }
+    .sponsor-tier:last-child { margin-bottom: 0; }
+
+    .sponsor-tier-header {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .sponsor-tier-name {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
+      white-space: nowrap;
+    }
+    .sponsor-tier-name--spotlight { color: var(--gold); }
+    .sponsor-tier-name--musikal { color: rgba(180,150,255,0.80); }
+    .sponsor-tier-name--komedi { color: rgba(100,210,160,0.80); }
+    .sponsor-tier-desc { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .sponsor-tier-line { flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+
+    /* Logo rows */
+    .sponsor-logos { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .sponsor-logo-card {
+      background: rgba(255,255,255,0.92);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sponsor-logo-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .sponsor-logo-card img { object-fit: contain; display: block; }
+
+    /* Spotlight: biggest */
+    .sponsor-logos--spotlight .sponsor-logo-card { width: 220px; height: 118px; padding: 16px 28px; }
+    .sponsor-logos--spotlight .sponsor-logo-card img { height: 74px; max-width: 188px; }
+
+    /* Musikal: medium */
+    .sponsor-logos--musikal .sponsor-logo-card { width: 168px; height: 92px; padding: 12px 20px; }
+    .sponsor-logos--musikal .sponsor-logo-card img { height: 56px; max-width: 140px; }
+
+    /* Komedi: small */
+    .sponsor-logos--komedi .sponsor-logo-card { width: 130px; height: 74px; padding: 10px 16px; border-radius: 10px; }
+    .sponsor-logos--komedi .sponsor-logo-card img { height: 42px; max-width: 108px; }
+
+
+    /* ══════════════════════════════════════════
+       SMALL COLLAGE — between why and sponsors
+    ══════════════════════════════════════════ */
+    .sp-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 220px;
+      gap: 4px;
+    }
+    .sp-strip-item { overflow: hidden; position: relative; }
+    .sp-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s; }
+    .sp-strip-item:hover img { transform: scale(1.05); }
+    .sp-strip-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(6,4,10,0.40) 100%); }
+
+
+    /* ══════════════════════════════════════════
+       CONTACT — Anna Ståhl
+    ══════════════════════════════════════════ */
+    .sp-contact-section {
+      padding: 0 0 100px;
+      position: relative; overflow: hidden;
+    }
+    .sp-contact-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(6,4,10,0.89), rgba(6,4,10,0.89)), url('images/SKATT44.jpg');
+      background-size: auto, cover;
+      background-position: 0 0, center 20%;
+      background-attachment: scroll, fixed;
+    }
+    .sp-contact-inner {
+      position: relative; z-index: 1;
+      padding-top: 80px;
+      display: grid; grid-template-columns: 1.7fr 1fr; gap: 56px; align-items: start;
+    }
+    .sp-contact-cards { display: flex; flex-direction: column; gap: 20px; }
+    .sp-contact-text h2 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 900; letter-spacing: -0.04em; color: #fff; margin: 0 0 16px; line-height: 1.05; }
+    .sp-contact-text p { font-size: 15px; color: rgba(255,255,255,0.48); line-height: 1.72; margin: 0 0 14px; }
+    .sp-contact-text p:last-child { margin: 0; }
+
+    .sp-contact-card { background: rgba(8,6,18,0.82); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; overflow: hidden; transition: border-color 0.25s; }
+    .sp-contact-card:hover { border-color: rgba(201,168,76,0.22); }
+    .sp-contact-photo { position: relative; width: 100%; height: 240px; overflow: hidden; }
+    .sp-contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .sp-contact-photo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 70%; background: linear-gradient(to bottom, transparent 0%, rgba(8,6,18,0.82) 100%); }
+    .sp-contact-photo--placeholder { background: linear-gradient(160deg, rgba(28,18,50,0.90) 0%, rgba(14,8,28,0.95) 100%); display: flex; align-items: flex-end; justify-content: center; }
+    .sp-contact-photo--placeholder::after { display: none; }
+    .sp-placeholder-fig { width: 120px; height: 220px; background: linear-gradient(to bottom, rgba(201,168,76,0.08) 0%, rgba(100,70,180,0.10) 60%, transparent 100%); border-radius: 60px 60px 0 0; display: flex; align-items: center; justify-content: center; margin-bottom: -1px; }
+    .sp-placeholder-fig svg { opacity: 0.18; }
+    .sp-contact-body { padding: 4px 28px 32px; }
+    .sp-contact-name { font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 4px; }
+    .sp-contact-role { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(201,168,76,0.65); margin-bottom: 20px; }
+    .sp-contact-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0 0 18px; }
+    .sp-contact-info { display: flex; flex-direction: column; gap: 10px; }
+    .sp-contact-row { display: flex; align-items: center; gap: 10px; }
+    .sp-contact-icon { width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); }
+    .sp-contact-text-item { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.72); line-height: 1.35; }
+    .sp-contact-text-item a { color: rgba(255,255,255,0.72); text-decoration: none; }
+    .sp-contact-text-item a:hover { color: var(--gold); }
+    .sp-contact-text-item small { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.25); margin-bottom: 1px; }
+
+
+    /* ── FOOTER ── */
+    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
+    .site-footer .footer-wave-top { background: transparent !important; clip-path: none; }
+
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 1100px) {
+      .pkg-grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .sp-why-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sp-collage { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; }
+      .sp-collage-item:first-child { grid-row: auto; }
+      .sp-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .sp-strip-item { height: 160px; }
+      .sp-contact-inner { grid-template-columns: 1fr; gap: 32px; }
+      .sp-contact-cards { flex-direction: row; flex-wrap: wrap; }
+      .sp-contact-cards .sp-contact-card { flex: 1; min-width: 260px; }
+    }
+
+    @media (max-width: 720px) {
+      /* NAV */
+      .subpage-nav .nav-pills-row { min-width: 0; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-right: 40px; justify-content: flex-start; mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%); -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%); }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+
+      .sp-hero-bg { background-attachment: scroll; }
+      .sp-why { background-attachment: scroll, scroll; }
+      .sp-contact-bg { background-attachment: scroll, scroll !important; }
+
+      /* Hero: reduce padding, shrink text */
+      .sp-hero { padding: 48px 0 40px; }
+      .sp-hero-title { font-size: clamp(44px, 13vw, 70px); }
+      .sp-hero-text { font-size: 14px; }
+      .sp-hero-stats {
+        max-width: 100%;
+        flex-wrap: wrap;
+      }
+      .sp-stat { flex: 1 1 45%; min-width: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .sp-stat:nth-child(3), .sp-stat:nth-child(4) { border-bottom: none; }
+
+      /* Packages */
+      .pkg-grid-4 { grid-template-columns: 1fr; gap: 12px; }
+
+      /* Why */
+      .sp-why-stats { grid-template-columns: 1fr 1fr; }
+
+      /* Collage */
+      .sp-collage { grid-template-columns: 1fr 1fr; grid-template-rows: 150px 150px; }
+      .sp-strip { grid-template-columns: 1fr 1fr; }
+      .sp-strip-item { height: 130px; }
+
+      /* Sponsor logos — scale down for mobile */
+      .sponsor-logos--spotlight .sponsor-logo-card { width: calc(50% - 7px); height: 88px; padding: 12px 16px; }
+      .sponsor-logos--spotlight .sponsor-logo-card img { height: 56px; max-width: 100%; }
+      .sponsor-logos--musikal .sponsor-logo-card { width: calc(50% - 7px); height: 76px; padding: 10px 14px; }
+      .sponsor-logos--musikal .sponsor-logo-card img { height: 48px; max-width: 100%; }
+      .sponsor-logos--komedi .sponsor-logo-card { width: calc(33% - 10px); }
+
+      /* Contact cards: stack vertically */
+      .sp-contact-cards { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo img { height: 38px; }
+      .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
+      .sp-why-stats { grid-template-columns: 1fr; }
+      .sp-collage { grid-template-columns: 1fr; grid-template-rows: repeat(5, 140px); }
+      .sp-strip { grid-template-columns: 1fr 1fr; }
+      .sponsor-logos--komedi .sponsor-logo-card { width: calc(50% - 7px); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="press.html" class="nav-pill">Press</a>
+        <a href="#" class="nav-pill nav-pill--active">Sponsorer</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO — split layout
+  ════════════════════════════════════════ -->
+  <section class="sp-hero" id="top">
+    <div class="sp-hero-bg" aria-hidden="true"></div>
+    <div class="container sp-hero-inner">
+      <span class="sp-eyebrow">Sommarteatern Ystad · Sponsorer</span>
+      <h1 class="sp-hero-title">Sponsra<br>kulturlivet</h1>
+      <p class="sp-hero-text">Varje sommar samlas Ystads publik kring något de aldrig glömmer. Som sponsor är du en del av det — och din logga når tusentals människor som väljer att investera i upplevelser, gemenskap och kulturen i Skåne.</p>
+      <div class="sp-hero-stats">
+        <div class="sp-stat">
+          <div class="sp-stat-num">10 000+</div>
+          <div class="sp-stat-label">Besökare varje sommar</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-num">250+</div>
+          <div class="sp-stat-label">Aktiva varje vecka</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-num">25 år</div>
+          <div class="sp-stat-label">I Ystads kulturliv</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-num">75+</div>
+          <div class="sp-stat-label">Föreställningar per år</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PACKAGES — alla 4 i en rad
+  ════════════════════════════════════════ -->
+  <section class="packages-section" id="paket">
+    <div class="container">
+
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:8px;">Sponsorpaket 2026</span>
+      <h2 style="font-size:clamp(26px,3.5vw,40px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0;">Välj din roll i föreställningen</h2>
+
+      <div class="pkg-grid-4">
+
+        <!-- SPOTLIGHT -->
+        <div class="pkg-card pkg-card--spotlight">
+          <div class="pkg-glow" aria-hidden="true"></div>
+          <span class="pkg-badge pkg-badge--spotlight">★ Spotlight · Huvudsponsor</span>
+          <div class="pkg-name">Spotlight</div>
+          <div class="pkg-price pkg-price--spotlight"><strong>50 000 kr</strong>inkl. moms / säsong</div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-benefits">
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga på hemsidan — framskjuten placering</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga &amp; redaktionellt material på sponsorväggen i Öja</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Helsida i sommarföreställningens programblad</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mailutskick till samtliga medlemmar med ert budskap</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga på limited edition-merch</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Löpande inlägg + intervjufilm på sociala medier</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Rabatterade biljetter till era kunder &amp; medarbetare</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Medverkan på Sommarteaterns medlemskvällar</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--gold"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Vinster i föreningens lotteri med er logga</li>
+          </ul>
+          <p class="pkg-extra">+ Skräddarsydda tillägg vi kommer överens om</p>
+          <a href="#kontakt" class="pkg-cta">Hör av dig <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- MUSIKAL -->
+        <div class="pkg-card pkg-card--musikal">
+          <span class="pkg-badge pkg-badge--musikal">Musikal</span>
+          <div class="pkg-name">Musikal</div>
+          <div class="pkg-price pkg-price--musikal"><strong>15 000 kr</strong>inkl. moms / säsong</div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-benefits">
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stor logga på hemsidan</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Stor logga på sponsorväggen i Öja</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Halvsida i föreställningens programblad</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>4 inlägg på sociala medier</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga på caféets TV-skärm hela sommaren</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>6 fribiljetter till sommarens föreställning</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Möjlighet att dela ut reklam/merch i caféet</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ett mailutskick till Sommarteaterns medlemmar</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--purple"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Vinster i föreningens lotteri</li>
+          </ul>
+        </div>
+
+        <!-- KOMEDI -->
+        <div class="pkg-card pkg-card--komedi">
+          <span class="pkg-badge pkg-badge--komedi">Komedi</span>
+          <div class="pkg-name">Komedi</div>
+          <div class="pkg-price pkg-price--komedi"><strong>7 500 kr</strong>inkl. moms / säsong</div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-benefits">
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Medelstor logga på hemsidan</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Medelstor logga på sponsorväggen i Öja</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga i föreställningens programblad</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>2 inlägg på sociala medier</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Logga på caféets TV-skärm hela sommaren</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--green"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>2 fribiljetter till sommarens föreställning</li>
+          </ul>
+        </div>
+
+        <!-- REVY -->
+        <div class="pkg-card pkg-card--revy">
+          <span class="pkg-badge pkg-badge--revy">Revy</span>
+          <div class="pkg-name">Revy</div>
+          <div class="pkg-price"><strong>5 000 kr</strong>inkl. moms / säsong</div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-benefits">
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--white"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Liten logga på hemsidan</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--white"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Liten logga på sponsorväggen i Öja</li>
+            <li class="pkg-benefit"><span class="pkg-check pkg-check--white"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>1 inlägg på sociala medier</li>
+          </ul>
+          <p style="font-size:12px; color:rgba(255,255,255,0.28); line-height:1.55; margin-top:20px;">Ett enkelt och tydligt sätt att visa att ert företag stödjer kulturen och det lokala föreningslivet.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       WHY SPONSOR
+  ════════════════════════════════════════ -->
+  <section class="sp-why">
+    <div class="container sp-why-inner">
+      <div class="sp-why-text">
+        <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:12px;">Varför sponsra oss?</span>
+        <h2>Mer än ett logotypavtal</h2>
+        <p>Sommarteatern Ystad är ingen vanlig förening. Vi är en mötesplats — för familjer, skolklasser, pensionärer och unga som aldrig sett en musikal förut. Varje sommar väljer fler än 10 000 människor att lägga sin kväll hos oss.</p>
+        <p>Att sponsra oss är att investera i Ystads kulturliv och i de 250+ barn, unga och vuxna som vi aktiverar varje vecka under hela året. Er logga hamnar inte på en hemsida — den hamnar i hjärtat av något som verkligen betyder något.</p>
+      </div>
+      <div class="sp-why-stats">
+        <div class="sp-stat-card">
+          <div class="sp-stat-card-num">10 000+</div>
+          <div class="sp-stat-card-label">Besökare per säsong på utomhusscenen i Öja</div>
+        </div>
+        <div class="sp-stat-card">
+          <div class="sp-stat-card-num">250+</div>
+          <div class="sp-stat-card-label">Aktiva medlemmar i verksamheten varje vecka</div>
+        </div>
+        <div class="sp-stat-card">
+          <div class="sp-stat-card-num">50+</div>
+          <div class="sp-stat-card-label">Artister på scen i sommarens huvudproduktion</div>
+        </div>
+        <div class="sp-stat-card">
+          <div class="sp-stat-card-num">75+</div>
+          <div class="sp-stat-card-label">Föreställningar och evenemang per år</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PHOTO COLLAGE
+  ════════════════════════════════════════ -->
+  <div class="sp-collage" aria-hidden="true">
+    <div class="sp-collage-item">
+      <!-- Tall left: full group shot, heads at top -->
+      <img src="images/HG29.jpg" alt="Föreställningsbild" style="object-position: center 10%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/RJ46.jpg" alt="Föreställningsbild" style="object-position: center 8%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/SKATT37.jpg" alt="Föreställningsbild" style="object-position: center 12%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/RJ53.jpg" alt="Föreställningsbild" style="object-position: center 10%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/HG34.jpg" alt="Föreställningsbild" style="object-position: center 8%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/SKATT41.jpg" alt="Föreställningsbild" style="object-position: center 15%;">
+    </div>
+    <div class="sp-collage-item">
+      <img src="images/RJ61.jpg" alt="Föreställningsbild" style="object-position: center 10%;">
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       CURRENT SPONSORS — clean staircase
+  ════════════════════════════════════════ -->
+  <section class="sponsors-section" id="sponsorer">
+    <div class="container">
+
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Säsongen 2026</span>
+      <h2 style="font-size:clamp(26px,3.5vw,40px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 8px;">Årets sponsorer</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.38); margin:0 0 56px;">Tack till de företag som gör årets äventyr möjligt.</p>
+
+      <!-- SPOTLIGHT -->
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-name sponsor-tier-name--spotlight">★ Spotlight · Huvudsponsorer</span>
+          <span class="sponsor-tier-line"></span>
+          <span class="sponsor-tier-desc">50 000 kr+</span>
+        </div>
+        <div class="sponsor-logos sponsor-logos--spotlight">
+          <div class="sponsor-logo-card"><img src="images/Sponsor 1.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 2.jpg" alt="Sponsor"></div>
+        </div>
+      </div>
+
+      <!-- MUSIKAL -->
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-name sponsor-tier-name--musikal">Musikal</span>
+          <span class="sponsor-tier-line"></span>
+          <span class="sponsor-tier-desc">15 000 kr</span>
+        </div>
+        <div class="sponsor-logos sponsor-logos--musikal">
+          <div class="sponsor-logo-card"><img src="images/Sponsor 3.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 4.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 5.jpg" alt="Sponsor"></div>
+        </div>
+      </div>
+
+      <!-- KOMEDI -->
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-name sponsor-tier-name--komedi">Komedi</span>
+          <span class="sponsor-tier-line"></span>
+          <span class="sponsor-tier-desc">7 500 kr</span>
+        </div>
+        <div class="sponsor-logos sponsor-logos--komedi">
+          <div class="sponsor-logo-card"><img src="images/Sponsor 6.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 7.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 8.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 9.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 10.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 11.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 12.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 13.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 14.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 15.jpg" alt="Sponsor"></div>
+          <div class="sponsor-logo-card"><img src="images/Sponsor 16.jpg" alt="Sponsor"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PHOTO STRIP — before contact
+  ════════════════════════════════════════ -->
+  <div class="sp-strip" aria-hidden="true">
+    <div class="sp-strip-item"><img src="images/HG38.jpg" alt="Föreställningsbild" style="object-position: center 10%;"></div>
+    <div class="sp-strip-item"><img src="images/RJ64.jpg" alt="Föreställningsbild" style="object-position: center 8%;"></div>
+    <div class="sp-strip-item"><img src="images/SKATT43.jpg" alt="Föreställningsbild" style="object-position: center 12%;"></div>
+    <div class="sp-strip-item"><img src="images/HG41.jpg" alt="Föreställningsbild" style="object-position: center 10%;"></div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       CONTACT — Anna Ståhl
+  ════════════════════════════════════════ -->
+  <section class="sp-contact-section" id="kontakt">
+    <div class="sp-contact-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="sp-contact-inner">
+
+        <div class="sp-contact-text">
+          <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:12px;">Bli sponsor eller samarbetspartner</span>
+          <h2>Vill ni vara med<br>och göra skillnad?</h2>
+          <p>Det finns två vägar in i Sommarteaterns värld. Det ena är ett av våra sponsorpaket — ett tydligt sätt att synas och stödja kulturen i utbyte mot konkreta fördelar. Det andra är ett skräddarsytt samarbete, där ni som företag bidrar med tjänster, produkter eller kompetens och vi hittar ett utbyte som skapar värde för båda parter.</p>
+          <p>Kanske kan ni bidra med tryck, lokaler, transport, mat eller något helt annat — och vi kan erbjuda synlighet, biljetter, närvaro i sociala medier eller medverkan i vår verksamhet. Möjligheterna är fler än vad en prislista kan rymma.</p>
+          <p>Anna Ståhl ansvarar för sponsorrelationerna och Hannes Nilsson för övriga samarbeten. Hör av er — vi ser fram emot att hitta något som känns rätt för er.</p>
+        </div>
+
+        <div class="sp-contact-cards">
+
+          <!-- Anna Ståhl -->
+          <div class="sp-contact-card">
+            <div class="sp-contact-photo sp-contact-photo--placeholder" aria-hidden="true">
+              <div class="sp-placeholder-fig">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+            </div>
+            <div class="sp-contact-body">
+              <div class="sp-contact-name">Anna Ståhl</div>
+              <div class="sp-contact-role">Sponsoransvarig</div>
+              <div class="sp-contact-divider"></div>
+              <div class="sp-contact-info">
+                <div class="sp-contact-row">
+                  <div class="sp-contact-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  </div>
+                  <div class="sp-contact-text-item">
+                    <small>E-post</small>
+                    <a href="mailto:anna.stahl@sommarteaternystad.com">anna.stahl@sommarteaternystad.com</a>
+                  </div>
+                </div>
+                <div class="sp-contact-row">
+                  <div class="sp-contact-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="sp-contact-text-item">
+                    <small>Telefon</small>
+                    <a href="tel:+46732437895">073‑243 78 95</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hannes Nilsson -->
+          <div class="sp-contact-card">
+            <div class="sp-contact-photo sp-contact-photo--placeholder" aria-hidden="true">
+              <div class="sp-placeholder-fig">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+            </div>
+            <div class="sp-contact-body">
+              <div class="sp-contact-name">Hannes Nilsson</div>
+              <div class="sp-contact-role">Samarbetsansvarig</div>
+              <div class="sp-contact-divider"></div>
+              <div class="sp-contact-info">
+                <div class="sp-contact-row">
+                  <div class="sp-contact-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  </div>
+                  <div class="sp-contact-text-item">
+                    <small>E-post</small>
+                    <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+                  </div>
+                </div>
+                <div class="sp-contact-row">
+                  <div class="sp-contact-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="sp-contact-text-item">
+                    <small>Telefon</small>
+                    <a href="tel:+46706389161">070‑638 91 61</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /sp-contact-cards -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="#">Musik</a>
+            <a href="om-sommarteatern.html#bli-med">Bli Medlem</a>
+            <a href="#">Presentkort</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html#hitta-hit">Hitta hit</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

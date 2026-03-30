@@ -61,12 +61,12 @@
     }
     .press-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('images/hero-bg.png');
-      background-size: cover; background-position: center;
+      background-image: url('images/HG18.jpg');
+      background-size: cover; background-position: center 30%;
     }
     .press-hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(6,4,10,0.68) 0%, rgba(6,4,10,0.94) 100%);
+      background: linear-gradient(to bottom, rgba(6,4,10,0.55) 0%, rgba(6,4,10,0.92) 100%);
     }
     .press-hero-inner {
       position: relative; z-index: 2;
@@ -97,6 +97,32 @@
       color: var(--gold);
     }
     .press-hero-cta svg { flex-shrink: 0; }
+
+
+    /* ── PHOTO STRIP ── */
+    .press-photo-strip {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 4px;
+      height: 280px;
+      overflow: hidden;
+    }
+    .press-photo-strip img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .press-photo-strip img:hover { transform: scale(1.03); }
+    .press-photo-strip-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .press-photo-strip-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(6,4,10,0.45) 100%);
+    }
 
 
     /* ── PRESS MATERIAL ── */
@@ -195,7 +221,18 @@
     /* ── PRESSKONTAKT SECTION ── */
     .presscontact-section {
       padding: 0 0 100px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .presscontact-section-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(6,4,10,0.88), rgba(6,4,10,0.88)), url('images/RJ8.jpg');
+      background-size: auto, cover;
+      background-position: 0 0, center 40%;
+      background-attachment: scroll, fixed;
+    }
+    .presscontact-section > .container {
+      position: relative; z-index: 1;
     }
 
     .presscontact-inner {
@@ -327,7 +364,14 @@
       .presscontact-inner { grid-template-columns: 1fr; gap: 32px; }
     }
 
+    @media (max-width: 900px) {
+      .press-photo-strip { height: 200px; }
+    }
+
     @media (max-width: 720px) {
+      .presscontact-section-bg { background-attachment: scroll, scroll !important; }
+      .press-photo-strip { grid-template-columns: 1fr 1fr; height: 180px; }
+      .press-photo-strip-item:last-child { display: none; }
       /* NAV */
       .subpage-nav .nav-pills-row {
         min-width: 0; overflow-x: auto; flex-wrap: nowrap;
@@ -406,6 +450,22 @@
 
 
   <!-- ═══════════════════════════════════════
+       FOTO-STRIP
+  ════════════════════════════════════════ -->
+  <div class="press-photo-strip" aria-hidden="true">
+    <div class="press-photo-strip-item">
+      <img src="images/RJ40.jpg" alt="Föreställningsbild" style="object-position: center 15%;">
+    </div>
+    <div class="press-photo-strip-item">
+      <img src="images/SKATT6.jpg" alt="Föreställningsbild" style="object-position: center 20%;">
+    </div>
+    <div class="press-photo-strip-item">
+      <img src="images/HG40.jpg" alt="Föreställningsbild" style="object-position: center 25%;">
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
        PRESSMATERIAL
   ════════════════════════════════════════ -->
   <section class="press-material-section" id="pressmaterial">
@@ -418,7 +478,7 @@
       <div class="press-material-grid">
 
         <!-- Pressmeddelande -->
-        <a href="https://drive.google.com/file/d/1WGEGzEfS8fQgneQqZz3EZRkMgpgv9ax-/view" target="_blank" rel="noopener" class="press-card press-card--release">
+        <a href="https://docs.google.com/document/d/1Gl1c9LA8VWWMXSiWKxwDS3TYCSeP2ASz8qPI-28ljO8/edit?usp=sharing" target="_blank" rel="noopener" class="press-card press-card--release">
           <div class="press-card-band"></div>
           <div class="press-card-inner">
             <div class="press-card-icon">
@@ -436,7 +496,7 @@
         </a>
 
         <!-- Pressbilder -->
-        <a href="https://drive.google.com/drive/folders/1po4Umw0boTEEXGEP7UAwcCpbpPnUKW-8" target="_blank" rel="noopener" class="press-card press-card--images">
+        <a href="https://drive.google.com/drive/folders/13YCncO3dfsAGil2Avox31GyAVAHLmBkn?usp=sharing" target="_blank" rel="noopener" class="press-card press-card--images">
           <div class="press-card-band"></div>
           <div class="press-card-inner">
             <div class="press-card-icon">
@@ -462,6 +522,7 @@
        PRESSKONTAKT
   ════════════════════════════════════════ -->
   <section class="presscontact-section" id="presskontakt">
+    <div class="presscontact-section-bg" aria-hidden="true"></div>
     <div class="container">
       <div class="presscontact-inner">
 
@@ -564,7 +625,7 @@
             <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
             <a href="#">Presentkort</a>
             <a href="press.html">Press</a>
-            <a href="index.html#sponsorer">Sponsorer</a>
+            <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
             <a href="kontakt.html#hitta-hit">Hitta hit</a>
           </nav>
