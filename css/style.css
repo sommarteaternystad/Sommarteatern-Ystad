@@ -103,13 +103,9 @@ img {
 
 /* Gradient handled by .hero-nav-wrap::before — no separate overlay needed here */
 
-/* Radial vignette for cinematic depth */
+/* Vignette removed — darkness handled by .hero-nav-wrap::before gradient */
 .hero-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.40) 100%);
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 .hero-content {
@@ -1143,8 +1139,48 @@ h2 {
     width: min(calc(100% - 20px), var(--max));
   }
 
+  /* minmax(0,1fr) allows columns to shrink below content width */
   .nav-pills-section .nav-pills-row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Tighter pills on small screens */
+  .nav-pills-section .nav-pill {
+    padding: 0 12px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Footer world cards — single column avoids overflow */
+  .footer-col--subsites .footer-subsites {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-subsites-row .footer-subsites {
+    grid-template-columns: 1fr;
+  }
+
+  /* Smaller cards on mobile */
+  .subsite-card {
+    padding: 8px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .subsite-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .subsite-text strong {
+    font-size: 12px;
+  }
+
+  .subsite-text span {
+    font-size: 10px;
   }
 
   .hero-welcome {
@@ -1158,5 +1194,24 @@ h2 {
 
   .footer-sitemap {
     padding: 18px 0 22px;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   SUBPAGE NAV — MOBILE SCROLLABLE
+   Uses !important to override inline <style> blocks
+══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .subpage-nav .nav-pills-row {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-right: 16px !important;
+  }
+
+  .subpage-nav .nav-pills-row::-webkit-scrollbar {
+    display: none;
   }
 }
