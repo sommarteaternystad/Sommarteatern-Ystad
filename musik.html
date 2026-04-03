@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
   <style>
 
     :root {
@@ -34,11 +34,11 @@
       background: rgba(6,4,10,0.95);
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      overflow: hidden;
+      overflow: visible;
     }
     .subpage-nav-inner {
       display: flex; flex-direction: row; align-items: center;
-      gap: 0; padding: 0; height: 66px;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
     }
     .nav-logo {
       flex-shrink: 0; height: 100%; display: flex; align-items: center;
@@ -301,29 +301,7 @@
     }
 
     /* ── MOBILE RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .subpage-nav .nav-pills-row {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-right: 16px;
-      }
-      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
-      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
     }
-
-    @media (max-width: 720px) {
-      .subpage-nav .nav-pills-row {
-        min-width: 0; overflow-x: auto; flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch; scrollbar-width: none;
-        padding-right: 40px; justify-content: flex-start;
-        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
-      }
-      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
-
       .musik-hero { min-height: 460px; height: 68vw; }
       .musik-title { font-size: clamp(40px, 12vw, 68px); }
       .musik-hero-inner { padding-bottom: 48px; }
@@ -507,15 +485,15 @@
         <div class="editorial-text">
           <span class="kicker">Musikproducenten</span>
           <h2 class="section-h2">Dick Örnå</h2>
-          <p class="editorial-sub">Arkitekten bakom ljudet</p>
+          <p class="editorial-sub">Mannen bakom ljudet</p>
           <div class="body-text">
-            <p>Du ser den inte. Den har inga kostymer, inga repliker, och tar inte emot applåder efter föreställningen. Ändå är den där – i varje steg, varje känsla, varje scen. Musiken.</p>
-            <p>Dick Örnå är den som får tonerna att växa fram. Han har varit med sedan 2007 och skapat ett musikaliskt landskap som idag är en självklar del av Sommarteaterns identitet. Tillsammans med låtskrivarna formar han varje ackord, varje rytm, varje känsla.</p>
-            <p>Det du hör är inte traditionellt inspelade bakgrunder – det är specialskriven musik, noggrant producerad och arrangerad i studio. På traditionella teatrar brukade en levande orkester sitta i ett orkesterdike framför scenen. På Sommarteatern sker magin några meter bort, i ljudbåset. Där finns vår egen orkester – i en dator.</p>
+            <p>Dick Örnå är producenten. Han tar låtarna Frida skriver och förvandlar dem till det du faktiskt hör — arrangerar instrumenten, spelar in, mixar och ser till att allt låter rätt när det väl spelas upp utomhus under en skånsk sommarkväll.</p>
+            <p>Han har jobbat med Sommarteatern sedan 2007. Det syns i musiken. Det märks i att produktionerna låter lika varje kväll, oavsett om det är 30 grader och blå himmel eller halvt mulet och lite blåsigt — utomhusljud är en utmaning de flesta aldrig tänker på.</p>
+            <p>På teatern förr satt orkestern i ett dike framför scenen. Här sitter den i en dator — producerad av Dick, spelad av tekniken, men aldrig mekanisk. Det är fortfarande musik som berör.</p>
           </div>
         </div>
-        <div class="editorial-image editorial-image--placeholder" aria-hidden="true">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/></svg>
+        <div class="editorial-image">
+          <img src="images/dick.png" alt="Dick Örnå, musikproducent Sommarteatern Ystad" style="object-fit: cover; object-position: center top;">
         </div>
       </div>
     </div>
@@ -670,6 +648,7 @@
             <a href="musik.html">Musik</a>
             <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
             <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
             <a href="press.html">Press</a>
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
@@ -695,7 +674,7 @@
               <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+            <a href="merch.html" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
               <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
               <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

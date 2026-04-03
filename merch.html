@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webbshop — Sommarteatern Ystad</title>
+  <meta name="description" content="Köp merchandise från Sommarteatern Ystad. T-shirtar, hoodies, tygkassar, accessoarer och mer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+
+    :root {
+      --gold: #c9a84c;
+      --crimson: #b83232;
+      --bg-dark: #06040a;
+      --max: 1100px;
+    }
+
+    body {
+      background-color: #06040a;
+    }
+
+    .page-bg {
+      position: fixed; inset: 0; z-index: -2;
+      background: #06040a;
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: visible;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+      text-decoration: none; display: inline-flex; align-items: center;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+    .nav-pill-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 1px 5px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* ── CART BUTTON IN NAV ── */
+    .nav-cart-btn {
+      flex-shrink: 0;
+      margin-left: 10px;
+      margin-right: 12px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 0 14px;
+      min-height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: -0.01em;
+      transition: background 0.18s, border-color 0.18s;
+      font-family: inherit;
+    }
+    .nav-cart-btn:hover {
+      background: rgba(201,168,76,0.22);
+      border-color: rgba(201,168,76,0.45);
+    }
+    .nav-cart-count {
+      background: var(--gold);
+      color: #06040a;
+      font-size: 10px;
+      font-weight: 900;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .nav-cart-count.hidden { display: none; }
+
+    /* ── CONTAINER ── */
+    .container {
+      width: min(calc(100% - 32px), 1100px);
+      margin: 0 auto;
+    }
+
+    /* ── HERO ── */
+    .shop-hero {
+      position: relative;
+      padding-top: 140px;
+      padding-bottom: 72px;
+      overflow: hidden;
+    }
+    .shop-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/webbshop.png');
+      background-size: cover;
+      background-position: center 40%;
+    }
+    .shop-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.72) 0%,
+        rgba(6,4,10,0.85) 60%,
+        rgba(6,4,10,0.97) 100%);
+    }
+    .shop-hero-inner {
+      position: relative; z-index: 2;
+    }
+    .shop-eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .shop-hero-title {
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.9;
+      color: #fff;
+      margin: 0 0 20px;
+    }
+    .shop-hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0;
+    }
+
+    /* ── SHOP SECTION ── */
+    .shop-section {
+      padding: 72px 0 100px;
+    }
+
+    .shop-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .shop-section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.035em;
+      margin: 0;
+    }
+    .shop-item-count {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.22s, transform 0.2s;
+    }
+    .product-card:hover {
+      border-color: rgba(201,168,76,0.22);
+      transform: translateY(-3px);
+    }
+
+    .product-img-wrap {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      position: relative;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.35s;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .product-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin: 0 0 6px;
+    }
+    .product-price {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    /* Size picker */
+    .size-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .size-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .size-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.65);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .size-btn:hover {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+    }
+    .size-btn.active {
+      background: rgba(201,168,76,0.18);
+      border-color: rgba(201,168,76,0.45);
+      color: var(--gold);
+    }
+    .size-btn.out-of-stock {
+      opacity: 0.28;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+
+    /* Add to cart button */
+    .add-to-cart-btn {
+      margin-top: auto;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 16px;
+      height: 38px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      font-family: inherit;
+      letter-spacing: -0.01em;
+      width: 100%;
+    }
+    .add-to-cart-btn:hover {
+      background: rgba(201,168,76,0.18);
+      border-color: rgba(201,168,76,0.40);
+      color: var(--gold);
+    }
+    .add-to-cart-btn.added {
+      background: rgba(80,180,100,0.15);
+      border-color: rgba(80,180,100,0.35);
+      color: #6ae08a;
+    }
+
+    /* ── CART OVERLAY ── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s;
+    }
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(480px, 100vw);
+      background: #0d0b14;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-shrink: 0;
+    }
+    .cart-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+    .cart-close-btn {
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: rgba(255,255,255,0.55);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cart-close-btn:hover {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0;
+    }
+
+    /* Cart empty state */
+    .cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      text-align: center;
+      color: rgba(255,255,255,0.30);
+      gap: 16px;
+    }
+    .cart-empty svg { opacity: 0.25; }
+    .cart-empty p { margin: 0; font-size: 15px; font-weight: 500; }
+
+    /* Cart items */
+    .cart-items-list {
+      padding: 12px 0;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.015em;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cart-item-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.38);
+    }
+    .cart-item-price {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.06);
+      border-radius: 7px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .qty-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.60);
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: inherit;
+      transition: color 0.15s, background 0.15s;
+    }
+    .qty-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .qty-value {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      min-width: 22px;
+      text-align: center;
+    }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.22);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 5px;
+      transition: color 0.15s;
+      font-family: inherit;
+    }
+    .cart-item-remove:hover { color: rgba(220,60,60,0.80); }
+
+    /* Cart footer */
+    .cart-footer {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .cart-subtotal-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 600;
+    }
+    .cart-subtotal-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .cart-checkout-btn {
+      width: 100%;
+      background: var(--gold);
+      color: #06040a;
+      border: none;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 0 24px;
+      height: 52px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: -0.01em;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .cart-checkout-btn:hover {
+      background: #d9bc6a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 30px rgba(201,168,76,0.28);
+    }
+    .cart-checkout-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── CHECKOUT FORM DRAWER ── */
+    .checkout-drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(480px, 100vw);
+      background: #0d0b14;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      z-index: 202;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .checkout-drawer.open {
+      transform: translateX(0);
+    }
+    .checkout-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-shrink: 0;
+    }
+    .checkout-back-btn {
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: rgba(255,255,255,0.55);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .checkout-back-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
+    .checkout-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .checkout-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    /* Order summary in checkout */
+    .checkout-order-summary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 28px;
+    }
+    .checkout-order-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+    .checkout-order-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .checkout-order-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      gap: 8px;
+    }
+    .checkout-order-item span:last-child {
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .checkout-order-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 10px 0;
+    }
+    .checkout-order-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .checkout-order-total span:last-child {
+      color: var(--gold);
+    }
+
+    /* Form fields */
+    .form-section-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-field {
+      margin-bottom: 14px;
+    }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 6px;
+      letter-spacing: -0.005em;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      padding: 10px 13px;
+      border-radius: 9px;
+      outline: none;
+      transition: border-color 0.18s, background 0.18s;
+      box-sizing: border-box;
+    }
+    .form-input:focus {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(255,255,255,0.07);
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.22); }
+
+    /* Shipping options */
+    .shipping-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .shipping-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 11px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .shipping-option:has(input:checked) {
+      border-color: rgba(201,168,76,0.40);
+      background: rgba(201,168,76,0.06);
+    }
+    .shipping-option input[type="radio"] {
+      margin-top: 2px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+    .shipping-option-info {
+      flex: 1;
+    }
+    .shipping-option-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .shipping-option-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.40);
+      line-height: 1.4;
+    }
+    .shipping-option-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold);
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    /* Submit button */
+    .checkout-submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: #06040a;
+      border: none;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 0 24px;
+      height: 52px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: -0.01em;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .checkout-submit-btn:hover {
+      background: #d9bc6a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 30px rgba(201,168,76,0.28);
+    }
+    .checkout-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 18px 0;
+      margin-bottom: 0;
+    }
+    .info-strip-inner {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .info-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.42);
+      font-weight: 500;
+    }
+    .info-strip-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ── MEMBER DISCOUNT BANNER ── */
+    .member-discount-banner {
+      background: linear-gradient(135deg, rgba(201,168,76,0.10) 0%, rgba(201,168,76,0.05) 100%);
+      border-top: 1px solid rgba(201,168,76,0.18);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      padding: 18px 0;
+    }
+    .member-discount-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .member-discount-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(201,168,76,0.14);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+    .member-discount-text {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .member-discount-text strong {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+    }
+    .member-discount-text span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.45;
+    }
+    .member-discount-link {
+      flex-shrink: 0;
+      background: rgba(201,168,76,0.14);
+      border: 1px solid rgba(201,168,76,0.30);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s, border-color 0.18s;
+    }
+    .member-discount-link:hover {
+      background: rgba(201,168,76,0.24);
+      border-color: rgba(201,168,76,0.50);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+    .site-footer .footer-wave-top {
+      background: transparent !important; clip-path: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 720px) {
+      .subpage-nav .nav-pills-row {
+        min-width: 0; overflow-x: auto; flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding-right: 40px; justify-content: flex-start;
+        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+      }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .info-strip-inner { gap: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      /* Cart button: sits on its own row — center it and keep it compact */
+      .nav-cart-btn {
+        align-self: center !important;
+        width: auto !important;
+        margin: 0 0 6px 0 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo img { height: 38px; }
+      .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
+      .shop-hero { padding-top: 120px; padding-bottom: 52px; }
+      .info-strip-item { font-size: 12px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       STICKY NAV
+  ════════════════════════════════════════ -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="presentkort.html" class="nav-pill">Presentkort</a>
+        <a href="merch.html" class="nav-pill nav-pill--active">Webbshop</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Öppna kundvagn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        Korg
+        <span class="nav-cart-count hidden" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="shop-hero">
+    <div class="shop-hero-bg" aria-hidden="true"></div>
+    <div class="container shop-hero-inner">
+      <span class="shop-eyebrow">Sommarteatern Ystad · Webbshop</span>
+      <h1 class="shop-hero-title">Merchandise</h1>
+      <p class="shop-hero-sub">Bär teatern med dig. Allt från kepsar och tygkassar till hoodies och picknickfiltar.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       INFO STRIP
+  ════════════════════════════════════════ -->
+  <div class="info-strip">
+    <div class="container info-strip-inner">
+      <div class="info-strip-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="16.5" cy="18.5" r="2.5"/></svg>
+        Hemleverans eller upphämtning i teaterlokalen
+      </div>
+      <div class="info-strip-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.64 12 19.79 19.79 0 0 1 1.55 3.21 2 2 0 0 1 3.52 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6.57 6.57l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Frågor? Ring eller mejla oss
+      </div>
+      <div class="info-strip-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Lokal förening — ditt köp stöder teatern
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       MEMBER DISCOUNT BANNER
+  ════════════════════════════════════════ -->
+  <div class="member-discount-banner">
+    <div class="container member-discount-inner">
+      <div class="member-discount-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="member-discount-text">
+        <strong>Medlemsrabatt — 10% på hela köpet</strong>
+        <span>Som VIP-medlem eller Aktiv medlem har du 10% rabatt. Ange det i "Övriga önskemål" i kassan så drar vi av rabatten på fakturan.</span>
+      </div>
+      <a href="https://medlem.sommarteaternystad.com" target="_blank" rel="noopener" class="member-discount-link">Bli medlem →</a>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       PRODUCT GRID
+  ════════════════════════════════════════ -->
+  <section class="shop-section">
+    <div class="container">
+      <div class="shop-filter-bar">
+        <h2 class="shop-section-title">Alla produkter</h2>
+        <span class="shop-item-count" id="itemCount"></span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="musik.html">Musik</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html#hitta-hit">Hitta hit</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="merch.html" class="subsite-card" style="border-left:2px solid rgba(201,168,76,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sommarteatern Ystad. Ideell förening.</span>
+        <span><a href="kontakt.html">Kontakt</a> · <a href="om-sommarteatern.html">Om oss</a></span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       CART OVERLAY + DRAWER
+  ════════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Kundvagn"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Kundvagn">
+    <div class="cart-header">
+      <h2 class="cart-title">Kundvagn</h2>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Stäng kundvagn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-label">Delsumma</span>
+        <span class="cart-subtotal-value" id="cartSubtotal">0 kr</span>
+      </div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">
+        Gå till kassan
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </aside>
+
+
+  <!-- ═══════════════════════════════════════
+       CHECKOUT DRAWER
+  ════════════════════════════════════════ -->
+  <aside class="checkout-drawer" id="checkoutDrawer" aria-label="Kassa">
+    <div class="checkout-header">
+      <button class="checkout-back-btn" id="checkoutBackBtn" aria-label="Tillbaka till kundvagn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      </button>
+      <h2 class="checkout-title">Kassa</h2>
+    </div>
+    <div class="checkout-body">
+
+      <!-- Order summary -->
+      <div class="checkout-order-summary">
+        <div class="checkout-order-title">Din beställning</div>
+        <div class="checkout-order-items" id="checkoutOrderItems"></div>
+        <div class="checkout-order-divider"></div>
+        <div class="checkout-order-total">
+          <span>Totalt (exkl. frakt)</span>
+          <span id="checkoutSubtotalVal">0 kr</span>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <span class="form-section-label">Kontaktuppgifter</span>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="fieldName">Namn *</label>
+          <input class="form-input" type="text" id="fieldName" placeholder="Förnamn Efternamn" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fieldEmail">E-post *</label>
+          <input class="form-input" type="email" id="fieldEmail" placeholder="din@epost.se" required>
+        </div>
+      </div>
+
+      <!-- Shipping -->
+      <span class="form-section-label" style="margin-top:8px;">Leverans</span>
+      <div class="shipping-options">
+        <label class="shipping-option">
+          <input type="radio" name="shipping" value="pickup" checked>
+          <div class="shipping-option-info">
+            <div class="shipping-option-name">Upphämtning i teaterlokalen</div>
+            <div class="shipping-option-desc">Björnstjernegatan 18, Ystad. Vi kontaktar dig för att boka tid.</div>
+          </div>
+          <div class="shipping-option-price">Gratis</div>
+        </label>
+        <label class="shipping-option">
+          <input type="radio" name="shipping" value="home">
+          <div class="shipping-option-info">
+            <div class="shipping-option-name">Hemleverans</div>
+            <div class="shipping-option-desc">Skickas med PostNord. Priset beror på paketets vikt och storlek.</div>
+          </div>
+          <div class="shipping-option-price">60–100 kr</div>
+        </label>
+      </div>
+
+      <!-- Address (shown only for home delivery) -->
+      <div id="addressFields" style="display:none;">
+        <div class="form-field">
+          <label class="form-label" for="fieldAddress">Gatuadress *</label>
+          <input class="form-input" type="text" id="fieldAddress" placeholder="Gatunamn 12">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="fieldPostcode">Postnummer *</label>
+            <input class="form-input" type="text" id="fieldPostcode" placeholder="271 00">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="fieldCity">Stad *</label>
+            <input class="form-input" type="text" id="fieldCity" placeholder="Ystad">
+          </div>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-field" style="margin-top:4px;">
+        <label class="form-label" for="fieldNotes">Övriga önskemål (valfritt)</label>
+        <input class="form-input" type="text" id="fieldNotes" placeholder="T.ex. specifik upphämtningstid">
+      </div>
+
+      <button class="checkout-submit-btn" id="checkoutSubmitBtn">
+        Skicka beställning
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+      <p class="checkout-note">Din beställning öppnar din e-postklient med ett förifyllt mail till info@sommarteaternystad.com. Vi bekräftar och fakturerar separat.</p>
+
+    </div>
+  </aside>
+
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script>
+  (function() {
+
+    /* ── PRODUCT DATA ── */
+    const PRODUCTS = [
+      {
+        id: 'tshirt',
+        name: 'T-shirt',
+        price: 199,
+        img: 'images/tshirt.jpg',
+        sizes: [
+          { label: '134/140', stock: 5 },
+          { label: '146/152', stock: 13 },
+          { label: '158/164', stock: 17 },
+          { label: '170',     stock: 2 }
+        ]
+      },
+      {
+        id: 'sweatshirt',
+        name: 'Sweatshirt',
+        price: 349,
+        img: 'images/gråsweatshirt.jpg',
+        sizes: [
+          { label: 'L',  stock: 6 },
+          { label: 'XL', stock: 4 }
+        ]
+      },
+      {
+        id: 'ziphoodie',
+        name: 'Zip-hoodie',
+        price: 299,
+        img: 'images/svartziphoodie.jpg',
+        sizes: [
+          { label: '122-128', stock: 11 },
+          { label: '164',     stock: 11 },
+          { label: 'XS',      stock: 11 },
+          { label: 'S',       stock: 6 },
+          { label: 'M',       stock: 3 },
+          { label: 'XL',      stock: 1 },
+          { label: '2XL',     stock: 1 }
+        ]
+      },
+      {
+        id: 'keps',
+        name: 'Keps',
+        price: 199,
+        img: 'images/keps.jpg',
+        stock: 14
+      },
+      {
+        id: 'tygkasse',
+        name: 'Tygkasse',
+        price: 99,
+        img: 'images/tygkass.jpg',
+        stock: 161
+      },
+      {
+        id: 'picknickfilt',
+        name: 'Picknickfilt',
+        price: 159,
+        img: 'images/picknickfilt.jpg',
+        stock: 33
+      },
+      {
+        id: 'vattenflaska',
+        name: 'Vattenflaska',
+        price: 79,
+        img: 'images/vattenflaska.jpg',
+        stock: 45
+      },
+      {
+        id: 'kaffetermos',
+        name: 'Kaffetermos',
+        price: 249,
+        img: 'images/kaffetermos.jpg',
+        stock: 18
+      },
+      {
+        id: 'kylvaska',
+        name: 'Kylväska',
+        price: 199,
+        img: 'images/kylväska.jpg',
+        stock: 32
+      },
+      {
+        id: 'sittunderlag',
+        name: 'Sittunderlägg',
+        price: 49,
+        img: 'images/sittunderlag.jpg',
+        stock: 12
+      },
+      {
+        id: 'nyckelband',
+        name: 'Nyckelband',
+        price: 50,
+        img: 'images/nyckelband.jpg',
+        stock: 46
+      },
+      {
+        id: 'solfjaeder',
+        name: 'Solfjäder',
+        price: 49,
+        img: 'images/solfjäder.jpg',
+        stock: 19
+      }
+    ];
+
+    /* ── CART STATE ── */
+    let cart = []; // { id, name, size, price, img, qty }
+
+    /* ── RENDER PRODUCTS ── */
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const countEl = document.getElementById('itemCount');
+      countEl.textContent = PRODUCTS.length + ' produkter';
+
+      grid.innerHTML = PRODUCTS.map(p => {
+        const hasSizes = p.sizes && p.sizes.length > 0;
+        const firstAvailableSize = hasSizes
+          ? (p.sizes.find(s => s.stock > 0) || p.sizes[0]).label
+          : null;
+
+        return `
+          <div class="product-card" data-id="${p.id}">
+            <div class="product-img-wrap">
+              <img src="${p.img}" alt="${p.name}" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-name">${p.name}</div>
+              <div class="product-price">${p.price} kr</div>
+              ${hasSizes ? `
+                <span class="size-label">Välj storlek</span>
+                <div class="size-picker">
+                  ${p.sizes.map((s, i) => `
+                    <button
+                      class="size-btn${i === 0 || s.label === firstAvailableSize ? ' active' : ''}${s.stock === 0 ? ' out-of-stock' : ''}"
+                      data-size="${s.label}"
+                      data-stock="${s.stock}"
+                      ${s.stock === 0 ? 'disabled' : ''}
+                    >${s.label}</button>
+                  `).join('')}
+                </div>
+              ` : ''}
+              <button class="add-to-cart-btn" data-id="${p.id}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                Lägg i korg
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      /* Size button toggle */
+      grid.querySelectorAll('.size-picker').forEach(picker => {
+        picker.addEventListener('click', e => {
+          const btn = e.target.closest('.size-btn');
+          if (!btn || btn.disabled) return;
+          picker.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      /* Add to cart */
+      grid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.product-card');
+          const id = card.dataset.id;
+          const product = PRODUCTS.find(p => p.id === id);
+          if (!product) return;
+
+          let size = null;
+          if (product.sizes) {
+            const activeBtn = card.querySelector('.size-btn.active');
+            size = activeBtn ? activeBtn.dataset.size : null;
+            if (!size) { return; }
+          }
+
+          const cartKey = id + (size ? '__' + size : '');
+          const existing = cart.find(i => i.key === cartKey);
+          if (existing) {
+            existing.qty++;
+          } else {
+            cart.push({
+              key: cartKey,
+              id,
+              name: product.name,
+              size,
+              price: product.price,
+              img: product.img,
+              qty: 1
+            });
+          }
+
+          updateCartUI();
+
+          /* Flash button */
+          btn.classList.add('added');
+          btn.textContent = '✓ Tillagd';
+          setTimeout(() => {
+            btn.classList.remove('added');
+            btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Lägg i korg`;
+          }, 1400);
+        });
+      });
+    }
+
+    /* ── CART UI ── */
+    function updateCartUI() {
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      const countEl = document.getElementById('cartCount');
+      countEl.textContent = totalQty;
+      countEl.classList.toggle('hidden', totalQty === 0);
+
+      const body = document.getElementById('cartBody');
+      const footer = document.getElementById('cartFooter');
+
+      if (cart.length === 0) {
+        body.innerHTML = `
+          <div class="cart-empty">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>Din korg är tom</p>
+          </div>`;
+        footer.style.display = 'none';
+        return;
+      }
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      body.innerHTML = `<ul class="cart-items-list" role="list">` +
+        cart.map(item => `
+          <li class="cart-item" data-key="${item.key}">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-img" loading="lazy">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-meta">${item.size ? 'Storlek: ' + item.size : ''}</div>
+            </div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" data-action="dec" aria-label="Minska antal">−</button>
+              <span class="qty-value">${item.qty}</span>
+              <button class="qty-btn" data-action="inc" aria-label="Öka antal">+</button>
+            </div>
+            <div class="cart-item-price">${item.price * item.qty} kr</div>
+            <button class="cart-item-remove" data-action="remove" aria-label="Ta bort ${item.name}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </li>
+        `).join('') + `</ul>`;
+
+      document.getElementById('cartSubtotal').textContent = subtotal + ' kr';
+      footer.style.display = '';
+
+      /* Qty / remove listeners */
+      body.querySelectorAll('.cart-item').forEach(el => {
+        const key = el.dataset.key;
+        el.querySelector('[data-action="inc"]').addEventListener('click', () => {
+          const item = cart.find(i => i.key === key);
+          if (item) { item.qty++; updateCartUI(); }
+        });
+        el.querySelector('[data-action="dec"]').addEventListener('click', () => {
+          const item = cart.find(i => i.key === key);
+          if (item) {
+            item.qty--;
+            if (item.qty <= 0) cart = cart.filter(i => i.key !== key);
+            updateCartUI();
+          }
+        });
+        el.querySelector('[data-action="remove"]').addEventListener('click', () => {
+          cart = cart.filter(i => i.key !== key);
+          updateCartUI();
+        });
+      });
+    }
+
+    /* ── CART DRAWER OPEN/CLOSE ── */
+    function openCart() {
+      document.getElementById('cartOverlay').classList.add('open');
+      document.getElementById('cartDrawer').classList.add('open');
+      document.getElementById('checkoutDrawer').classList.remove('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.getElementById('cartDrawer').classList.remove('open');
+      document.getElementById('checkoutDrawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('navCartBtn').addEventListener('click', openCart);
+    document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+    document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+    /* ── CHECKOUT DRAWER ── */
+    function openCheckout() {
+      document.getElementById('checkoutDrawer').classList.add('open');
+      renderCheckoutSummary();
+    }
+    function closeCheckout() {
+      document.getElementById('checkoutDrawer').classList.remove('open');
+    }
+
+    document.getElementById('cartCheckoutBtn').addEventListener('click', openCheckout);
+    document.getElementById('checkoutBackBtn').addEventListener('click', closeCheckout);
+
+    function renderCheckoutSummary() {
+      const itemsEl = document.getElementById('checkoutOrderItems');
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      itemsEl.innerHTML = cart.map(item => {
+        const label = item.size ? item.name + ' (' + item.size + ')' : item.name;
+        return '<div class="checkout-order-item">'
+          + '<span>' + label + ' \u00d7 ' + item.qty + '</span>'
+          + '<span>' + (item.price * item.qty) + ' kr</span>'
+          + '</div>';
+      }).join('');
+      document.getElementById('checkoutSubtotalVal').textContent = subtotal + ' kr';
+    }
+
+    /* Show/hide address fields based on shipping choice */
+    document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const addrFields = document.getElementById('addressFields');
+        addrFields.style.display = radio.value === 'home' ? '' : 'none';
+      });
+    });
+
+    /* ── SUBMIT ORDER ── */
+    document.getElementById('checkoutSubmitBtn').addEventListener('click', () => {
+      const name    = document.getElementById('fieldName').value.trim();
+      const email   = document.getElementById('fieldEmail').value.trim();
+      const notes   = document.getElementById('fieldNotes').value.trim();
+      const shipping = document.querySelector('input[name="shipping"]:checked').value;
+      const address = document.getElementById('fieldAddress').value.trim();
+      const postcode = document.getElementById('fieldPostcode').value.trim();
+      const city    = document.getElementById('fieldCity').value.trim();
+
+      if (!name || !email) {
+        alert('Vänligen fyll i namn och e-postadress.');
+        return;
+      }
+      if (shipping === 'home' && (!address || !postcode || !city)) {
+        alert('Vänligen fyll i din leveransadress.');
+        return;
+      }
+      if (cart.length === 0) {
+        alert('Din korg är tom.');
+        return;
+      }
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const shippingLabel = shipping === 'pickup'
+        ? 'Upphämtning i teaterlokalen (gratis)'
+        : `Hemleverans till: ${address}, ${postcode} ${city} (60–100 kr tillkommer)`;
+
+      const orderLines = cart.map(item => {
+        const sizeStr = item.size ? ` (${item.size})` : '';
+        return `  • ${item.name}${sizeStr} × ${item.qty} = ${item.price * item.qty} kr`;
+      }).join('\n');
+
+      const body = [
+        'Hej Sommarteatern!',
+        '',
+        'Jag vill gärna beställa följande merchandise:',
+        '',
+        orderLines,
+        '',
+        `Delsumma: ${subtotal} kr`,
+        '',
+        `Frakt / leverans: ${shippingLabel}`,
+        '',
+        '─────────────────────',
+        `Namn: ${name}`,
+        `E-post: ${email}`,
+        notes ? `Övrigt: ${notes}` : '',
+        '─────────────────────',
+        '',
+        'Med vänlig hälsning,',
+        name
+      ].filter(line => line !== null).join('\n');
+
+      const subject = `Beställning från webbshopen – ${name}`;
+      const mailtoUrl = 'mailto:info@sommarteaternystad.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+
+      window.location.href = mailtoUrl;
+    });
+
+    /* ── INIT ── */
+    renderProducts();
+    updateCartUI();
+
+  })();
+  </script>
+
+</body>
+</html>

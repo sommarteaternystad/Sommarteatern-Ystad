@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
   <style>
 
     body {
@@ -27,11 +27,11 @@
       background: rgba(6,4,10,0.95);
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      overflow: hidden;
+      overflow: visible;
     }
     .subpage-nav-inner {
       display: flex; flex-direction: row; align-items: center;
-      gap: 0; padding: 0; height: 66px;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
     }
     .nav-logo {
       flex-shrink: 0; height: 100%; display: flex; align-items: center;
@@ -642,6 +642,7 @@
             <a href="musik.html">Musik</a>
             <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
             <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
             <a href="press.html">Press</a>
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
@@ -667,7 +668,7 @@
               <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+            <a href="merch.html" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
               <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
               <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
