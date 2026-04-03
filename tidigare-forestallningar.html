@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tidigare föreställningar — Sommarteatern Ystad</title>
+  <meta name="description" content="Utforska Sommarteatern Ystads historia sedan 2006. Föreställningar, medverkande, musik och berättelser från varje sommar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+
+    :root {
+      --gold: #c9a84c;
+      --crimson: #b83232;
+      --bg-dark: #06040a;
+    }
+
+    /* ── BODY & NAV ── */
+    body { background: #06040a; }
+    .page-bg { position: fixed; inset: 0; z-index: -2; background: #06040a; }
+
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: visible;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06);
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+      text-decoration: none; display: inline-flex; align-items: center;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .nav-pill-badge {
+      display: inline-block; background: rgba(255,255,255,0.18); color: #fff;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.08em;
+      padding: 1px 5px; border-radius: 4px; vertical-align: middle; margin-right: 4px;
+    }
+
+    .container { width: min(calc(100% - 32px), 1100px); margin: 0 auto; }
+
+    /* ─────────────────────────────────────────
+       GRID VIEW (ljus, varm ton)
+    ───────────────────────────────────────── */
+    #archive-view { padding-top: 0; padding-bottom: 80px; min-height: 100vh; background: #f2efe8; }
+
+    /* Archive hero banner — ensemble photo */
+    .archive-hero-banner {
+      position: relative; height: 52vh; min-height: 320px; max-height: 560px;
+      overflow: hidden; margin-bottom: 0;
+    }
+    .archive-hero-banner-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/ensemble.jpg');
+      background-size: cover; background-position: center 30%;
+      transform: scale(1.03); transition: transform 8s ease;
+    }
+    .archive-hero-banner:hover .archive-hero-banner-bg { transform: scale(1.0); }
+    .archive-hero-banner::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.55) 0%,
+        rgba(6,4,10,0.35) 40%,
+        rgba(242,239,232,0.0) 70%,
+        rgba(242,239,232,1) 100%);
+    }
+    .archive-hero-banner-content {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 0 36px;
+      max-width: min(calc(100% - 32px), 1100px); margin: 0 auto;
+    }
+    .archive-eyebrow {
+      display: block; font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--gold); margin-bottom: 10px; opacity: 0.9;
+    }
+    .archive-title {
+      font-size: clamp(36px, 5.5vw, 68px); font-weight: 900;
+      color: #1a1714; letter-spacing: -0.045em; line-height: 0.92;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 20px rgba(242,239,232,0.7);
+    }
+    .archive-sub {
+      font-size: 16px; color: #6b6459; line-height: 1.6;
+      max-width: 480px; margin: 0;
+    }
+
+    /* Archive content area */
+    .archive-content { padding: 40px 0 0; }
+
+    /* Decade tabs */
+    .decade-tabs {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .decade-tab {
+      background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.10);
+      color: #6b6459; font-size: 12px; font-weight: 700;
+      padding: 6px 16px; border-radius: 999px; cursor: pointer;
+      transition: all 0.18s; font-family: inherit;
+    }
+    .decade-tab:hover, .decade-tab.active {
+      background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.45); color: #a07a28;
+    }
+
+    /* Show grid */
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .show-card {
+      border-radius: 14px; overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      cursor: pointer; position: relative;
+      transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+      display: flex; flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .show-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    .show-card-img-wrap {
+      aspect-ratio: 2 / 3; overflow: hidden; position: relative;
+      background: #e8e4dc;
+    }
+    .show-card-img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block; transition: transform 0.4s;
+    }
+    .show-card:hover .show-card-img { transform: scale(1.06); }
+    .show-card-no-img {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #e8e4dc 0%, #ddd9d0 100%);
+      gap: 10px;
+    }
+    .show-card-no-img svg { opacity: 0.25; }
+    .show-card-no-img span {
+      font-size: 10px; color: rgba(0,0,0,0.3);
+      text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+    }
+    .show-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
+      padding: 48px 14px 14px;
+    }
+    .show-card-year {
+      font-size: 10px; font-weight: 800; color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px;
+    }
+    .show-card-title {
+      font-size: 14px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .show-card-body {
+      padding: 12px 14px 14px; background: #fff;
+    }
+    .show-card-slogan {
+      font-size: 11px; color: #9a9088; line-height: 1.4;
+      font-style: italic;
+    }
+    .show-card-arrow {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 700; color: #c9a84c;
+      margin-top: 8px;
+    }
+
+    /* ─────────────────────────────────────────
+       WIKI VIEW (ljust, editorial)
+    ───────────────────────────────────────── */
+    #wiki-view {
+      display: none; min-height: 100vh;
+      background: #f2efe8;
+    }
+
+    /* Wiki topbar */
+    .wiki-topbar {
+      background: rgba(6,4,10,0.97);
+      backdrop-filter: blur(20px);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .wiki-topbar-inner {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .wiki-back-btn {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700;
+      padding: 0 16px; height: 32px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: background 0.15s, color 0.15s; font-family: inherit;
+      flex-shrink: 0;
+    }
+    .wiki-back-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .wiki-breadcrumb {
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .wiki-breadcrumb span { color: rgba(255,255,255,0.65); font-weight: 600; }
+
+    /* Wiki hero (dark gradient) */
+    .wiki-hero {
+      background: linear-gradient(160deg, #0f0c18 0%, #08060e 100%);
+      padding: 52px 0 60px;
+      position: relative; overflow: hidden;
+    }
+    .wiki-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wiki-hero-inner {
+      display: flex; gap: 48px; align-items: flex-start; position: relative; z-index: 1;
+    }
+    .wiki-poster-wrap {
+      flex-shrink: 0; width: 200px;
+    }
+    .wiki-poster {
+      width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: center top;
+      border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.10); display: block;
+    }
+    .wiki-poster-placeholder {
+      width: 100%; aspect-ratio: 2/3;
+      background: linear-gradient(160deg, #1a1626 0%, #100e1a 100%);
+      border-radius: 10px; border: 1px solid rgba(255,255,255,0.07);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px;
+    }
+    .wiki-poster-placeholder svg { opacity: 0.12; }
+    .wiki-poster-placeholder span {
+      font-size: 10px; color: rgba(255,255,255,0.18);
+      text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+    }
+    .wiki-hero-info { flex: 1; min-width: 0; }
+    .wiki-year-pill {
+      display: inline-block; background: var(--gold); color: #06040a;
+      font-size: 11px; font-weight: 900; letter-spacing: 0.06em;
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .wiki-show-title {
+      font-size: clamp(36px, 5vw, 64px); font-weight: 900;
+      color: #fff; letter-spacing: -0.04em; line-height: 0.92;
+      margin: 0 0 14px;
+    }
+    .wiki-slogan {
+      font-size: 16px; color: rgba(255,255,255,0.45); font-style: italic;
+      line-height: 1.5; display: block; margin-bottom: 28px;
+      padding-left: 14px; border-left: 2px solid rgba(201,168,76,0.4);
+    }
+
+    /* Fact cards */
+    .fact-cards {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .fact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 9px; padding: 10px 14px;
+      min-width: 100px;
+    }
+    .fact-card-label {
+      font-size: 9px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.1em; color: rgba(201,168,76,0.7); display: block; margin-bottom: 3px;
+    }
+    .fact-card-value {
+      font-size: 13px; font-weight: 700; color: #fff; line-height: 1.3;
+    }
+
+    /* Wiki nav (prev/next) */
+    .wiki-nav-row {
+      display: flex; gap: 8px; margin-top: 24px;
+    }
+    .wiki-nav-btn {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 700;
+      padding: 0 14px; height: 30px; border-radius: 7px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 5px; transition: all 0.15s;
+      font-family: inherit; text-decoration: none;
+    }
+    .wiki-nav-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
+
+    /* ── WIKI BODY (light) ── */
+    .wiki-body {
+      background: #f2efe8;
+    }
+    .wiki-body-inner {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      padding: 48px 0 80px;
+    }
+
+    /* Sections */
+    .wiki-sections { min-width: 0; }
+    .wiki-section {
+      margin-bottom: 36px;
+    }
+    .wiki-section-title {
+      font-size: 20px; font-weight: 900; color: #1a1714;
+      letter-spacing: -0.03em; margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0dbd0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .wiki-section-title::before {
+      content: ''; width: 3px; height: 18px; border-radius: 2px;
+      background: var(--gold); display: block;
+    }
+    .wiki-section-text {
+      font-size: 16px; line-height: 1.78; color: #2e2a24;
+      white-space: pre-wrap;
+    }
+    .wiki-cast-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px;
+    }
+    .wiki-cast-row {
+      display: flex; align-items: baseline; gap: 6px;
+      padding: 5px 0; border-bottom: 1px solid #e8e4dc;
+      font-size: 14px; line-height: 1.4;
+    }
+    .wiki-cast-role { color: #6b6459; flex-shrink: 0; }
+    .wiki-cast-name { color: #1a1714; font-weight: 600; }
+
+    /* Sidebar */
+    .wiki-sidebar {}
+    .wiki-sidebar-card {
+      background: #fff;
+      border: 1px solid #e0dbd0;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .sidebar-card-title {
+      font-size: 11px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #9a9088; margin-bottom: 14px;
+    }
+    .sidebar-fact-row {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 10px 0; border-bottom: 1px solid #f0ece4;
+    }
+    .sidebar-fact-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-fact-label {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #b8afa2;
+    }
+    .sidebar-fact-value {
+      font-size: 13px; font-weight: 600; color: #1a1714; line-height: 1.4;
+    }
+
+    /* Photo gallery */
+    .photo-gallery {
+      margin-top: 8px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .photo-grid img {
+      width: 100%; aspect-ratio: 3/2; object-fit: cover;
+      border-radius: 6px; cursor: pointer;
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .photo-grid img:hover { opacity: 0.85; transform: scale(1.02); }
+    .photo-show-more {
+      width: 100%; background: rgba(0,0,0,0.04);
+      border: 1px solid #e0dbd0; color: #6b6459;
+      font-size: 12px; font-weight: 700; padding: 9px;
+      border-radius: 8px; cursor: pointer; margin-top: 8px;
+      font-family: inherit; transition: background 0.15s;
+    }
+    .photo-show-more:hover { background: rgba(0,0,0,0.07); }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      z-index: 500; display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      border-radius: 4px;
+    }
+    .lightbox-close {
+      position: fixed; top: 20px; right: 24px;
+      background: rgba(255,255,255,0.12); border: none; color: #fff;
+      width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+      font-size: 20px; display: flex; align-items: center; justify-content: center;
+      font-family: inherit;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.10); border: none; color: #fff;
+      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      font-family: inherit; transition: background 0.15s;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.20); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+
+    /* Footer override on light bg */
+    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
+    .site-footer .footer-wave-top { background: transparent !important; clip-path: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .shows-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .archive-hero-banner { height: 44vh; min-height: 280px; }
+      .shows-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .wiki-hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+      .wiki-poster-wrap { width: 160px; }
+      .wiki-slogan { border-left: none; padding-left: 0; text-align: center; }
+      .wiki-body-inner { grid-template-columns: 1fr; gap: 28px; }
+      .wiki-sidebar { order: -1; }
+      .wiki-cast-grid { grid-template-columns: 1fr; }
+      .subpage-nav .nav-pills-row {
+        overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none;
+        mask-image: linear-gradient(to right, black calc(100% - 36px), transparent 100%);
+      }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+    }
+    @media (max-width: 520px) {
+      .shows-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ── CAST NAME BUTTONS ── */
+    .cast-name-btn {
+      background: none; border: none; padding: 0; cursor: pointer; font: inherit;
+      color: #1a1714; font-weight: 600;
+      text-decoration: underline; text-decoration-color: rgba(201,168,76,0.5);
+      text-underline-offset: 2px; transition: color 0.15s, text-decoration-color 0.15s;
+    }
+    .cast-name-btn:hover { color: #c9a84c; text-decoration-color: #c9a84c; }
+
+    /* ── PERSON HERO ── */
+    .person-hero {
+      background: linear-gradient(160deg, #0c0820 0%, #08060f 60%, #0a0415 100%);
+      padding: 40px 0 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .person-hero-inner {
+      display: flex; align-items: center; gap: 36px;
+    }
+    .person-avatar-wrap { flex-shrink: 0; }
+    .person-avatar {
+      width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+      border: 3px solid rgba(201,168,76,0.45);
+      box-shadow: 0 0 0 6px rgba(201,168,76,0.08);
+    }
+    .person-avatar-ph {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .person-name {
+      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; color: #fff;
+      margin: 0 0 6px; letter-spacing: -0.025em; line-height: 1.1;
+    }
+    .person-subtitle {
+      font-size: 14px; color: rgba(255,255,255,0.4); margin: 0 0 24px;
+      font-weight: 500;
+    }
+    .person-stats-row { display: flex; gap: 32px; flex-wrap: wrap; }
+    .person-stat { display: flex; flex-direction: column; align-items: center; }
+    .person-stat-val {
+      font-size: 2rem; font-weight: 800; color: #c9a84c; line-height: 1;
+    }
+    .person-stat-label {
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35); margin-top: 4px; text-align: center;
+    }
+
+    /* ── PERSON BODY ── */
+    .person-body { background: #f2efe8; padding: 56px 0 80px; }
+    .person-body-inner {
+      display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start;
+    }
+
+    /* Timeline */
+    .person-timeline-head {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.18em; color: #c9a84c; margin: 0 0 20px;
+    }
+    .person-show-entry {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: #fff; border-radius: 14px; padding: 18px 20px;
+      margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;
+    }
+    .person-show-entry:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12); transform: translateY(-2px);
+    }
+    .person-show-poster-mini {
+      width: 52px; height: 70px; object-fit: cover; border-radius: 7px; flex-shrink: 0;
+      background: #e8e4dc;
+    }
+    .person-show-poster-mini-ph {
+      width: 52px; height: 70px; border-radius: 7px; flex-shrink: 0;
+      background: #e8e4dc; display: flex; align-items: center; justify-content: center;
+    }
+    .person-show-details { flex: 1; min-width: 0; }
+    .person-show-year-tag {
+      font-size: 10px; font-weight: 700; color: #c9a84c; text-transform: uppercase;
+      letter-spacing: 0.12em; display: block; margin-bottom: 3px;
+    }
+    .person-show-title {
+      font-size: 16px; font-weight: 700; color: #1a1714; margin: 0 0 4px;
+      line-height: 1.2;
+    }
+    .person-show-role {
+      font-size: 13px; color: #6b6459; margin: 0;
+    }
+    .person-show-credits-list {
+      margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px;
+    }
+    .person-show-credit-tag {
+      font-size: 11px; background: #f0ece4; color: #6b6459; border-radius: 5px;
+      padding: 2px 8px; font-weight: 600;
+    }
+    .person-show-perfs {
+      font-size: 11px; color: #aaa49a; margin-top: 5px;
+    }
+
+    /* Person sidebar */
+    .person-sidebar-card {
+      background: #fff; border-radius: 16px; padding: 20px 22px; margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .person-sidebar-card-title {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.16em; color: #c9a84c; margin-bottom: 14px;
+    }
+    .person-sidebar-stat-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 8px 0; border-bottom: 1px solid #f0ece4; font-size: 13px;
+    }
+    .person-sidebar-stat-row:last-child { border-bottom: none; }
+    .person-sidebar-stat-label { color: #6b6459; }
+    .person-sidebar-stat-val { font-weight: 700; color: #1a1714; }
+
+    /* Person photo gallery */
+    .person-photo-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px;
+    }
+    .person-photo-grid img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .person-photo-grid img:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .person-hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .person-body-inner { grid-template-columns: 1fr; }
+      .person-sidebar { order: -1; }
+      .person-stats-row { gap: 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="presentkort.html" class="nav-pill">Presentkort</a>
+        <a href="merch.html" class="nav-pill">Webbshop</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill nav-pill--active">Tidigare föreställningar</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════
+       ARCHIVE GRID VIEW
+  ════════════════════════════════ -->
+  <div id="archive-view">
+
+    <!-- Hero banner with ensemble photo -->
+    <div class="archive-hero-banner" style="padding-top: 66px;">
+      <div class="archive-hero-banner-bg" aria-hidden="true"></div>
+      <div class="archive-hero-banner-content">
+        <span class="archive-eyebrow">Sommarteatern Ystad · Sedan 2006</span>
+        <h1 class="archive-title">Tidigare<br>föreställningar</h1>
+        <p class="archive-sub">Tjugo somrar av musikaler, äventyr och minnen. Utforska varje föreställning i detalj.</p>
+      </div>
+    </div>
+
+    <!-- Grid content -->
+    <div class="archive-content">
+      <div class="container">
+        <div class="decade-tabs" id="decadeTabs">
+          <button class="decade-tab active" data-decade="all">Alla</button>
+          <button class="decade-tab" data-decade="2020">2020-talet</button>
+          <button class="decade-tab" data-decade="2010">2010-talet</button>
+          <button class="decade-tab" data-decade="2000">2000-talet</button>
+        </div>
+
+        <div class="shows-grid" id="showsGrid"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════
+       WIKI VIEW
+  ════════════════════════════════ -->
+  <div id="wiki-view">
+    <!-- Topbar with back button -->
+    <div class="wiki-topbar" style="padding-top: 80px;">
+      <div class="container wiki-topbar-inner">
+        <button class="wiki-back-btn" id="backBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Tillbaka
+        </button>
+        <div class="wiki-breadcrumb">
+          Tidigare föreställningar <span>›</span> <span id="wikiBreadcrumb"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero (dark) -->
+    <div class="wiki-hero">
+      <div class="container wiki-hero-inner">
+        <div class="wiki-poster-wrap">
+          <img id="wikiPoster" src="" alt="" class="wiki-poster" style="display:none;">
+          <div id="wikiPosterPlaceholder" class="wiki-poster-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Affisch<br>laddas upp</span>
+          </div>
+        </div>
+        <div class="wiki-hero-info">
+          <span class="wiki-year-pill" id="wikiYear"></span>
+          <h1 class="wiki-show-title" id="wikiTitle"></h1>
+          <span class="wiki-slogan" id="wikiSlogan"></span>
+          <div class="fact-cards" id="wikiFactCards"></div>
+          <div class="wiki-nav-row" id="wikiNavRow"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body (light) -->
+    <div class="wiki-body">
+      <div class="container wiki-body-inner">
+        <div class="wiki-sections" id="wikiSections"></div>
+        <aside class="wiki-sidebar" id="wikiSidebar"></aside>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════
+       PERSON VIEW
+  ════════════════════════════════ -->
+  <div id="person-view" style="display:none;">
+
+    <!-- Topbar -->
+    <div class="wiki-topbar" style="padding-top: 80px;">
+      <div class="container wiki-topbar-inner">
+        <button class="wiki-back-btn" id="personBackBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Tillbaka
+        </button>
+        <div class="wiki-breadcrumb">
+          Tidigare föreställningar <span>›</span> Ensemble <span>›</span> <span id="personBreadcrumb"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero (dark) -->
+    <div class="person-hero">
+      <div class="container person-hero-inner">
+        <div class="person-avatar-wrap">
+          <img id="personAvatar" src="" alt="" class="person-avatar" style="display:none;"
+            onerror="this.style.display='none';document.getElementById('personAvatarPh').style.display='flex';">
+          <div id="personAvatarPh" class="person-avatar-ph">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+        </div>
+        <div class="person-hero-info">
+          <h1 class="person-name" id="personName"></h1>
+          <p class="person-subtitle" id="personSubtitle"></p>
+          <div class="person-stats-row" id="personStatsRow"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body (light) -->
+    <div class="person-body">
+      <div class="container person-body-inner">
+        <div class="person-main" id="personMain"></div>
+        <aside class="person-sidebar" id="personSidebar"></aside>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Stäng">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Föregående">‹</button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Nästa">›</button>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="musik.html">Musik</a>
+            <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Sommarteatern Ystad. Ideell förening.</span>
+        <span><a href="kontakt.html">Kontakt</a> · <a href="om-sommarteatern.html">Om oss</a></span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+  // ═══════════════════════════════════════════════════════════
+  // ARKIVDATA — Senast uppdaterad från Google Sheets: 2026-04-03
+  // För att uppdatera: be Claude hämta ny data från Google Sheets
+  // och ersätta SHOWS-arrayen nedan.
+  // Sheets-länk: https://docs.google.com/spreadsheets/d/e/2PACX-1vSy3gkiLWkYrq6t_9MdtixM2G0k8ThszGGfkMld2dgCcxFoG6ALqIRBCcyg5CfRMIwSJfzcD3YY6B71/pub?output=csv
+  // ═══════════════════════════════════════════════════════════
+
+  const SHOWS = [
+    {
+      title: 'Skattkammarön',
+      year: 2025,
+      performances: null,
+      poster: 'images/skattkammarön2025.jpg',
+      slogan: 'En äventyrlig musikal för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green',
+        'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Max Ivarsson',
+        'Ljud': 'Erik Thörnqvist, Ossian Höglund',
+        'Premiär': '6 juli 2025',
+        'Sista föreställning': '3 augusti 2025'
+      },
+      photos: { prefix: 'SKATT', count: 47 },
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Jim Hawkins har ett efternamn som är känt över hela världen. Han kommer från en lång rad av de bästa skattjägarna som någonsin seglat haven. Män som alla skapat sin egen plats i historieböckerna, som aldrig kommer bli bortglömda. För att fylla ut sin egen historia ger han sig iväg på en jakt efter den största skatten som någonsin blivit begravd. Tillsammans med sin besättning lägger han ankare vid en ö som ryktas vara dess gömställe. Men att hitta den visar sig svårare än han väntat sig. Inte minst på grund av öborna som lärt sig avsky lyckosökande pirater som länsar deras hem. På horisonten flyter ett skepp med svart flagg. Ombord väntar rivaler som tänker göra allt för att stoppa hans framfart. På Skattkammarön kolliderar alla i en storm som kommer ändra allt för gott.'
+        },
+        {
+          title: 'Musiken',
+          text: '2025 var första året som Frida Green skrev musiken till föreställningen helt själv. Det här sa hon själv om musiken till Skattkammarön:\n\n"Jag tänkte att jag skulle få med så mycket fart och fläkt som det bara gick, så att man under hela musikalen får behålla äventyrskänslan! Jag blev överraskat nöjd över Long John Silver. Jag kämpade för att få till den och tycker att den blev väldigt ball! Det är en sån låt man känner sig lite stolt över i efterhand."'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Jim', 'Max Ivarsson'],
+            ['Dea', 'Olivia Eriksson'],
+            ['Kocken', 'Eva-Lotta Larsson'],
+            ['Blodtörstiga Bill', 'Hannes Nilsson'],
+            ['Kalle Boom', 'Alexander Ståhl'],
+            ['Kapten', 'Hedda Cederholm'],
+            ['Doktorn', 'Frida Ljunggren'],
+            ['Grabben', 'Aron Möller'],
+            ['Kort John Silver', 'Emil Andersson'],
+            ['Fadde Fyrfinger', 'Adrian Skoog'],
+            ['Enögda Jerry', 'Zeb Månsson'],
+            ['Lena', 'Miranda Holmberg'],
+            ['Mesmaja', 'Greta Ivansson'],
+            ['Spiken', 'Hilda Mårtensson'],
+            ['Gamle Jim', 'Jimmy Johansson'],
+            ['Mamma', 'Sofie Eriksson'],
+            ['Syster', 'My Holmquist'],
+            ['Lillasyster', 'Daniella Nilsson'],
+            ['Freya', 'Alicia Nilsson'],
+            ['Köksmästaren', 'Alice Zeylon'],
+            ['Diskare', 'Ida Sjö'],
+            ['Piratdiskare', 'Loke Åkesson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Hans & Greta',
+      year: 2024,
+      performances: null,
+      poster: 'images/hansgreta2024.jpg',
+      slogan: 'En läcker musikal för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Max Ivarsson, Hannes Nilsson',
+        'Ljud': 'Erik Thörnqvist, Ossian Höglund',
+        'Premiär': '7 juli 2024',
+        'Sista föreställning': '4 augusti 2024'
+      },
+      photos: { prefix: 'HG', count: 42 },
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Flera år har passerat sedan Hans & Greta knackade på dörren till huset klätt i sötsaker. Brödsmulorna försvann och stigen hem gick förlorad. Nu har de två syskonen enbart varandra och tvingas till ett liv av tjuvaktighet för att få tak över huvudet. I en fattig by, styrd av en ond häxa och hennes man, slösar de bort det lilla hopp de en gång hade om att livet skulle kunna vara bekymmersfritt.\n\nSamtidigt, högt uppe på berget bor en hertigfamilj i kris. Den äldste sonen tvingas till tronen trots protester och änkehertiginnan insisterar på gamla traditioners efterlevnad. Som av en slump kolliderar de två världarna och framkallar ett händelseförlopp som kommer förändra båda deras sätt att leva för all framtid.'
+        },
+        {
+          title: 'Musiken',
+          text: 'Frida Greens ord om musiken:\n\n"Årets skrivande har varit jätteroligt! Två olika klass-sidor, fattiga och rika, och därmed två olika sound. Ibland har det varit lätt och ibland har det varit svårt. Till exempel så finns det 11 versioner av Tjuvlåten i min dator, där jag fick testa mig fram på olika sätt för att slutligen ha skapat den version som Anna tummade upp och godkände. Ibland är det ett rakt led från idé till låt och ibland är det en lite krokigare väg med 11 hinder. Oavsett vilken väg varje låt har tagit, så är jag väldigt stolt över slutresultatet."\n\nChristoffer Zaars ord om musiken:\n\n"De låtar som jag fick äran att skriva till årets föreställning har jag gjort på ett, för mig, annorlunda sätt. Gitarren är ofta min go-to i låtskrivandet, därför ville jag utmana mig själv och skrev rubbet med piano som grund. Jag har jobbat extra med annorlunda rytmer och på så sätt kanske fått till något stökigare låtar."'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Hans', 'William Schmatz'],
+            ['Greta', 'Frida Ljunggren'],
+            ['Odilia', 'Anna Ståhl'],
+            ['Wolker', 'Alexander Ståhl'],
+            ['Philomena', 'Hedda Cederholm'],
+            ['Franz', 'Max Ivarsson'],
+            ['Kaspar', 'Alexander Hedin Basdajian'],
+            ['Bastian', 'Zeb Månsson'],
+            ['Egon', 'Aron Möller'],
+            ['Elenora', 'Eva-Lotta Larsson'],
+            ['Fru Aldebrand', 'Sofie Eriksson'],
+            ['Miriam', 'My Holmquist'],
+            ['Valentina', 'Ellen Leufstedt'],
+            ['Pascal', 'Emil Andersson'],
+            ['Oswald', 'Hannes Nilsson'],
+            ['Olga', 'Alicia Nilsson'],
+            ['Lydia', 'Olivia Eriksson'],
+            ['Ralp', 'Loke Åkesson'],
+            ['Theo Tålös', 'Jimmy Johansson'],
+            ['Jobin', 'Adrian Skoog']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Romeo & Julia',
+      year: 2023,
+      performances: null,
+      poster: 'images/romeojulia2023.jpg',
+      slogan: 'En spännande musikal för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Hannes Nilsson, Max Ivarsson',
+        'Ljud': 'Erik Jönsson, Ludwig Thorstensson',
+        'Premiär': '9 juli 2023',
+        'Sista föreställning': '6 augusti 2023'
+      },
+      photos: { prefix: 'RJ', count: 69 },
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Det ryktas om att släkterna Montague och Capulet en gång i tiden var de bästa av vänner. En rasad gruva och många år senare känns de vackra minnena nu som avlägsna drömmar. Bandet mellan dem har ersatts av en tunna krut, redo att explodera. Blotta åsynen av rivalen riskerar att vara lågan som tänder stubinen. Men inte för två av dem — familjernas arvingar: Romeo och Julia.\n\nNär deras känslor för varandra blir för starka för att ignorera dras hela byn Verona in i ett bisarrt händelseförlopp som kommer att förändra deras historia för alltid.'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Romeo Montague', 'Alexander Hedin Basdajian'],
+            ['Julia Capulet', 'Hedda Cederholm'],
+            ['Tilly Montague', 'Anna Ståhl'],
+            ['Gaile Montague', 'Eva-Lotta Larsson'],
+            ['Kit Capulet', 'Jimmy Johansson'],
+            ['Alice Capulet', 'Nicole Holmquist'],
+            ['Jesse Capulet', 'Max Ivarsson'],
+            ['Ella Capulet', 'Frida Ljunggren'],
+            ['Faster Capulet', 'Ebba Jönsson'],
+            ['Chester', 'Hannes Nilsson'],
+            ['Billie Lee', 'Ellen Leufstedt'],
+            ['Edgar', 'William Schmatz'],
+            ['Försäljaren', 'Loke Åkesson'],
+            ['Bankdirektören', 'Emil Andersson'],
+            ['Nettie', 'Olivia Eriksson'],
+            ['Pampen', 'Alexander Ståhl'],
+            ['Rosa', 'Alicia Nilsson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Törnrosa',
+      year: 2022,
+      performances: null,
+      poster: 'images/törnrosa2022.jpg',
+      slogan: 'En vass familjemusikal vid Åbergs Trädgård',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Hannes Nilsson',
+        'Premiär': '10 juli 2022',
+        'Sista föreställning': '7 augusti 2022'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Det har gått över en generation sedan kungen och drottningen mötte sitt oväntade öde. Det finns inte längre någon kvar i staden med minnen från tiden då träden blomstrade, men såren finns kvar. Ännu sörjer folket deras dotter i hemlighet, den lovade prinsessan som gick upp i rök.\n\nUnder ytan, bakom stängda dörrar finns grupper som lovat att inte ge upp förrän tronen rättmätigt är hennes, något som den tillförordnande regenten gör allt för att stoppa. Vi hoppar in i mitten av ett långt pågående krig mellan tyranni och frihet. Precis när hoppet börjar sina sker det som ena sidan fruktat och den andra drömt om. Hon är tillbaka.'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Törnrosa', 'Elin Malmborg'],
+            ['Mor Briana', 'Anna Ståhl'],
+            ['Quinn', 'Ellen Leufstedt'],
+            ['Erin', 'Li Englén'],
+            ['Alana', 'Hedda Cederholm'],
+            ['Mera', 'Emelie Resman'],
+            ['Leslie', 'Hilda Mårtensson'],
+            ['Killian', 'Max Ivarsson'],
+            ['Cedrick', 'Hannes Nilsson'],
+            ['Devin', 'Alexander Hedin Basdajian'],
+            ['Paddy', 'Alexander Ståhl']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Kung Arthur',
+      year: 2021,
+      performances: null,
+      poster: 'images/kungarthur2021.jpg',
+      slogan: 'En legendarisk familjemusikal vid Åbergs Trädgård',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Manus': 'Filip Jönsson, Hilda Ståhl, Anna Ståhl, Hannes Nilsson',
+        'Premiär': '11 juli 2021',
+        'Sista föreställning': '8 augusti 2021'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Ett kungarike i kris skriker efter hjälp — utan ledare är Britannia försvarslöst och rivaler världen över ser sin chans att slå till. Folket börjar viska en bortglömd legend om en sten, om ett svärd och om en kung. Allting vänds upp och ner när denna kung visar sig vara någon helt annan än förväntat.\n\nArthur är en helt vanlig kille som saknar alla de färdigheter som behövs för att kunna leda landet framåt. Men det är så det är skrivet och då också så det ska vara. Arthur drar svärdet och tvingas kämpa mot fördomar, förtryck och förakt i en berättelse om gemenskap under mörka moln. Under resan stöter han på ädla riddare och runda bord. Trollkarlar och magiska väsen. Vänner och fiender.'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Arthur', 'Hannes Nilsson'],
+            ['Guinevere', 'Ellen Leufstedt'],
+            ['Lancelot', 'Filip Jönsson'],
+            ['Morgana', 'Anna Ståhl'],
+            ['Cei', 'Emma Nilsson'],
+            ['Galahad', 'Emil Andersson'],
+            ['Agravain', 'Nicole Holmquist'],
+            ['Percival', 'Alexander Hedin Basdajian'],
+            ['Merlin', 'Alexander Ståhl'],
+            ['Arvast', 'Loke Åkesson'],
+            ['Lady of the Lake', 'Sofie Eriksson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Sommarteatern Genom Tiderna',
+      year: 2020,
+      performances: null,
+      poster: 'images/sommarteaterngenomtiderna2020.jpg',
+      slogan: 'En jubileumsföreställning',
+      facts: {
+        'Premiär': '1 augusti 2020',
+        'Sista föreställning': '9 augusti 2020'
+      },
+      photos: null,
+      sections: []
+    },
+    {
+      title: 'De Tre Musketörerna',
+      year: 2019,
+      performances: null,
+      poster: 'images/detremusketörerna2019.jpg',
+      slogan: 'En fängslande musikal',
+      facts: {
+        'Regissör': 'Hilda Ståhl, Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Manus': 'Filip Jönsson, Hilda Ståhl, Anna Ståhl, Hannes Nilsson',
+        'Premiär': '7 juli 2019',
+        'Sista föreställning': '4 augusti 2019'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ["D'Artagnan", 'Ellen Leufstedt'],
+            ['Athos', 'Alexander Ståhl'],
+            ['Porthos', 'Max Ivarsson'],
+            ['Aramis', 'Filip Jönsson'],
+            ['Kardinalen', 'Hannes Nilsson'],
+            ['Milady', 'Sofie Eriksson'],
+            ['Slisken', 'William Schmatz'],
+            ['Drottningen', 'Elin Malmborg']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Herkules',
+      year: 2018,
+      performances: null,
+      poster: 'images/herkules2018.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Premiär': '8 juli 2018',
+        'Sista föreställning': '5 augusti 2018'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Herkules', 'Max Ivarsson'],
+            ['Zeus', 'Alexander Ståhl'],
+            ['Hera', 'Nicole Holmquist'],
+            ['Apollon', 'Hannes Nilsson'],
+            ['Athena', 'Anna Ståhl'],
+            ['Poseidon', 'Jimmy Johansson'],
+            ['Dionysos', 'Amadeus Hedin Basdajian'],
+            ['Eros', 'Elias Iwenstam']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Lilla Sjöjungfrun',
+      year: 2017,
+      performances: null,
+      poster: 'images/lillasjöjungfrun2017.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musikregi': 'Anna Ståhl',
+        'Musik': 'Frida Green, Christoffer Zaar',
+        'Premiär': '9 juli 2017',
+        'Sista föreställning': '6 augusti 2017'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Lilla Sjöjungfrun', 'Elin Malmborg'],
+            ['Alton', 'Filip Jönsson'],
+            ['Kungen', 'Jimmy Johansson'],
+            ['Faster Ulrika', 'Eva-Lotta Larsson'],
+            ['Hovis', 'Emma Nilsson'],
+            ['Kusette', 'Anna Ståhl'],
+            ['Corall', 'Elise Isaksson'],
+            ['Pärla', 'Ira Skoog']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Askungen',
+      year: 2016,
+      performances: null,
+      poster: 'images/askungen2016.jpg',
+      slogan: 'En förtrollad musikal för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl, Anna Ståhl',
+        'Musik': 'David Hansson',
+        'Premiär': '3 juli 2016',
+        'Sista föreställning': '31 juli 2016'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Askungen/Fanny', 'Elise Isaksson'],
+            ['Prinsen', 'Filip Jönsson'],
+            ['Styvmor', 'Sofie Eriksson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Djungelboken',
+      year: 2015,
+      performances: null,
+      poster: 'images/djungelboken2015.jpg',
+      slogan: 'En spännande familjemusikal',
+      facts: {
+        'Regissör': 'Hilda Ståhl, Anna Ståhl',
+        'Musik': 'Anna Ståhl, Lois Ivarsson',
+        'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson',
+        'Premiär': '5 juli 2015',
+        'Sista föreställning': '2 augusti 2015'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Mowgli', 'Filip Jönsson'],
+            ['Baloo', 'Alexander Ståhl'],
+            ['Bagera', 'Jimmy Johansson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Alice i Underlandet',
+      year: 2014,
+      performances: null,
+      poster: 'images/aliceiunderlandet2014.jpg',
+      slogan: 'En musikal för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl, Anna Ståhl',
+        'Musik': 'David Hansson',
+        'Premiär': '6 juli 2014',
+        'Sista föreställning': '3 augusti 2014'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Alice', 'Evelina Andersson'],
+            ['Hattmakaren', 'Filip Jönsson'],
+            ['Kaninen', 'Jimmy Johansson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Snövit',
+      year: 2013,
+      performances: null,
+      poster: 'images/snövit2013.jpg',
+      slogan: 'En klassisk saga som ni aldrig sett den förut',
+      facts: {
+        'Regissör': 'Hilda Ståhl, Anna Ståhl',
+        'Musik': 'David Hansson',
+        'Premiär': '7 juli 2013',
+        'Sista föreställning': '4 augusti 2013'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Snövit', 'Josefin Stridh'],
+            ['Prinsen', 'Filip Jönsson'],
+            ['Drottningen', 'Anna Ståhl']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Peter Pan',
+      year: 2012,
+      performances: null,
+      poster: 'images/peterpan2012.jpg',
+      slogan: 'Ett musikaliskt äventyr för hela familjen',
+      facts: {
+        'Regissör': 'Hilda Ståhl',
+        'Musik': 'Anna Ståhl',
+        'Premiär': '8 juli 2012',
+        'Sista föreställning': '5 augusti 2012'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Peter Pan', 'Hampus Nilsson'],
+            ['Wendy', 'Elise Isaksson'],
+            ['Tingeling', 'Evelina Andersson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Ture Sventon',
+      year: 2011,
+      performances: null,
+      poster: 'images/turesventon2011.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Thommy Hansson, Hilda Ståhl',
+        'Musik': 'David Hansson',
+        'Premiär': '10 juli 2011',
+        'Sista föreställning': '7 augusti 2011'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Ture Sventon', 'Jimmy Johansson'],
+            ['Fröken Jansson', 'Anna Ståhl'],
+            ['Ville Vessla', 'Filip Jönsson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Pelle Svanslös',
+      year: 2010,
+      performances: null,
+      poster: 'images/pellesvanslös2010.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Thommy Hansson, Hilda Ståhl',
+        'Musik': 'David Hansson',
+        'Premiär': '4 juli 2010',
+        'Sista föreställning': '1 augusti 2010'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Pelle Svanslös', 'Filip Jönsson'],
+            ['Maja Gräddnos', 'Elise Isaksson'],
+            ['Måns', 'Alexander Ståhl']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Ronja Rövardotter',
+      year: 2009,
+      performances: null,
+      poster: 'images/ronja2009.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Thommy Hansson',
+        'Premiär': '5 juli 2009',
+        'Sista föreställning': '2 augusti 2009'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Ronja Rövardotter', 'Elise Isaksson / Olivia Nevelin'],
+            ['Birk Borkasson', 'Filip Jönsson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Bombi Bitt och Jag',
+      year: 2008,
+      performances: null,
+      poster: 'images/bombibitt2008.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Thommy Hansson',
+        'Musik': 'David Hansson',
+        'Premiär': '14 juli 2008',
+        'Sista föreställning': '31 juli 2008'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Bombi Bitt', 'Hampus Nilsson'],
+            ['Eli', 'William Nilsson'],
+            ['Vricklund', 'Jimmy Johansson']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Robin Hood',
+      year: 2007,
+      performances: null,
+      poster: 'images/robinhood2007.jpg',
+      slogan: 'En unik föreställning, för första gången i Ystad',
+      facts: {
+        'Regissör': 'Thommy Hansson',
+        'Musik': 'David Hansson',
+        'Premiär': '9 juli 2007',
+        'Sista föreställning': '5 augusti 2007'
+      },
+      photos: null,
+      sections: [
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Robin Hood', 'Martin Ekdahl'],
+            ['Marion', 'Ebba Dahlberg / Elinor Diaz'],
+            ['Prins John', 'Anna Ståhl']
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Lejonkungen',
+      year: 2006,
+      performances: null,
+      poster: 'images/lejonkungen2006.jpg',
+      slogan: '',
+      facts: {
+        'Regissör': 'Thommy Hansson',
+        'Premiär': '4 juli 2006',
+        'Sista föreställning': '25 juli 2006'
+      },
+      photos: null,
+      sections: []
+    }
+  ];
+
+  // ─── STATE ───
+  let currentShowIndex = null;
+  let lightboxPhotos = [];
+  let lightboxIndex = 0;
+
+  // ─── GRID ───
+  function renderGrid(filter) {
+    const grid = document.getElementById('showsGrid');
+    const shows = filter === 'all' ? SHOWS
+      : SHOWS.filter(s => {
+          if (filter === '2020') return s.year >= 2020;
+          if (filter === '2010') return s.year >= 2010 && s.year < 2020;
+          if (filter === '2000') return s.year < 2010;
+          return true;
+        });
+
+    grid.innerHTML = shows.map((show, i) => {
+      const realIndex = SHOWS.indexOf(show);
+      return `
+        <div class="show-card" onclick="openWiki(${realIndex})" role="button" tabindex="0" aria-label="${show.title} ${show.year}">
+          <div class="show-card-img-wrap">
+            <img
+              class="show-card-img"
+              src="${show.poster}"
+              alt="${show.title} affisch"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              loading="lazy">
+            <div class="show-card-no-img" style="display:none;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Affisch<br>kommer</span>
+            </div>
+            <div class="show-card-overlay">
+              <span class="show-card-year">${show.year}</span>
+              <div class="show-card-title">${show.title}</div>
+            </div>
+          </div>
+          <div class="show-card-body">
+            ${show.slogan ? `<div class="show-card-slogan">${show.slogan}</div>` : ''}
+            <div class="show-card-arrow">Läs mer →</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Keyboard nav
+    grid.querySelectorAll('.show-card').forEach(card => {
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') card.click();
+      });
+    });
+  }
+
+  // ─── DECADE TABS ───
+  document.getElementById('decadeTabs').addEventListener('click', e => {
+    const tab = e.target.closest('.decade-tab');
+    if (!tab) return;
+    document.querySelectorAll('.decade-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderGrid(tab.dataset.decade);
+  });
+
+  // ─── WIKI ───
+  function openWiki(index) {
+    currentShowIndex = index;
+    const show = SHOWS[index];
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Breadcrumb
+    document.getElementById('wikiBreadcrumb').textContent = show.title + ' ' + show.year;
+
+    // Year + title + slogan
+    document.getElementById('wikiYear').textContent = show.year;
+    document.getElementById('wikiTitle').textContent = show.title;
+    const sloganEl = document.getElementById('wikiSlogan');
+    if (show.slogan) {
+      sloganEl.textContent = '\u201C' + show.slogan + '\u201D';
+      sloganEl.style.display = 'block';
+    } else {
+      sloganEl.style.display = 'none';
+    }
+
+    // Poster
+    const posterImg = document.getElementById('wikiPoster');
+    const posterPh  = document.getElementById('wikiPosterPlaceholder');
+    posterImg.src = show.poster;
+    posterImg.alt = show.title + ' affisch';
+    posterImg.style.display = 'block';
+    posterPh.style.display = 'none';
+    posterImg.onerror = () => {
+      posterImg.style.display = 'none';
+      posterPh.style.display = 'flex';
+    };
+
+    // Fact cards
+    const factsEl = document.getElementById('wikiFactCards');
+    factsEl.innerHTML = Object.entries(show.facts).map(([k, v]) =>
+      v ? `<div class="fact-card"><span class="fact-card-label">${k}</span><div class="fact-card-value">${v}</div></div>` : ''
+    ).join('');
+
+    // Prev / Next
+    const navRow = document.getElementById('wikiNavRow');
+    navRow.innerHTML = '';
+    if (index > 0) {
+      const btn = document.createElement('button');
+      btn.className = 'wiki-nav-btn';
+      btn.innerHTML = '‹ ' + SHOWS[index - 1].year + ' ' + SHOWS[index - 1].title;
+      btn.onclick = () => openWiki(index - 1);
+      navRow.appendChild(btn);
+    }
+    if (index < SHOWS.length - 1) {
+      const btn = document.createElement('button');
+      btn.className = 'wiki-nav-btn';
+      btn.innerHTML = SHOWS[index + 1].year + ' ' + SHOWS[index + 1].title + ' ›';
+      btn.onclick = () => openWiki(index + 1);
+      navRow.appendChild(btn);
+    }
+
+    // Sections
+    const sectionsEl = document.getElementById('wikiSections');
+    sectionsEl.innerHTML = '';
+    show.sections.forEach(sec => {
+      const div = document.createElement('div');
+      div.className = 'wiki-section';
+      if (sec.cast) {
+        div.innerHTML = `<h2 class="wiki-section-title">${sec.title}</h2>
+          <div class="wiki-cast-grid">
+            ${sec.cast.map(([role, name]) => {
+              // Handle split names like "Elise Isaksson / Olivia Nevelin"
+              const nameHtml = name.split('/').map(n => n.trim())
+                .map(n => `<button class="cast-name-btn" onclick="openPerson('${n.replace(/'/g,"\\'")}', ${currentShowIndex})">${n}</button>`)
+                .join('<span style="color:#9a9088"> / </span>');
+              return `<div class="wiki-cast-row">
+                <span class="wiki-cast-role">${role}</span>
+                <span class="wiki-cast-name">${nameHtml}</span>
+              </div>`;
+            }).join('')}
+          </div>`;
+      } else {
+        div.innerHTML = `<h2 class="wiki-section-title">${sec.title}</h2>
+          <div class="wiki-section-text">${esc(sec.text)}</div>`;
+      }
+      sectionsEl.appendChild(div);
+    });
+
+    // Photos in sections
+    if (show.photos) {
+      buildPhotoSection(show, sectionsEl);
+    }
+
+    // Sidebar
+    buildSidebar(show);
+
+    // Show wiki, hide grid
+    document.getElementById('archive-view').style.display = 'none';
+    document.getElementById('wiki-view').style.display = 'block';
+    document.body.style.background = '#06040a';
+    document.querySelector('.site-footer').style.background = 'linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%)';
+  }
+
+  function buildPhotoSection(show, container) {
+    const { prefix, count } = show.photos;
+    const photos = [];
+    for (let i = 1; i <= count; i++) photos.push(`images/${prefix}${i}.jpg`);
+    lightboxPhotos = photos;
+
+    const SHOW_INIT = 9;
+    const section = document.createElement('div');
+    section.className = 'wiki-section photo-gallery';
+
+    const displayed = photos.slice(0, SHOW_INIT);
+    const remaining = photos.slice(SHOW_INIT);
+
+    section.innerHTML = `
+      <h2 class="wiki-section-title">Bilder från föreställningen</h2>
+      <div class="photo-grid" id="photoGrid">
+        ${displayed.map((src, i) => `<img src="${src}" alt="Bild ${i+1} från ${show.title}" loading="lazy" data-index="${i}">`).join('')}
+      </div>
+      ${remaining.length ? `<button class="photo-show-more" id="photoShowMore">Visa fler bilder (${remaining.length} till)</button>` : ''}`;
+
+    container.appendChild(section);
+
+    // Lightbox click
+    section.querySelector('#photoGrid').addEventListener('click', e => {
+      const img = e.target.closest('img');
+      if (!img) return;
+      openLightbox(parseInt(img.dataset.index));
+    });
+
+    // Show more
+    const moreBtn = section.querySelector('#photoShowMore');
+    if (moreBtn) {
+      let shownCount = SHOW_INIT;
+      moreBtn.addEventListener('click', () => {
+        const grid = section.querySelector('#photoGrid');
+        const nextBatch = photos.slice(shownCount, shownCount + 12);
+        nextBatch.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `Bild ${shownCount + i + 1} från ${show.title}`;
+          img.loading = 'lazy';
+          img.dataset.index = shownCount + i;
+          img.addEventListener('click', () => openLightbox(shownCount + i));
+          grid.appendChild(img);
+        });
+        shownCount += nextBatch.length;
+        if (shownCount >= photos.length) moreBtn.remove();
+        else moreBtn.textContent = `Visa fler bilder (${photos.length - shownCount} till)`;
+      });
+    }
+  }
+
+  function buildSidebar(show) {
+    const sidebar = document.getElementById('wikiSidebar');
+    sidebar.innerHTML = '';
+
+    // Facts card
+    const factsCard = document.createElement('div');
+    factsCard.className = 'wiki-sidebar-card';
+    factsCard.innerHTML = `
+      <div class="sidebar-card-title">Fakta</div>
+      ${Object.entries(show.facts).filter(([,v]) => v).map(([k, v]) => `
+        <div class="sidebar-fact-row">
+          <span class="sidebar-fact-label">${k}</span>
+          <span class="sidebar-fact-value">${v}</span>
+        </div>`).join('')}`;
+    sidebar.appendChild(factsCard);
+
+    // Navigation card
+    const navCard = document.createElement('div');
+    navCard.className = 'wiki-sidebar-card';
+    navCard.innerHTML = `<div class="sidebar-card-title">Arkivet</div>`;
+    SHOWS.slice(0, 8).forEach((s, i) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'padding:7px 0;border-bottom:1px solid #f0ece4;cursor:pointer;';
+      row.innerHTML = `<span style="font-size:12px;font-weight:700;color:${i === currentShowIndex ? '#c9a84c' : '#1a1714'}">${s.year} — ${s.title}</span>`;
+      row.onclick = () => openWiki(i);
+      navCard.appendChild(row);
+    });
+    if (SHOWS.length > 8) {
+      const more = document.createElement('div');
+      more.style.cssText = 'padding-top:8px;font-size:11px;color:#9a9088;';
+      more.textContent = `+ ${SHOWS.length - 8} fler föreställningar i arkivet`;
+      navCard.appendChild(more);
+    }
+    sidebar.appendChild(navCard);
+  }
+
+  function esc(str) {
+    return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ─── BACK ───
+  document.getElementById('backBtn').addEventListener('click', () => {
+    document.getElementById('wiki-view').style.display = 'none';
+    document.getElementById('archive-view').style.display = 'block';
+    document.body.style.background = '#f2efe8';
+    document.querySelector('.site-footer').style.background = 'transparent';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  // ─── LIGHTBOX ───
+  function openLightbox(index) {
+    lightboxIndex = index;
+    document.getElementById('lightboxImg').src = lightboxPhotos[index];
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  document.getElementById('lightboxClose').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.getElementById('lightboxPrev').addEventListener('click', () => {
+    lightboxIndex = (lightboxIndex - 1 + lightboxPhotos.length) % lightboxPhotos.length;
+    document.getElementById('lightboxImg').src = lightboxPhotos[lightboxIndex];
+  });
+  document.getElementById('lightboxNext').addEventListener('click', () => {
+    lightboxIndex = (lightboxIndex + 1) % lightboxPhotos.length;
+    document.getElementById('lightboxImg').src = lightboxPhotos[lightboxIndex];
+  });
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightbox')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+    if (e.key === 'Escape') document.getElementById('lightboxClose').click();
+  });
+
+  // ─── PERSON INDEX ───
+  function buildPersonIndex() {
+    const persons = {};
+
+    function addPerson(name) {
+      const n = name.trim();
+      if (!n) return;
+      if (!persons[n]) persons[n] = { castRoles: [], productionRoles: [], photos: [] };
+    }
+
+    SHOWS.forEach(function(show) {
+      // Cast roles
+      show.sections.forEach(function(sec) {
+        if (!sec.cast) return;
+        sec.cast.forEach(function(pair) {
+          const role = pair[0], rawName = pair[1];
+          rawName.split('/').map(function(n){ return n.trim(); }).forEach(function(name) {
+            addPerson(name);
+            persons[name].castRoles.push({ show: show, role: role });
+          });
+        });
+      });
+
+      // Production credits from facts
+      var creditKeys = ['Regissör', 'Musikregi', 'Manus', 'Musik', 'Koreografi', 'Ljud'];
+      if (show.facts) {
+        creditKeys.forEach(function(key) {
+          if (!show.facts[key]) return;
+          show.facts[key].split(',').map(function(n){ return n.trim(); }).forEach(function(name) {
+            addPerson(name);
+            persons[name].productionRoles.push({ show: show, credit: key });
+          });
+        });
+      }
+    });
+
+    return persons;
+  }
+
+  var PERSONS = null;
+
+  function nameToSlug(name) {
+    return name.toLowerCase()
+      .replace(/å/g,'a').replace(/ä/g,'a').replace(/ö/g,'o')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-|-$/g,'');
+  }
+
+  function openPerson(name, fromShowIndex) {
+    if (!PERSONS) PERSONS = buildPersonIndex();
+    const person = PERSONS[name];
+    if (!person) return;
+
+    // Scroll top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Breadcrumb
+    document.getElementById('personBreadcrumb').textContent = name;
+
+    // Name
+    document.getElementById('personName').textContent = name;
+
+    // Avatar — look for images/persons/SLUG/profil.jpg
+    const slug = nameToSlug(name);
+    const avatarImg = document.getElementById('personAvatar');
+    const avatarPh  = document.getElementById('personAvatarPh');
+    avatarImg.src = 'images/persons/' + slug + '/profil.jpg';
+    avatarImg.alt = name;
+    avatarImg.style.display = 'block';
+    avatarPh.style.display = 'none';
+    avatarImg.onerror = function() {
+      avatarImg.style.display = 'none';
+      avatarPh.style.display = 'flex';
+    };
+
+    // Stats
+    var uniqueShows = [];
+    person.castRoles.forEach(function(r) {
+      if (!uniqueShows.includes(r.show)) uniqueShows.push(r.show);
+    });
+    person.productionRoles.forEach(function(r) {
+      if (!uniqueShows.includes(r.show)) uniqueShows.push(r.show);
+    });
+    var firstYear = Math.min.apply(null, uniqueShows.map(function(s){ return s.year; }));
+    var lastYear  = Math.max.apply(null, uniqueShows.map(function(s){ return s.year; }));
+    var yearsSpan = uniqueShows.length > 1 ? (lastYear - firstYear + 1) : 1;
+
+    var totalPerfs = uniqueShows.reduce(function(sum, s) {
+      return sum + (s.performances || 0);
+    }, 0);
+
+    // Subtitle
+    var subtitleParts = [];
+    var creditTypes = [];
+    person.productionRoles.forEach(function(r) {
+      if (!creditTypes.includes(r.credit)) creditTypes.push(r.credit);
+    });
+    if (person.castRoles.length > 0) subtitleParts.push('Skådespelare');
+    creditTypes.forEach(function(c) { subtitleParts.push(c); });
+    document.getElementById('personSubtitle').textContent = subtitleParts.join(' · ');
+
+    // Stats row
+    var statsEl = document.getElementById('personStatsRow');
+    var statsHTML = '';
+    statsHTML += '<div class="person-stat"><span class="person-stat-val">' + uniqueShows.length + '</span><span class="person-stat-label">Föreställningar</span></div>';
+    if (uniqueShows.length > 1) {
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + yearsSpan + '</span><span class="person-stat-label">År med Sommarteatern</span></div>';
+    }
+    if (totalPerfs > 0) {
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + totalPerfs + '</span><span class="person-stat-label">Spelningar totalt</span></div>';
+    }
+    statsEl.innerHTML = statsHTML;
+
+    // Main content — timeline
+    var mainEl = document.getElementById('personMain');
+    mainEl.innerHTML = '';
+
+    // Heading
+    var headEl = document.createElement('p');
+    headEl.className = 'person-timeline-head';
+    headEl.textContent = 'Karriär hos Sommarteatern';
+    mainEl.appendChild(headEl);
+
+    // Sort all shows by year descending
+    var allShows = uniqueShows.slice().sort(function(a,b){ return b.year - a.year; });
+
+    allShows.forEach(function(show) {
+      var entry = document.createElement('div');
+      entry.className = 'person-show-entry';
+      entry.onclick = function() {
+        closePerson();
+        openWiki(SHOWS.indexOf(show));
+      };
+
+      // Roles in this show
+      var castInShow = person.castRoles.filter(function(r){ return r.show === show; });
+      var creditsInShow = person.productionRoles.filter(function(r){ return r.show === show; });
+
+      var roleText = castInShow.map(function(r){ return r.role; }).join(', ');
+      var creditTagsHTML = creditsInShow.map(function(r){
+        return '<span class="person-show-credit-tag">' + r.credit + '</span>';
+      }).join('');
+
+      var perfText = show.performances ? show.performances + ' spelningar' : '';
+
+      entry.innerHTML =
+        '<img class="person-show-poster-mini" src="' + show.poster + '" alt="' + show.title + ' affisch" loading="lazy" onerror="this.style.display=\'none\'">' +
+        '<div class="person-show-details">' +
+          '<span class="person-show-year-tag">' + show.year + '</span>' +
+          '<p class="person-show-title">' + show.title + '</p>' +
+          (roleText ? '<p class="person-show-role">' + roleText + '</p>' : '') +
+          (creditTagsHTML ? '<div class="person-show-credits-list">' + creditTagsHTML + '</div>' : '') +
+          (perfText ? '<p class="person-show-perfs">' + perfText + '</p>' : '') +
+        '</div>';
+
+      mainEl.appendChild(entry);
+    });
+
+    // Sidebar
+    buildPersonSidebar(name, person, uniqueShows, slug);
+
+    // Show person view, hide wiki view
+    document.getElementById('wiki-view').style.display = 'none';
+    document.getElementById('person-view').style.display = 'block';
+    document.body.style.background = '#06040a';
+    document.querySelector('.site-footer').style.background = 'linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%)';
+  }
+
+  function buildPersonSidebar(name, person, uniqueShows, slug) {
+    var sidebar = document.getElementById('personSidebar');
+    sidebar.innerHTML = '';
+
+    // Stats card
+    var statsCard = document.createElement('div');
+    statsCard.className = 'person-sidebar-card';
+    var firstYear = Math.min.apply(null, uniqueShows.map(function(s){ return s.year; }));
+    var lastYear  = Math.max.apply(null, uniqueShows.map(function(s){ return s.year; }));
+    var totalPerfs = uniqueShows.reduce(function(sum, s){ return sum + (s.performances || 0); }, 0);
+
+    var statsRows = '';
+    statsRows += '<div class="person-sidebar-stat-row"><span class="person-sidebar-stat-label">Första år</span><span class="person-sidebar-stat-val">' + firstYear + '</span></div>';
+    statsRows += '<div class="person-sidebar-stat-row"><span class="person-sidebar-stat-label">Senaste år</span><span class="person-sidebar-stat-val">' + lastYear + '</span></div>';
+    statsRows += '<div class="person-sidebar-stat-row"><span class="person-sidebar-stat-label">Antal produktioner</span><span class="person-sidebar-stat-val">' + uniqueShows.length + '</span></div>';
+    if (totalPerfs > 0) {
+      statsRows += '<div class="person-sidebar-stat-row"><span class="person-sidebar-stat-label">Totalt antal spelningar</span><span class="person-sidebar-stat-val">' + totalPerfs + '</span></div>';
+    }
+    // Count unique cast roles
+    if (person.castRoles.length > 0) {
+      statsRows += '<div class="person-sidebar-stat-row"><span class="person-sidebar-stat-label">Roller spelat</span><span class="person-sidebar-stat-val">' + person.castRoles.length + '</span></div>';
+    }
+
+    statsCard.innerHTML = '<div class="person-sidebar-card-title">Statistik</div>' + statsRows;
+    sidebar.appendChild(statsCard);
+
+    // Photo gallery card — try to load images/persons/SLUG/1.jpg to /9.jpg
+    var photoCard = document.createElement('div');
+    photoCard.className = 'person-sidebar-card';
+    photoCard.innerHTML = '<div class="person-sidebar-card-title">Bilder</div><div class="person-photo-grid" id="personPhotoGrid"></div><p style="font-size:11px;color:#9a9088;margin-top:10px;" id="personPhotoHint">Laddar bilder…</p>';
+    sidebar.appendChild(photoCard);
+
+    // Lazy-load photos by probing
+    var photoGrid = photoCard.querySelector('#personPhotoGrid');
+    var photoHint = photoCard.querySelector('#personPhotoHint');
+    var loadedPhotos = [];
+    var photoIndex = 1;
+    var maxProbe = 20;
+
+    function probeNextPhoto() {
+      if (photoIndex > maxProbe) {
+        photoHint.textContent = loadedPhotos.length === 0 ? 'Inga bilder uppladdade ännu. Skapa mappen images/persons/' + slug + '/ och lägg bilder som 1.jpg, 2.jpg, …' : '';
+        return;
+      }
+      var img = new Image();
+      var src = 'images/persons/' + slug + '/' + photoIndex + '.jpg';
+      img.onload = function() {
+        var thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.alt = name + ' — bild ' + photoIndex;
+        thumb.loading = 'lazy';
+        thumb.addEventListener('click', function() {
+          lightboxPhotos = loadedPhotos.slice();
+          openLightbox(loadedPhotos.indexOf(src));
+        });
+        photoGrid.appendChild(thumb);
+        loadedPhotos.push(src);
+        photoIndex++;
+        probeNextPhoto();
+      };
+      img.onerror = function() {
+        // Gap or end — stop
+        if (loadedPhotos.length === 0) {
+          photoHint.textContent = 'Inga bilder uppladdade ännu. Skapa mappen images/persons/' + slug + '/ och lägg bilder som 1.jpg, 2.jpg, …';
+        } else {
+          photoHint.textContent = '';
+        }
+      };
+      img.src = src;
+    }
+    probeNextPhoto();
+  }
+
+  function closePerson() {
+    document.getElementById('person-view').style.display = 'none';
+  }
+
+  // Person back button
+  document.getElementById('personBackBtn').addEventListener('click', function() {
+    closePerson();
+    document.getElementById('wiki-view').style.display = 'block';
+    document.body.style.background = '#06040a';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  // ─── INIT ───
+  document.body.style.background = '#f2efe8';
+  document.querySelector('.site-footer').style.background = 'transparent';
+  renderGrid('all');
+
+  // ─── HASH DEEP-LINK (from bilder.html poster links) ───
+  function showSlug(show) {
+    return (show.title + '-' + show.year)
+      .toLowerCase()
+      .replace(/å/g,'a').replace(/ä/g,'a').replace(/ö/g,'o')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-|-$/g,'');
+  }
+  const initHash = location.hash.slice(1);
+  if (initHash) {
+    const idx = SHOWS.findIndex(s => showSlug(s) === initHash);
+    if (idx >= 0) openWiki(idx);
+  }
+
+  </script>
+
+</body>
+</html>
