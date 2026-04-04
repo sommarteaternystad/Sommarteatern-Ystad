@@ -78,30 +78,31 @@
     .archive-hero-banner::before {
       content: ''; position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(to bottom,
-        rgba(6,4,10,0.55) 0%,
-        rgba(6,4,10,0.35) 40%,
-        rgba(242,239,232,0.0) 70%,
-        rgba(242,239,232,1) 100%);
+        rgba(6,4,10,0.30) 0%,
+        rgba(6,4,10,0.15) 25%,
+        rgba(6,4,10,0.55) 65%,
+        rgba(6,4,10,0.88) 100%);
     }
     .archive-hero-banner-content {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      padding: 0 0 36px;
+      padding: 0 0 40px;
       max-width: min(calc(100% - 32px), 1100px); margin: 0 auto;
     }
     .archive-eyebrow {
       display: block; font-size: 11px; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--gold); margin-bottom: 10px; opacity: 0.9;
+      color: var(--gold); margin-bottom: 10px; opacity: 0.95;
     }
     .archive-title {
       font-size: clamp(36px, 5.5vw, 68px); font-weight: 900;
-      color: #1a1714; letter-spacing: -0.045em; line-height: 0.92;
-      margin: 0 0 10px;
-      text-shadow: 0 2px 20px rgba(242,239,232,0.7);
+      color: #fff; letter-spacing: -0.045em; line-height: 0.92;
+      margin: 0 0 12px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
     }
     .archive-sub {
-      font-size: 16px; color: #6b6459; line-height: 1.6;
+      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.6;
       max-width: 480px; margin: 0;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     }
 
     /* Archive content area */
@@ -221,19 +222,33 @@
     }
     .wiki-breadcrumb span { color: rgba(255,255,255,0.65); font-weight: 600; }
 
-    /* Wiki hero (dark gradient) */
+    /* Wiki hero (ensemble photo background) */
     .wiki-hero {
-      background: linear-gradient(160deg, #0f0c18 0%, #08060e 100%);
+      background: #0f0c18;
       padding: 52px 0 60px;
       position: relative; overflow: hidden;
+      min-height: 400px;
+    }
+    .wiki-hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center 30%;
+      transition: opacity 0.4s;
     }
     .wiki-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to right,
+        rgba(6,4,10,0.95) 0%,
+        rgba(6,4,10,0.80) 40%,
+        rgba(6,4,10,0.50) 70%,
+        rgba(6,4,10,0.30) 100%);
       pointer-events: none;
     }
+    /* Fallback glow when no photo */
+    .wiki-hero.no-photo::before {
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    }
     .wiki-hero-inner {
-      display: flex; gap: 48px; align-items: flex-start; position: relative; z-index: 1;
+      display: flex; gap: 48px; align-items: flex-start; position: relative; z-index: 2;
     }
     .wiki-poster-wrap {
       flex-shrink: 0; width: 200px;
@@ -428,7 +443,7 @@
 
     /* Footer override on light bg */
     .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
-    .site-footer .footer-wave-top { background: transparent !important; clip-path: none; }
+    .site-footer .footer-wave-top { background: transparent !important; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
@@ -438,6 +453,7 @@
       .archive-hero-banner { height: 44vh; min-height: 280px; }
       .shows-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .wiki-hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+      .wiki-hero::before { background: rgba(6,4,10,0.80); }
       .wiki-poster-wrap { width: 160px; }
       .wiki-slogan { border-left: none; padding-left: 0; text-align: center; }
       .wiki-body-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -605,10 +621,11 @@
           <span class="nav-pill-badge">2026</span>Oliver Twist
         </a>
         <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
-        <a href="bilder.html" class="nav-pill">Bilder</a>
-        <a href="presentkort.html" class="nav-pill">Presentkort</a>
-        <a href="merch.html" class="nav-pill">Webbshop</a>
         <a href="tidigare-forestallningar.html" class="nav-pill nav-pill--active">Tidigare föreställningar</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
       </nav>
     </div>
   </header>
@@ -663,8 +680,9 @@
       </div>
     </div>
 
-    <!-- Hero (dark) -->
-    <div class="wiki-hero">
+    <!-- Hero (dark, ensemble photo) -->
+    <div class="wiki-hero no-photo" id="wikiHero">
+      <div class="wiki-hero-bg" id="wikiHeroBg" aria-hidden="true"></div>
       <div class="container wiki-hero-inner">
         <div class="wiki-poster-wrap">
           <img id="wikiPoster" src="" alt="" class="wiki-poster" style="display:none;">
@@ -750,12 +768,13 @@
 
 
   <!-- FOOTER -->
-  <footer class="site-footer" id="footer">
-    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+  <div class="footer-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
       </svg>
     </div>
+  <footer class="site-footer" id="footer">
     <div class="container">
       <div class="footer-main">
         <div class="footer-col footer-col--brand">
@@ -786,6 +805,8 @@
             <a href="press.html">Press</a>
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
           </nav>
         </div>
       </div>
@@ -810,6 +831,7 @@
       title: 'Skattkammarön',
       year: 2025,
       performances: null,
+      ensemble: 'images/ensemble.jpg',
       poster: 'images/skattkammarön2025.jpg',
       slogan: 'En äventyrlig musikal för hela familjen',
       facts: {
@@ -864,6 +886,7 @@
       title: 'Hans & Greta',
       year: 2024,
       performances: null,
+      ensemble: 'images/ensemble-hansgreta2024.jpg',
       poster: 'images/hansgreta2024.jpg',
       slogan: 'En läcker musikal för hela familjen',
       facts: {
@@ -916,6 +939,7 @@
       title: 'Romeo & Julia',
       year: 2023,
       performances: null,
+      ensemble: 'images/ensemble-romeojulia2023.jpg',
       poster: 'images/romeojulia2023.jpg',
       slogan: 'En spännande musikal för hela familjen',
       facts: {
@@ -961,6 +985,7 @@
       title: 'Törnrosa',
       year: 2022,
       performances: null,
+      ensemble: 'images/ensemble-törnrosa2022.jpg',
       poster: 'images/törnrosa2022.jpg',
       slogan: 'En vass familjemusikal vid Åbergs Trädgård',
       facts: {
@@ -999,6 +1024,7 @@
       title: 'Kung Arthur',
       year: 2021,
       performances: null,
+      ensemble: 'images/ensemble-kungarthur2021.jpg',
       poster: 'images/kungarthur2021.jpg',
       slogan: 'En legendarisk familjemusikal vid Åbergs Trädgård',
       facts: {
@@ -1037,6 +1063,7 @@
       title: 'Sommarteatern Genom Tiderna',
       year: 2020,
       performances: null,
+      ensemble: null,
       poster: 'images/sommarteaterngenomtiderna2020.jpg',
       slogan: 'En jubileumsföreställning',
       facts: {
@@ -1050,6 +1077,7 @@
       title: 'De Tre Musketörerna',
       year: 2019,
       performances: null,
+      ensemble: 'images/ensemble-musketörerna2019.jpg',
       poster: 'images/detremusketörerna2019.jpg',
       slogan: 'En fängslande musikal',
       facts: {
@@ -1080,6 +1108,7 @@
       title: 'Herkules',
       year: 2018,
       performances: null,
+      ensemble: 'images/ensemble-herkules2018.jpg',
       poster: 'images/herkules2018.jpg',
       slogan: '',
       facts: {
@@ -1110,6 +1139,7 @@
       title: 'Lilla Sjöjungfrun',
       year: 2017,
       performances: null,
+      ensemble: 'images/ensemble-sjöjungfrun2017.jpg',
       poster: 'images/lillasjöjungfrun2017.jpg',
       slogan: '',
       facts: {
@@ -1140,6 +1170,7 @@
       title: 'Askungen',
       year: 2016,
       performances: null,
+      ensemble: 'images/ensemble-askungen2016.jpg',
       poster: 'images/askungen2016.jpg',
       slogan: 'En förtrollad musikal för hela familjen',
       facts: {
@@ -1164,6 +1195,7 @@
       title: 'Djungelboken',
       year: 2015,
       performances: null,
+      ensemble: null,
       poster: 'images/djungelboken2015.jpg',
       slogan: 'En spännande familjemusikal',
       facts: {
@@ -1189,6 +1221,7 @@
       title: 'Alice i Underlandet',
       year: 2014,
       performances: null,
+      ensemble: null,
       poster: 'images/aliceiunderlandet2014.jpg',
       slogan: 'En musikal för hela familjen',
       facts: {
@@ -1213,6 +1246,7 @@
       title: 'Snövit',
       year: 2013,
       performances: null,
+      ensemble: null,
       poster: 'images/snövit2013.jpg',
       slogan: 'En klassisk saga som ni aldrig sett den förut',
       facts: {
@@ -1237,6 +1271,7 @@
       title: 'Peter Pan',
       year: 2012,
       performances: null,
+      ensemble: null,
       poster: 'images/peterpan2012.jpg',
       slogan: 'Ett musikaliskt äventyr för hela familjen',
       facts: {
@@ -1261,6 +1296,7 @@
       title: 'Ture Sventon',
       year: 2011,
       performances: null,
+      ensemble: null,
       poster: 'images/turesventon2011.jpg',
       slogan: '',
       facts: {
@@ -1285,6 +1321,7 @@
       title: 'Pelle Svanslös',
       year: 2010,
       performances: null,
+      ensemble: null,
       poster: 'images/pellesvanslös2010.jpg',
       slogan: '',
       facts: {
@@ -1309,6 +1346,7 @@
       title: 'Ronja Rövardotter',
       year: 2009,
       performances: null,
+      ensemble: null,
       poster: 'images/ronja2009.jpg',
       slogan: '',
       facts: {
@@ -1331,6 +1369,7 @@
       title: 'Bombi Bitt och Jag',
       year: 2008,
       performances: null,
+      ensemble: null,
       poster: 'images/bombibitt2008.jpg',
       slogan: '',
       facts: {
@@ -1355,6 +1394,7 @@
       title: 'Robin Hood',
       year: 2007,
       performances: null,
+      ensemble: null,
       poster: 'images/robinhood2007.jpg',
       slogan: 'En unik föreställning, för första gången i Ystad',
       facts: {
@@ -1379,6 +1419,7 @@
       title: 'Lejonkungen',
       year: 2006,
       performances: null,
+      ensemble: null,
       poster: 'images/lejonkungen2006.jpg',
       slogan: '',
       facts: {
@@ -1461,6 +1502,17 @@
 
     // Breadcrumb
     document.getElementById('wikiBreadcrumb').textContent = show.title + ' ' + show.year;
+
+    // Ensemble hero background
+    const heroBg  = document.getElementById('wikiHeroBg');
+    const heroEl  = document.getElementById('wikiHero');
+    if (show.ensemble) {
+      heroBg.style.backgroundImage = 'url(' + show.ensemble + ')';
+      heroEl.classList.remove('no-photo');
+    } else {
+      heroBg.style.backgroundImage = '';
+      heroEl.classList.add('no-photo');
+    }
 
     // Year + title + slogan
     document.getElementById('wikiYear').textContent = show.year;

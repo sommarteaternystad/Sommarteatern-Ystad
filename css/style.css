@@ -707,29 +707,26 @@ h2 {
 .site-footer {
   background: linear-gradient(160deg, #0c0c14 0%, #111118 60%, #08080f 100%);
   color: #fff;
-  overflow: hidden;
   position: relative;
-  padding-top: 100px; /* room for diagonal ::before */
+  padding-top: 0;
 }
 
-/* Footer creates its own diagonal — works on any page background */
 .site-footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 100px;
-  background: var(--bg-soft);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  z-index: 0;
+  display: none;
 }
 
-/* Hide old wave div — diagonal now lives inside the footer */
+/* Footer wave transition */
 .footer-wave-top {
-  display: none;
+  display: block;
+  line-height: 0;
+  overflow: hidden;
+  margin-bottom: -2px;
 }
 
 .footer-wave-top svg {
-  display: none;
+  display: block;
+  width: 100%;
+  height: 90px;
 }
 
 /* ─── Main 3-col grid: brand | links | världar ─── */

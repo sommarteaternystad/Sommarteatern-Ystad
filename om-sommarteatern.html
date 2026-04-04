@@ -956,6 +956,26 @@
       white-space: nowrap;
     }
 
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .doc-btn:hover {
+      background: rgba(201,168,76,0.10);
+      border-color: rgba(201,168,76,0.30);
+      color: var(--gold);
+    }
+
 
     /* ══════════════════════════════════════════
        BLI MEDLEM CTA
@@ -1058,7 +1078,6 @@
 
     .site-footer .footer-wave-top {
       background: transparent !important;
-      clip-path: none;
     }
 
 
@@ -1259,12 +1278,12 @@
       <nav class="nav-pills-row" aria-label="Sidnavigation">
         <a href="index.html" class="nav-pill">Start</a>
         <a href="oliver-twist.html" class="nav-pill nav-pill--show">
-          <span class="nav-pill-badge">2026</span>
-          Oliver Twist
+          <span class="nav-pill-badge">2026</span>Oliver Twist
         </a>
         <a href="#" class="nav-pill nav-pill--active">Om Sommarteatern</a>
-        <a href="https://teaterskolan.sommarteaternystad.com" class="nav-pill" target="_blank" rel="noopener">Teaterskolan</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
         <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
         <a href="kontakt.html" class="nav-pill">Kontakt</a>
         <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
       </nav>
@@ -1674,6 +1693,28 @@
               <span class="styrelse-title">Ungdomsledamot</span>
             </div>
           </div>
+
+          <!-- Dokument -->
+          <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <p style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.35); margin: 0 0 14px;">Föreningsdokument</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="docs/verksamhetsberattelse-2025.pdf" target="_blank" rel="noopener" class="doc-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.7;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span>Verksamhetsberättelse 2025</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; opacity:0.45;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="docs/arsredovisning-2025.pdf" target="_blank" rel="noopener" class="doc-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.7;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span>Årsredovisning 2025</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; opacity:0.45;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="docs/verksamhetsplan-2026.pdf" target="_blank" rel="noopener" class="doc-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.7;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span>Verksamhetsplan 2026</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; opacity:0.45;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1847,13 +1888,13 @@
   <!-- ═══════════════════════════════════════
        FOOTER
   ════════════════════════════════════════ -->
-  <footer class="site-footer" id="footer">
-
-    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+  <div class="footer-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
       </svg>
     </div>
+  <footer class="site-footer" id="footer">
 
     <div class="container">
       <div class="footer-main">
@@ -1893,6 +1934,8 @@
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
             <a href="kontakt.html#hitta-hit">Hitta hit</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
           </nav>
         </div>
 

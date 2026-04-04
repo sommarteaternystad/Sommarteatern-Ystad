@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utomhusteatern i Öja — Sommarteatern Ystad</title>
+  <meta name="description" content="Allt om Sommarteaterns utomhusscen i Öja — 268 platser, amfiteaterläktare, café, parkering, kollektivtrafik och tillgänglighet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #06040a;
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: visible;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+    /* ── HERO ── */
+    .ut-hero {
+      position: relative;
+      height: clamp(320px, 48vw, 580px);
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .ut-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/ensemble.jpg');
+      background-size: cover; background-position: center 20%;
+    }
+    .ut-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.30) 0%,
+        rgba(6,4,10,0.55) 55%,
+        rgba(6,4,10,0.92) 100%);
+    }
+    .ut-hero-inner {
+      position: relative; z-index: 2;
+      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto; width: 100%;
+      padding-bottom: 60px;
+    }
+    .ut-eyebrow {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85;
+    }
+    .ut-title {
+      font-size: clamp(38px, 6.5vw, 80px); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 0.92; color: #fff; margin: 0 0 20px;
+    }
+    .ut-subtitle {
+      font-size: 16px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      max-width: 540px; margin: 0;
+    }
+
+    /* ── LAYOUT ── */
+    .ut-wrap {
+      max-width: min(calc(100% - 32px), 1280px);
+      margin: 0 auto;
+      padding: 72px 0 80px;
+    }
+
+    /* Stats bar */
+    .ut-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 64px;
+    }
+    .ut-stat {
+      background: rgba(255,255,255,0.025);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .ut-stat-num {
+      display: block; font-size: 38px; font-weight: 900;
+      letter-spacing: -0.04em; color: var(--gold); margin-bottom: 4px;
+    }
+    .ut-stat-label {
+      font-size: 12px; color: rgba(255,255,255,0.40); font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Two-col layout */
+    .ut-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    .ut-section-kicker {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.20em; color: rgba(201,168,76,0.65);
+      display: block; margin-bottom: 10px;
+    }
+    .ut-section-title {
+      font-size: 22px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; margin: 0 0 18px; line-height: 1.25;
+    }
+    .ut-section-body {
+      font-size: 14px; color: rgba(255,255,255,0.52); line-height: 1.80;
+    }
+    .ut-section-body p { margin: 0 0 14px; }
+    .ut-section-body p:last-child { margin-bottom: 0; }
+    .ut-section-body strong { color: rgba(255,255,255,0.78); }
+    .ut-section-body a { color: rgba(201,168,76,0.70); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Info cards grid */
+    .ut-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+    .ut-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+      padding: 26px 22px 22px;
+    }
+    .ut-card-emoji { font-size: 24px; display: block; margin-bottom: 12px; }
+    .ut-card-title {
+      font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.85);
+      margin: 0 0 8px; letter-spacing: -0.01em;
+    }
+    .ut-card-body {
+      font-size: 13px; color: rgba(255,255,255,0.48); line-height: 1.72;
+      margin: 0;
+    }
+    .ut-card-body strong { color: rgba(255,255,255,0.72); }
+
+    /* ── SLIDESHOW ── */
+    .ut-slideshow {
+      position: relative;
+      width: 100%;
+      height: clamp(240px, 38vw, 480px);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 56px;
+    }
+    .ut-ss-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center 20%;
+      opacity: 0;
+      transition: opacity 1.0s ease;
+    }
+    .ut-ss-slide.active { opacity: 1; }
+    .ut-ss-prev, .ut-ss-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 5; width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(0,0,0,0.42); border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .ut-ss-prev:hover, .ut-ss-next:hover { background: rgba(0,0,0,0.70); }
+    .ut-ss-prev { left: 14px; }
+    .ut-ss-next { right: 14px; }
+    .ut-ss-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      z-index: 5; display: flex; gap: 6px;
+    }
+    .ut-ss-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,0.30); cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .ut-ss-dot.active { background: #fff; transform: scale(1.4); }
+
+    /* ── DRONE VIDEO ── */
+    .ut-video-wrap {
+      margin-bottom: 56px;
+    }
+    .ut-video-kicker {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.20em; color: rgba(201,168,76,0.65);
+      display: block; margin-bottom: 10px;
+    }
+    .ut-video-title {
+      font-size: 22px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; margin: 0 0 20px;
+    }
+    .ut-video-box {
+      position: relative;
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .ut-video-box video {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover;
+    }
+    /* Fallback if video not loaded */
+    .ut-video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px;
+      background: linear-gradient(160deg, rgba(14,8,28,0.95) 0%, rgba(6,4,10,0.98) 100%);
+    }
+    .ut-video-placeholder svg { opacity: 0.25; }
+    .ut-video-placeholder p {
+      font-size: 13px; color: rgba(255,255,255,0.30);
+      margin: 0; text-align: center; line-height: 1.6;
+    }
+
+    /* Map embed placeholder */
+    .ut-map-box {
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 56px;
+      height: 340px;
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+    }
+    .ut-map-box iframe {
+      width: 100%; height: 100%; border: 0; display: block;
+    }
+
+    /* CTA */
+    .ut-cta {
+      background: linear-gradient(135deg, rgba(139,26,46,0.18) 0%, rgba(94,15,30,0.12) 100%);
+      border: 1px solid rgba(139,26,46,0.28);
+      border-radius: 20px;
+      padding: 40px 40px 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .ut-cta-text h2 {
+      font-size: 22px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; margin: 0 0 8px;
+    }
+    .ut-cta-text p {
+      font-size: 14px; color: rgba(255,255,255,0.48); line-height: 1.65; margin: 0;
+    }
+    .ut-cta-btns {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .ut-btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #8b1a2e 0%, #b05510 100%);
+      color: #fff; padding: 13px 28px; border-radius: 10px;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.01em;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .ut-btn-primary:hover { opacity: 0.88; }
+    .ut-btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.75); padding: 13px 24px; border-radius: 10px;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .ut-btn-secondary:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+    .site-footer .footer-wave-top { background: transparent !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .ut-stats { grid-template-columns: repeat(2, 1fr); }
+      .ut-two-col { grid-template-columns: 1fr; gap: 40px; }
+      .ut-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .ut-cards { grid-template-columns: 1fr; }
+      .ut-cta { flex-direction: column; }
+      .subpage-nav .nav-pills-row { min-width: 0; overflow-x: auto; flex-wrap: nowrap; -ms-overflow-style: none; scrollbar-width: none; }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ════════════════════════════════════════ -->
+  <nav class="subpage-nav container" aria-label="Huvudnavigation">
+    <div class="subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Till startsidan">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="ut-hero">
+    <div class="ut-hero-bg" aria-hidden="true"></div>
+    <div class="ut-hero-inner">
+      <span class="ut-eyebrow">Karlshemsvägen 51 · Öja · Ystad</span>
+      <h1 class="ut-title">Utomhusteatern<br>i Öja</h1>
+      <p class="ut-subtitle">En unik utomhusscen med amfiteaterläktare mitt i den skånska naturen — plats för 268 gäster, café, parkering och midsommarmagi.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CONTENT
+  ════════════════════════════════════════ -->
+  <div class="ut-wrap">
+
+    <!-- Stats -->
+    <div class="ut-stats">
+      <div class="ut-stat">
+        <span class="ut-stat-num">268</span>
+        <span class="ut-stat-label">Numrerade sittplatser</span>
+      </div>
+      <div class="ut-stat">
+        <span class="ut-stat-num">2</span>
+        <span class="ut-stat-label">Akter per föreställning</span>
+      </div>
+      <div class="ut-stat">
+        <span class="ut-stat-num">5+</span>
+        <span class="ut-stat-label">Toaletter på området</span>
+      </div>
+      <div class="ut-stat">
+        <span class="ut-stat-num">0 kr</span>
+        <span class="ut-stat-label">Fri parkering</span>
+      </div>
+    </div>
+
+    <!-- Bildspel 1 — scen & publik -->
+    <div class="ut-slideshow" id="utSS1" aria-label="Bilder från scen och läktare"></div>
+
+    <!-- Läktaren + Café -->
+    <div class="ut-two-col">
+
+      <div>
+        <span class="ut-section-kicker">Vår läktare</span>
+        <h2 class="ut-section-title">Amfiteater med utsikt</h2>
+        <div class="ut-section-body">
+          <p>Sommarteaterns scen är en utomhusscen med en amfiteaterläktare som rymmer <strong>268 personer</strong>. Alla platser är numrerade och har ryggstöd — man ser och hör bra var man än sitter.</p>
+          <p>Scen och läktare saknar tak. Det ger en fantastisk känsla av att vara mitt i naturen med himlen som tak — men klä dig efter vädret! Vid regn kan du låna regnkappa på plats. Paraplyer är <strong>inte tillåtna</strong> av hänsyn till gästerna bakom.</p>
+          <p>Har du svårt att ta dig upp för trappor rekommenderar vi platser längst fram, närmast scenen. Rullstolsplatser finns och bokas via <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a>.</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="ut-section-kicker">Café &amp; mat</span>
+        <h2 class="ut-section-title">Smått och gott i caféet</h2>
+        <div class="ut-section-body">
+          <p>På området finns ett café med ett brett utbud: <strong>popcorn, godis, chips, toast, korv med bröd, läsk, vatten, glass</strong> och mer. Caféet öppnar en stund innan föreställningen börjar och är öppet under pausen.</p>
+          <p>Vi ser helst att du betalar med <strong>Swish</strong>. Vi tar även <strong>kortbetalning</strong> och kontanter.</p>
+          <p>Det är självklart tillåtet att ta med <strong>en egen picknickkorg</strong> — det är midsommar i Skåne och det ska firas med stil.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Drönarvideo -->
+    <div class="ut-video-wrap">
+      <span class="ut-video-kicker">Sommaren 2024</span>
+      <h2 class="ut-video-title">Scen &amp; område från ovan</h2>
+      <div class="ut-video-box">
+        <video autoplay muted loop playsinline poster="images/HG15.jpg" id="utDroneVideo">
+          <source src="images/dronare-2024.mp4" type="video/mp4">
+        </video>
+        <div class="ut-video-placeholder" id="utVideoPlaceholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <p>Ladda upp <strong style="color:rgba(255,255,255,0.55)">images/dronare-2024.mp4</strong><br>för att visa drönarvideo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info-kort -->
+    <div class="ut-cards">
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">🚗</span>
+        <h3 class="ut-card-title">Parkering</h3>
+        <p class="ut-card-body"><strong>Gratis parkering</strong> finns på området precis vid scenen. Följ skyltarna till Sommarteatern längs Karlshemsvägen.</p>
+      </div>
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">🚌</span>
+        <h3 class="ut-card-title">Kollektivtrafik</h3>
+        <p class="ut-card-body"><strong>Skåneexpressen 4</strong> stannar vid hållplatsen <em>Ystad Öja</em>. Därifrån är det en kort och trevlig promenad till scenen.</p>
+      </div>
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">📍</span>
+        <h3 class="ut-card-title">Adress</h3>
+        <p class="ut-card-body"><strong>Karlshemsvägen 51</strong><br>271 98 Ystad<br>(bredvid Åbergs Handelsträdgård)</p>
+      </div>
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">♿</span>
+        <h3 class="ut-card-title">Tillgänglighet</h3>
+        <p class="ut-card-body">Rullstolsanpassade platser och <strong>hörslinga</strong> finns. Ledsagare alltid gratis. Se vår <a href="tillgänglighet.html">tillgänglighetssida</a> för fullständig information.</p>
+      </div>
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">🚻</span>
+        <h3 class="ut-card-title">Toaletter</h3>
+        <p class="ut-card-body"><strong>Fem toaletter</strong> på området — varav en är rullstolsanpassad — placerade nära entrén.</p>
+      </div>
+
+      <div class="ut-card">
+        <span class="ut-card-emoji">🐕</span>
+        <h3 class="ut-card-title">Hundar välkomna</h3>
+        <p class="ut-card-body">Hundar är välkomna så länge de inte stör föreställningen. Tänk på att det <strong>finns katter</strong> på området.</p>
+      </div>
+
+    </div>
+
+    <!-- Bildspel 2 — föreställningsbilder -->
+    <div class="ut-slideshow" id="utSS2" aria-label="Bilder från föreställningarna" style="margin-bottom: 56px;"></div>
+
+    <!-- Karta -->
+    <div class="ut-map-box">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.893498167835!2d13.836527!3d55.409556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465411d8b78d8cef%3A0x6100000000000001!2sKarlshemsv%C3%A4gen%2051%2C%20271%2098%20Ystad!5e0!3m2!1ssv!2sse!4v1699000000000!5m2!1ssv!2sse"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Sommarteaterns utomhusscen i Öja, Ystad"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- CTA -->
+    <div class="ut-cta">
+      <div class="ut-cta-text">
+        <h2>Redo att boka din plats?</h2>
+        <p>Säkra dina biljetter till årets föreställning — Oliver Twist 2026. Välj datum och plats i bokningssystemet.</p>
+      </div>
+      <div class="ut-cta-btns">
+        <a href="oliver-twist.html" class="ut-btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          Oliver Twist 2026
+        </a>
+        <a href="tillgänglighet.html" class="ut-btn-secondary">Tillgänglighet →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ── Reusable slideshow builder ── */
+    function makeSlideshow(containerId, images) {
+      var wrap = document.getElementById(containerId);
+      if (!wrap) return;
+      var slides = [], dots = [], cur = 0, timer;
+
+      images.forEach(function(src, i) {
+        var d = document.createElement('div');
+        d.className = 'ut-ss-slide' + (i === 0 ? ' active' : '');
+        d.style.backgroundImage = "url('" + src + "')";
+        wrap.appendChild(d);
+        slides.push(d);
+      });
+
+      /* dots */
+      var dotsEl = document.createElement('div');
+      dotsEl.className = 'ut-ss-dots';
+      images.forEach(function(_, i) {
+        var dot = document.createElement('div');
+        dot.className = 'ut-ss-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', function() { goTo(i); });
+        dotsEl.appendChild(dot);
+        dots.push(dot);
+      });
+      wrap.appendChild(dotsEl);
+
+      /* arrows */
+      var prev = document.createElement('button');
+      prev.className = 'ut-ss-prev'; prev.setAttribute('aria-label', 'Föregående');
+      prev.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+      prev.addEventListener('click', function() { goTo(cur - 1); });
+      wrap.appendChild(prev);
+
+      var next = document.createElement('button');
+      next.className = 'ut-ss-next'; next.setAttribute('aria-label', 'Nästa');
+      next.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+      next.addEventListener('click', function() { goTo(cur + 1); });
+      wrap.appendChild(next);
+
+      function goTo(n) {
+        clearTimeout(timer);
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = (n + slides.length) % slides.length;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+        timer = setTimeout(function() { goTo(cur + 1); }, 4200);
+      }
+      timer = setTimeout(function() { goTo(1); }, 4200);
+    }
+
+    /* Slideshow 1: scen & publik — HG 2024 bilder */
+    makeSlideshow('utSS1', [
+      'images/HG1.jpg', 'images/HG3.jpg', 'images/HG5.jpg', 'images/HG8.jpg',
+      'images/HG10.jpg', 'images/HG15.jpg', 'images/HG20.jpg', 'images/HG28.jpg'
+    ]);
+
+    /* Slideshow 2: föreställningsbilder — blandat alla tre */
+    makeSlideshow('utSS2', [
+      'images/SKATT5.jpg', 'images/RJ10.jpg', 'images/HG22.jpg',
+      'images/SKATT20.jpg', 'images/RJ35.jpg', 'images/HG33.jpg',
+      'images/SKATT38.jpg', 'images/RJ55.jpg', 'images/HG38.jpg',
+      'images/SKATT44.jpg', 'images/RJ65.jpg'
+    ]);
+
+    /* Hide video placeholder once video loads */
+    var vid = document.getElementById('utDroneVideo');
+    var placeholder = document.getElementById('utVideoPlaceholder');
+    if (vid) {
+      vid.addEventListener('canplay', function() {
+        if (placeholder) placeholder.style.display = 'none';
+      });
+      vid.addEventListener('error', function() {
+        if (placeholder) placeholder.style.display = 'flex';
+      });
+    }
+  </script>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <div class="footer-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+      </svg>
+    </div>
+  <footer class="site-footer" id="footer">
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="musik.html">Musik</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html" style="color:rgba(201,168,76,0.70);">Utomhusteatern i Öja</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="merch.html" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

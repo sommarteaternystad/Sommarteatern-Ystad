@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tillgänglighet — Sommarteatern Ystad</title>
+  <meta name="description" content="Tillgänglighetsinformation för Sommarteaterns utomhusscen i Öja — rullstolsplatser, hörslinga, teckenspråk, parkering och praktisk information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #06040a;
+    }
+
+    /* ── NAV ── */
+    .subpage-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6,4,10,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: visible;
+    }
+    .subpage-nav-inner {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 0; padding: 0; height: auto; min-height: 66px;
+    }
+    .nav-logo {
+      flex-shrink: 0; height: 100%; display: flex; align-items: center;
+      padding-right: 22px; margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .subpage-nav .nav-pills-row {
+      flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px; line-height: 30px; padding: 0 13px; font-size: 12px; font-weight: 600;
+      border-radius: 7px; background: rgba(255,255,255,0.06); box-shadow: none;
+      flex-shrink: 0; white-space: nowrap; color: rgba(255,255,255,0.72); letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover { background: rgba(255,255,255,0.12); color: #fff; transform: none; }
+    .subpage-nav .nav-pill--show { background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%); color: #fff; }
+    .subpage-nav .nav-pill--active { outline: 1.5px solid rgba(201,168,76,0.55); outline-offset: -1.5px; color: var(--gold); }
+    .subpage-nav .nav-pill--more { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.38); }
+
+    /* ── HERO ── */
+    .tg-hero {
+      position: relative;
+      padding: 88px 0 72px;
+      overflow: hidden;
+    }
+    .tg-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/SKATT18.jpg');
+      background-size: cover; background-position: center 30%;
+    }
+    .tg-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,4,10,0.65) 0%, rgba(6,4,10,0.88) 100%);
+    }
+    .tg-hero-inner {
+      position: relative; z-index: 2;
+      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+    }
+    .tg-eyebrow {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85;
+    }
+    .tg-title {
+      font-size: clamp(44px, 7vw, 88px); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 0.9; color: #fff; margin: 0 0 24px;
+    }
+    .tg-subtitle {
+      font-size: 16px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      max-width: 520px; margin: 0;
+    }
+
+    /* ── CONTENT ── */
+    .tg-content {
+      max-width: min(calc(100% - 32px), 1080px);
+      margin: 0 auto;
+      padding: 72px 0 80px;
+    }
+
+    .tg-intro {
+      font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.75;
+      max-width: 640px; margin: 0 0 64px;
+      border-left: 3px solid rgba(201,168,76,0.45);
+      padding-left: 22px;
+    }
+
+    .tg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .tg-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 32px 30px 28px;
+      transition: border-color 0.25s;
+    }
+    .tg-card:hover { border-color: rgba(201,168,76,0.18); }
+
+    .tg-card-icon {
+      font-size: 28px; margin-bottom: 16px; display: block;
+    }
+    .tg-card-title {
+      font-size: 16px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; margin: 0 0 12px;
+    }
+    .tg-card-body {
+      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; margin: 0;
+    }
+    .tg-card-body a {
+      color: rgba(201,168,76,0.75); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tg-card-body strong { color: rgba(255,255,255,0.80); }
+
+    .tg-card--highlight {
+      border-color: rgba(201,168,76,0.18);
+      background: rgba(201,168,76,0.04);
+    }
+
+    /* Full-width card */
+    .tg-card--full {
+      grid-column: 1 / -1;
+    }
+
+    /* ── PRACTICAL INFO ── */
+    .tg-section-title {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.30); margin: 0 0 28px;
+    }
+
+    .tg-facts-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .tg-fact {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 24px 20px 20px;
+      text-align: center;
+    }
+    .tg-fact-num {
+      font-size: 36px; font-weight: 900; letter-spacing: -0.04em;
+      color: var(--gold); display: block; margin-bottom: 4px;
+    }
+    .tg-fact-label {
+      font-size: 12px; color: rgba(255,255,255,0.42); font-weight: 500;
+    }
+
+    /* ── CTA ── */
+    .tg-cta-box {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.20);
+      border-radius: 20px;
+      padding: 36px 36px 32px;
+    }
+    .tg-cta-box p {
+      font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.70; margin: 0 0 20px;
+    }
+    .tg-cta-box a.btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.90) 0%, rgba(180,145,55,0.95) 100%);
+      color: #0e0608; padding: 12px 26px; border-radius: 10px;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.01em;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .tg-cta-box a.btn-gold:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
+    }
+    .site-footer .footer-wave-top { background: transparent !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .tg-grid { grid-template-columns: 1fr; }
+      .tg-card--full { grid-column: 1; }
+      .tg-facts-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .tg-facts-row { grid-template-columns: 1fr 1fr; }
+      .subpage-nav .nav-pills-row { min-width: 0; overflow-x: auto; flex-wrap: nowrap; -ms-overflow-style: none; scrollbar-width: none; }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ════════════════════════════════════════ -->
+  <nav class="subpage-nav container" aria-label="Huvudnavigation">
+    <div class="subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Till startsidan">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
+      </nav>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="tg-hero">
+    <div class="tg-hero-bg" aria-hidden="true"></div>
+    <div class="tg-hero-inner">
+      <span class="tg-eyebrow">Utomhusteatern i Öja</span>
+      <h1 class="tg-title">Tillgänglighet</h1>
+      <p class="tg-subtitle">Vi vill att alla ska kunna uppleva teater. Här hittar du information om tillgänglighet, hjälpmedel och praktiska detaljer på Sommarteaterns scen.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════ -->
+  <main class="tg-content">
+
+    <p class="tg-intro">Sommarteatern är en utomhusscen med amfiteaterläktare i Öja utanför Ystad. Vi jobbar kontinuerligt för att göra upplevelsen tillgänglig för alla — oavsett rörlighet, hörsel eller andra behov.</p>
+
+    <!-- Snabbfakta -->
+    <p class="tg-section-title">Snabbfakta om scenen</p>
+    <div class="tg-facts-row">
+      <div class="tg-fact">
+        <span class="tg-fact-num">268</span>
+        <span class="tg-fact-label">Numrerade platser med ryggstöd</span>
+      </div>
+      <div class="tg-fact">
+        <span class="tg-fact-num">5+</span>
+        <span class="tg-fact-label">Toaletter inkl. 1 rullstolsvänlig</span>
+      </div>
+      <div class="tg-fact">
+        <span class="tg-fact-num">0 kr</span>
+        <span class="tg-fact-label">Gratis parkering på området</span>
+      </div>
+    </div>
+
+    <!-- Tillgänglighets­kort -->
+    <p class="tg-section-title">Tillgänglighetsinformation</p>
+    <div class="tg-grid">
+
+      <div class="tg-card tg-card--highlight">
+        <span class="tg-card-icon">♿</span>
+        <h2 class="tg-card-title">Rullstolsplatser</h2>
+        <p class="tg-card-body">Rullstols­anpassade platser finns vid läktaren. Dessa behöver bokas i förväg — kontakta oss på <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a> så hjälper vi dig att välja bästa plats.<br><br>Har du svårt att ta dig upp för trappor rekommenderar vi platser närmast scenen.</p>
+      </div>
+
+      <div class="tg-card">
+        <span class="tg-card-icon">🦻</span>
+        <h2 class="tg-card-title">Nedsatt hörsel &amp; hörslinga</h2>
+        <p class="tg-card-body">Alla repliker och sång förstärks via mikrofoner och högtalare. <strong>Hörslinga finns från och med sommaren 2024</strong> — kontakta oss i förväg så berättar vi var du sitter bäst för att dra nytta av hörslingan.</p>
+      </div>
+
+      <div class="tg-card tg-card--highlight">
+        <span class="tg-card-icon">🤟</span>
+        <h2 class="tg-card-title">Teckenspråksgestaltad föreställning</h2>
+        <p class="tg-card-body">En av säsongens föreställningar är teckenspråksgestaltad. Kolla aktuell spelplan på <a href="oliver-twist.html">Oliver Twist-sidan</a> för datum. En tolktjänst ger döva och hörselskadade möjlighet att följa med i hela berättelsen.</p>
+      </div>
+
+      <div class="tg-card">
+        <span class="tg-card-icon">👥</span>
+        <h2 class="tg-card-title">Ledsagare</h2>
+        <p class="tg-card-body"><strong>Ledsagare går alltid gratis.</strong> Boka via <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a>. Ange vilken föreställning det gäller och eventuella behov, så ser vi till att ni får lämpliga platser.</p>
+      </div>
+
+      <div class="tg-card">
+        <span class="tg-card-icon">🚗</span>
+        <h2 class="tg-card-title">Parkering &amp; hitta hit</h2>
+        <p class="tg-card-body">Gratis parkering finns på området. Adressen är <strong>Karlshemsvägen 51, Öja</strong>, bredvid Åbergs Handelsträdgård.<br><br>Med kollektivtrafik: <strong>Skåneexpressen 4</strong> stannar vid hållplatsen <em>Ystad Öja</em>, sedan en kort promenad till scenen.</p>
+      </div>
+
+      <div class="tg-card">
+        <span class="tg-card-icon">🚻</span>
+        <h2 class="tg-card-title">Toaletter</h2>
+        <p class="tg-card-body">Det finns <strong>fem toaletter</strong> på området samt <strong>en rullstolsanpassad toalett</strong>. Toaletterna är placerade nära entrén och publik­området.</p>
+      </div>
+
+      <div class="tg-card tg-card--full">
+        <span class="tg-card-icon">☔</span>
+        <h2 class="tg-card-title">Utomhusscen — utan tak</h2>
+        <p class="tg-card-body">Sommarteatern spelar i alla väder. Läktaren och scenen saknar tak, så klä dig efter vädret! Vid regn kan du låna regnkappa hos oss. <strong>Paraplyer är inte tillåtna</strong> av hänsyn till bakomvarandes sikt.<br><br>Vid kraftig åska avbryts föreställningen och återupptas när åskan passerat — vi har kontinuerlig kontakt med vädersatelliter. Om en föreställning mot förmodan ställs in kontaktas alla biljettinnehavare och biljetter ombokas.</p>
+      </div>
+
+    </div>
+
+    <!-- Kontakta oss -->
+    <div class="tg-cta-box">
+      <h2 style="font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin:0 0 12px;">Har du frågor om tillgänglighet?</h2>
+      <p>Kontakta oss gärna i förväg om du har specifika behov. Vi hjälper dig att planera ditt besök så att det blir så smidigt och trevligt som möjligt.</p>
+      <a href="mailto:info@sommarteaternystad.com" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Skicka mail till oss
+      </a>
+    </div>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <div class="footer-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+      </svg>
+    </div>
+  <footer class="site-footer" id="footer">
+
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#04030a"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#04030a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="musik.html">Musik</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="tillgänglighet.html" style="color:rgba(201,168,76,0.70);">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left:2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="merch.html" class="subsite-card" style="border-left:2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column:1/-1; border-left:2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright &copy; 2025 Sommarteatern Ystad. Alla rättigheter förbehållna.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

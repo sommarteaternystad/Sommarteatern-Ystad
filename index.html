@@ -115,6 +115,151 @@
 
       </div><!-- /news-grid -->
 
+      <!-- ═══ BILDSPEL ═══ -->
+      <div class="show-slideshow" id="showSlideshow" aria-label="Bilder från föreställningarna">
+        <div class="ss-track" id="ssTrack"></div>
+        <div class="ss-fade-bottom" aria-hidden="true"></div>
+        <div class="ss-caption" id="ssCaption" aria-live="polite"></div>
+        <div class="ss-dots" id="ssDots" aria-hidden="true"></div>
+      </div>
+
+      <style>
+        .show-slideshow {
+          position: relative;
+          width: 100%;
+          height: clamp(420px, 72vw, 820px);
+          overflow: hidden;
+          background: #000;
+          margin-top: 48px;
+        }
+        .ss-track {
+          position: absolute; inset: 0;
+        }
+        .ss-slide {
+          position: absolute; inset: 0;
+          background-size: cover;
+          background-position: center 18%;
+          opacity: 0;
+          transition: opacity 1.1s ease;
+          animation: ssKenBurns 8s ease-in-out infinite alternate;
+        }
+        .ss-slide.active {
+          opacity: 1;
+        }
+        @keyframes ssKenBurns {
+          from { transform: scale(1.00) translate(0, 0); }
+          to   { transform: scale(1.06) translate(-1%, -1%); }
+        }
+        .ss-fade-bottom {
+          position: absolute; bottom: 0; left: 0; right: 0;
+          height: 55%;
+          background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255,255,255,0.20) 50%,
+            #ffffff 100%);
+          pointer-events: none;
+          z-index: 3;
+        }
+        .ss-caption {
+          position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+          z-index: 4;
+          font-size: 11px; font-weight: 700; text-transform: uppercase;
+          letter-spacing: 0.18em; color: rgba(20,10,40,0.55);
+          white-space: nowrap;
+          transition: opacity 0.5s;
+        }
+        .ss-dots {
+          position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+          z-index: 4;
+          display: flex; gap: 6px; align-items: center;
+        }
+        .ss-dot {
+          width: 5px; height: 5px; border-radius: 50%;
+          background: rgba(20,10,40,0.18);
+          transition: background 0.3s, transform 0.3s;
+          cursor: pointer;
+        }
+        .ss-dot.active {
+          background: rgba(20,10,40,0.55);
+          transform: scale(1.4);
+        }
+      </style>
+
+      <script>
+        (function(){
+          var slides = [
+            { src: 'images/SKATT1.jpg',  label: 'Skattkammarön 2025' },
+            { src: 'images/HG2.jpg',     label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ3.jpg',     label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT6.jpg',  label: 'Skattkammarön 2025' },
+            { src: 'images/HG7.jpg',     label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ8.jpg',     label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT12.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG13.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ14.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT18.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG19.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ20.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT24.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG25.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ26.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT30.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG31.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ32.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT36.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG37.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ38.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT42.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG40.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ50.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT45.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/HG42.jpg',    label: 'Hans &amp; Greta 2024' },
+            { src: 'images/RJ60.jpg',    label: 'Romeo &amp; Julia 2023' },
+            { src: 'images/SKATT47.jpg', label: 'Skattkammarön 2025' },
+            { src: 'images/RJ68.jpg',    label: 'Romeo &amp; Julia 2023' }
+          ];
+
+          var track   = document.getElementById('ssTrack');
+          var caption = document.getElementById('ssCaption');
+          var dotsEl  = document.getElementById('ssDots');
+          var current = 0;
+          var els = [];
+          var dots = [];
+          var timer;
+
+          slides.forEach(function(s, i){
+            var div = document.createElement('div');
+            div.className = 'ss-slide';
+            div.style.backgroundImage = "url('" + s.src + "')";
+            if(i === 0) div.classList.add('active');
+            track.appendChild(div);
+            els.push(div);
+
+            var dot = document.createElement('div');
+            dot.className = 'ss-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', function(){ goTo(i); });
+            dotsEl.appendChild(dot);
+            dots.push(dot);
+          });
+
+          caption.innerHTML = slides[0].label;
+
+          function goTo(n){
+            clearTimeout(timer);
+            els[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            els[current].classList.add('active');
+            dots[current].classList.add('active');
+            caption.style.opacity = '0';
+            setTimeout(function(){ caption.innerHTML = slides[current].label; caption.style.opacity = '1'; }, 300);
+            timer = setTimeout(function(){ goTo(current + 1); }, 4000);
+          }
+
+          timer = setTimeout(function(){ goTo(1); }, 4000);
+        })();
+      </script>
+
       <!-- ═══ MER FRÅN VERKSAMHETEN ═══ -->
       <div class="activities-divider">
         <p class="activities-divider-label">Mer från verksamheten</p>
@@ -239,14 +384,13 @@
   <!-- ═══════════════════════════════════════
        FOOTER
   ════════════════════════════════════════ -->
+  <div class="footer-wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#0a0818"/>
+      <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#06040a" opacity="0.7"/>
+    </svg>
+  </div>
   <footer class="site-footer" id="footer">
-
-    <!-- Wave from news section into footer -->
-    <div class="footer-wave-top" aria-hidden="true">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 L1440,0 L1440,80 Z" fill="#f7f7f5"/>
-      </svg>
-    </div>
 
     <div class="container">
 
@@ -326,6 +470,8 @@
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
             <a href="kontakt.html#hitta-hit">Hitta hit</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
           </nav>
         </div>
 

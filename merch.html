@@ -120,26 +120,39 @@
 
     /* ── HERO ── */
     .shop-hero {
-      position: relative;
-      padding-top: 140px;
-      padding-bottom: 72px;
+      position: relative; height: 44vh; min-height: 280px; max-height: 480px;
       overflow: hidden;
     }
     .shop-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('images/webbshop.png');
-      background-size: cover;
-      background-position: center 40%;
+      background-image: url('images/HG15.jpg');
+      background-size: cover; background-position: center 25%;
     }
-    .shop-hero-bg::before {
-      content: ''; position: absolute; inset: 0;
+    .shop-hero-overlay {
+      position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(6,4,10,0.72) 0%,
-        rgba(6,4,10,0.85) 60%,
-        rgba(6,4,10,0.97) 100%);
+        rgba(6,4,10,0.35) 0%,
+        rgba(6,4,10,0.60) 60%,
+        rgba(6,4,10,0.90) 100%);
     }
-    .shop-hero-inner {
-      position: relative; z-index: 2;
+    .shop-hero-content {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; padding-bottom: 40px; text-align: center;
+    }
+    .shop-hero-eyebrow {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold, #c9a84c); margin-bottom: 8px; opacity: 0.85;
+    }
+    .shop-hero-title {
+      font-size: clamp(2.4rem, 6vw, 4.8rem); font-weight: 900;
+      color: #fff; letter-spacing: -0.04em; line-height: 0.9;
+      margin: 0 0 10px; text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+    .shop-hero-sub {
+      font-size: 15px; color: rgba(255,255,255,0.55); margin: 0;
+    }
+    .shop-hero-logo {
+      max-width: 180px; opacity: 0.7; margin: 12px auto 0; display: block;
     }
     .shop-eyebrow {
       display: block;
@@ -149,21 +162,6 @@
       letter-spacing: 0.12em;
       color: var(--gold);
       margin-bottom: 16px;
-    }
-    .shop-hero-title {
-      font-size: clamp(48px, 7vw, 88px);
-      font-weight: 900;
-      letter-spacing: -0.045em;
-      line-height: 0.9;
-      color: #fff;
-      margin: 0 0 20px;
-    }
-    .shop-hero-sub {
-      font-size: 17px;
-      color: rgba(255,255,255,0.50);
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0;
     }
 
     /* ── SHOP SECTION ── */
@@ -879,7 +877,7 @@
       background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
     }
     .site-footer .footer-wave-top {
-      background: transparent !important; clip-path: none;
+      background: transparent !important;
     }
 
     /* ── RESPONSIVE ── */
@@ -918,7 +916,6 @@
     @media (max-width: 480px) {
       .nav-logo img { height: 38px; }
       .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
-      .shop-hero { padding-top: 120px; padding-bottom: 52px; }
       .info-strip-item { font-size: 12px; }
     }
 
@@ -943,9 +940,10 @@
           <span class="nav-pill-badge">2026</span>Oliver Twist
         </a>
         <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
         <a href="bilder.html" class="nav-pill">Bilder</a>
-        <a href="presentkort.html" class="nav-pill">Presentkort</a>
-        <a href="merch.html" class="nav-pill nav-pill--active">Webbshop</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
         <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
       </nav>
       <button class="nav-cart-btn" id="navCartBtn" aria-label="Öppna kundvagn">
@@ -965,10 +963,12 @@
   ════════════════════════════════════════ -->
   <section class="shop-hero">
     <div class="shop-hero-bg" aria-hidden="true"></div>
-    <div class="container shop-hero-inner">
-      <span class="shop-eyebrow">Sommarteatern Ystad · Webbshop</span>
-      <h1 class="shop-hero-title">Merchandise</h1>
-      <p class="shop-hero-sub">Bär teatern med dig. Allt från kepsar och tygkassar till hoodies och picknickfiltar.</p>
+    <div class="shop-hero-overlay" aria-hidden="true"></div>
+    <div class="container shop-hero-content">
+      <span class="shop-hero-eyebrow">Sommarteatern Ystad</span>
+      <h1 class="shop-hero-title">Webbshop</h1>
+      <p class="shop-hero-sub">Bär Sommarteatern med dig hem</p>
+      <img src="images/webbshop.png" alt="Webbshop" class="shop-hero-logo">
     </div>
   </section>
 
@@ -1028,13 +1028,13 @@
   <!-- ═══════════════════════════════════════
        FOOTER
   ════════════════════════════════════════ -->
-  <footer class="site-footer" id="footer">
-
-    <div class="footer-wave-top" aria-hidden="true" style="background: transparent;">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 L1440,0 L1440,80 Z" fill="rgba(6,4,10,0.90)"/>
+  <div class="footer-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
       </svg>
     </div>
+  <footer class="site-footer" id="footer">
 
     <div class="container">
       <div class="footer-main">
@@ -1074,6 +1074,8 @@
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
             <a href="kontakt.html#hitta-hit">Hitta hit</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
           </nav>
         </div>
 
