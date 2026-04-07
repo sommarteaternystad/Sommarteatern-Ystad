@@ -20,12 +20,12 @@
 
     body {
       padding-top: 67px;
-      background-color: #06040a;
+      background-color: #ffffff;
     }
 
     .page-bg {
       position: fixed; inset: 0; z-index: -2;
-      background: #06040a;
+      background: #ffffff;
     }
 
     /* ── NAV ── */
@@ -77,11 +77,12 @@
     /* ── HERO ── */
     .pk-hero {
       position: relative;
-      height: 70vh;
-      min-height: 520px;
+      height: 94vh;
+      min-height: 640px;
       display: flex;
       align-items: flex-end;
-      overflow: hidden;
+      overflow: visible;
+      padding-bottom: 22vh;
     }
     .pk-hero-bg {
       position: absolute; inset: 0;
@@ -91,7 +92,7 @@
     }
     .pk-hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(6,4,10,0.55) 0%, rgba(6,4,10,0.88) 70%, rgba(6,4,10,0.97) 100%);
+      background: linear-gradient(to bottom, rgba(6,4,10,0.22) 0%, rgba(6,4,10,0.48) 45%, rgba(6,4,10,0.55) 70%, rgba(6,4,10,0.20) 100%);
     }
     .pk-hero-inner {
       position: relative; z-index: 2;
@@ -113,12 +114,12 @@
       font-weight: 900;
       letter-spacing: -0.045em;
       line-height: 0.9;
-      color: #fff;
+      color: #161616;
       margin: 0 0 22px;
     }
     .pk-hero-subtitle {
       font-size: 17px;
-      color: rgba(255,255,255,0.48);
+      color: rgba(22,22,22,0.56);
       line-height: 1.6;
       max-width: 500px;
       margin: 0;
@@ -135,7 +136,7 @@
 
     /* ── MAIN CONTENT SECTION ── */
     .pk-main-section {
-      background: #06040a;
+      background: #ffffff;
     }
     .pk-kicker {
       font-size: 11px;
@@ -149,14 +150,14 @@
     .pk-h2 {
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
-      color: #fff;
+      color: #161616;
       letter-spacing: -0.04em;
       line-height: 1;
       margin: 0 0 32px;
     }
     .pk-intro {
       font-size: 18px;
-      color: rgba(255,255,255,0.65);
+      color: rgba(22,22,22,0.6);
       line-height: 1.7;
       max-width: 680px;
       margin: 0 0 48px;
@@ -192,15 +193,15 @@
     }
     .pk-cta-note {
       font-size: 12px;
-      color: rgba(255,255,255,0.32);
+      color: rgba(22,22,22,0.44);
       font-weight: 500;
       letter-spacing: 0.01em;
     }
 
     /* ── INFO CARDS SECTION ── */
     .pk-cards-section {
-      background: #06040a;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
     .pk-cards-grid {
       display: grid;
@@ -209,8 +210,8 @@
       margin-top: 56px;
     }
     .pk-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 16px;
       padding: 28px;
       transition: border-color 0.25s, transform 0.2s;
@@ -234,26 +235,26 @@
     .pk-card-title {
       font-size: 17px;
       font-weight: 800;
-      color: #fff;
+      color: #161616;
       letter-spacing: -0.025em;
       margin-bottom: 10px;
     }
     .pk-card-text {
       font-size: 14px;
-      color: rgba(255,255,255,0.50);
+      color: rgba(22,22,22,0.58);
       line-height: 1.65;
     }
 
     /* ── HOW IT WORKS SECTION ── */
     .pk-how-section {
-      background: rgba(255,255,255,0.02);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.03);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
     .pk-how-h3 {
       font-size: clamp(26px, 4vw, 40px);
       font-weight: 900;
-      color: #fff;
+      color: #161616;
       letter-spacing: -0.035em;
       margin: 0 0 48px;
     }
@@ -288,7 +289,7 @@
     }
     .pk-step-text {
       font-size: 16px;
-      color: rgba(255,255,255,0.70);
+      color: rgba(22,22,22,0.65);
       line-height: 1.55;
       padding-top: 9px;
     }
@@ -352,6 +353,101 @@
       .pk-intro { font-size: 16px; }
     }
 
+  
+    /* ── HERO WHITE FADE ── */
+    .pk-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 28%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
+    }
+    .pk-hero { position: relative; }
+    .pk-hero-bg { overflow: hidden; }
+    .pk-hero-inner { position: relative; z-index: 5; }
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+    .pk-hero h1, .pk-hero h2, .pk-hero h3,
+    .pk-hero p, .pk-hero span, .pk-hero a,
+    .pk-hero [class*="title"], .pk-hero [class*="subtitle"],
+    .pk-hero [class*="eyebrow"], .pk-hero [class*="kicker"],
+    .pk-hero [class*="lead"], .pk-hero [class*="desc"],
+    .pk-hero [class*="sub"],
+    .pk-hero-inner, .pk-hero-inner * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
+    }
+    .pk-hero [class*="eyebrow"],
+    .pk-hero [class*="kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90 !important;
+    }
+    .pk-hero .btn-gold,
+    .pk-hero [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+
+  
+    /* ══ HERO: ALL TEXT WHITE ══ */
+    .pk-hero * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+    .pk-hero [class*="eyebrow"],
+    .pk-hero [class*="kicker"],
+    .pk-hero [class*="-kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90;
+    }
+    .pk-hero .btn-gold,
+    .pk-hero [class*="btn-gold"],
+    .pk-hero a.btn {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+    .pk-hero .nav-pill-badge {
+      color: #fff !important;
+      text-shadow: none !important;
+    }
+
   </style>
 </head>
 <body>
@@ -399,7 +495,7 @@
   <!-- ═══════════════════════════════════════
        MAIN CONTENT
   ════════════════════════════════════════ -->
-  <section class="section pk-main-section" id="presentkort">
+  <section class="section pk-main-section" id="presentkort" style="margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
     <div class="container">
 
       <span class="pk-kicker">Presentkortet</span>
@@ -522,8 +618,8 @@
   ════════════════════════════════════════ -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">

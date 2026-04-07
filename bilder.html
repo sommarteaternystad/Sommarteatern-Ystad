@@ -13,20 +13,9 @@
 
     body {
       padding-top: 67px;
-      background-color: #06040a;
+      background-color: #ffffff;
     }
 
-    .page-bg {
-      position: fixed; inset: 0; z-index: -2;
-      background-image: url('images/SKATT47.jpg');
-      background-size: cover;
-      background-position: center 40%;
-    }
-
-    .page-bg-veil {
-      position: fixed; inset: 0; z-index: -1;
-      background: rgba(4, 3, 8, 0.88);
-    }
 
     /* ── NAV ── */
     .subpage-nav {
@@ -58,58 +47,75 @@
 
     /* ── HERO ── */
     .gal-hero {
-      position: relative; height: 56vh; min-height: 380px;
+      position: relative; height: 72vh; min-height: 480px; max-height: 680px;
       display: flex; align-items: flex-end; overflow: hidden;
     }
     .gal-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('images/RJ1.jpg');
+      background-image: url('images/föreställningar/2019-de-tre-musketorerna/DTM50.jpg');
       background-size: cover; background-position: center 30%;
     }
-    .gal-hero-bg::before {
+    .gal-hero-bg::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(4,3,8,0.20) 0%, rgba(4,3,8,0.88) 80%, rgba(4,3,8,1) 100%);
+      background: linear-gradient(to bottom, rgba(4,3,8,0.10) 0%, rgba(4,3,8,0.45) 55%, rgba(4,3,8,0.82) 100%);
     }
     .gal-hero-content {
-      position: relative; z-index: 2; width: 100%; padding: 0 0 56px;
+      position: relative; z-index: 2; width: 100%;
       max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+      padding-bottom: 48px;
     }
     .gal-eyebrow {
       font-size: 10px; font-weight: 800; text-transform: uppercase;
       letter-spacing: 0.22em; color: var(--gold); display: block; margin-bottom: 12px; opacity: 0.85;
     }
     .gal-title {
-      font-size: clamp(52px, 9vw, 110px); font-weight: 900;
-      letter-spacing: -0.045em; line-height: 0.88; color: #fff; margin: 0 0 20px;
+      font-size: clamp(48px, 8vw, 100px); font-weight: 900;
+      letter-spacing: -0.045em; line-height: 0.90; color: #ffffff; margin: 0 0 16px;
     }
     .gal-desc {
-      font-size: 15px; color: rgba(255,255,255,0.45); max-width: 540px; line-height: 1.70;
+      font-size: 15px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.65;
     }
 
     /* ── FILTER TABS ── */
     .filter-bar {
       position: sticky; top: 66px; z-index: 50;
-      background: rgba(4,3,8,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      padding: 14px 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 14px 0 16px;
     }
     .filter-inner {
       display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
     }
     .filter-btn {
-      padding: 8px 18px; border-radius: 999px;
+      padding: 7px 16px; border-radius: 999px;
       font-size: 12px; font-weight: 700; letter-spacing: -0.01em;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: transparent; color: rgba(255,255,255,0.50);
-      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: transparent; color: rgba(22,22,22,0.55);
+      cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s;
       white-space: nowrap;
     }
-    .filter-btn:hover { background: rgba(255,255,255,0.07); color: #fff; border-color: rgba(255,255,255,0.22); }
-    .filter-btn.active { background: var(--gold); color: #1a1000; border-color: var(--gold); }
+    .filter-btn:hover { background: rgba(0,0,0,0.05); color: #161616; border-color: rgba(22,22,22,0.28); }
+    .filter-btn.active { background: #161616; color: #ffffff; border-color: #161616; }
 
     /* ── PRODUCTION SECTION ── */
-    .prod-section { padding: 72px 0 80px; }
-    .prod-section + .prod-section { border-top: 1px solid rgba(255,255,255,0.05); }
+    .prod-section { padding: 56px 0 64px; }
+    .prod-section + .prod-section { border-top: 1px solid rgba(0,0,0,0.07); }
+
+    /* ── VISA FLER KNAPP ── */
+    .show-more-wrap {
+      text-align: center; margin-top: 28px;
+    }
+    .show-more-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: #ffffff; color: #161616;
+      cursor: pointer; transition: background 0.18s, border-color 0.18s;
+    }
+    .show-more-btn:hover { background: #f5f5f5; border-color: rgba(0,0,0,0.28); }
+    .show-more-btn .count { color: rgba(22,22,22,0.45); font-weight: 600; }
 
     .prod-header {
       display: flex; align-items: flex-end; justify-content: space-between;
@@ -127,16 +133,27 @@
     .prod-year-tag--sk  { background: rgba(180,130,20,0.15); color: rgba(220,180,60,0.90); border: 1px solid rgba(180,130,20,0.28); }
 
     .prod-name {
-      font-size: clamp(32px, 5vw, 56px); font-weight: 900;
-      letter-spacing: -0.04em; line-height: 0.92; color: #fff; margin: 0;
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 0.92; color: #161616; margin: 0;
     }
     .prod-meta {
-      font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 10px;
+      font-size: 13px; color: rgba(22,22,22,0.45); margin-top: 10px;
     }
     .prod-count {
-      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.28);
+      font-size: 12px; font-weight: 700; color: rgba(22,22,22,0.38);
       white-space: nowrap; flex-shrink: 0; align-self: flex-end;
     }
+    .prod-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.35);
+      padding: 7px 16px; border-radius: 999px;
+      background: rgba(201,168,76,0.08);
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap; flex-shrink: 0; align-self: flex-end;
+      text-decoration: none;
+    }
+    .prod-link:hover { background: rgba(201,168,76,0.18); border-color: rgba(201,168,76,0.6); }
 
     /* ── MASONRY GALLERY ── */
     .gallery-masonry {
@@ -172,7 +189,7 @@
     /* ── LIGHTBOX ── */
     .lightbox {
       position: fixed; inset: 0; z-index: 1000;
-      background: rgba(2,1,6,0.97);
+      background: #ffffff;
       display: flex; align-items: center; justify-content: center;
       opacity: 0; pointer-events: none;
       transition: opacity 0.25s;
@@ -194,8 +211,8 @@
     .lb-close {
       position: fixed; top: 20px; right: 24px;
       width: 44px; height: 44px; border-radius: 50%;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.70); font-size: 20px; cursor: pointer;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(0,0,0,0.14);
+      color: rgba(22,22,22,0.65); font-size: 20px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
@@ -204,8 +221,8 @@
     .lb-arrow {
       position: fixed; top: 50%; transform: translateY(-50%);
       width: 48px; height: 48px; border-radius: 50%;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.70); cursor: pointer;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(0,0,0,0.14);
+      color: rgba(22,22,22,0.65); cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s; font-size: 22px;
     }
@@ -216,20 +233,20 @@
     .lb-caption {
       position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
       font-size: 12px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.16em; color: rgba(255,255,255,0.35);
+      letter-spacing: 0.16em; color: rgba(22,22,22,0.47);
       white-space: nowrap;
     }
 
     .lb-counter {
       position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
-      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.30);
+      font-size: 12px; font-weight: 700; color: rgba(22,22,22,0.42);
       letter-spacing: 0.10em;
     }
 
     /* ── AFFISCHER SECTION ── */
     .affischer-section {
       padding: 72px 0 80px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
     .affischer-section-head {
       margin-bottom: 40px;
@@ -239,11 +256,11 @@
       letter-spacing: 0.22em; color: var(--gold); margin-bottom: 10px; opacity: 0.85;
     }
     .affischer-title {
-      font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: #fff; margin: 0 0 10px;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: #161616; margin: 0 0 10px;
       letter-spacing: -0.02em; line-height: 1.1;
     }
     .affischer-desc {
-      font-size: 15px; color: rgba(255,255,255,0.45); margin: 0;
+      font-size: 15px; color: rgba(22,22,22,0.53); margin: 0;
     }
     .affischer-grid {
       display: grid;
@@ -252,14 +269,14 @@
     }
     .affisch-card {
       display: block; text-decoration: none; border-radius: 12px; overflow: hidden;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.07);
       transition: transform 0.18s, box-shadow 0.18s;
       cursor: pointer;
     }
     .affisch-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
     .affisch-img-wrap {
       position: relative; padding-bottom: 142%; /* 2:3 poster ratio */
-      background: rgba(255,255,255,0.03); overflow: hidden;
+      background: rgba(0,0,0,0.03); overflow: hidden;
     }
     .affisch-img-wrap img {
       position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
@@ -269,7 +286,7 @@
     .affisch-no-img {
       position: absolute; inset: 0; display: none; flex-direction: column;
       align-items: center; justify-content: center; gap: 10px;
-      color: rgba(255,255,255,0.25); font-size: 11px; text-align: center;
+      color: rgba(22,22,22,0.35); font-size: 11px; text-align: center;
     }
     .affisch-label {
       padding: 10px 12px 12px;
@@ -279,7 +296,7 @@
       text-transform: uppercase; letter-spacing: 0.12em; display: block;
     }
     .affisch-name {
-      font-size: 13px; font-weight: 700; color: #fff; display: block; line-height: 1.3;
+      font-size: 13px; font-weight: 700; color: #161616; display: block; line-height: 1.3;
     }
     @media (max-width: 900px) {
       .affischer-grid { grid-template-columns: repeat(4, 1fr); }
@@ -293,7 +310,7 @@
     }
 
     /* ── FOOTER ── */
-    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
+    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); margin-top: 80px; }
     .site-footer .footer-wave-top { background: transparent !important; }
 
     /* ── RESPONSIVE ── */
@@ -311,12 +328,49 @@
       .gallery-item { margin-bottom: 6px; border-radius: 8px; }
     }
 
+  
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+
   </style>
 </head>
 <body>
-
-  <div class="page-bg" aria-hidden="true"></div>
-  <div class="page-bg-veil" aria-hidden="true"></div>
 
   <!-- NAV -->
   <header class="subpage-nav">
@@ -343,9 +397,9 @@
   <section class="gal-hero">
     <div class="gal-hero-bg" aria-hidden="true"></div>
     <div class="gal-hero-content">
-      <span class="gal-eyebrow">Sommarteatern Ystad · 2023 – 2025</span>
+      <span class="gal-eyebrow">Sommarteatern Ystad · 2007 – 2025</span>
       <h1 class="gal-title">Bilder</h1>
-      <p class="gal-desc">161 bilder från tre år av storslagen utomhusteater — Romeo &amp; Julia, Hans &amp; Greta och Skattkammarön.</p>
+      <p class="gal-desc">Nästan 20 år av storslagen utomhusteater — bläddra bland bilder från alla föreställningar sedan 2007.</p>
     </div>
   </section>
 
@@ -353,10 +407,23 @@
   <div class="filter-bar">
     <div class="container">
       <div class="filter-inner">
-        <button class="filter-btn active" onclick="filterGallery('all', this)">Alla (161)</button>
-        <button class="filter-btn" onclick="filterGallery('rj', this)">Romeo &amp; Julia 2023 (70)</button>
-        <button class="filter-btn" onclick="filterGallery('hg', this)">Hans &amp; Greta 2024 (43)</button>
-        <button class="filter-btn" onclick="filterGallery('sk', this)">Skattkammarön 2025 (48)</button>
+        <button class="filter-btn active" onclick="filterGallery('all', this)">Alla</button>
+        <button class="filter-btn" onclick="filterGallery('sk', this)">Skattkammarön 2025</button>
+        <button class="filter-btn" onclick="filterGallery('hg', this)">Hans &amp; Greta 2024</button>
+        <button class="filter-btn" onclick="filterGallery('rj', this)">Romeo &amp; Julia 2023</button>
+        <button class="filter-btn" onclick="filterGallery('torn', this)">Törnrosa 2022</button>
+        <button class="filter-btn" onclick="filterGallery('ka', this)">Kung Arthur 2021</button>
+        <button class="filter-btn" onclick="filterGallery('dtm', this)">Musketörerna 2019</button>
+        <button class="filter-btn" onclick="filterGallery('herc', this)">Herkules 2018</button>
+        <button class="filter-btn" onclick="filterGallery('ask', this)">Askungen 2016</button>
+        <button class="filter-btn" onclick="filterGallery('djungel', this)">Djungelboken 2015</button>
+        <button class="filter-btn" onclick="filterGallery('alice', this)">Alice i Underlandet 2014</button>
+        <button class="filter-btn" onclick="filterGallery('peter', this)">Peter Pan 2012</button>
+        <button class="filter-btn" onclick="filterGallery('ture', this)">Ture Sventon 2011</button>
+        <button class="filter-btn" onclick="filterGallery('pelle', this)">Pelle Svanslös 2010</button>
+        <button class="filter-btn" onclick="filterGallery('ronja', this)">Ronja Rövardotter 2009</button>
+        <button class="filter-btn" onclick="filterGallery('bombi', this)">Bombi Bitt 2008</button>
+        <button class="filter-btn" onclick="filterGallery('robin', this)">Robin Hood 2007</button>
       </div>
     </div>
   </div>
@@ -373,6 +440,7 @@
           <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2025</p>
         </div>
         <span class="prod-count">48 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
       </div>
 
       <div class="gallery-masonry" id="gallery-sk">
@@ -440,6 +508,7 @@
           <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2024</p>
         </div>
         <span class="prod-count">43 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
       </div>
 
       <div class="gallery-masonry" id="gallery-hg">
@@ -502,6 +571,7 @@
           <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2023</p>
         </div>
         <span class="prod-count">70 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
       </div>
 
       <div class="gallery-masonry" id="gallery-rj">
@@ -575,6 +645,661 @@
         <div class="gallery-item" data-prod="rj" data-src="images/RJ67.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ67.jpg" alt="Romeo &amp; Julia 2023 — bild 67" loading="lazy"></div>
         <div class="gallery-item" data-prod="rj" data-src="images/RJ68.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ68.jpg" alt="Romeo &amp; Julia 2023 — bild 68" loading="lazy"></div>
         <div class="gallery-item" data-prod="rj" data-src="images/RJ69.jpg" data-caption="Romeo &amp; Julia 2023"><img src="images/RJ69.jpg" alt="Romeo &amp; Julia 2023 — bild 69" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TÖRNROSA 2022
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="tornrosa" data-prod="torn">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(180,60,120,0.15);color:rgba(230,110,170,0.90);border:1px solid rgba(180,60,120,0.28);">2022</span>
+          <h2 class="prod-name">Törnrosa</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2022</p>
+        </div>
+        <span class="prod-count">42 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-torn">
+        <div class="gallery-item gallery-item--poster" data-prod="torn" data-src="images/törnrosa2022.jpg" data-caption="Törnrosa 2022 — Affisch"><img src="images/törnrosa2022.jpg" alt="Törnrosa 2022 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa1.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa1.jpg" alt="Törnrosa 2022 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa2.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa2.jpg" alt="Törnrosa 2022 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa3.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa3.jpg" alt="Törnrosa 2022 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa4.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa4.jpg" alt="Törnrosa 2022 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa5.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa5.jpg" alt="Törnrosa 2022 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa6.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa6.jpg" alt="Törnrosa 2022 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa7.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa7.jpg" alt="Törnrosa 2022 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa8.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa8.jpg" alt="Törnrosa 2022 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa9.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa9.jpg" alt="Törnrosa 2022 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa10.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa10.jpg" alt="Törnrosa 2022 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa11.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa11.jpg" alt="Törnrosa 2022 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa12.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa12.jpg" alt="Törnrosa 2022 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa13.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa13.jpg" alt="Törnrosa 2022 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa14.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa14.jpg" alt="Törnrosa 2022 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa15.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa15.jpg" alt="Törnrosa 2022 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa16.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa16.jpg" alt="Törnrosa 2022 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa17.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa17.jpg" alt="Törnrosa 2022 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa18.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa18.jpg" alt="Törnrosa 2022 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa19.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa19.jpg" alt="Törnrosa 2022 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa20.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa20.jpg" alt="Törnrosa 2022 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa21.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa21.jpg" alt="Törnrosa 2022 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa22.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa22.jpg" alt="Törnrosa 2022 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa23.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa23.jpg" alt="Törnrosa 2022 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa24.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa24.jpg" alt="Törnrosa 2022 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa25.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa25.jpg" alt="Törnrosa 2022 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa26.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa26.jpg" alt="Törnrosa 2022 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa27.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa27.jpg" alt="Törnrosa 2022 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa28.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa28.jpg" alt="Törnrosa 2022 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa29.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa29.jpg" alt="Törnrosa 2022 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa30.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa30.jpg" alt="Törnrosa 2022 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa31.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa31.jpg" alt="Törnrosa 2022 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa32.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa32.jpg" alt="Törnrosa 2022 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa33.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa33.jpg" alt="Törnrosa 2022 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa34.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa34.jpg" alt="Törnrosa 2022 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa35.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa35.jpg" alt="Törnrosa 2022 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa36.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa36.jpg" alt="Törnrosa 2022 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa37.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa37.jpg" alt="Törnrosa 2022 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa38.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa38.jpg" alt="Törnrosa 2022 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa39.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa39.jpg" alt="Törnrosa 2022 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa40.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa40.jpg" alt="Törnrosa 2022 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa41.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa41.jpg" alt="Törnrosa 2022 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="torn" data-src="images/föreställningar/2022-tornrosa/Törnrosa42.jpg" data-caption="Törnrosa 2022"><img src="images/föreställningar/2022-tornrosa/Törnrosa42.jpg" alt="Törnrosa 2022 — bild 42" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       KUNG ARTHUR 2021
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="kungarthur" data-prod="ka">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(60,100,180,0.15);color:rgba(110,160,230,0.90);border:1px solid rgba(60,100,180,0.28);">2021</span>
+          <h2 class="prod-name">Kung Arthur</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2021</p>
+        </div>
+        <span class="prod-count">91 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-ka">
+        <div class="gallery-item gallery-item--poster" data-prod="ka" data-src="images/kungarthur2021.jpg" data-caption="Kung Arthur 2021 — Affisch"><img src="images/kungarthur2021.jpg" alt="Kung Arthur 2021 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur1.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur1.jpg" alt="Kung Arthur 2021 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur2.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur2.jpg" alt="Kung Arthur 2021 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur3.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur3.jpg" alt="Kung Arthur 2021 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur4.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur4.jpg" alt="Kung Arthur 2021 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur5.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur5.jpg" alt="Kung Arthur 2021 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur6.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur6.jpg" alt="Kung Arthur 2021 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur7.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur7.jpg" alt="Kung Arthur 2021 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur8.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur8.jpg" alt="Kung Arthur 2021 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur9.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur9.jpg" alt="Kung Arthur 2021 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur10.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur10.jpg" alt="Kung Arthur 2021 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur11.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur11.jpg" alt="Kung Arthur 2021 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur12.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur12.jpg" alt="Kung Arthur 2021 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur13.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur13.jpg" alt="Kung Arthur 2021 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur14.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur14.jpg" alt="Kung Arthur 2021 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur15.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur15.jpg" alt="Kung Arthur 2021 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur16.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur16.jpg" alt="Kung Arthur 2021 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur17.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur17.jpg" alt="Kung Arthur 2021 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur18.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur18.jpg" alt="Kung Arthur 2021 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur19.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur19.jpg" alt="Kung Arthur 2021 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur20.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur20.jpg" alt="Kung Arthur 2021 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur21.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur21.jpg" alt="Kung Arthur 2021 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur22.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur22.jpg" alt="Kung Arthur 2021 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur23.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur23.jpg" alt="Kung Arthur 2021 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur24.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur24.jpg" alt="Kung Arthur 2021 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur25.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur25.jpg" alt="Kung Arthur 2021 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur26.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur26.jpg" alt="Kung Arthur 2021 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur27.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur27.jpg" alt="Kung Arthur 2021 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur28.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur28.jpg" alt="Kung Arthur 2021 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur29.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur29.jpg" alt="Kung Arthur 2021 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur30.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur30.jpg" alt="Kung Arthur 2021 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur31.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur31.jpg" alt="Kung Arthur 2021 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur32.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur32.jpg" alt="Kung Arthur 2021 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur33.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur33.jpg" alt="Kung Arthur 2021 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur34.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur34.jpg" alt="Kung Arthur 2021 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur35.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur35.jpg" alt="Kung Arthur 2021 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur36.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur36.jpg" alt="Kung Arthur 2021 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur37.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur37.jpg" alt="Kung Arthur 2021 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur38.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur38.jpg" alt="Kung Arthur 2021 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur39.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur39.jpg" alt="Kung Arthur 2021 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur40.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur40.jpg" alt="Kung Arthur 2021 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur41.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur41.jpg" alt="Kung Arthur 2021 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur42.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur42.jpg" alt="Kung Arthur 2021 — bild 42" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur43.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur43.jpg" alt="Kung Arthur 2021 — bild 43" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur44.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur44.jpg" alt="Kung Arthur 2021 — bild 44" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur45.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur45.jpg" alt="Kung Arthur 2021 — bild 45" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur46.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur46.jpg" alt="Kung Arthur 2021 — bild 46" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur47.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur47.jpg" alt="Kung Arthur 2021 — bild 47" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur48.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur48.jpg" alt="Kung Arthur 2021 — bild 48" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur49.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur49.jpg" alt="Kung Arthur 2021 — bild 49" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur50.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur50.jpg" alt="Kung Arthur 2021 — bild 50" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur51.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur51.jpg" alt="Kung Arthur 2021 — bild 51" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur52.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur52.jpg" alt="Kung Arthur 2021 — bild 52" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur53.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur53.jpg" alt="Kung Arthur 2021 — bild 53" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur54.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur54.jpg" alt="Kung Arthur 2021 — bild 54" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur55.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur55.jpg" alt="Kung Arthur 2021 — bild 55" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur56.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur56.jpg" alt="Kung Arthur 2021 — bild 56" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur57.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur57.jpg" alt="Kung Arthur 2021 — bild 57" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur58.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur58.jpg" alt="Kung Arthur 2021 — bild 58" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur59.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur59.jpg" alt="Kung Arthur 2021 — bild 59" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur60.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur60.jpg" alt="Kung Arthur 2021 — bild 60" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur61.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur61.jpg" alt="Kung Arthur 2021 — bild 61" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur62.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur62.jpg" alt="Kung Arthur 2021 — bild 62" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur63.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur63.jpg" alt="Kung Arthur 2021 — bild 63" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur64.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur64.jpg" alt="Kung Arthur 2021 — bild 64" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur65.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur65.jpg" alt="Kung Arthur 2021 — bild 65" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur66.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur66.jpg" alt="Kung Arthur 2021 — bild 66" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur67.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur67.jpg" alt="Kung Arthur 2021 — bild 67" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur68.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur68.jpg" alt="Kung Arthur 2021 — bild 68" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur69.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur69.jpg" alt="Kung Arthur 2021 — bild 69" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur70.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur70.jpg" alt="Kung Arthur 2021 — bild 70" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur71.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur71.jpg" alt="Kung Arthur 2021 — bild 71" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur72.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur72.jpg" alt="Kung Arthur 2021 — bild 72" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur73.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur73.jpg" alt="Kung Arthur 2021 — bild 73" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur74.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur74.jpg" alt="Kung Arthur 2021 — bild 74" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur75.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur75.jpg" alt="Kung Arthur 2021 — bild 75" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur76.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur76.jpg" alt="Kung Arthur 2021 — bild 76" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur77.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur77.jpg" alt="Kung Arthur 2021 — bild 77" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur78.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur78.jpg" alt="Kung Arthur 2021 — bild 78" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur79.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur79.jpg" alt="Kung Arthur 2021 — bild 79" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur80.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur80.jpg" alt="Kung Arthur 2021 — bild 80" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur81.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur81.jpg" alt="Kung Arthur 2021 — bild 81" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur82.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur82.jpg" alt="Kung Arthur 2021 — bild 82" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur83.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur83.jpg" alt="Kung Arthur 2021 — bild 83" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur84.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur84.jpg" alt="Kung Arthur 2021 — bild 84" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur85.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur85.jpg" alt="Kung Arthur 2021 — bild 85" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur86.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur86.jpg" alt="Kung Arthur 2021 — bild 86" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur87.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur87.jpg" alt="Kung Arthur 2021 — bild 87" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur88.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur88.jpg" alt="Kung Arthur 2021 — bild 88" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur89.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur89.jpg" alt="Kung Arthur 2021 — bild 89" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur90.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur90.jpg" alt="Kung Arthur 2021 — bild 90" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ka" data-src="images/föreställningar/2021-kung-arthur/KungArthur91.jpg" data-caption="Kung Arthur 2021"><img src="images/föreställningar/2021-kung-arthur/KungArthur91.jpg" alt="Kung Arthur 2021 — bild 91" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       DE TRE MUSKETÖRERNA 2019
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="musketorerna" data-prod="dtm">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(180,100,30,0.15);color:rgba(220,160,70,0.90);border:1px solid rgba(180,100,30,0.28);">2019</span>
+          <h2 class="prod-name">De Tre Musketörerna</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2019</p>
+        </div>
+        <span class="prod-count">69 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-dtm">
+        <div class="gallery-item gallery-item--poster" data-prod="dtm" data-src="images/detremusketörerna2019.jpg" data-caption="De Tre Musketörerna 2019 — Affisch"><img src="images/detremusketörerna2019.jpg" alt="De Tre Musketörerna 2019 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM1.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM1.jpg" alt="De Tre Musketörerna 2019 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM2.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM2.jpg" alt="De Tre Musketörerna 2019 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM3.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM3.jpg" alt="De Tre Musketörerna 2019 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM4.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM4.jpg" alt="De Tre Musketörerna 2019 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM5.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM5.jpg" alt="De Tre Musketörerna 2019 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM6.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM6.jpg" alt="De Tre Musketörerna 2019 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM7.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM7.jpg" alt="De Tre Musketörerna 2019 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM8.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM8.jpg" alt="De Tre Musketörerna 2019 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM9.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM9.jpg" alt="De Tre Musketörerna 2019 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM10.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM10.jpg" alt="De Tre Musketörerna 2019 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM11.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM11.jpg" alt="De Tre Musketörerna 2019 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM12.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM12.jpg" alt="De Tre Musketörerna 2019 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM13.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM13.jpg" alt="De Tre Musketörerna 2019 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM14.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM14.jpg" alt="De Tre Musketörerna 2019 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM15.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM15.jpg" alt="De Tre Musketörerna 2019 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM16.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM16.jpg" alt="De Tre Musketörerna 2019 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM17.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM17.jpg" alt="De Tre Musketörerna 2019 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM18.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM18.jpg" alt="De Tre Musketörerna 2019 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM19.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM19.jpg" alt="De Tre Musketörerna 2019 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM20.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM20.jpg" alt="De Tre Musketörerna 2019 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM21.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM21.jpg" alt="De Tre Musketörerna 2019 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM22.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM22.jpg" alt="De Tre Musketörerna 2019 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM23.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM23.jpg" alt="De Tre Musketörerna 2019 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM24.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM24.jpg" alt="De Tre Musketörerna 2019 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM25.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM25.jpg" alt="De Tre Musketörerna 2019 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM26.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM26.jpg" alt="De Tre Musketörerna 2019 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM27.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM27.jpg" alt="De Tre Musketörerna 2019 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM28.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM28.jpg" alt="De Tre Musketörerna 2019 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM29.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM29.jpg" alt="De Tre Musketörerna 2019 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM30.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM30.jpg" alt="De Tre Musketörerna 2019 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM31.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM31.jpg" alt="De Tre Musketörerna 2019 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM32.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM32.jpg" alt="De Tre Musketörerna 2019 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM33.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM33.jpg" alt="De Tre Musketörerna 2019 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM34.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM34.jpg" alt="De Tre Musketörerna 2019 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM35.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM35.jpg" alt="De Tre Musketörerna 2019 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM36.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM36.jpg" alt="De Tre Musketörerna 2019 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM37.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM37.jpg" alt="De Tre Musketörerna 2019 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM38.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM38.jpg" alt="De Tre Musketörerna 2019 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM39.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM39.jpg" alt="De Tre Musketörerna 2019 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM40.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM40.jpg" alt="De Tre Musketörerna 2019 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM41.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM41.jpg" alt="De Tre Musketörerna 2019 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM42.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM42.jpg" alt="De Tre Musketörerna 2019 — bild 42" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM43.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM43.jpg" alt="De Tre Musketörerna 2019 — bild 43" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM44.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM44.jpg" alt="De Tre Musketörerna 2019 — bild 44" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM45.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM45.jpg" alt="De Tre Musketörerna 2019 — bild 45" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM46.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM46.jpg" alt="De Tre Musketörerna 2019 — bild 46" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM47.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM47.jpg" alt="De Tre Musketörerna 2019 — bild 47" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM48.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM48.jpg" alt="De Tre Musketörerna 2019 — bild 48" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM49.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM49.jpg" alt="De Tre Musketörerna 2019 — bild 49" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM50.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM50.jpg" alt="De Tre Musketörerna 2019 — bild 50" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM51.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM51.jpg" alt="De Tre Musketörerna 2019 — bild 51" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM52.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM52.jpg" alt="De Tre Musketörerna 2019 — bild 52" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM53.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM53.jpg" alt="De Tre Musketörerna 2019 — bild 53" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM54.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM54.jpg" alt="De Tre Musketörerna 2019 — bild 54" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM55.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM55.jpg" alt="De Tre Musketörerna 2019 — bild 55" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM56.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM56.jpg" alt="De Tre Musketörerna 2019 — bild 56" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM57.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM57.jpg" alt="De Tre Musketörerna 2019 — bild 57" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM58.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM58.jpg" alt="De Tre Musketörerna 2019 — bild 58" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM59.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM59.jpg" alt="De Tre Musketörerna 2019 — bild 59" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM60.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM60.jpg" alt="De Tre Musketörerna 2019 — bild 60" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM61.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM61.jpg" alt="De Tre Musketörerna 2019 — bild 61" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM62.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM62.jpg" alt="De Tre Musketörerna 2019 — bild 62" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM63.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM63.jpg" alt="De Tre Musketörerna 2019 — bild 63" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM64.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM64.jpg" alt="De Tre Musketörerna 2019 — bild 64" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM65.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM65.jpg" alt="De Tre Musketörerna 2019 — bild 65" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM66.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM66.jpg" alt="De Tre Musketörerna 2019 — bild 66" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM67.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM67.jpg" alt="De Tre Musketörerna 2019 — bild 67" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM68.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM68.jpg" alt="De Tre Musketörerna 2019 — bild 68" loading="lazy"></div>
+        <div class="gallery-item" data-prod="dtm" data-src="images/föreställningar/2019-de-tre-musketorerna/DTM69.jpg" data-caption="De Tre Musketörerna 2019"><img src="images/föreställningar/2019-de-tre-musketorerna/DTM69.jpg" alt="De Tre Musketörerna 2019 — bild 69" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HERKULES 2018
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="herkules" data-prod="herc">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(180,140,20,0.15);color:rgba(220,190,60,0.90);border:1px solid rgba(180,140,20,0.28);">2018</span>
+          <h2 class="prod-name">Herkules</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2018</p>
+        </div>
+        <span class="prod-count">87 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-herc">
+        <div class="gallery-item gallery-item--poster" data-prod="herc" data-src="images/herkules2018.jpg" data-caption="Herkules 2018 — Affisch"><img src="images/herkules2018.jpg" alt="Herkules 2018 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules1.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules1.jpg" alt="Herkules 2018 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules2.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules2.jpg" alt="Herkules 2018 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules3.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules3.jpg" alt="Herkules 2018 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules4.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules4.jpg" alt="Herkules 2018 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules5.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules5.jpg" alt="Herkules 2018 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules6.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules6.jpg" alt="Herkules 2018 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules7.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules7.jpg" alt="Herkules 2018 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules8.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules8.jpg" alt="Herkules 2018 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules9.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules9.jpg" alt="Herkules 2018 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules10.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules10.jpg" alt="Herkules 2018 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules11.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules11.jpg" alt="Herkules 2018 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules12.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules12.jpg" alt="Herkules 2018 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules13.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules13.jpg" alt="Herkules 2018 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules14.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules14.jpg" alt="Herkules 2018 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules15.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules15.jpg" alt="Herkules 2018 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules16.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules16.jpg" alt="Herkules 2018 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules17.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules17.jpg" alt="Herkules 2018 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules18.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules18.jpg" alt="Herkules 2018 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules19.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules19.jpg" alt="Herkules 2018 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules20.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules20.jpg" alt="Herkules 2018 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules21.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules21.jpg" alt="Herkules 2018 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules22.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules22.jpg" alt="Herkules 2018 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules23.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules23.jpg" alt="Herkules 2018 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules24.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules24.jpg" alt="Herkules 2018 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules25.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules25.jpg" alt="Herkules 2018 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules26.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules26.jpg" alt="Herkules 2018 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules27.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules27.jpg" alt="Herkules 2018 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules28.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules28.jpg" alt="Herkules 2018 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules29.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules29.jpg" alt="Herkules 2018 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules30.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules30.jpg" alt="Herkules 2018 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules31.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules31.jpg" alt="Herkules 2018 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules32.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules32.jpg" alt="Herkules 2018 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules33.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules33.jpg" alt="Herkules 2018 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules34.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules34.jpg" alt="Herkules 2018 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules35.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules35.jpg" alt="Herkules 2018 — bild 35" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules36.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules36.jpg" alt="Herkules 2018 — bild 36" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules37.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules37.jpg" alt="Herkules 2018 — bild 37" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules38.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules38.jpg" alt="Herkules 2018 — bild 38" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules39.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules39.jpg" alt="Herkules 2018 — bild 39" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules40.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules40.jpg" alt="Herkules 2018 — bild 40" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules41.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules41.jpg" alt="Herkules 2018 — bild 41" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules42.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules42.jpg" alt="Herkules 2018 — bild 42" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules43.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules43.jpg" alt="Herkules 2018 — bild 43" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules44.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules44.jpg" alt="Herkules 2018 — bild 44" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules45.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules45.jpg" alt="Herkules 2018 — bild 45" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules46.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules46.jpg" alt="Herkules 2018 — bild 46" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules47.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules47.jpg" alt="Herkules 2018 — bild 47" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules48.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules48.jpg" alt="Herkules 2018 — bild 48" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules49.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules49.jpg" alt="Herkules 2018 — bild 49" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules50.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules50.jpg" alt="Herkules 2018 — bild 50" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules51.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules51.jpg" alt="Herkules 2018 — bild 51" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules52.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules52.jpg" alt="Herkules 2018 — bild 52" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules53.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules53.jpg" alt="Herkules 2018 — bild 53" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules54.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules54.jpg" alt="Herkules 2018 — bild 54" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules55.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules55.jpg" alt="Herkules 2018 — bild 55" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules56.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules56.jpg" alt="Herkules 2018 — bild 56" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules57.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules57.jpg" alt="Herkules 2018 — bild 57" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules58.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules58.jpg" alt="Herkules 2018 — bild 58" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules59.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules59.jpg" alt="Herkules 2018 — bild 59" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules60.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules60.jpg" alt="Herkules 2018 — bild 60" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules61.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules61.jpg" alt="Herkules 2018 — bild 61" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules62.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules62.jpg" alt="Herkules 2018 — bild 62" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules63.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules63.jpg" alt="Herkules 2018 — bild 63" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules64.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules64.jpg" alt="Herkules 2018 — bild 64" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules65.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules65.jpg" alt="Herkules 2018 — bild 65" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules66.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules66.jpg" alt="Herkules 2018 — bild 66" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules67.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules67.jpg" alt="Herkules 2018 — bild 67" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules68.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules68.jpg" alt="Herkules 2018 — bild 68" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules69.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules69.jpg" alt="Herkules 2018 — bild 69" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules70.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules70.jpg" alt="Herkules 2018 — bild 70" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules71.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules71.jpg" alt="Herkules 2018 — bild 71" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules72.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules72.jpg" alt="Herkules 2018 — bild 72" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules73.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules73.jpg" alt="Herkules 2018 — bild 73" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules74.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules74.jpg" alt="Herkules 2018 — bild 74" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules75.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules75.jpg" alt="Herkules 2018 — bild 75" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules76.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules76.jpg" alt="Herkules 2018 — bild 76" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules77.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules77.jpg" alt="Herkules 2018 — bild 77" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules78.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules78.jpg" alt="Herkules 2018 — bild 78" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules79.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules79.jpg" alt="Herkules 2018 — bild 79" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules80.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules80.jpg" alt="Herkules 2018 — bild 80" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules81.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules81.jpg" alt="Herkules 2018 — bild 81" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules82.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules82.jpg" alt="Herkules 2018 — bild 82" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules83.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules83.jpg" alt="Herkules 2018 — bild 83" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules84.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules84.jpg" alt="Herkules 2018 — bild 84" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules85.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules85.jpg" alt="Herkules 2018 — bild 85" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules86.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules86.jpg" alt="Herkules 2018 — bild 86" loading="lazy"></div>
+        <div class="gallery-item" data-prod="herc" data-src="images/föreställningar/2018-herkules/Hercules87.jpg" data-caption="Herkules 2018"><img src="images/föreställningar/2018-herkules/Hercules87.jpg" alt="Herkules 2018 — bild 87" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ASKUNGEN 2016 + ÄLDRE
+  ════════════════════════════════════════ -->
+  <section class="prod-section" id="askungen" data-prod="ask">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(100,60,180,0.15);color:rgba(160,120,230,0.90);border:1px solid rgba(100,60,180,0.28);">2016</span>
+          <h2 class="prod-name">Askungen</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2016</p>
+        </div>
+        <span class="prod-count">34 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-ask">
+        <div class="gallery-item gallery-item--poster" data-prod="ask" data-src="images/askungen2016.jpg" data-caption="Askungen 2016 — Affisch"><img src="images/askungen2016.jpg" alt="Askungen 2016 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen1.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen1.jpg" alt="Askungen 2016 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen2.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen2.jpg" alt="Askungen 2016 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen3.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen3.jpg" alt="Askungen 2016 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen4.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen4.jpg" alt="Askungen 2016 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen5.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen5.jpg" alt="Askungen 2016 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen6.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen6.jpg" alt="Askungen 2016 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen7.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen7.jpg" alt="Askungen 2016 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen8.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen8.jpg" alt="Askungen 2016 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen9.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen9.jpg" alt="Askungen 2016 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen10.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen10.jpg" alt="Askungen 2016 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen11.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen11.jpg" alt="Askungen 2016 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen12.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen12.jpg" alt="Askungen 2016 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen13.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen13.jpg" alt="Askungen 2016 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen14.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen14.jpg" alt="Askungen 2016 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen15.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen15.jpg" alt="Askungen 2016 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen16.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen16.jpg" alt="Askungen 2016 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen17.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen17.jpg" alt="Askungen 2016 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen18.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen18.jpg" alt="Askungen 2016 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen19.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen19.jpg" alt="Askungen 2016 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen20.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen20.jpg" alt="Askungen 2016 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen21.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen21.jpg" alt="Askungen 2016 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen22.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen22.jpg" alt="Askungen 2016 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen23.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen23.jpg" alt="Askungen 2016 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen24.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen24.jpg" alt="Askungen 2016 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen25.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen25.jpg" alt="Askungen 2016 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen26.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen26.jpg" alt="Askungen 2016 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen27.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen27.jpg" alt="Askungen 2016 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen28.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen28.jpg" alt="Askungen 2016 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen29.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen29.jpg" alt="Askungen 2016 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen30.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen30.jpg" alt="Askungen 2016 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen31.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen31.jpg" alt="Askungen 2016 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen32.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen32.jpg" alt="Askungen 2016 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen33.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen33.jpg" alt="Askungen 2016 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ask" data-src="images/föreställningar/2016-askungen/Askungen34.jpg" data-caption="Askungen 2016"><img src="images/föreställningar/2016-askungen/Askungen34.jpg" alt="Askungen 2016 — bild 34" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="djungelboken" data-prod="djungel">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2015</span>
+          <h2 class="prod-name">Djungelboken</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2015</p>
+        </div>
+        <span class="prod-count">23 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-djungel">
+        <div class="gallery-item gallery-item--poster" data-prod="djungel" data-src="images/djungelboken2015.jpg" data-caption="Djungelboken 2015 — Affisch"><img src="images/djungelboken2015.jpg" alt="Djungelboken 2015 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken1.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken1.jpg" alt="Djungelboken 2015 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken2.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken2.jpg" alt="Djungelboken 2015 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken3.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken3.jpg" alt="Djungelboken 2015 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken4.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken4.jpg" alt="Djungelboken 2015 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken5.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken5.jpg" alt="Djungelboken 2015 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken6.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken6.jpg" alt="Djungelboken 2015 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken7.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken7.jpg" alt="Djungelboken 2015 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken8.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken8.jpg" alt="Djungelboken 2015 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken9.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken9.jpg" alt="Djungelboken 2015 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken10.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken10.jpg" alt="Djungelboken 2015 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken11.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken11.jpg" alt="Djungelboken 2015 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken12.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken12.jpg" alt="Djungelboken 2015 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken13.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken13.jpg" alt="Djungelboken 2015 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken14.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken14.jpg" alt="Djungelboken 2015 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken15.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken15.jpg" alt="Djungelboken 2015 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken16.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken16.jpg" alt="Djungelboken 2015 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken17.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken17.jpg" alt="Djungelboken 2015 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken18.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken18.jpg" alt="Djungelboken 2015 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken19.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken19.jpg" alt="Djungelboken 2015 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken20.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken20.jpg" alt="Djungelboken 2015 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken21.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken21.jpg" alt="Djungelboken 2015 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken22.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken22.jpg" alt="Djungelboken 2015 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="djungel" data-src="images/föreställningar/2015-djungelboken/Djungelboken23.jpg" data-caption="Djungelboken 2015"><img src="images/föreställningar/2015-djungelboken/Djungelboken23.jpg" alt="Djungelboken 2015 — bild 23" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="alice-i-underlandet" data-prod="alice">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2014</span>
+          <h2 class="prod-name">Alice i Underlandet</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2014</p>
+        </div>
+        <span class="prod-count">35 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-alice">
+        <div class="gallery-item gallery-item--poster" data-prod="alice" data-src="images/aliceiunderlandet2014.jpg" data-caption="Alice i Underlandet 2014 — Affisch"><img src="images/aliceiunderlandet2014.jpg" alt="Alice i Underlandet 2014 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet1.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet1.jpg" alt="Alice i Underlandet 2014 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet2.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet2.jpg" alt="Alice i Underlandet 2014 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet3.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet3.jpg" alt="Alice i Underlandet 2014 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet4.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet4.jpg" alt="Alice i Underlandet 2014 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet5.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet5.jpg" alt="Alice i Underlandet 2014 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet6.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet6.jpg" alt="Alice i Underlandet 2014 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet7.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet7.jpg" alt="Alice i Underlandet 2014 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet8.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet8.jpg" alt="Alice i Underlandet 2014 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet9.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet9.jpg" alt="Alice i Underlandet 2014 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet10.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet10.jpg" alt="Alice i Underlandet 2014 — bild 10" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet11.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet11.jpg" alt="Alice i Underlandet 2014 — bild 11" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet12.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet12.jpg" alt="Alice i Underlandet 2014 — bild 12" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet13.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet13.jpg" alt="Alice i Underlandet 2014 — bild 13" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet14.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet14.jpg" alt="Alice i Underlandet 2014 — bild 14" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet15.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet15.jpg" alt="Alice i Underlandet 2014 — bild 15" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet16.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet16.jpg" alt="Alice i Underlandet 2014 — bild 16" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet17.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet17.jpg" alt="Alice i Underlandet 2014 — bild 17" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet18.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet18.jpg" alt="Alice i Underlandet 2014 — bild 18" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet19.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet19.jpg" alt="Alice i Underlandet 2014 — bild 19" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet20.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet20.jpg" alt="Alice i Underlandet 2014 — bild 20" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet21.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet21.jpg" alt="Alice i Underlandet 2014 — bild 21" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet22.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet22.jpg" alt="Alice i Underlandet 2014 — bild 22" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet23.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet23.jpg" alt="Alice i Underlandet 2014 — bild 23" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet24.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet24.jpg" alt="Alice i Underlandet 2014 — bild 24" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet25.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet25.jpg" alt="Alice i Underlandet 2014 — bild 25" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet26.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet26.jpg" alt="Alice i Underlandet 2014 — bild 26" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet27.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet27.jpg" alt="Alice i Underlandet 2014 — bild 27" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet28.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet28.jpg" alt="Alice i Underlandet 2014 — bild 28" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet29.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet29.jpg" alt="Alice i Underlandet 2014 — bild 29" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet30.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet30.jpg" alt="Alice i Underlandet 2014 — bild 30" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet31.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet31.jpg" alt="Alice i Underlandet 2014 — bild 31" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet32.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet32.jpg" alt="Alice i Underlandet 2014 — bild 32" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet33.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet33.jpg" alt="Alice i Underlandet 2014 — bild 33" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet34.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet34.jpg" alt="Alice i Underlandet 2014 — bild 34" loading="lazy"></div>
+        <div class="gallery-item" data-prod="alice" data-src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet35.jpg" data-caption="Alice i Underlandet 2014"><img src="images/föreställningar/2014-alice-i-underlandet/Aliceiunderlandet35.jpg" alt="Alice i Underlandet 2014 — bild 35" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="peter-pan" data-prod="peter">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2012</span>
+          <h2 class="prod-name">Peter Pan</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2012</p>
+        </div>
+        <span class="prod-count">10 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-peter">
+        <div class="gallery-item gallery-item--poster" data-prod="peter" data-src="images/peterpan2012.jpg" data-caption="Peter Pan 2012 — Affisch"><img src="images/peterpan2012.jpg" alt="Peter Pan 2012 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan1.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan1.jpg" alt="Peter Pan 2012 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan2.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan2.jpg" alt="Peter Pan 2012 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan3.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan3.jpg" alt="Peter Pan 2012 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan4.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan4.jpg" alt="Peter Pan 2012 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan5.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan5.jpg" alt="Peter Pan 2012 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan6.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan6.jpg" alt="Peter Pan 2012 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan7.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan7.jpg" alt="Peter Pan 2012 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan8.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan8.jpg" alt="Peter Pan 2012 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan9.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan9.jpg" alt="Peter Pan 2012 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="peter" data-src="images/föreställningar/2012-peter-pan/Peterpan10.jpg" data-caption="Peter Pan 2012"><img src="images/föreställningar/2012-peter-pan/Peterpan10.jpg" alt="Peter Pan 2012 — bild 10" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="ture-sventon" data-prod="ture">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2011</span>
+          <h2 class="prod-name">Ture Sventon</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2011</p>
+        </div>
+        <span class="prod-count">4 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-ture">
+        <div class="gallery-item gallery-item--poster" data-prod="ture" data-src="images/turesventon2011.jpg" data-caption="Ture Sventon 2011 — Affisch"><img src="images/turesventon2011.jpg" alt="Ture Sventon 2011 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ture" data-src="images/föreställningar/2011-ture-sventon/Turesventon1.jpg" data-caption="Ture Sventon 2011"><img src="images/föreställningar/2011-ture-sventon/Turesventon1.jpg" alt="Ture Sventon 2011 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ture" data-src="images/föreställningar/2011-ture-sventon/Turesventon2.jpg" data-caption="Ture Sventon 2011"><img src="images/föreställningar/2011-ture-sventon/Turesventon2.jpg" alt="Ture Sventon 2011 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ture" data-src="images/föreställningar/2011-ture-sventon/Turesventon3.jpg" data-caption="Ture Sventon 2011"><img src="images/föreställningar/2011-ture-sventon/Turesventon3.jpg" alt="Ture Sventon 2011 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ture" data-src="images/föreställningar/2011-ture-sventon/Turesventon4.jpg" data-caption="Ture Sventon 2011"><img src="images/föreställningar/2011-ture-sventon/Turesventon4.jpg" alt="Ture Sventon 2011 — bild 4" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="pelle-svanslös" data-prod="pelle">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2010</span>
+          <h2 class="prod-name">Pelle Svanslös</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2010</p>
+        </div>
+        <span class="prod-count">3 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-pelle">
+        <div class="gallery-item gallery-item--poster" data-prod="pelle" data-src="images/pellesvanslös2010.jpg" data-caption="Pelle Svanslös 2010 — Affisch"><img src="images/pellesvanslös2010.jpg" alt="Pelle Svanslös 2010 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="pelle" data-src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös2.jpg" data-caption="Pelle Svanslös 2010"><img src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös2.jpg" alt="Pelle Svanslös 2010 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="pelle" data-src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös3.jpg" data-caption="Pelle Svanslös 2010"><img src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös3.jpg" alt="Pelle Svanslös 2010 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="pelle" data-src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös4.jpg" data-caption="Pelle Svanslös 2010"><img src="images/föreställningar/2010-pelle-svanslös/Pellesvanslös4.jpg" alt="Pelle Svanslös 2010 — bild 4" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="ronja-rovardotter" data-prod="ronja">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2009</span>
+          <h2 class="prod-name">Ronja Rövardotter</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2009</p>
+        </div>
+        <span class="prod-count">1 bild</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-ronja">
+        <div class="gallery-item gallery-item--poster" data-prod="ronja" data-src="images/ronja2009.jpg" data-caption="Ronja Rövardotter 2009 — Affisch"><img src="images/ronja2009.jpg" alt="Ronja Rövardotter 2009 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ronja" data-src="images/föreställningar/2009-ronja-rovardotter/RONJA1.jpg" data-caption="Ronja Rövardotter 2009"><img src="images/föreställningar/2009-ronja-rovardotter/RONJA1.jpg" alt="Ronja Rövardotter 2009 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ronja" data-src="images/föreställningar/2009-ronja-rovardotter/RONJA2.JPG" data-caption="Ronja Rövardotter 2009"><img src="images/föreställningar/2009-ronja-rovardotter/RONJA2.JPG" alt="Ronja Rövardotter 2009 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ronja" data-src="images/föreställningar/2009-ronja-rovardotter/RONJA3.JPG" data-caption="Ronja Rövardotter 2009"><img src="images/föreställningar/2009-ronja-rovardotter/RONJA3.JPG" alt="Ronja Rövardotter 2009 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ronja" data-src="images/föreställningar/2009-ronja-rovardotter/RONJA4.JPG" data-caption="Ronja Rövardotter 2009"><img src="images/föreställningar/2009-ronja-rovardotter/RONJA4.JPG" alt="Ronja Rövardotter 2009 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="ronja" data-src="images/föreställningar/2009-ronja-rovardotter/RONJA5.JPG" data-caption="Ronja Rövardotter 2009"><img src="images/föreställningar/2009-ronja-rovardotter/RONJA5.JPG" alt="Ronja Rövardotter 2009 — bild 5" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="bombi-bitt" data-prod="bombi">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2008</span>
+          <h2 class="prod-name">Bombi Bitt</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2008</p>
+        </div>
+        <span class="prod-count">6 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-bombi">
+        <div class="gallery-item gallery-item--poster" data-prod="bombi" data-src="images/bombibitt2008.jpg" data-caption="Bombi Bitt 2008 — Affisch"><img src="images/bombibitt2008.jpg" alt="Bombi Bitt 2008 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt1.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt1.jpg" alt="Bombi Bitt 2008 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt2.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt2.jpg" alt="Bombi Bitt 2008 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt3.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt3.jpg" alt="Bombi Bitt 2008 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt4.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt4.jpg" alt="Bombi Bitt 2008 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt5.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt5.jpg" alt="Bombi Bitt 2008 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="bombi" data-src="images/föreställningar/2008-bombi-bitt/Bombibitt6.jpg" data-caption="Bombi Bitt 2008"><img src="images/föreställningar/2008-bombi-bitt/Bombibitt6.jpg" alt="Bombi Bitt 2008 — bild 6" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-section" id="robin-hood" data-prod="robin">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <span class="prod-year-tag" style="background:rgba(80,80,80,0.15);color:rgba(160,160,160,0.90);border:1px solid rgba(80,80,80,0.28);">2007</span>
+          <h2 class="prod-name">Robin Hood</h2>
+          <p class="prod-meta">Sommarteatern Ystad · Öja utomhusscen · Sommaren 2007</p>
+        </div>
+        <span class="prod-count">10 bilder</span>
+        <a href="tidigare-forestallningar.html" class="prod-link">Se föreställningen →</a>
+      </div>
+      <div class="gallery-masonry" id="gallery-robin">
+        <div class="gallery-item gallery-item--poster" data-prod="robin" data-src="images/robinhood2007.jpg" data-caption="Robin Hood 2007 — Affisch"><img src="images/robinhood2007.jpg" alt="Robin Hood 2007 — Affisch" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood1.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood1.jpg" alt="Robin Hood 2007 — bild 1" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood2.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood2.jpg" alt="Robin Hood 2007 — bild 2" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood3.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood3.jpg" alt="Robin Hood 2007 — bild 3" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood4.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood4.jpg" alt="Robin Hood 2007 — bild 4" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood5.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood5.jpg" alt="Robin Hood 2007 — bild 5" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood6.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood6.jpg" alt="Robin Hood 2007 — bild 6" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood7.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood7.jpg" alt="Robin Hood 2007 — bild 7" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood8.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood8.jpg" alt="Robin Hood 2007 — bild 8" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood9.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood9.jpg" alt="Robin Hood 2007 — bild 9" loading="lazy"></div>
+        <div class="gallery-item" data-prod="robin" data-src="images/föreställningar/2007-robin-hood/RobinHood10.jpg" data-caption="Robin Hood 2007"><img src="images/föreställningar/2007-robin-hood/RobinHood10.jpg" alt="Robin Hood 2007 — bild 10" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -767,8 +1492,8 @@
   <!-- FOOTER -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">
@@ -853,6 +1578,36 @@
   </footer>
 
   <script>
+    const PREVIEW_LIMIT = 12;
+
+    // ── VISA FLER per sektion ──
+    function initShowMore() {
+      document.querySelectorAll('.prod-section').forEach(function(sec) {
+        const items = Array.from(sec.querySelectorAll('.gallery-item'));
+        if (items.length <= PREVIEW_LIMIT) return;
+
+        // Hide items beyond limit
+        items.forEach(function(item, i) {
+          if (i >= PREVIEW_LIMIT) item.classList.add('gallery-hidden');
+        });
+
+        // Create button
+        const remaining = items.length - PREVIEW_LIMIT;
+        const wrap = document.createElement('div');
+        wrap.className = 'show-more-wrap';
+        wrap.innerHTML = '<button class="show-more-btn" onclick="showAll(this, \'' + sec.id + '\')">Visa fler <span class="count">(' + remaining + ' till)</span></button>';
+        sec.querySelector('.gallery-masonry').after(wrap);
+      });
+    }
+
+    function showAll(btn, secId) {
+      const sec = document.getElementById(secId);
+      sec.querySelectorAll('.gallery-hidden').forEach(function(item) {
+        item.classList.remove('gallery-hidden');
+      });
+      btn.closest('.show-more-wrap').remove();
+    }
+
     // ── BUILD FLAT IMAGE LIST ──
     const allItems = Array.from(document.querySelectorAll('.gallery-item'));
 
@@ -890,9 +1645,10 @@
       lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
     }
 
-    allItems.forEach(function(item, i) {
+    allItems.forEach(function(item) {
       item.addEventListener('click', function() {
-        visibleItems = allItems.filter(el => el.style.display !== 'none');
+        if (item.classList.contains('gallery-hidden')) return;
+        visibleItems = allItems.filter(el => el.style.display !== 'none' && !el.classList.contains('gallery-hidden'));
         const idx = visibleItems.indexOf(item);
         openLightbox(idx >= 0 ? idx : 0);
       });
@@ -926,7 +1682,6 @@
         }
       });
 
-      // Show/hide section headers
       document.querySelectorAll('.prod-section').forEach(function(sec) {
         if (prod === 'all' || sec.dataset.prod === prod) {
           sec.style.display = '';
@@ -934,7 +1689,21 @@
           sec.style.display = 'none';
         }
       });
+
+      // Scroll to first visible section
+      if (prod !== 'all') {
+        const target = document.querySelector('.prod-section[data-prod="' + prod + '"]');
+        if (target) setTimeout(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+      }
     }
+
+    // Add CSS for hidden items
+    const style = document.createElement('style');
+    style.textContent = '.gallery-hidden { display: none !important; }';
+    document.head.appendChild(style);
+
+    // Init on load
+    initShowMore();
   </script>
 
 </body>

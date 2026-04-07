@@ -17,7 +17,7 @@
 
     body {
       padding-top: 67px;
-      background-color: #010810;
+      background-color: #010612;
     }
 
     /* Fixerad stadsvy-bakgrund */
@@ -133,11 +133,12 @@
 
     .ot-hero {
       position: relative;
-      height: 100vh;
-      min-height: 660px;
+      height: 94vh;
+      min-height: 640px;
       display: flex;
       align-items: flex-end;
-      overflow: hidden;
+      overflow: visible;
+      padding-bottom: 22vh;
     }
 
     .ot-hero-bg {
@@ -156,8 +157,8 @@
         to bottom,
         rgba(1,6,18,0.20) 0%,
         rgba(1,6,18,0.42) 38%,
-        rgba(1,6,18,0.88) 72%,
-        rgba(1,6,18,1.00) 100%
+        rgba(1,6,18,0.55) 70%,
+        rgba(1,6,18,0.20) 100%
       );
     }
 
@@ -227,13 +228,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
     }
 
     .ot-meta-value {
       font-size: 16px;
       font-weight: 700;
-      color: rgba(255,255,255,0.88);
+      color: rgba(22,22,22,0.82);
       letter-spacing: -0.02em;
     }
 
@@ -258,7 +259,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
       animation: scrollBounce 2.4s ease-in-out infinite;
     }
 
@@ -288,13 +289,13 @@
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 0.92;
-      color: #ffffff;
+      color: #161616;
       margin: 0 0 24px;
     }
 
     .ot-body {
       font-size: 16px;
-      color: rgba(255,255,255,0.60);
+      color: rgba(22,22,22,0.65);
       line-height: 1.80;
     }
 
@@ -303,15 +304,15 @@
 
     /* Dark glass panel */
     .glass-panel {
-      background: rgba(1,10,28,0.78);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: var(--radius-lg);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
     .glass-panel--gold {
-      background: rgba(10,12,4,0.76);
+      background: #ffffff;
       border-color: rgba(201,168,76,0.18);
     }
 
@@ -369,7 +370,7 @@
       gap: 32px;
       margin-top: 32px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(0,0,0,0.07);
     }
 
     .highlight-item { display: flex; flex-direction: column; gap: 3px; }
@@ -379,13 +380,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
     }
 
     .highlight-value {
       font-size: 15px;
       font-weight: 700;
-      color: rgba(255,255,255,0.85);
+      color: rgba(22,22,22,0.82);
       letter-spacing: -0.02em;
     }
 
@@ -466,7 +467,7 @@
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1.05;
-      color: #ffffff;
+      color: #161616;
       margin: 0 0 16px;
       max-width: 640px;
     }
@@ -478,7 +479,7 @@
 
     .quote-body {
       font-size: 15px;
-      color: rgba(255,255,255,0.62);
+      color: rgba(22,22,22,0.65);
       line-height: 1.70;
       max-width: 580px;
     }
@@ -504,7 +505,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .price-row:last-of-type { border-bottom: none; }
@@ -512,12 +513,12 @@
     .price-row-label {
       font-size: 15px;
       font-weight: 600;
-      color: rgba(255,255,255,0.82);
+      color: rgba(22,22,22,0.82);
     }
 
     .price-row-sub {
       font-size: 11px;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
       margin-top: 2px;
     }
 
@@ -530,12 +531,12 @@
 
     .price-row-amount--free {
       font-size: 16px;
-      color: rgba(255,255,255,0.40);
+      color: rgba(22,22,22,0.48);
     }
 
     .price-footnote {
       font-size: 12px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(22,22,22,0.35);
       margin-top: 16px;
       line-height: 1.6;
     }
@@ -549,7 +550,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
       margin-bottom: 18px;
     }
 
@@ -572,13 +573,13 @@
     }
 
     .offer-card--plain {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.03);
+      border-color: rgba(22,22,22,0.2);
     }
 
     .offer-card--plain:hover {
       background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.10);
+      border-color: rgba(22,22,22,0.24);
     }
 
     .offer-title {
@@ -589,15 +590,15 @@
       letter-spacing: -0.01em;
     }
 
-    .offer-title--plain { color: rgba(255,255,255,0.55); }
+    .offer-title--plain { color: rgba(22,22,22,0.63); }
 
     .offer-desc {
       font-size: 13px;
-      color: rgba(255,255,255,0.48);
+      color: rgba(22,22,22,0.56);
       line-height: 1.55;
     }
 
-    .offer-desc strong { color: rgba(255,255,255,0.78); }
+    .offer-desc strong { color: rgba(22,22,22,0.73); }
     .offer-desc a { color: rgba(201,168,76,0.75); }
 
     .price-cta-block {
@@ -610,7 +611,7 @@
 
     .price-cta-note {
       font-size: 13px;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
     }
 
 
@@ -646,7 +647,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
       white-space: nowrap;
       min-width: 160px;
       flex-shrink: 0;
@@ -654,7 +655,7 @@
 
     .credits-name {
       font-size: 14px;
-      color: rgba(255,255,255,0.78);
+      color: rgba(22,22,22,0.73);
       line-height: 1.55;
     }
 
@@ -667,13 +668,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
       margin-bottom: 16px;
     }
 
     .cast-names {
       font-size: 13.5px;
-      color: rgba(255,255,255,0.68);
+      color: rgba(22,22,22,0.63);
       line-height: 2.0;
     }
 
@@ -739,7 +740,7 @@
       font-size: clamp(20px, 3.5vw, 36px);
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: rgba(255,255,255,0.90);
+      color: rgba(22,22,22,0.82);
       max-width: 640px;
       line-height: 1.20;
       text-shadow: 0 2px 30px rgba(0,0,0,0.70);
@@ -779,7 +780,7 @@
       align-items: center;
       gap: 6px;
       font-size: 11px;
-      color: rgba(255,255,255,0.38);
+      color: rgba(22,22,22,0.48);
       white-space: nowrap;
     }
 
@@ -802,21 +803,21 @@
     }
 
     .schedule-week {
-      background: rgba(1,10,28,0.72);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: var(--radius-md);
       overflow: hidden;
     }
 
     .schedule-week-head {
       padding: 12px 20px;
-      background: rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
     }
 
     .schedule-row {
@@ -825,7 +826,7 @@
       gap: 0 14px;
       align-items: center;
       padding: 7px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
       transition: background 0.15s;
     }
 
@@ -866,13 +867,13 @@
     .sched-date {
       font-size: 14px;
       font-weight: 700;
-      color: rgba(255,255,255,0.88);
+      color: rgba(22,22,22,0.82);
       letter-spacing: -0.01em;
     }
 
     .sched-day {
       font-size: 11px;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
       font-weight: 500;
     }
 
@@ -911,7 +912,7 @@
 
     .schedule-note {
       font-size: 13px;
-      color: rgba(255,255,255,0.28);
+      color: rgba(22,22,22,0.4);
     }
 
 
@@ -956,8 +957,8 @@
     }
 
     .faq-item {
-      background: rgba(1,10,28,0.72);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: var(--radius-sm);
       overflow: hidden;
     }
@@ -975,7 +976,7 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 700;
-      color: rgba(255,255,255,0.85);
+      color: rgba(22,22,22,0.82);
       letter-spacing: -0.01em;
       user-select: none;
       transition: background 0.15s;
@@ -986,7 +987,7 @@
 
     .faq-item[open] .faq-question {
       background: rgba(201,168,76,0.05);
-      color: #fff;
+      color: #161616;
     }
 
     .faq-icon {
@@ -998,7 +999,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.38);
+      color: rgba(22,22,22,0.48);
       transition: background 0.18s, color 0.18s, transform 0.2s;
     }
 
@@ -1011,20 +1012,20 @@
     .faq-answer {
       padding: 2px 22px 20px;
       font-size: 14px;
-      color: rgba(255,255,255,0.52);
+      color: rgba(22,22,22,0.6);
       line-height: 1.78;
     }
 
     .faq-answer p { margin: 0 0 10px; }
     .faq-answer p:last-child { margin: 0; }
-    .faq-answer strong { color: rgba(255,255,255,0.75); }
+    .faq-answer strong { color: rgba(22,22,22,0.7); }
     .faq-answer a { color: rgba(201,168,76,0.72); }
     .faq-answer a:hover { color: var(--gold); }
 
     .faq-contact {
       margin-top: 28px;
       font-size: 13px;
-      color: rgba(255,255,255,0.30);
+      color: rgba(22,22,22,0.42);
     }
 
     .faq-contact a { color: rgba(201,168,76,0.65); }
@@ -1058,12 +1059,16 @@
       }
       .about-photo::before { display: none; }
 
+      /* quote-feature: behåll som överläggsblock */
       .quote-feature {
-        grid-template-columns: 1fr;
+        height: 60vh;
+        min-height: 400px;
       }
       .quote-photo {
-        aspect-ratio: 16/7;
-        max-height: 320px;
+        position: absolute;
+        inset: 0;
+        aspect-ratio: unset;
+        max-height: unset;
       }
 
       .price-layout {
@@ -1163,15 +1168,12 @@
         gap: 18px;
       }
 
-      /* Quote */
+      /* Quote — text i botten av bilden på mobil */
       .quote-feature {
-        gap: 28px;
+        height: 100vw;
+        min-height: 360px;
       }
-      .quote-photo {
-        aspect-ratio: 4/3;
-        max-height: 260px;
-      }
-      .quote-text-wrap { padding: 16px 0 0 8px; }
+      .quote-text-wrap { padding: 0 20px 28px; }
       .quote-headline { font-size: clamp(22px, 6vw, 34px); }
 
       /* Photo break */
@@ -1241,6 +1243,288 @@
 
     .site-footer .footer-wave-top {
       background: transparent !important;
+    }
+
+  
+    /* ── HERO WHITE FADE ── */
+    .ot-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 28%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
+    }
+    .ot-hero { position: relative; }
+    .ot-hero-bg { overflow: hidden; }
+    .ot-hero-inner { position: relative; z-index: 5; }
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+    .ot-hero h1, .ot-hero h2, .ot-hero h3,
+    .ot-hero p, .ot-hero span, .ot-hero a,
+    .ot-hero [class*="title"], .ot-hero [class*="subtitle"],
+    .ot-hero [class*="eyebrow"], .ot-hero [class*="kicker"],
+    .ot-hero [class*="lead"], .ot-hero [class*="desc"],
+    .ot-hero [class*="sub"],
+    .ot-hero-inner, .ot-hero-inner * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
+    }
+    .ot-hero [class*="eyebrow"],
+    .ot-hero [class*="kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90 !important;
+    }
+    .ot-hero .btn-gold,
+    .ot-hero [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+
+  
+    /* ══ HERO: ALL TEXT WHITE ══ */
+    .ot-hero * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+    .ot-hero [class*="eyebrow"],
+    .ot-hero [class*="kicker"],
+    .ot-hero [class*="-kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90;
+    }
+    .ot-hero .btn-gold,
+    .ot-hero [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+    .ot-hero .btn-ghost {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    .ot-hero .nav-pill-badge {
+      color: #fff !important;
+      text-shadow: none !important;
+    }
+
+
+    /* ══════════════════════════════════════════
+       DARK THEME — alla text/panel-färger ljusa
+       (sidan har permanent mörk blå bakgrund)
+    ══════════════════════════════════════════ */
+
+    /* Hero fade: smälter ihop med sidans mörka bg */
+    .ot-hero::after {
+      background: linear-gradient(to bottom, transparent 0%, #010612 100%) !important;
+    }
+
+    /* Rubriker */
+    .ot-h2                  { color: #ffffff; }
+    .quote-headline         { color: #ffffff; }
+
+    /* Brödtext */
+    .ot-body, .ot-body p    { color: rgba(255,255,255,0.72); }
+    .quote-body             { color: rgba(255,255,255,0.72); }
+
+    /* Hero meta-raden */
+    .ot-meta-label          { color: rgba(255,255,255,0.45); }
+    .ot-meta-value          { color: rgba(255,255,255,0.92); }
+    .ot-scroll              { color: rgba(255,255,255,0.40); }
+
+    /* Glass panels → mörkt glas */
+    .glass-panel {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+    .glass-panel--gold {
+      background: rgba(201,168,76,0.06);
+      border-color: rgba(201,168,76,0.20);
+    }
+
+    /* About highlights */
+    .about-highlights       { border-top: 1px solid rgba(255,255,255,0.08); }
+    .highlight-label        { color: rgba(255,255,255,0.45); }
+    .highlight-value        { color: rgba(255,255,255,0.90); }
+
+    /* Priser */
+    .price-row              { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .price-row-label        { color: rgba(255,255,255,0.90); }
+    .price-row-sub          { color: rgba(255,255,255,0.45); }
+    .price-row-amount--free { color: rgba(255,255,255,0.50); }
+    .price-footnote         { color: rgba(255,255,255,0.40); }
+
+    /* Erbjudanden */
+    .offer-label            { color: rgba(255,255,255,0.45); }
+    .offer-card--plain {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .offer-title--plain     { color: rgba(255,255,255,0.68); }
+    .offer-desc             { color: rgba(255,255,255,0.62); }
+    .offer-desc strong      { color: rgba(255,255,255,0.85); }
+    .price-cta-note         { color: rgba(255,255,255,0.45); }
+
+    /* Medverkande */
+    .credits-role           { color: rgba(255,255,255,0.45); }
+    .credits-name           { color: rgba(255,255,255,0.85); }
+    .cast-label             { color: rgba(255,255,255,0.45); }
+    .cast-names             { color: rgba(255,255,255,0.72); }
+
+    /* Spelschema */
+    .schedule-week {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .schedule-week-head {
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.45);
+    }
+    .schedule-row           { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .schedule-row:hover     { background: rgba(201,168,76,0.08); }
+    .sched-date             { color: rgba(255,255,255,0.90); }
+    .sched-day              { color: rgba(255,255,255,0.45); }
+    .leg-item               { color: rgba(255,255,255,0.55); }
+    .schedule-note          { color: rgba(255,255,255,0.45); }
+
+    /* Fotopaus — text sänkt till botten */
+    .photo-break-quote      { color: #ffffff; }
+    .photo-break-text {
+      top: auto !important;
+      bottom: 0 !important;
+      height: auto !important;
+      padding: 24px 24px 28px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      background: linear-gradient(to top, rgba(1,6,18,0.75) 0%, transparent 100%);
+    }
+
+    /* Mobil: dölj Nancy-accent (images förvirrar i en kolumn) */
+    @media (max-width: 1050px) {
+      .nancy-accent { display: none; }
+    }
+
+    /* Mobil: centrera rubriker */
+    @media (max-width: 720px) {
+      .ot-kicker, .ot-h2, .quote-headline, .ot-body { text-align: center; }
+      .about-highlights { justify-content: center; }
+    }
+
+    /* Ensemble-namn som länkar */
+    .cast-link {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .cast-link:hover { color: var(--gold); }
+
+    /* FAQ */
+    .faq-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-item[open]         { border-color: rgba(201,168,76,0.24); }
+    .faq-question           { color: rgba(255,255,255,0.88); }
+    .faq-item[open] .faq-question {
+      background: rgba(201,168,76,0.06);
+      color: rgba(255,255,255,0.92);
+    }
+    .faq-icon               { color: rgba(255,255,255,0.55); }
+    .faq-icon svg           { stroke: currentColor; }
+    .faq-answer             { color: rgba(255,255,255,0.65); }
+    .faq-answer strong      { color: rgba(255,255,255,0.82); }
+    .faq-answer a           { color: rgba(201,168,76,0.80); }
+    .faq-contact            { color: rgba(255,255,255,0.45); }
+    .faq-contact a          { color: rgba(201,168,76,0.75); }
+
+    /* Nancy — sidoporträtt i FAQ */
+    .nancy-side-photo {
+      position: sticky;
+      top: 92px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 2/3;
+    }
+    .nancy-side-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .nancy-side-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(1,6,18,0.72) 0%, transparent 50%);
+    }
+    .nancy-side-photo .nancy-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 22px;
+      z-index: 2;
+    }
+    .nancy-caption-name {
+      font-size: 15px; font-weight: 800;
+      color: #ffffff; letter-spacing: -0.01em;
+    }
+    .nancy-caption-role {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--gold); opacity: 0.85;
+      margin-top: 3px;
+    }
+
+    /* Nancy scatter — liten bild vid textblock */
+    .nancy-accent {
+      float: right;
+      width: clamp(140px, 22%, 200px);
+      margin: 0 0 24px 28px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      shape-outside: border-box;
+    }
+    .nancy-accent img {
+      width: 100%; display: block;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    @media (max-width: 600px) {
+      .nancy-accent { float: none; width: 100%; margin: 0 0 20px; }
     }
 
   </style>
@@ -1329,7 +1613,7 @@
   <!-- ═══════════════════════════════════════
        OM FÖRESTÄLLNINGEN — text + DodgerOliver 02
   ════════════════════════════════════════ -->
-  <section class="ot-section" id="om" style="padding-bottom: 60px;">
+  <section class="ot-section" id="om" style="padding-bottom: 60px; margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
     <div class="container">
       <div class="about-split">
 
@@ -1339,6 +1623,9 @@
 
           <div class="ot-body">
             <p>Sommaren 2026 tar Sommarteatern Ystad sig an ett av litteraturens mest älskade äventyr — Charles Dickens <em>Oliver Twist</em>. Under öppen himmel på vår utomhusscen i Öja bjuder vi på musik, dans och ett drama som berör hjärtat.</p>
+            <div class="nancy-accent">
+              <img src="images/Nancy2.jpg" alt="Nancy — Oliver Twist 2026">
+            </div>
             <p>Följ den unge Oliver på hans färd genom 1800-talets London: från det dystra fattighuset och gatans hårda lagar till hopp, vänskap och en framtid värd att kämpa för. En familjemusikal som talar till barn och vuxna på lika villkor — med egenskriven musik av <strong>Frida Green</strong> och eget manus av <strong>Anna Ståhl, Hilda Ståhl, Filip Jönsson</strong> och <strong>Max Ivarsson</strong>.</p>
           </div>
 
@@ -1499,10 +1786,6 @@
             </div>
             <div class="credits-item">
               <span class="credits-role">Producent</span>
-              <span class="credits-name">Hannes Nilsson</span>
-            </div>
-            <div class="credits-item">
-              <span class="credits-role">Kommunikation</span>
               <span class="credits-name" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
                 Hannes Nilsson
                 <a href="mailto:hannes@sommarteaternystad.com" style="display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.10em; color:rgba(201,168,76,0.85); background:rgba(201,168,76,0.10); border:1px solid rgba(201,168,76,0.25); padding:3px 10px; border-radius:999px; white-space:nowrap; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.18)';this.style.borderColor='rgba(201,168,76,0.45)';" onmouseout="this.style.background='rgba(201,168,76,0.10)';this.style.borderColor='rgba(201,168,76,0.25)';">
@@ -1536,7 +1819,46 @@
         <!-- Ensemble -->
         <div class="glass-panel cast-panel">
           <p class="cast-label">Ensemble</p>
-          <p class="cast-names">Jimmy Johansson · Eva-Lotta Larsson · Alexander Ståhl · Hannes Nilsson · Olivia Eriksson · Frida Ljunggren · Alicia Nilsson · Adrian Skoog · Miranda Holmberg · Emil Andersson · Elvira Andersson · Alice Zeylon · Agnes Angelsmark · Mira Brandt · Alicia Ljungqvist · Hilda Mårtensson · Gustaf Ehrnborn · Greta Ivansson · Gabriella Olsson · Iza Persson · Daniella Nilsson · Zeb Månsson · Hannes Sjö · Sigrid Larsson · Klara Liljenberg · Lucas Mårtensson Rosengren · Aron Möller · Edvin Magnusson · Maya Donaldson · Helmi Linder · Benjamin Nilsson · Selma Penca · Adela Penca · Ellesina Penca · Decibella Pihlemark · Zion Månsson · Liv Winnerström · Joel Sjö</p>
+          <p class="cast-names">
+            <a href="tidigare-forestallningar.html" class="cast-link">Jimmy Johansson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Eva-Lotta Larsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Alexander Ståhl</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Hannes Nilsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Olivia Eriksson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Frida Ljunggren</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Alicia Nilsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Adrian Skoog</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Miranda Holmberg</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Emil Andersson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Elvira Andersson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Alice Zeylon</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Agnes Angelsmark</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Mira Brandt</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Alicia Ljungqvist</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Hilda Mårtensson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Gustaf Ehrnborn</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Greta Ivansson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Gabriella Olsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Iza Persson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Daniella Nilsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Zeb Månsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Hannes Sjö</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Sigrid Larsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Klara Liljenberg</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Lucas Mårtensson Rosengren</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Aron Möller</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Edvin Magnusson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Maya Donaldson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Helmi Linder</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Benjamin Nilsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Selma Penca</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Adela Penca</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Ellesina Penca</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Decibella Pihlemark</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Zion Månsson</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Liv Winnerström</a> ·
+            <a href="tidigare-forestallningar.html" class="cast-link">Joel Sjö</a>
+          </p>
         </div>
 
       </div>
@@ -1892,9 +2214,12 @@
           <p class="faq-contact">Saknas din fråga? Kontakta oss på <a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
         </div>
 
-        <!-- Sidofoto — DodgerOliver 05 -->
-        <div class="faq-side-photo">
-          <img src="images/DodgerOliver 05.jpg" alt="Oliver Twist — Föreställningen">
+        <!-- Nancy — sidoporträtt -->
+        <div class="nancy-side-photo">
+          <img src="images/Nancy1.jpg" alt="Nancy — Oliver Twist 2026">
+          <div class="nancy-caption">
+            <div class="nancy-caption-name">Nancy</div>
+          </div>
         </div>
 
       </div>
@@ -1907,8 +2232,8 @@
   ════════════════════════════════════════ -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">

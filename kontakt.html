@@ -13,12 +13,12 @@
 
     body {
       padding-top: 67px;
-      background-color: #06040a;
+      background-color: #ffffff;
     }
 
     .page-bg {
       position: fixed; inset: 0; z-index: -2;
-      background: #06040a;
+      background: #ffffff;
     }
 
     /* ── NAV ── */
@@ -55,7 +55,7 @@
     /* ── HERO ── */
     .kt-hero {
       position: relative;
-      padding: 80px 0 64px;
+      padding: 80px 0 100px;
       overflow: hidden;
     }
     .kt-hero-bg {
@@ -77,11 +77,11 @@
     }
     .kt-title {
       font-size: clamp(52px, 8vw, 100px); font-weight: 900;
-      letter-spacing: -0.045em; line-height: 0.88; color: #fff;
+      letter-spacing: -0.045em; line-height: 0.88; color: #161616;
       margin: 0 0 20px;
     }
     .kt-subtitle {
-      font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.65;
+      font-size: 16px; color: rgba(22,22,22,0.53); line-height: 1.65;
       max-width: 480px; margin: 0;
     }
 
@@ -99,8 +99,8 @@
     }
 
     .contact-card {
-      background: rgba(8,6,18,0.82);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 24px;
       overflow: hidden;
       transition: border-color 0.25s, transform 0.2s;
@@ -154,7 +154,7 @@
     }
     .contact-name {
       font-size: 22px; font-weight: 900;
-      letter-spacing: -0.03em; color: #fff; margin-bottom: 4px;
+      letter-spacing: -0.03em; color: #161616; margin-bottom: 4px;
     }
     .contact-title {
       font-size: 11px; font-weight: 600;
@@ -166,7 +166,7 @@
     }
     .contact-subrole {
       font-size: 10px; font-weight: 600;
-      color: rgba(255,255,255,0.40);
+      color: rgba(22,22,22,0.48);
     }
     .contact-subrole a {
       color: rgba(201,168,76,0.70);
@@ -175,7 +175,7 @@
     }
     .contact-subrole a:hover { color: var(--gold); }
     .contact-subrole-sep {
-      color: rgba(255,255,255,0.15); font-weight: 400;
+      color: rgba(22,22,22,0.29); font-weight: 400;
     }
     .contact-divider {
       height: 1px;
@@ -191,30 +191,30 @@
     .contact-info-icon {
       width: 30px; height: 30px; flex-shrink: 0;
       border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.38);
+      color: rgba(22,22,22,0.48);
     }
     .contact-info-text {
       font-size: 13px; font-weight: 500;
-      color: rgba(255,255,255,0.72); line-height: 1.35;
+      color: rgba(22,22,22,0.67); line-height: 1.35;
     }
     .contact-info-text a {
-      color: rgba(255,255,255,0.72); text-decoration: none;
+      color: rgba(22,22,22,0.67); text-decoration: none;
     }
     .contact-info-text a:hover { color: var(--gold); }
     .contact-info-text small {
       display: block; font-size: 10px; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.25); margin-bottom: 1px;
+      color: rgba(22,22,22,0.35); margin-bottom: 1px;
     }
 
 
     /* ── HITTA HIT ── */
     .hitta-section {
       padding: 80px 0 100px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
     .hitta-grid {
       display: grid;
@@ -225,8 +225,8 @@
     .hitta-card {
       border-radius: 20px;
       overflow: hidden;
-      background: rgba(8,6,18,0.80);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.07);
     }
     .hitta-map {
       width: 100%; height: 280px; display: block;
@@ -244,14 +244,14 @@
     }
     .hitta-name {
       font-size: 19px; font-weight: 800; letter-spacing: -0.025em;
-      color: #fff; margin-bottom: 10px;
+      color: #161616; margin-bottom: 10px;
     }
     .hitta-address {
-      font-size: 14px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      font-size: 14px; color: rgba(22,22,22,0.58); line-height: 1.65;
       margin-bottom: 14px;
     }
     .hitta-desc {
-      font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.65;
+      font-size: 13px; color: rgba(22,22,22,0.47); line-height: 1.65;
     }
     .hitta-directions {
       display: inline-flex; align-items: center; gap: 6px;
@@ -341,6 +341,156 @@
       .hitta-body { padding: 18px 20px 22px; }
     }
 
+  
+    /* ── HERO WHITE FADE ── */
+    .kt-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 18%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
+    }
+    .kt-hero { position: relative; overflow: hidden; }
+    .kt-hero-inner { position: relative; z-index: 5; }
+
+    /* ── Cards-in-hero heading ── */
+    .kt-cards-heading {
+      margin: 60px 0 32px;
+    }
+    .kt-cards-label {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); opacity: 0.85; margin-bottom: 10px;
+    }
+    .kt-cards-title {
+      font-size: clamp(30px, 4vw, 48px); font-weight: 900;
+      letter-spacing: -0.04em; color: #fff; margin: 0;
+    }
+
+    /* ── Contact cards styled for dark hero background ── */
+    .kt-hero .contact-card {
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(255,255,255,0.13) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.32) !important;
+    }
+    .kt-hero .contact-card:hover {
+      background: rgba(255,255,255,0.09) !important;
+      border-color: rgba(201,168,76,0.35) !important;
+    }
+    .kt-hero .contact-divider {
+      background: rgba(255,255,255,0.09) !important;
+    }
+    .kt-hero .contact-info-icon {
+      background: rgba(255,255,255,0.07) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      color: rgba(255,255,255,0.55) !important;
+    }
+    .kt-hero .contact-photo--placeholder {
+      background: linear-gradient(160deg, rgba(28,18,50,0.88) 0%, rgba(14,8,28,0.94) 100%) !important;
+    }
+    .kt-hero .contact-photo--placeholder .placeholder-figure {
+      background: linear-gradient(to bottom,
+        rgba(201,168,76,0.06) 0%,
+        rgba(100,70,180,0.08) 60%,
+        transparent 100%) !important;
+    }
+    .kt-hero .placeholder-figure svg { opacity: 0.22 !important; filter: none !important; }
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+    /* ── Kontaktkort-foto: gradient till vit (kortets bakgrund är vit) ── */
+    .contact-photo::after {
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.94) 100%) !important;
+    }
+    .contact-photo--placeholder {
+      background: linear-gradient(160deg, #f0ece6 0%, #e8e4de 100%) !important;
+    }
+    .contact-photo--placeholder .placeholder-figure {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.07) 60%, transparent 100%) !important;
+    }
+    .placeholder-figure svg { opacity: 0.12; filter: invert(1); }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+    .kt-hero h1, .kt-hero h2, .kt-hero h3,
+    .kt-hero p, .kt-hero span, .kt-hero a,
+    .kt-hero [class*="title"], .kt-hero [class*="subtitle"],
+    .kt-hero [class*="eyebrow"], .kt-hero [class*="kicker"],
+    .kt-hero [class*="lead"], .kt-hero [class*="desc"],
+    .kt-hero [class*="sub"],
+    .kt-hero-inner, .kt-hero-inner * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
+    }
+    .kt-hero [class*="eyebrow"],
+    .kt-hero [class*="kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90 !important;
+    }
+    .kt-hero .btn-gold,
+    .kt-hero [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+
+  
+    /* ══ HERO: ALL TEXT WHITE ══ */
+    .kt-hero * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+    .kt-hero [class*="eyebrow"],
+    .kt-hero [class*="kicker"],
+    .kt-hero [class*="-kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90;
+    }
+    .kt-hero .btn-gold,
+    .kt-hero [class*="btn-gold"],
+    .kt-hero a.btn {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+    .kt-hero .nav-pill-badge {
+      color: #fff !important;
+      text-shadow: none !important;
+    }
+
   </style>
 </head>
 <body>
@@ -382,17 +532,13 @@
       <h1 class="kt-title">Kontakt</h1>
       <p class="kt-subtitle">Tre verksamhetsledare driver Sommarteatern tillsammans. Hör av dig till den som passar din fråga bäst.</p>
     </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════
-       KONTAKTKORT
-  ════════════════════════════════════════ -->
-  <section class="contact-section" id="kontakt">
-    <div class="container">
-
-      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Ledning</span>
-      <h2 style="font-size: clamp(30px, 4vw, 48px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0;">Verksamhetsledare</h2>
+    <!-- ── Contact cards inside hero ── -->
+    <div class="container" style="position:relative;z-index:5;">
+      <div class="kt-cards-heading">
+        <span class="kt-cards-label">Ledning</span>
+        <h2 class="kt-cards-title">Verksamhetsledare</h2>
+      </div>
 
       <div class="contact-grid">
 
@@ -529,8 +675,8 @@
         </div>
 
       </div><!-- /contact-grid -->
-    </div>
-  </section>
+    </div><!-- /contact-inner container -->
+  </section><!-- /kt-hero -->
 
 
   <!-- ═══════════════════════════════════════
@@ -540,8 +686,8 @@
     <div class="container">
 
       <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Hitta hit</span>
-      <h2 style="font-size: clamp(30px, 4vw, 48px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 4px;">Våra platser</h2>
-      <p style="font-size:15px; color:rgba(255,255,255,0.38); margin:0;">Sommarteatern har två hemmaplatser i Ystadstrakten.</p>
+      <h2 style="font-size: clamp(30px, 4vw, 48px); font-weight:900; letter-spacing:-0.04em; color:#161616; margin:0 0 4px;">Våra platser</h2>
+      <p style="font-size:15px; color:rgba(22,22,22,0.55); margin:0;">Sommarteatern har två hemmaplatser i Ystadstrakten.</p>
 
       <div class="hitta-grid">
 
@@ -605,8 +751,8 @@
   ════════════════════════════════════════ -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">

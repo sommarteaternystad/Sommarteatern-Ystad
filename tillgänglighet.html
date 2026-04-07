@@ -13,7 +13,7 @@
 
     body {
       padding-top: 67px;
-      background-color: #06040a;
+      background-color: #ffffff;
     }
 
     /* ── NAV ── */
@@ -50,8 +50,12 @@
     /* ── HERO ── */
     .tg-hero {
       position: relative;
-      padding: 88px 0 72px;
-      overflow: hidden;
+      height: 94vh;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      overflow: visible;
+      padding-bottom: 22vh;
     }
     .tg-hero-bg {
       position: absolute; inset: 0;
@@ -60,7 +64,7 @@
     }
     .tg-hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(6,4,10,0.65) 0%, rgba(6,4,10,0.88) 100%);
+      background: linear-gradient(to bottom, rgba(6,4,10,0.22) 0%, rgba(6,4,10,0.48) 45%, rgba(6,4,10,0.55) 70%, rgba(6,4,10,0.20) 100%);
     }
     .tg-hero-inner {
       position: relative; z-index: 2;
@@ -72,10 +76,10 @@
     }
     .tg-title {
       font-size: clamp(44px, 7vw, 88px); font-weight: 900;
-      letter-spacing: -0.04em; line-height: 0.9; color: #fff; margin: 0 0 24px;
+      letter-spacing: -0.04em; line-height: 0.9; color: #161616; margin: 0 0 24px;
     }
     .tg-subtitle {
-      font-size: 16px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      font-size: 16px; color: rgba(22,22,22,0.58); line-height: 1.65;
       max-width: 520px; margin: 0;
     }
 
@@ -87,7 +91,7 @@
     }
 
     .tg-intro {
-      font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.75;
+      font-size: 17px; color: rgba(22,22,22,0.63); line-height: 1.75;
       max-width: 640px; margin: 0 0 64px;
       border-left: 3px solid rgba(201,168,76,0.45);
       padding-left: 22px;
@@ -101,8 +105,8 @@
     }
 
     .tg-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: 20px;
       padding: 32px 30px 28px;
       transition: border-color 0.25s;
@@ -113,17 +117,17 @@
       font-size: 28px; margin-bottom: 16px; display: block;
     }
     .tg-card-title {
-      font-size: 16px; font-weight: 800; color: #fff;
+      font-size: 16px; font-weight: 800; color: #161616;
       letter-spacing: -0.02em; margin: 0 0 12px;
     }
     .tg-card-body {
-      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; margin: 0;
+      font-size: 14px; color: rgba(22,22,22,0.63); line-height: 1.75; margin: 0;
     }
     .tg-card-body a {
       color: rgba(201,168,76,0.75); text-decoration: underline;
       text-underline-offset: 2px;
     }
-    .tg-card-body strong { color: rgba(255,255,255,0.80); }
+    .tg-card-body strong { color: rgba(22,22,22,0.82); }
 
     .tg-card--highlight {
       border-color: rgba(201,168,76,0.18);
@@ -138,7 +142,7 @@
     /* ── PRACTICAL INFO ── */
     .tg-section-title {
       font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.30); margin: 0 0 28px;
+      color: rgba(22,22,22,0.42); margin: 0 0 28px;
     }
 
     .tg-facts-row {
@@ -149,8 +153,8 @@
     }
 
     .tg-fact {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.06);
       border-radius: 16px;
       padding: 24px 20px 20px;
       text-align: center;
@@ -160,7 +164,7 @@
       color: var(--gold); display: block; margin-bottom: 4px;
     }
     .tg-fact-label {
-      font-size: 12px; color: rgba(255,255,255,0.42); font-weight: 500;
+      font-size: 12px; color: rgba(22,22,22,0.48); font-weight: 500;
     }
 
     /* ── CTA ── */
@@ -171,7 +175,7 @@
       padding: 36px 36px 32px;
     }
     .tg-cta-box p {
-      font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.70; margin: 0 0 20px;
+      font-size: 15px; color: rgba(22,22,22,0.63); line-height: 1.70; margin: 0 0 20px;
     }
     .tg-cta-box a.btn-gold {
       display: inline-flex; align-items: center; gap: 8px;
@@ -199,6 +203,101 @@
       .subpage-nav .nav-pills-row { min-width: 0; overflow-x: auto; flex-wrap: nowrap; -ms-overflow-style: none; scrollbar-width: none; }
       .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
       .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+    }
+
+  
+    /* ── HERO WHITE FADE ── */
+    .tg-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 28%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
+    }
+    .tg-hero { position: relative; }
+    .tg-hero-bg { overflow: hidden; }
+    .tg-hero-inner { position: relative; z-index: 5; }
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+    .tg-hero h1, .tg-hero h2, .tg-hero h3,
+    .tg-hero p, .tg-hero span, .tg-hero a,
+    .tg-hero [class*="title"], .tg-hero [class*="subtitle"],
+    .tg-hero [class*="eyebrow"], .tg-hero [class*="kicker"],
+    .tg-hero [class*="lead"], .tg-hero [class*="desc"],
+    .tg-hero [class*="sub"],
+    .tg-hero-inner, .tg-hero-inner * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
+    }
+    .tg-hero [class*="eyebrow"],
+    .tg-hero [class*="kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90 !important;
+    }
+    .tg-hero .btn-gold,
+    .tg-hero [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+
+  
+    /* ══ HERO: ALL TEXT WHITE ══ */
+    .tg-hero * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+    .tg-hero [class*="eyebrow"],
+    .tg-hero [class*="kicker"],
+    .tg-hero [class*="-kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90;
+    }
+    .tg-hero .btn-gold,
+    .tg-hero [class*="btn-gold"],
+    .tg-hero a.btn {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+    .tg-hero .nav-pill-badge {
+      color: #fff !important;
+      text-shadow: none !important;
     }
 
   </style>
@@ -244,7 +343,7 @@
   <!-- ═══════════════════════════════════════
        MAIN CONTENT
   ════════════════════════════════════════ -->
-  <main class="tg-content">
+  <main class="tg-content" style="margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
 
     <p class="tg-intro">Sommarteatern är en utomhusscen med amfiteaterläktare i Öja utanför Ystad. Vi jobbar kontinuerligt för att göra upplevelsen tillgänglig för alla — oavsett rörlighet, hörsel eller andra behov.</p>
 
@@ -331,8 +430,8 @@
   ════════════════════════════════════════ -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">

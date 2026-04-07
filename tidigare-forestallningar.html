@@ -18,8 +18,8 @@
     }
 
     /* ── BODY & NAV ── */
-    body { background: #06040a; }
-    .page-bg { position: fixed; inset: 0; z-index: -2; background: #06040a; }
+    body { background: #ffffff; }
+    .page-bg { position: fixed; inset: 0; z-index: -2; background: #ffffff; }
 
     .subpage-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -65,23 +65,26 @@
 
     /* Archive hero banner — ensemble photo */
     .archive-hero-banner {
-      position: relative; height: 52vh; min-height: 320px; max-height: 560px;
-      overflow: hidden; margin-bottom: 0;
+      position: relative; height: 94vh; min-height: 640px;
+      display: flex; align-items: flex-end;
+      overflow: visible; margin-bottom: 0;
+      padding-bottom: 22vh;
     }
     .archive-hero-banner-bg {
       position: absolute; inset: 0;
       background-image: url('images/ensemble.jpg');
       background-size: cover; background-position: center 30%;
       transform: scale(1.03); transition: transform 8s ease;
+      overflow: hidden;
     }
     .archive-hero-banner:hover .archive-hero-banner-bg { transform: scale(1.0); }
     .archive-hero-banner::before {
       content: ''; position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(to bottom,
-        rgba(6,4,10,0.30) 0%,
-        rgba(6,4,10,0.15) 25%,
-        rgba(6,4,10,0.55) 65%,
-        rgba(6,4,10,0.88) 100%);
+        rgba(6,4,10,0.22) 0%,
+        rgba(6,4,10,0.48) 45%,
+        rgba(6,4,10,0.55) 70%,
+        rgba(6,4,10,0.20) 100%);
     }
     .archive-hero-banner-content {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
@@ -95,12 +98,12 @@
     }
     .archive-title {
       font-size: clamp(36px, 5.5vw, 68px); font-weight: 900;
-      color: #fff; letter-spacing: -0.045em; line-height: 0.92;
+      color: #161616; letter-spacing: -0.045em; line-height: 0.92;
       margin: 0 0 12px;
       text-shadow: 0 2px 24px rgba(0,0,0,0.5);
     }
     .archive-sub {
-      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.6;
+      font-size: 16px; color: rgba(22,22,22,0.67); line-height: 1.6;
       max-width: 480px; margin: 0;
       text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     }
@@ -173,7 +176,7 @@
       text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px;
     }
     .show-card-title {
-      font-size: 14px; font-weight: 800; color: #fff;
+      font-size: 14px; font-weight: 800; color: #161616;
       letter-spacing: -0.02em; line-height: 1.2;
     }
     .show-card-body {
@@ -199,28 +202,28 @@
 
     /* Wiki topbar */
     .wiki-topbar {
-      background: rgba(6,4,10,0.97);
+      background: #ffffff;
       backdrop-filter: blur(20px);
       padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .wiki-topbar-inner {
       display: flex; align-items: center; gap: 14px;
     }
     .wiki-back-btn {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(0,0,0,0.12);
+      color: rgba(22,22,22,0.65); font-size: 12px; font-weight: 700;
       padding: 0 16px; height: 32px; border-radius: 8px; cursor: pointer;
       display: inline-flex; align-items: center; gap: 6px;
       transition: background 0.15s, color 0.15s; font-family: inherit;
       flex-shrink: 0;
     }
-    .wiki-back-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .wiki-back-btn:hover { background: rgba(255,255,255,0.12); color: #161616; }
     .wiki-breadcrumb {
-      font-size: 12px; color: rgba(255,255,255,0.35);
+      font-size: 12px; color: rgba(22,22,22,0.47);
       display: flex; align-items: center; gap: 6px;
     }
-    .wiki-breadcrumb span { color: rgba(255,255,255,0.65); font-weight: 600; }
+    .wiki-breadcrumb span { color: rgba(22,22,22,0.6); font-weight: 600; }
 
     /* Wiki hero (ensemble photo background) */
     .wiki-hero {
@@ -256,18 +259,18 @@
     .wiki-poster {
       width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: center top;
       border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-      border: 1px solid rgba(255,255,255,0.10); display: block;
+      border: 1px solid rgba(0,0,0,0.10); display: block;
     }
     .wiki-poster-placeholder {
       width: 100%; aspect-ratio: 2/3;
       background: linear-gradient(160deg, #1a1626 0%, #100e1a 100%);
-      border-radius: 10px; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; border: 1px solid rgba(0,0,0,0.07);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 10px;
     }
     .wiki-poster-placeholder svg { opacity: 0.12; }
     .wiki-poster-placeholder span {
-      font-size: 10px; color: rgba(255,255,255,0.18);
+      font-size: 10px; color: rgba(22,22,22,0.32);
       text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
     }
     .wiki-hero-info { flex: 1; min-width: 0; }
@@ -278,11 +281,11 @@
     }
     .wiki-show-title {
       font-size: clamp(36px, 5vw, 64px); font-weight: 900;
-      color: #fff; letter-spacing: -0.04em; line-height: 0.92;
+      color: #161616; letter-spacing: -0.04em; line-height: 0.92;
       margin: 0 0 14px;
     }
     .wiki-slogan {
-      font-size: 16px; color: rgba(255,255,255,0.45); font-style: italic;
+      font-size: 16px; color: rgba(22,22,22,0.53); font-style: italic;
       line-height: 1.5; display: block; margin-bottom: 28px;
       padding-left: 14px; border-left: 2px solid rgba(201,168,76,0.4);
     }
@@ -293,7 +296,7 @@
     }
     .fact-card {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(0,0,0,0.09);
       border-radius: 9px; padding: 10px 14px;
       min-width: 100px;
     }
@@ -302,7 +305,7 @@
       letter-spacing: 0.1em; color: rgba(201,168,76,0.7); display: block; margin-bottom: 3px;
     }
     .fact-card-value {
-      font-size: 13px; font-weight: 700; color: #fff; line-height: 1.3;
+      font-size: 13px; font-weight: 700; color: #161616; line-height: 1.3;
     }
 
     /* Wiki nav (prev/next) */
@@ -310,13 +313,13 @@
       display: flex; gap: 8px; margin-top: 24px;
     }
     .wiki-nav-btn {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 700;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(0,0,0,0.10);
+      color: rgba(22,22,22,0.63); font-size: 11px; font-weight: 700;
       padding: 0 14px; height: 30px; border-radius: 7px; cursor: pointer;
       display: inline-flex; align-items: center; gap: 5px; transition: all 0.15s;
       font-family: inherit; text-decoration: none;
     }
-    .wiki-nav-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
+    .wiki-nav-btn:hover { background: rgba(255,255,255,0.10); color: #161616; }
 
     /* ── WIKI BODY (light) ── */
     .wiki-body {
@@ -414,7 +417,7 @@
 
     /* Lightbox */
     .lightbox {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      position: fixed; inset: 0; background: #ffffff;
       z-index: 500; display: none; align-items: center; justify-content: center;
       padding: 24px;
     }
@@ -425,14 +428,14 @@
     }
     .lightbox-close {
       position: fixed; top: 20px; right: 24px;
-      background: rgba(255,255,255,0.12); border: none; color: #fff;
+      background: rgba(255,255,255,0.12); border: none; color: #161616;
       width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
       font-size: 20px; display: flex; align-items: center; justify-content: center;
       font-family: inherit;
     }
     .lightbox-prev, .lightbox-next {
       position: fixed; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.10); border: none; color: #fff;
+      background: rgba(255,255,255,0.10); border: none; color: #161616;
       width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
       font-size: 18px; display: flex; align-items: center; justify-content: center;
       font-family: inherit; transition: background 0.15s;
@@ -453,7 +456,7 @@
       .archive-hero-banner { height: 44vh; min-height: 280px; }
       .shows-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .wiki-hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
-      .wiki-hero::before { background: rgba(6,4,10,0.80); }
+      .wiki-hero::before { background: #ffffff; }
       .wiki-poster-wrap { width: 160px; }
       .wiki-slogan { border-left: none; padding-left: 0; text-align: center; }
       .wiki-body-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -482,7 +485,7 @@
     .person-hero {
       background: linear-gradient(160deg, #0c0820 0%, #08060f 60%, #0a0415 100%);
       padding: 40px 0 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .person-hero-inner {
       display: flex; align-items: center; gap: 36px;
@@ -495,16 +498,16 @@
     }
     .person-avatar-ph {
       width: 110px; height: 110px; border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      border: 2px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.03);
+      border: 2px solid rgba(0,0,0,0.08);
       display: flex; align-items: center; justify-content: center;
     }
     .person-name {
-      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; color: #fff;
+      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; color: #161616;
       margin: 0 0 6px; letter-spacing: -0.025em; line-height: 1.1;
     }
     .person-subtitle {
-      font-size: 14px; color: rgba(255,255,255,0.4); margin: 0 0 24px;
+      font-size: 14px; color: rgba(22,22,22,0.48); margin: 0 0 24px;
       font-weight: 500;
     }
     .person-stats-row { display: flex; gap: 32px; flex-wrap: wrap; }
@@ -514,7 +517,7 @@
     }
     .person-stat-label {
       font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.35); margin-top: 4px; text-align: center;
+      color: rgba(22,22,22,0.47); margin-top: 4px; text-align: center;
     }
 
     /* ── PERSON BODY ── */
@@ -603,6 +606,175 @@
       .person-stats-row { gap: 20px; }
     }
 
+  
+    /* ── HERO WHITE FADE ── */
+    .archive-hero-banner::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 28%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
+    }
+    .archive-hero-text { position: relative; z-index: 5; }
+
+    /* ── CARD LIGHT STYLE BOOST ── */
+    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
+    [class*="-card "]:not(.subsite-card),
+    .glass-panel, .styrelse-panel {
+      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    }
+    
+  
+    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
+    [style*="rgba(6,4,10"] { color: #fff; }
+    [style*="rgba(6,4,10"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn-gold,
+    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
+    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
+
+    /* ── Wiki-hero: mörk bakgrund → vit text ── */
+    .wiki-hero { color: #fff; }
+    .wiki-hero * { color: inherit; }
+    .wiki-hero .wiki-show-title { color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.45); }
+    .wiki-hero .wiki-slogan { color: rgba(255,255,255,0.58) !important; text-shadow: none; }
+    .wiki-hero .wiki-year-pill { background: var(--gold) !important; color: #06040a !important; }
+    .wiki-hero [class*="kicker"],
+    .wiki-hero [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    .wiki-breadcrumb,
+    .wiki-breadcrumb * { color: rgba(255,255,255,0.52) !important; }
+    .wiki-breadcrumb span { color: rgba(255,255,255,0.70) !important; }
+    .wiki-nav-btn { color: rgba(255,255,255,0.65) !important; }
+    .wiki-nav-btn:hover { color: #fff !important; }
+    .fact-card { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.12) !important; }
+    .fact-card-value { color: #fff !important; }
+    /* Wiki body stays light */
+    .wiki-body * { color: inherit; text-shadow: none; }
+    .wiki-body { color: #1a1714 !important; }
+
+  
+    /* Extra: fler mörka inline-bg mönster → vit text */
+    [style*="rgba(8,6,18"] { color: #fff; }
+    [style*="rgba(8,6,18"] * { color: inherit; }
+    [style*="rgba(1,6,18"]  { color: #fff; }
+    [style*="rgba(1,6,18"]  * { color: inherit; }
+    [style*="rgba(14,10,22"] { color: #fff; }
+    [style*="rgba(14,10,22"] * { color: inherit; }
+    [style*="rgba(8,4,18"] { color: #fff; }
+    [style*="rgba(8,4,18"] * { color: inherit; }
+    [style*="rgba(6,4,10"] [class*="kicker"],
+    [style*="rgba(8,6,18"] [class*="kicker"],
+    [style*="rgba(1,6,18"]  [class*="kicker"],
+    [style*="rgba(6,4,10"] [class*="eyebrow"],
+    [style*="rgba(8,6,18"] [class*="eyebrow"],
+    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
+    [style*="rgba(6,4,10"] .btn,
+    [style*="rgba(8,6,18"] .btn,
+    [style*="rgba(1,6,18"]  .btn { color: inherit; }
+    .archive-hero-banner h1, .archive-hero-banner h2, .archive-hero-banner h3,
+    .archive-hero-banner p, .archive-hero-banner span, .archive-hero-banner a,
+    .archive-hero-banner [class*="title"], .archive-hero-banner [class*="subtitle"],
+    .archive-hero-banner [class*="eyebrow"], .archive-hero-banner [class*="kicker"],
+    .archive-hero-banner [class*="lead"], .archive-hero-banner [class*="desc"],
+    .archive-hero-banner [class*="sub"],
+    .archive-hero-text, .archive-hero-text * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
+    }
+    .archive-hero-banner [class*="eyebrow"],
+    .archive-hero-banner [class*="kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90 !important;
+    }
+    .archive-hero-banner .btn-gold,
+    .archive-hero-banner [class*="btn-gold"] {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+
+  
+    /* ══ HERO: ALL TEXT WHITE ══ */
+    .archive-hero-banner * {
+      color: #ffffff !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+    .archive-hero-banner [class*="eyebrow"],
+    .archive-hero-banner [class*="kicker"],
+    .archive-hero-banner [class*="-kicker"] {
+      color: var(--gold) !important;
+      text-shadow: none !important;
+      opacity: 0.90;
+    }
+    .archive-hero-banner .btn-gold,
+    .archive-hero-banner [class*="btn-gold"],
+    .archive-hero-banner a.btn {
+      color: #0a0318 !important;
+      text-shadow: none !important;
+    }
+    .archive-hero-banner .nav-pill-badge {
+      color: #fff !important;
+      text-shadow: none !important;
+    }
+
+    /* ── SHOW CAROUSEL ── */
+    .show-carousel {
+      position: relative; width: 100%; height: 460px;
+      border-radius: 14px; overflow: hidden; margin: 28px 0;
+      background: #1a1714;
+    }
+    .show-carousel-track {
+      display: flex; height: 100%;
+      transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .show-carousel-slide {
+      min-width: 100%; height: 100%; position: relative; cursor: pointer;
+    }
+    .show-carousel-slide img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .show-carousel-slide::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 55%);
+    }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28);
+      color: #fff; width: 44px; height: 44px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; transition: background 0.2s; font-family: inherit;
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,0.30); }
+    .carousel-btn--prev { left: 14px; }
+    .carousel-btn--next { right: 14px; }
+    .carousel-counter {
+      position: absolute; bottom: 14px; right: 16px; z-index: 3;
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.08em; background: rgba(0,0,0,0.35);
+      padding: 3px 10px; border-radius: 999px;
+    }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip {
+      display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .photo-strip-item {
+      flex-shrink: 0; width: 168px; height: 112px;
+      border-radius: 9px; overflow: hidden; cursor: pointer;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+    .photo-strip-item:hover { transform: scale(1.04); opacity: 0.85; }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 600px) {
+      .show-carousel { height: 240px; border-radius: 10px; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
+      .photo-strip-item { width: 130px; height: 88px; }
+    }
+
   </style>
 </head>
 <body>
@@ -647,7 +819,7 @@
     </div>
 
     <!-- Grid content -->
-    <div class="archive-content">
+    <div class="archive-content" style="margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
       <div class="container">
         <div class="decade-tabs" id="decadeTabs">
           <button class="decade-tab active" data-decade="all">Alla</button>
@@ -770,8 +942,8 @@
   <!-- FOOTER -->
   <div class="footer-wave-top" aria-hidden="true">
       <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="rgba(201,168,76,0.06)"/>
-        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.02)"/>
+        <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+        <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
       </svg>
     </div>
   <footer class="site-footer" id="footer">
@@ -996,7 +1168,7 @@
         'Premiär': '10 juli 2022',
         'Sista föreställning': '7 augusti 2022'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2022-tornrosa', prefix: 'Törnrosa', count: 42 },
       sections: [
         {
           title: 'Handling',
@@ -1035,7 +1207,7 @@
         'Premiär': '11 juli 2021',
         'Sista föreställning': '8 augusti 2021'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2021-kung-arthur', prefix: 'KungArthur', count: 91 },
       sections: [
         {
           title: 'Handling',
@@ -1087,7 +1259,7 @@
         'Premiär': '7 juli 2019',
         'Sista föreställning': '4 augusti 2019'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2019-de-tre-musketorerna', prefix: 'DTM', count: 69 },
       sections: [
         {
           title: 'Medverkande',
@@ -1118,7 +1290,7 @@
         'Premiär': '8 juli 2018',
         'Sista föreställning': '5 augusti 2018'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2018-herkules', prefix: 'Hercules', count: 87 },
       sections: [
         {
           title: 'Medverkande',
@@ -1179,7 +1351,7 @@
         'Premiär': '3 juli 2016',
         'Sista föreställning': '31 juli 2016'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2016-askungen', prefix: 'Askungen', count: 34 },
       sections: [
         {
           title: 'Medverkande',
@@ -1205,7 +1377,7 @@
         'Premiär': '5 juli 2015',
         'Sista föreställning': '2 augusti 2015'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2015-djungelboken', prefix: 'Djungelboken', count: 23 },
       sections: [
         {
           title: 'Medverkande',
@@ -1230,7 +1402,7 @@
         'Premiär': '6 juli 2014',
         'Sista föreställning': '3 augusti 2014'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2014-alice-i-underlandet', prefix: 'Aliceiunderlandet', count: 35 },
       sections: [
         {
           title: 'Medverkande',
@@ -1280,7 +1452,7 @@
         'Premiär': '8 juli 2012',
         'Sista föreställning': '5 augusti 2012'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2012-peter-pan', prefix: 'Peterpan', count: 10 },
       sections: [
         {
           title: 'Medverkande',
@@ -1305,7 +1477,7 @@
         'Premiär': '10 juli 2011',
         'Sista föreställning': '7 augusti 2011'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2011-ture-sventon', prefix: 'Turesventon', count: 4 },
       sections: [
         {
           title: 'Medverkande',
@@ -1330,7 +1502,7 @@
         'Premiär': '4 juli 2010',
         'Sista föreställning': '1 augusti 2010'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2010-pelle-svanslös', prefix: 'Pellesvanslös', start: 2, count: 4 },
       sections: [
         {
           title: 'Medverkande',
@@ -1354,7 +1526,7 @@
         'Premiär': '5 juli 2009',
         'Sista föreställning': '2 augusti 2009'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2009-ronja-rovardotter', prefix: 'RONJA', count: 1 },
       sections: [
         {
           title: 'Medverkande',
@@ -1378,7 +1550,7 @@
         'Premiär': '14 juli 2008',
         'Sista föreställning': '31 juli 2008'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2008-bombi-bitt', prefix: 'Bombibitt', count: 6 },
       sections: [
         {
           title: 'Medverkande',
@@ -1403,7 +1575,7 @@
         'Premiär': '9 juli 2007',
         'Sista föreställning': '5 augusti 2007'
       },
-      photos: null,
+      photos: { folder: 'föreställningar/2007-robin-hood', prefix: 'RobinHood', count: 10 },
       sections: [
         {
           title: 'Medverkande',
@@ -1604,54 +1776,115 @@
   }
 
   function buildPhotoSection(show, container) {
-    const { prefix, count } = show.photos;
+    const p = show.photos;
+    const base = p.folder ? `images/${p.folder}/${p.prefix}` : `images/${p.prefix}`;
+    const startIdx = p.start || 1;
     const photos = [];
-    for (let i = 1; i <= count; i++) photos.push(`images/${prefix}${i}.jpg`);
+    for (let i = startIdx; i <= p.count; i++) photos.push(`${base}${i}.jpg`);
     lightboxPhotos = photos;
 
-    const SHOW_INIT = 9;
-    const section = document.createElement('div');
-    section.className = 'wiki-section photo-gallery';
+    const total = photos.length;
+    const carSlice  = photos.slice(0, Math.min(6, total));
+    const stripSlice = photos.slice(carSlice.length, carSlice.length + Math.min(10, Math.max(0, total - carSlice.length)));
+    const gridSlice  = photos.slice(carSlice.length + stripSlice.length);
 
-    const displayed = photos.slice(0, SHOW_INIT);
-    const remaining = photos.slice(SHOW_INIT);
+    // ── 1. Cinematic Carousel ──
+    if (carSlice.length > 0) {
+      const carSec = document.createElement('div');
+      carSec.className = 'wiki-section';
+      carSec.innerHTML = `
+        <h2 class="wiki-section-title">Bilder från föreställningen</h2>
+        <div class="show-carousel">
+          <div class="show-carousel-track" id="carTrack">
+            ${carSlice.map((src, i) => `<div class="show-carousel-slide" data-index="${i}"><img src="${src}" alt="Bild ${i+1} från ${show.title}" loading="lazy"></div>`).join('')}
+          </div>
+          ${carSlice.length > 1 ? `
+            <button class="carousel-btn carousel-btn--prev" id="carPrev">‹</button>
+            <button class="carousel-btn carousel-btn--next" id="carNext">›</button>
+            <div class="carousel-counter" id="carCount">1 / ${carSlice.length}</div>` : ''}
+        </div>`;
+      container.appendChild(carSec);
 
-    section.innerHTML = `
-      <h2 class="wiki-section-title">Bilder från föreställningen</h2>
-      <div class="photo-grid" id="photoGrid">
-        ${displayed.map((src, i) => `<img src="${src}" alt="Bild ${i+1} från ${show.title}" loading="lazy" data-index="${i}">`).join('')}
-      </div>
-      ${remaining.length ? `<button class="photo-show-more" id="photoShowMore">Visa fler bilder (${remaining.length} till)</button>` : ''}`;
+      if (carSlice.length > 1) {
+        let cur = 0;
+        const track = carSec.querySelector('#carTrack');
+        const counter = carSec.querySelector('#carCount');
+        const goTo = n => {
+          cur = (n + carSlice.length) % carSlice.length;
+          track.style.transform = `translateX(-${cur * 100}%)`;
+          if (counter) counter.textContent = `${cur + 1} / ${carSlice.length}`;
+        };
+        carSec.querySelector('#carPrev').addEventListener('click', () => goTo(cur - 1));
+        carSec.querySelector('#carNext').addEventListener('click', () => goTo(cur + 1));
+        let timer = setInterval(() => goTo(cur + 1), 4500);
+        const el = carSec.querySelector('.show-carousel');
+        el.addEventListener('mouseenter', () => clearInterval(timer));
+        el.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(cur + 1), 4500); });
+        // Swipe
+        let tx = 0;
+        el.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+        el.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - tx;
+          if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1);
+        }, { passive: true });
+      }
+      carSec.querySelectorAll('.show-carousel-slide').forEach(s =>
+        s.addEventListener('click', () => openLightbox(parseInt(s.dataset.index))));
+    }
 
-    container.appendChild(section);
+    // ── 2. Photo Strip ──
+    if (stripSlice.length > 0) {
+      const offset = carSlice.length;
+      const stripSec = document.createElement('div');
+      stripSec.className = 'wiki-section';
+      stripSec.innerHTML = `
+        <h2 class="wiki-section-title">Fler bilder</h2>
+        <div class="photo-strip">
+          ${stripSlice.map((src, i) => `<div class="photo-strip-item" data-index="${offset + i}"><img src="${src}" alt="Bild ${offset + i + 1} från ${show.title}" loading="lazy"></div>`).join('')}
+        </div>`;
+      container.appendChild(stripSec);
+      stripSec.querySelectorAll('.photo-strip-item').forEach(item =>
+        item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index))));
+    }
 
-    // Lightbox click
-    section.querySelector('#photoGrid').addEventListener('click', e => {
-      const img = e.target.closest('img');
-      if (!img) return;
-      openLightbox(parseInt(img.dataset.index));
-    });
-
-    // Show more
-    const moreBtn = section.querySelector('#photoShowMore');
-    if (moreBtn) {
-      let shownCount = SHOW_INIT;
-      moreBtn.addEventListener('click', () => {
-        const grid = section.querySelector('#photoGrid');
-        const nextBatch = photos.slice(shownCount, shownCount + 12);
-        nextBatch.forEach((src, i) => {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = `Bild ${shownCount + i + 1} från ${show.title}`;
-          img.loading = 'lazy';
-          img.dataset.index = shownCount + i;
-          img.addEventListener('click', () => openLightbox(shownCount + i));
-          grid.appendChild(img);
-        });
-        shownCount += nextBatch.length;
-        if (shownCount >= photos.length) moreBtn.remove();
-        else moreBtn.textContent = `Visa fler bilder (${photos.length - shownCount} till)`;
+    // ── 3. Full Grid with lightbox ──
+    if (gridSlice.length > 0) {
+      const offset = carSlice.length + stripSlice.length;
+      const SHOW_INIT = 9;
+      const gridSec = document.createElement('div');
+      gridSec.className = 'wiki-section photo-gallery';
+      const displayed = gridSlice.slice(0, SHOW_INIT);
+      const remaining = gridSlice.slice(SHOW_INIT);
+      gridSec.innerHTML = `
+        <h2 class="wiki-section-title">Alla bilder (${total} st)</h2>
+        <div class="photo-grid" id="photoGrid">
+          ${displayed.map((src, i) => `<img src="${src}" alt="Bild ${offset + i + 1} från ${show.title}" loading="lazy" data-index="${offset + i}">`).join('')}
+        </div>
+        ${remaining.length ? `<button class="photo-show-more" id="photoShowMore">Visa fler bilder (${remaining.length} till)</button>` : ''}`;
+      container.appendChild(gridSec);
+      gridSec.querySelector('#photoGrid').addEventListener('click', e => {
+        const img = e.target.closest('img');
+        if (img) openLightbox(parseInt(img.dataset.index));
       });
+      const moreBtn = gridSec.querySelector('#photoShowMore');
+      if (moreBtn) {
+        let shown = SHOW_INIT;
+        moreBtn.addEventListener('click', () => {
+          const grid = gridSec.querySelector('#photoGrid');
+          const batch = gridSlice.slice(shown, shown + 12);
+          batch.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = src; img.loading = 'lazy';
+            img.alt = `Bild ${offset + shown + i + 1} från ${show.title}`;
+            img.dataset.index = offset + shown + i;
+            img.addEventListener('click', () => openLightbox(offset + shown + i));
+            grid.appendChild(img);
+          });
+          shown += batch.length;
+          if (shown >= gridSlice.length) moreBtn.remove();
+          else moreBtn.textContent = `Visa fler bilder (${gridSlice.length - shown} till)`;
+        });
+      }
     }
   }
 
