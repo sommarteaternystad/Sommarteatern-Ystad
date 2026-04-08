@@ -118,7 +118,7 @@
       z-index: 5;
     }
     @media (min-width: 1051px) {
-      .musik-section--first { margin-top: -140px; }
+      .musik-section--first { margin-top: -60px; }
     }
 
     .musik-kicker {
@@ -306,6 +306,7 @@
     .editorial-bento--reversed::before {
       background: linear-gradient(to left, rgba(6,4,10,0.93) 0%, rgba(6,4,10,0.55) 100%);
     }
+    .editorial-bento--no-bg::before { display: none; }
     .editorial-bento-text {
       position: relative; z-index: 1;
       padding: 64px 56px;
@@ -525,7 +526,7 @@
   ════════════════════════════════════════ -->
   <section class="bento-section">
     <div class="container">
-      <div class="editorial-bento editorial-bento--reversed" style="background-image:url('images/RJ55.jpg');">
+      <div class="editorial-bento editorial-bento--reversed editorial-bento--no-bg" style="background:#0a0810;">
         <div class="editorial-bento-photo">
           <img src="images/dick.png" alt="Dick Örnå, musikproducent Sommarteatern Ystad" style="object-fit:cover;object-position:center top;">
         </div>
