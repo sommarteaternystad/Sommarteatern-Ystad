@@ -61,20 +61,30 @@
       display: flex;
       align-items: flex-end;
       overflow: visible;
-      padding-bottom: 22vh;
+      padding-bottom: 34vh;
     }
     .press-hero-bg {
       position: absolute; inset: 0;
       background-image: url('images/HG18.jpg');
       background-size: cover; background-position: center 30%;
+      overflow: visible;
     }
     .press-hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(6,4,10,0.22) 0%, rgba(6,4,10,0.48) 45%, rgba(6,4,10,0.55) 70%, rgba(6,4,10,0.20) 100%);
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.35) 0%,
+        rgba(6,4,10,0.65) 35%,
+        rgba(6,4,10,0.55) 55%,
+        rgba(6,4,10,0.20) 72%,
+        rgba(255,255,255,0.00) 82%,
+        rgba(255,255,255,1.00) 100%
+      );
     }
     .press-hero-inner {
-      position: relative; z-index: 2;
-      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+      position: relative; z-index: 5;
+      width: min(calc(100% - 32px), 1100px);
+      margin: 0 auto;
+      padding-bottom: 64px;
     }
     .press-eyebrow {
       display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
@@ -82,22 +92,23 @@
     }
     .press-title {
       font-size: clamp(52px, 8vw, 100px); font-weight: 900;
-      letter-spacing: -0.045em; line-height: 0.88; color: #161616;
+      letter-spacing: -0.045em; line-height: 0.88; color: #ffffff;
       margin: 0 0 22px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
     }
     .press-subtitle {
-      font-size: 16px; color: rgba(22,22,22,0.56); line-height: 1.7;
+      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.7;
       max-width: 560px; margin: 0 0 32px;
     }
     .press-hero-cta {
       display: inline-flex; align-items: center; gap: 9px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20);
       border-radius: 10px; padding: 11px 20px;
-      font-size: 13px; font-weight: 700; color: rgba(22,22,22,0.82);
+      font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.88);
       text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
     .press-hero-cta:hover {
-      background: rgba(255,255,255,0.12); border-color: rgba(201,168,76,0.35);
+      background: rgba(255,255,255,0.16); border-color: rgba(201,168,76,0.45);
       color: var(--gold);
     }
     .press-hero-cta svg { flex-shrink: 0; }
@@ -230,7 +241,7 @@
     }
     .presscontact-section-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: linear-gradient(rgba(6,4,10,0.88), rgba(6,4,10,0.88)), url('images/RJ8.jpg');
+      background-image: linear-gradient(rgba(6,4,10,0.72), rgba(6,4,10,0.72)), url('images/ensemble-sjöjungfrun2017.jpg');
       background-size: auto, cover;
       background-position: 0 0, center 40%;
       background-attachment: scroll, fixed;
@@ -327,28 +338,28 @@
 
     .presscontact-text-col h2 {
       font-size: clamp(26px, 3.5vw, 40px); font-weight: 900;
-      letter-spacing: -0.04em; color: #161616; margin: 0 0 18px; line-height: 1.05;
+      letter-spacing: -0.04em; color: #ffffff; margin: 0 0 18px; line-height: 1.05;
     }
 
     .presscontact-intro {
-      font-size: 15px; color: rgba(22,22,22,0.58); line-height: 1.72;
+      font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.72;
       margin: 0 0 28px;
     }
 
     .presscontact-quote {
-      border-left: 2px solid rgba(201,168,76,0.30);
+      border-left: 2px solid rgba(201,168,76,0.35);
       padding: 14px 0 14px 22px;
       margin: 0;
     }
     .presscontact-quote p {
       font-size: 15px; font-style: italic;
-      color: rgba(22,22,22,0.65); line-height: 1.7; margin: 0;
+      color: rgba(255,255,255,0.72); line-height: 1.7; margin: 0;
     }
     .presscontact-quote cite {
       display: block; margin-top: 10px;
       font-size: 11px; font-weight: 700; font-style: normal;
       text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(201,168,76,0.55);
+      color: rgba(201,168,76,0.65);
     }
 
     /* ── FOOTER ── */
@@ -366,16 +377,14 @@
     @media (max-width: 900px) {
       .press-material-grid { grid-template-columns: 1fr; }
       .presscontact-inner { grid-template-columns: 1fr; gap: 32px; }
-    }
-
-    @media (max-width: 900px) {
       .press-photo-strip { height: 200px; }
     }
 
     @media (max-width: 720px) {
       .presscontact-section-bg { background-attachment: scroll, scroll !important; }
-      .press-photo-strip { grid-template-columns: 1fr 1fr; height: 180px; }
+      .press-photo-strip { grid-template-columns: 1fr 1fr; height: 160px; }
       .press-photo-strip-item:last-child { display: none; }
+
       /* NAV */
       .subpage-nav .nav-pills-row {
         min-width: 0; overflow-x: auto; flex-wrap: nowrap;
@@ -387,9 +396,21 @@
       .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
       .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
 
-      .press-hero { padding: 60px 0 48px; }
-      .press-title { font-size: clamp(44px, 13vw, 70px); }
-      .press-subtitle { font-size: 15px; margin-bottom: 24px; }
+      .press-hero { height: 72vh; min-height: 480px; padding-bottom: 26vh; }
+      .press-hero-inner { padding-bottom: 40px; }
+
+      .press-first-bento { padding: 36px 24px 40px !important; border-radius: 20px !important; }
+      .press-first-bento-section { margin-top: -48px; padding-bottom: 0; }
+      .press-bento-pills {
+        gap: 8px !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+      .press-bento-pills::-webkit-scrollbar { display: none; }
+      .press-bento-pill { font-size: 12px !important; padding: 7px 13px !important; flex-shrink: 0 !important; }
 
       .press-material-section { padding: 52px 0 56px; }
       .press-card-inner { padding: 24px 24px 28px; }
@@ -404,19 +425,63 @@
       .subpage-nav .nav-logo { padding-right: 12px; margin-right: 10px; }
       .press-card-inner { padding: 20px 20px 24px; }
       .presscontact-body { padding: 4px 20px 26px; }
+      .press-bento-h2 { font-size: 26px; }
     }
 
   
     /* ── HERO WHITE FADE ── */
     .press-hero::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 28%;
+      height: 38%;
       background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
       pointer-events: none; z-index: 4;
     }
-    .press-hero { position: relative; }
-    .press-hero-bg { overflow: hidden; }
-    .press-hero-inner { position: relative; z-index: 5; }
+
+    /* ── DARK INTRO BENTO ── */
+    .press-first-bento-section {
+      margin-top: -80px;
+      position: relative;
+      z-index: 5;
+      padding-top: 0;
+    }
+    .press-first-bento {
+      background: linear-gradient(135deg, rgba(6,4,10,0.97) 0%, rgba(14,8,24,0.95) 55%, rgba(6,4,10,0.97) 100%);
+      border-radius: 28px;
+      padding: 64px 80px;
+      position: relative;
+    }
+    .press-bento-kicker {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px;
+    }
+    .press-bento-h2 {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+      color: #ffffff; letter-spacing: -0.04em; line-height: 1.05; margin: 0 0 20px;
+    }
+    .press-bento-intro {
+      font-size: 17px; color: rgba(255,255,255,0.68); line-height: 1.65;
+      max-width: 680px; margin: 0 0 32px;
+    }
+    .press-bento-pills {
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .press-bento-pill {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px; padding: 9px 18px;
+      font-size: 13px; color: rgba(255,255,255,0.78); font-weight: 500;
+    }
+    .press-bento-pill svg { color: var(--gold); flex-shrink: 0; }
+    a.press-bento-pill {
+      text-decoration: none;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      cursor: pointer;
+    }
+    a.press-bento-pill:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(201,168,76,0.35);
+      color: #ffffff;
+    }
 
     /* ── CARD LIGHT STYLE BOOST ── */
     [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
@@ -426,80 +491,6 @@
     }
     
   
-    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
-    [style*="rgba(6,4,10"] { color: #fff; }
-    [style*="rgba(6,4,10"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn-gold,
-    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
-    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
-
-  
-    /* Extra: fler mörka inline-bg mönster → vit text */
-    [style*="rgba(8,6,18"] { color: #fff; }
-    [style*="rgba(8,6,18"] * { color: inherit; }
-    [style*="rgba(1,6,18"]  { color: #fff; }
-    [style*="rgba(1,6,18"]  * { color: inherit; }
-    [style*="rgba(14,10,22"] { color: #fff; }
-    [style*="rgba(14,10,22"] * { color: inherit; }
-    [style*="rgba(8,4,18"] { color: #fff; }
-    [style*="rgba(8,4,18"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(8,6,18"] [class*="kicker"],
-    [style*="rgba(1,6,18"]  [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(8,6,18"] [class*="eyebrow"],
-    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn,
-    [style*="rgba(8,6,18"] .btn,
-    [style*="rgba(1,6,18"]  .btn { color: inherit; }
-    .press-hero h1, .press-hero h2, .press-hero h3,
-    .press-hero p, .press-hero span, .press-hero a,
-    .press-hero [class*="title"], .press-hero [class*="subtitle"],
-    .press-hero [class*="eyebrow"], .press-hero [class*="kicker"],
-    .press-hero [class*="lead"], .press-hero [class*="desc"],
-    .press-hero [class*="sub"],
-    .press-hero-inner, .press-hero-inner * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
-    }
-    .press-hero [class*="eyebrow"],
-    .press-hero [class*="kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90 !important;
-    }
-    .press-hero .btn-gold,
-    .press-hero [class*="btn-gold"] {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-
-  
-    /* ══ HERO: ALL TEXT WHITE ══ */
-    .press-hero * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
-    }
-    .press-hero [class*="eyebrow"],
-    .press-hero [class*="kicker"],
-    .press-hero [class*="-kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90;
-    }
-    .press-hero .btn-gold,
-    .press-hero [class*="btn-gold"],
-    .press-hero a.btn {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-    .press-hero .nav-pill-badge {
-      color: #fff !important;
-      text-shadow: none !important;
-    }
 
   </style>
 </head>
@@ -540,7 +531,7 @@
     <div class="press-hero-inner">
       <span class="press-eyebrow">Sommarteatern Ystad · Press</span>
       <h1 class="press-title">Press</h1>
-      <p class="press-subtitle">Välkommen till vår pressida! Här hittar du aktuell information om vår verksamhet – inklusive pressmeddelanden, högupplösta bilder för publicering och kontaktuppgifter för mediaförfrågningar. Sidan uppdateras löpande inför och under våra produktioner.</p>
+      <p class="press-subtitle">Pressmeddelanden, högupplösta bilder och kontaktuppgifter för mediaförfrågningar — allt samlat på ett ställe.</p>
       <a href="#presskontakt" class="press-hero-cta">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Kontakta presskontakt
@@ -550,9 +541,37 @@
 
 
   <!-- ═══════════════════════════════════════
+       DARK INTRO BENTO
+  ════════════════════════════════════════ -->
+  <section class="section press-first-bento-section">
+    <div class="container">
+      <div class="press-first-bento">
+        <span class="press-bento-kicker">Sommarteatern Ystad · Press</span>
+        <h2 class="press-bento-h2">Allt media behöver</h2>
+        <p class="press-bento-intro">Pressmeddelanden, högupplösta bilder och kontaktuppgifter — allt samlat här. Vi välkomnar journalister, fotografer och alla som vill berätta om Sommarteatern.</p>
+        <div class="press-bento-pills">
+          <a href="#pressmaterial" class="press-bento-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Pressmeddelande 2026
+          </a>
+          <a href="#pressmaterial" class="press-bento-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Högupplösta pressbilder
+          </a>
+          <a href="#presskontakt" class="press-bento-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Snabb presskontakt
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
        FOTO-STRIP
   ════════════════════════════════════════ -->
-  <div class="press-photo-strip" aria-hidden="true" style="margin-top: -200px; position: relative; z-index: 5;">
+  <div class="press-photo-strip" aria-hidden="true">
     <div class="press-photo-strip-item">
       <img src="images/RJ40.jpg" alt="Föreställningsbild" style="object-position: center 15%;">
     </div>
@@ -571,9 +590,9 @@
   <section class="press-material-section" id="pressmaterial">
     <div class="container">
 
-      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:10px;">Pressmaterial</span>
-      <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 4px;">Ladda ned &amp; använd fritt</h2>
-      <p style="font-size:15px; color:rgba(255,255,255,0.38); margin:0;">Allt du behöver för att skriva om årets produktion.</p>
+      <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.85; margin-bottom:10px;">Pressmaterial</span>
+      <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight:900; letter-spacing:-0.04em; color:#161616; margin:0 0 4px;">Ladda ned &amp; använd fritt</h2>
+      <p style="font-size:15px; color:rgba(22,22,22,0.52); margin:0;">Allt du behöver för att skriva om årets produktion.</p>
 
       <div class="press-material-grid">
 
@@ -605,7 +624,7 @@
             </div>
             <span class="press-card-label">Pressbilder · Fria att använda</span>
             <div class="press-card-title">Högupplösta pressbilder 2026</div>
-            <p class="press-card-desc">Här hittar du högupplösta pressbilder från årets produktion, fria att använda i tidningar och annan media.<br><br>Fotograf: <strong style="color:rgba(255,255,255,0.65);">Hilda Ståhl</strong><br><br>Behöver du andra bilder eller har frågor? Tveka inte att höra av dig – vi hjälper gärna till!</p>
+            <p class="press-card-desc">Här hittar du högupplösta pressbilder från årets produktion, fria att använda i tidningar och annan media.<br><br>Fotograf: <strong style="color:rgba(22,22,22,0.80);">Hilda Ståhl</strong><br><br>Behöver du andra bilder eller har frågor? Tveka inte att höra av dig – vi hjälper gärna till!</p>
             <span class="press-card-action">
               Öppna bildmapp
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -665,7 +684,7 @@
 
         <!-- Text: intervju / mer info -->
         <div class="presscontact-text-col">
-          <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.75; margin-bottom:12px;">Presskontakt</span>
+          <span style="display:block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); opacity:0.90; margin-bottom:12px;">Presskontakt</span>
           <h2>Har du frågor eller behöver du mer?</h2>
           <p class="presscontact-intro">Har du frågor eller behöver ytterligare material är du varmt välkommen att höra av dig till Hannes Nilsson.</p>
 
