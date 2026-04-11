@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -337,41 +337,8 @@
             <h3 class="bento-title bento-title--sponsors">Tack till våra samarbetspartners</h3>
           </div>
           <div class="sponsor-carousel-wrap">
-            <div class="sponsor-track" aria-label="Våra samarbetspartners">
-              <!-- Set 1 -->
-              <div class="sponsor-logo"><img src="images/Sponsor 1.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 2.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 3.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 4.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 5.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 6.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 7.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 8.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 9.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 10.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 11.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 12.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 13.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 14.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 15.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 16.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <!-- Set 2 — identical copy for seamless infinite loop -->
-              <div class="sponsor-logo"><img src="images/Sponsor 1.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 2.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 3.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 4.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 5.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 6.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 7.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 8.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 9.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 10.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 11.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 12.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 13.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 14.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 15.jpg" alt="Samarbetspartner" loading="lazy"></div>
-              <div class="sponsor-logo"><img src="images/Sponsor 16.jpg" alt="Samarbetspartner" loading="lazy"></div>
+            <div class="sponsor-track" id="sponsor-track-dynamic" aria-label="Våra samarbetspartners">
+              <!-- Logos loaded automatically from images/Sponsorer/ subfolders -->
             </div>
           </div>
         </div>
@@ -524,5 +491,6 @@
     </div><!-- /container -->
   </footer>
 
+  <script src="js/sponsors.js"></script>
 </body>
 </html>

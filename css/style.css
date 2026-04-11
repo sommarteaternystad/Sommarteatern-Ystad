@@ -81,10 +81,7 @@ img {
     rgba(8,4,20,0.30) 0%,
     rgba(8,4,20,0.52) 42%,
     rgba(8,4,20,0.72) 75%,
-    rgba(8,4,20,0.65) 82%,
-    rgba(247,247,245,0.90) 93%,
-    rgb(247,247,245) 97%,
-    rgb(247,247,245) 100%
+    rgba(8,4,20,0.82) 100%
   );
   z-index: 0;
   pointer-events: none;
@@ -185,12 +182,23 @@ img {
   position: relative;
   z-index: 5;
   overflow: hidden;
-  background: transparent;
+  background: linear-gradient(to bottom, transparent 0%, transparent 78%, rgb(247,247,245) 100%);
 }
 
-/* Fade handled by .hero-nav-wrap::before */
+/* White fade after the pills — placed on the section itself */
+.nav-pills-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent 0%, rgb(247,247,245) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
 
-/* Pills sit above both pseudo-elements */
+/* Pills sit above the fade */
 .nav-pills-section .container {
   position: relative;
   z-index: 2;
@@ -635,23 +643,23 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140px;
-  padding: 20px 32px;
-  background: rgba(255, 255, 255, 0.92);
+  height: 100px;
+  padding: 10px 24px;
+  background: transparent;
   border-radius: 14px;
   flex-shrink: 0;
-  transition: background 0.2s, transform 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .sponsor-logo:hover {
-  background: rgba(255, 255, 255, 1);
+  opacity: 0.8;
   transform: scale(1.05);
 }
 
 .sponsor-logo img {
-  height: 90px;
+  height: 70px;
   width: auto;
-  max-width: 220px;
+  max-width: 200px;
   object-fit: contain;
   display: block;
 }

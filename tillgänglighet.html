@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <style>
 
     body {
@@ -55,7 +55,7 @@
       display: flex;
       align-items: flex-end;
       overflow: visible;
-      padding-bottom: 22vh;
+      padding-bottom: 34vh;
     }
     .tg-hero-bg {
       position: absolute; inset: 0;
@@ -64,24 +64,74 @@
     }
     .tg-hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(6,4,10,0.22) 0%, rgba(6,4,10,0.48) 45%, rgba(6,4,10,0.55) 70%, rgba(6,4,10,0.20) 100%);
+      background: linear-gradient(to bottom,
+        rgba(6,4,10,0.35) 0%,
+        rgba(6,4,10,0.65) 35%,
+        rgba(6,4,10,0.55) 55%,
+        rgba(6,4,10,0.20) 72%,
+        rgba(255,255,255,0.00) 82%,
+        rgba(255,255,255,1.00) 100%
+      );
     }
     .tg-hero-inner {
-      position: relative; z-index: 2;
-      max-width: min(calc(100% - 32px), 1280px); margin: 0 auto;
+      position: relative; z-index: 5;
+      width: min(calc(100% - 32px), 1100px);
+      margin: 0 auto;
+      padding-bottom: 64px;
     }
     .tg-eyebrow {
       display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.85;
+      letter-spacing: 0.22em; color: var(--gold); margin-bottom: 14px; opacity: 0.90;
     }
     .tg-title {
       font-size: clamp(44px, 7vw, 88px); font-weight: 900;
-      letter-spacing: -0.04em; line-height: 0.9; color: #161616; margin: 0 0 24px;
+      letter-spacing: -0.04em; line-height: 0.9; color: #ffffff;
+      margin: 0 0 24px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
     }
     .tg-subtitle {
-      font-size: 16px; color: rgba(22,22,22,0.58); line-height: 1.65;
+      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.65;
       max-width: 520px; margin: 0;
     }
+
+    /* ── DARK BENTO ── */
+    .tg-first-bento-section {
+      position: relative; z-index: 5;
+      margin-top: -80px;
+    }
+    .tg-first-bento {
+      background: rgba(6,4,10,0.97);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 48px 52px 52px;
+      backdrop-filter: blur(20px);
+    }
+    .tg-bento-kicker {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); opacity: 0.80; margin-bottom: 16px;
+    }
+    .tg-bento-h2 {
+      font-size: clamp(28px, 3.8vw, 46px); font-weight: 900;
+      letter-spacing: -0.04em; color: #ffffff; margin: 0 0 16px; line-height: 1.05;
+    }
+    .tg-bento-intro {
+      font-size: 16px; color: rgba(255,255,255,0.62); line-height: 1.72;
+      max-width: 620px; margin: 0 0 28px;
+    }
+    .tg-bento-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .tg-bento-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 100px;
+      padding: 9px 18px;
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tg-bento-pill:hover { background: rgba(255,255,255,0.12); color: #fff; }
 
     /* ── CONTENT ── */
     .tg-content {
@@ -186,6 +236,95 @@
     }
     .tg-cta-box a.btn-gold:hover { opacity: 0.88; }
 
+    /* ── DRONE FILM ── */
+    .tg-drone-section {
+      background: linear-gradient(180deg, #06040a 0%, #0b0917 100%);
+      padding: 64px 0 72px;
+    }
+    .tg-drone-kicker {
+      display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--gold); opacity: 0.80; margin-bottom: 12px;
+    }
+    .tg-drone-h2 {
+      font-size: clamp(24px, 3vw, 38px); font-weight: 900;
+      letter-spacing: -0.04em; color: #ffffff; margin: 0 0 12px; line-height: 1.1;
+    }
+    .tg-drone-lead {
+      font-size: 15px; color: rgba(255,255,255,0.58); line-height: 1.70;
+      max-width: 580px; margin: 0 0 32px;
+    }
+    .tg-video-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #000;
+    }
+    .tg-video-wrapper video {
+      width: 100%; height: auto; display: block;
+      max-height: 520px; object-fit: cover;
+    }
+
+    /* ── PREPARE VISIT ── */
+    .tg-prepare-section { margin-bottom: 56px; }
+    .tg-steps {
+      display: flex; flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .tg-step {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 22px 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: rgba(0,0,0,0.02);
+    }
+    .tg-step:last-child { border-bottom: none; background: transparent; }
+    .tg-step:nth-child(even) { background: transparent; }
+    .tg-step-num {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.14) 0%, rgba(201,168,76,0.06) 100%);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: var(--gold);
+      margin-top: 2px;
+    }
+    .tg-step-title {
+      font-size: 14px; font-weight: 800; color: #161616;
+      letter-spacing: -0.02em; margin: 0 0 4px;
+    }
+    .tg-step-desc {
+      font-size: 13px; color: rgba(22,22,22,0.58); line-height: 1.65; margin: 0;
+    }
+
+    /* ── KIOSK CARD ── */
+    .tg-kiosk-card {
+      background: linear-gradient(160deg, rgba(6,4,10,0.97) 0%, rgba(14,8,22,0.97) 100%);
+      border: 1px solid rgba(255,255,255,0.08) !important;
+    }
+    .tg-kiosk-card .tg-card-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+    .tg-kiosk-card .tg-card-title { color: #ffffff !important; }
+    .tg-kiosk-card .tg-card-body { color: rgba(255,255,255,0.60) !important; }
+    .tg-kiosk-card .tg-card-body strong { color: rgba(255,255,255,0.85) !important; }
+    .tg-kiosk-images {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 4px;
+    }
+    .tg-kiosk-images img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 12px; display: block;
+    }
+    .tg-kiosk-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;
+    }
+    .tg-kiosk-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 100px; padding: 5px 13px;
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.72);
+    }
+
     /* ── FOOTER ── */
     .site-footer {
       background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
@@ -205,99 +344,25 @@
       .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
     }
 
-  
-    /* ── HERO WHITE FADE ── */
+    /* ── HERO: white fade to page ── */
     .tg-hero::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 28%;
-      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      height: 30%; background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
       pointer-events: none; z-index: 4;
     }
-    .tg-hero { position: relative; }
-    .tg-hero-bg { overflow: hidden; }
-    .tg-hero-inner { position: relative; z-index: 5; }
 
-    /* ── CARD LIGHT STYLE BOOST ── */
-    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
-    [class*="-card "]:not(.subsite-card),
-    .glass-panel, .styrelse-panel {
-      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
+    /* ── Mobile ── */
+    @media (max-width: 720px) {
+      .tg-hero { height: 72vh; min-height: 480px; padding-bottom: 26vh; }
+      .tg-first-bento { padding: 32px 24px 40px !important; }
+      .tg-bento-pills { flex-wrap: wrap !important; }
     }
-    
-  
-    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
-    [style*="rgba(6,4,10"] { color: #fff; }
-    [style*="rgba(6,4,10"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn-gold,
-    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
-    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
-
-  
-    /* Extra: fler mörka inline-bg mönster → vit text */
-    [style*="rgba(8,6,18"] { color: #fff; }
-    [style*="rgba(8,6,18"] * { color: inherit; }
-    [style*="rgba(1,6,18"]  { color: #fff; }
-    [style*="rgba(1,6,18"]  * { color: inherit; }
-    [style*="rgba(14,10,22"] { color: #fff; }
-    [style*="rgba(14,10,22"] * { color: inherit; }
-    [style*="rgba(8,4,18"] { color: #fff; }
-    [style*="rgba(8,4,18"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(8,6,18"] [class*="kicker"],
-    [style*="rgba(1,6,18"]  [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(8,6,18"] [class*="eyebrow"],
-    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn,
-    [style*="rgba(8,6,18"] .btn,
-    [style*="rgba(1,6,18"]  .btn { color: inherit; }
-    .tg-hero h1, .tg-hero h2, .tg-hero h3,
-    .tg-hero p, .tg-hero span, .tg-hero a,
-    .tg-hero [class*="title"], .tg-hero [class*="subtitle"],
-    .tg-hero [class*="eyebrow"], .tg-hero [class*="kicker"],
-    .tg-hero [class*="lead"], .tg-hero [class*="desc"],
-    .tg-hero [class*="sub"],
-    .tg-hero-inner, .tg-hero-inner * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
-    }
-    .tg-hero [class*="eyebrow"],
-    .tg-hero [class*="kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90 !important;
-    }
-    .tg-hero .btn-gold,
-    .tg-hero [class*="btn-gold"] {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-
-  
-    /* ══ HERO: ALL TEXT WHITE ══ */
-    .tg-hero * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
-    }
-    .tg-hero [class*="eyebrow"],
-    .tg-hero [class*="kicker"],
-    .tg-hero [class*="-kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90;
-    }
-    .tg-hero .btn-gold,
-    .tg-hero [class*="btn-gold"],
-    .tg-hero a.btn {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-    .tg-hero .nav-pill-badge {
-      color: #fff !important;
-      text-shadow: none !important;
+    @media (max-width: 480px) {
+      .subpage-nav .nav-pills-row { min-width: 0; overflow-x: auto; flex-wrap: nowrap; -ms-overflow-style: none; scrollbar-width: none; }
+      .subpage-nav .nav-pills-row::-webkit-scrollbar { display: none; }
+      .subpage-nav .nav-pill { font-size: 10.5px; padding: 0 9px; min-height: 26px; line-height: 26px; }
+      .tg-grid { grid-template-columns: 1fr !important; }
+      .tg-facts-row { grid-template-columns: 1fr 1fr !important; }
     }
 
   </style>
@@ -341,11 +406,107 @@
 
 
   <!-- ═══════════════════════════════════════
+       DARK INTRO BENTO
+  ════════════════════════════════════════ -->
+  <section class="section tg-first-bento-section">
+    <div class="container">
+      <div class="tg-first-bento">
+        <span class="tg-bento-kicker">Sommarteatern Ystad · Tillgänglighet</span>
+        <h2 class="tg-bento-h2">Teater för alla</h2>
+        <p class="tg-bento-intro">Vi jobbar kontinuerligt för att göra upplevelsen i Öja bra för alla — oavsett ålder, rörlighet, hörsel eller andra behov. Här hittar du allt du behöver för att förbereda ditt besök.</p>
+        <div class="tg-bento-pills">
+          <a href="#info" class="tg-bento-pill">♿ Rullstolsplatser</a>
+          <a href="#info" class="tg-bento-pill">🦻 Hörslinga</a>
+          <a href="#info" class="tg-bento-pill">🤟 Teckenspråk</a>
+          <a href="#info" class="tg-bento-pill">👥 Ledsagare gratis</a>
+          <a href="#kontakt-box" class="tg-bento-pill">✉ Kontakta oss</a>
+          <a href="#drone-film" class="tg-bento-pill">🎬 Se området</a>
+          <a href="#kiosk" class="tg-bento-pill">🛒 Kiosk &amp; mat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       DRONE FILM
+  ════════════════════════════════════════ -->
+  <section class="tg-drone-section" id="drone-film">
+    <div class="container">
+      <span class="tg-drone-kicker">Se området</span>
+      <h2 class="tg-drone-h2">Bekanta dig med platsen i förväg</h2>
+      <p class="tg-drone-lead">Aldrig besökt oss? Flyg med oss över Öja och se hur det ser ut — parkeringen, entrén, läktaren och scenen. Perfekt för att känna sig trygg med platsen redan innan du anländer.</p>
+      <div class="tg-video-wrapper">
+        <video autoplay muted loop playsinline poster="images/HG15.jpg">
+          <source src="images/dronare-2024.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
        MAIN CONTENT
   ════════════════════════════════════════ -->
-  <main class="tg-content" style="margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
+  <main class="tg-content" id="info">
 
     <p class="tg-intro">Sommarteatern är en utomhusscen med amfiteaterläktare i Öja utanför Ystad. Vi jobbar kontinuerligt för att göra upplevelsen tillgänglig för alla — oavsett rörlighet, hörsel eller andra behov.</p>
+
+    <!-- Förbered ditt besök -->
+    <p class="tg-section-title">Förbered ditt besök</p>
+    <div class="tg-prepare-section">
+      <div class="tg-steps">
+
+        <div class="tg-step">
+          <div class="tg-step-num">1</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Parkering &amp; ankomst</p>
+            <p class="tg-step-desc">Du parkerar gratis direkt på området vid <strong>Karlshemsvägen 51, Öja</strong>. Från parkeringen är det en kort, plan promenad till entrén. Skyltning finns på plats.</p>
+          </div>
+        </div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">2</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Grindarna öppnar 60 minuter innan</p>
+            <p class="tg-step-desc">Visa din biljett (QR-kod på telefonen eller utskriven) vid grinden — sedan är du inne! Området öppnar <strong>60 minuter</strong> före föreställningen, samtidigt som kiosken. Promenera runt i lugn och ro och utforska platsen.</p>
+          </div>
+        </div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">3</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Dörrarna till läktaren öppnar 15 min innan</p>
+            <p class="tg-step-desc"><strong>15 minuter</strong> innan föreställningen börjar öppnas dörrarna till läktaren. Biljettvärdarna finns på plats och guidar dig till din numrerade plats.</p>
+          </div>
+        </div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">4</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Läktaren — din plats på amfiteatern</p>
+            <p class="tg-step-desc">Amfiteaterläktaren har 268 numrerade platser med ryggstöd. Alla platser har god sikt mot scenen. Det är öppet och luftigt — du ser alltid precis vad som händer på scenen.</p>
+          </div>
+        </div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">5</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Föreställningen: akt 1, paus &amp; akt 2</p>
+            <p class="tg-step-desc">Akt 1 varar <strong>70 minuter</strong>, följt av en <strong>20 minuters paus</strong> — då kiosken öppnar igen. Akt 2 varar <strong>60 minuter</strong>. Kiosken håller även öppet en stund efter att föreställningen är slut.</p>
+          </div>
+        </div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">6</div>
+          <div class="tg-step-content">
+            <p class="tg-step-title">Ljud, ljus &amp; atmosfär</p>
+            <p class="tg-step-desc">Föreställningen är förstärkt med mikrofoner och högtalare — du hör tydligt från alla platser. Ljussättningen är teatral med spotlights. Det förekommer sång, musik och applåder.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Snabbfakta -->
     <p class="tg-section-title">Snabbfakta om scenen</p>
@@ -355,7 +516,7 @@
         <span class="tg-fact-label">Numrerade platser med ryggstöd</span>
       </div>
       <div class="tg-fact">
-        <span class="tg-fact-num">5+</span>
+        <span class="tg-fact-num">6</span>
         <span class="tg-fact-label">Toaletter inkl. 1 rullstolsvänlig</span>
       </div>
       <div class="tg-fact">
@@ -383,7 +544,7 @@
       <div class="tg-card tg-card--highlight">
         <span class="tg-card-icon">🤟</span>
         <h2 class="tg-card-title">Teckenspråksgestaltad föreställning</h2>
-        <p class="tg-card-body">En av säsongens föreställningar är teckenspråksgestaltad. Kolla aktuell spelplan på <a href="oliver-twist.html">Oliver Twist-sidan</a> för datum. En tolktjänst ger döva och hörselskadade möjlighet att följa med i hela berättelsen.</p>
+        <p class="tg-card-body">Sommarteatern erbjuder något unikt — en <strong>teckenspråksgestaltad föreställning</strong> där tolkarna befinner sig på scenen, nära skådespelarna och som en del av berättelsen. Det är inte en tolk vid sidan av scenen, utan en gestaltning där teckenspråket är fullt integrerat i föreställningen. Kolla aktuell spelplan på <a href="oliver-twist.html">Oliver Twist-sidan</a> för datum.</p>
       </div>
 
       <div class="tg-card">
@@ -401,7 +562,7 @@
       <div class="tg-card">
         <span class="tg-card-icon">🚻</span>
         <h2 class="tg-card-title">Toaletter</h2>
-        <p class="tg-card-body">Det finns <strong>fem toaletter</strong> på området samt <strong>en rullstolsanpassad toalett</strong>. Toaletterna är placerade nära entrén och publik­området.</p>
+        <p class="tg-card-body">Det finns <strong>sex toaletter</strong> på området, varav <strong>en rullstolsanpassad</strong>. Toaletterna är placerade nära entrén och publikområdet.</p>
       </div>
 
       <div class="tg-card tg-card--full">
@@ -410,10 +571,29 @@
         <p class="tg-card-body">Sommarteatern spelar i alla väder. Läktaren och scenen saknar tak, så klä dig efter vädret! Vid regn kan du låna regnkappa hos oss. <strong>Paraplyer är inte tillåtna</strong> av hänsyn till bakomvarandes sikt.<br><br>Vid kraftig åska avbryts föreställningen och återupptas när åskan passerat — vi har kontinuerlig kontakt med vädersatelliter. Om en föreställning mot förmodan ställs in kontaktas alla biljettinnehavare och biljetter ombokas.</p>
       </div>
 
+      <div class="tg-card tg-card--full tg-kiosk-card" id="kiosk">
+        <span class="tg-card-icon">🛒</span>
+        <h2 class="tg-card-title">Kiosk &amp; mat</h2>
+        <p class="tg-card-body">Vår kiosk öppnar <strong>60 minuter</strong> innan föreställningen börjar — samtidigt som grindarna öppnas. Vi håller även öppet under pausen och en stund efter föreställningen. Du hittar ett varierat utbud av mat och dryck, och vi tar självklart hänsyn till olika kostbehov.</p>
+        <div class="tg-kiosk-images">
+          <img src="images/cafe1.jpg" alt="Kiosken på Sommarteatern">
+          <img src="images/cafe2.jpg" alt="Utbudet i kiosken">
+        </div>
+        <div class="tg-kiosk-tags">
+          <span class="tg-kiosk-tag">🌾 Glutenfritt</span>
+          <span class="tg-kiosk-tag">🥛 Laktosfritt</span>
+          <span class="tg-kiosk-tag">🌱 Veganskt</span>
+          <span class="tg-kiosk-tag">☕ Kaffe &amp; te</span>
+          <span class="tg-kiosk-tag">🍺 Öl &amp; vin</span>
+          <span class="tg-kiosk-tag">🧃 Läsk &amp; juice</span>
+          <span class="tg-kiosk-tag">🍬 Godis &amp; snacks</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- Kontakta oss -->
-    <div class="tg-cta-box">
+    <div class="tg-cta-box" id="kontakt-box">
       <h2 style="font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin:0 0 12px;">Har du frågor om tillgänglighet?</h2>
       <p>Kontakta oss gärna i förväg om du har specifika behov. Vi hjälper dig att planera ditt besök så att det blir så smidigt och trevligt som möjligt.</p>
       <a href="mailto:info@sommarteaternystad.com" class="btn-gold">
@@ -465,6 +645,7 @@
           <nav class="footer-nav" aria-label="Sidfotslänkar">
             <a href="om-sommarteatern.html">Om Sommarteatern</a>
             <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
             <a href="bilder.html">Bilder</a>
             <a href="musik.html">Musik</a>
             <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
@@ -473,7 +654,8 @@
             <a href="press.html">Press</a>
             <a href="sponsorer.html">Sponsorer</a>
             <a href="kontakt.html">Kontakt</a>
-            <a href="tillgänglighet.html" style="color:rgba(201,168,76,0.70);">Tillgänglighet</a>
+            <a href="kontakt.html#hitta-hit">Hitta hit</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
             <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
           </nav>
         </div>
