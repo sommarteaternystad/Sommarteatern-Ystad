@@ -15,12 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/sommarteater-logo-yellow.png">
+  <link rel="apple-touch-icon" href="images/sommarteater-logo-yellow.png">
   <link rel="stylesheet" href="css/style.css?v=4">
   <style>
 
     body {
       padding-top: 67px;
-      background-color: #06040a;
+      background-color: #ffffff;
     }
 
     /* ── NAV ── */
@@ -75,14 +77,14 @@
         rgba(6,4,10,0.65) 35%,
         rgba(6,4,10,0.55) 55%,
         rgba(6,4,10,0.20) 72%,
-        rgba(6,4,10,0.00) 82%,
-        rgba(6,4,10,1.00) 100%
+        rgba(255,255,255,0.00) 82%,
+        rgba(255,255,255,1.00) 100%
       );
     }
     .bs-hero::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
       height: 30%;
-      background: linear-gradient(to bottom, transparent 0%, #06040a 100%);
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
       pointer-events: none; z-index: 4;
     }
     .bs-hero-inner {
@@ -106,9 +108,9 @@
       max-width: 520px; margin: 0;
     }
 
-    /* ── DARK PAGE ── */
+    /* ── PAGE ── */
     .bs-page {
-      background: #06040a;
+      background: #ffffff;
     }
 
     /* ── INTRO BENTO ── */
@@ -183,10 +185,10 @@
     }
     .bs-section-title {
       font-size: clamp(22px, 2.8vw, 34px); font-weight: 900;
-      letter-spacing: -0.03em; color: #ffffff; margin: 0 0 8px; line-height: 1.1;
+      letter-spacing: -0.03em; color: #161616; margin: 0 0 8px; line-height: 1.1;
     }
     .bs-section-sub {
-      font-size: 15px; color: rgba(255,255,255,0.50); line-height: 1.65;
+      font-size: 15px; color: rgba(22,22,22,0.60); line-height: 1.65;
       max-width: 580px; margin: 0 0 40px;
     }
 
@@ -206,7 +208,7 @@
       overflow: hidden;
       background: #000;
       aspect-ratio: 16/9;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
     }
     .bs-video-box iframe {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
@@ -215,45 +217,45 @@
       display: flex; flex-direction: column; gap: 6px;
       max-height: 420px; overflow-y: auto;
       scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.12) transparent;
+      scrollbar-color: rgba(0,0,0,0.12) transparent;
     }
     .bs-ep-item {
       display: flex; align-items: flex-start; gap: 12px;
       padding: 10px 12px;
       border-radius: 10px;
       cursor: pointer;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid transparent;
+      background: rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.06);
       transition: background 0.2s, border-color 0.2s;
       text-decoration: none;
     }
-    .bs-ep-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.08); }
+    .bs-ep-item:hover { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.10); }
     .bs-ep-item.active { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.22); }
     .bs-ep-num {
       flex-shrink: 0; width: 26px; height: 26px;
-      background: rgba(255,255,255,0.06); border-radius: 6px;
+      background: rgba(0,0,0,0.06); border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.38);
+      font-size: 11px; font-weight: 700; color: rgba(22,22,22,0.38);
       margin-top: 1px;
     }
     .bs-ep-item.active .bs-ep-num { background: rgba(201,168,76,0.16); color: var(--gold); }
     .bs-ep-title {
-      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.72);
+      font-size: 13px; font-weight: 600; color: rgba(22,22,22,0.75);
       line-height: 1.4; margin: 0 0 2px;
     }
-    .bs-ep-item.active .bs-ep-title { color: #fff; }
+    .bs-ep-item.active .bs-ep-title { color: #161616; }
     .bs-ep-dur {
-      font-size: 11px; color: rgba(255,255,255,0.30); font-weight: 500;
+      font-size: 11px; color: rgba(22,22,22,0.38); font-weight: 500;
     }
     .bs-ep-more {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       padding: 10px 12px; border-radius: 10px;
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.40);
+      background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.07);
+      font-size: 12px; font-weight: 600; color: rgba(22,22,22,0.45);
       text-decoration: none; cursor: pointer;
       transition: background 0.2s;
     }
-    .bs-ep-more:hover { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.65); }
+    .bs-ep-more:hover { background: rgba(0,0,0,0.05); color: rgba(22,22,22,0.70); }
 
     /* ── SEASON GRID ── */
     .bs-seasons-wrap {
@@ -268,31 +270,31 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,0,0,0.07);
+      background: rgba(0,0,0,0.03);
       padding: 28px 24px 24px;
       cursor: pointer;
       transition: border-color 0.25s, transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
     }
     .bs-season-card:hover {
-      border-color: rgba(201,168,76,0.22);
+      border-color: rgba(201,168,76,0.30);
       transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
     }
     .bs-season-card--new {
       border-color: rgba(201,168,76,0.30);
-      background: linear-gradient(145deg, rgba(201,168,76,0.06) 0%, rgba(6,4,10,0.97) 100%);
+      background: linear-gradient(145deg, rgba(201,168,76,0.06) 0%, rgba(255,255,255,0.97) 100%);
     }
     .bs-season-card--upcoming {
-      border-color: rgba(139,26,46,0.35);
-      background: linear-gradient(145deg, rgba(139,26,46,0.08) 0%, rgba(6,4,10,0.97) 100%);
+      border-color: rgba(139,26,46,0.25);
+      background: linear-gradient(145deg, rgba(139,26,46,0.05) 0%, rgba(255,255,255,0.97) 100%);
     }
     .bs-season-badge {
       display: inline-flex; align-items: center;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.09);
       border-radius: 100px; padding: 3px 10px;
-      font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45);
+      font-size: 10px; font-weight: 700; color: rgba(22,22,22,0.45);
       letter-spacing: 0.06em; text-transform: uppercase;
       margin-bottom: 14px;
     }
@@ -300,22 +302,22 @@
       background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.28); color: var(--gold);
     }
     .bs-season-card--upcoming .bs-season-badge {
-      background: rgba(139,26,46,0.18); border-color: rgba(139,26,46,0.35); color: #e06060;
+      background: rgba(139,26,46,0.10); border-color: rgba(139,26,46,0.25); color: #b04040;
     }
     .bs-season-num {
-      display: block; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.25);
+      display: block; font-size: 11px; font-weight: 700; color: rgba(22,22,22,0.30);
       text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px;
     }
     .bs-season-show {
       font-size: 18px; font-weight: 900; letter-spacing: -0.03em;
-      color: #ffffff; margin: 0 0 6px; line-height: 1.15;
+      color: #161616; margin: 0 0 6px; line-height: 1.15;
     }
     .bs-season-year {
-      font-size: 12px; color: rgba(255,255,255,0.30); font-weight: 500;
+      font-size: 12px; color: rgba(22,22,22,0.38); font-weight: 500;
     }
     .bs-season-eps {
       display: flex; align-items: center; gap: 5px;
-      font-size: 12px; color: rgba(255,255,255,0.30); margin-top: 14px;
+      font-size: 12px; color: rgba(22,22,22,0.38); margin-top: 14px;
     }
     .bs-season-eps svg { opacity: 0.5; }
 
@@ -325,8 +327,8 @@
     }
     .bs-coming-card {
       border-radius: 24px;
-      border: 1px solid rgba(139,26,46,0.28);
-      background: linear-gradient(145deg, rgba(139,26,46,0.10) 0%, rgba(6,4,10,0.97) 60%, rgba(12,8,20,0.97) 100%);
+      border: 1px solid rgba(139,26,46,0.18);
+      background: linear-gradient(145deg, rgba(139,26,46,0.05) 0%, rgba(255,255,255,1.00) 60%);
       padding: 44px 48px;
       display: flex; align-items: center; gap: 48px;
       flex-wrap: wrap;
@@ -334,17 +336,17 @@
     .bs-coming-text { flex: 1; min-width: 260px; }
     .bs-coming-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(139,26,46,0.18); border: 1px solid rgba(139,26,46,0.35);
+      background: rgba(139,26,46,0.10); border: 1px solid rgba(139,26,46,0.22);
       border-radius: 100px; padding: 5px 14px;
-      font-size: 11px; font-weight: 700; color: #e06060;
+      font-size: 11px; font-weight: 700; color: #b04040;
       text-transform: uppercase; letter-spacing: 0.10em; margin-bottom: 16px;
     }
     .bs-coming-title {
       font-size: clamp(22px, 3vw, 36px); font-weight: 900;
-      letter-spacing: -0.04em; color: #ffffff; margin: 0 0 12px; line-height: 1.05;
+      letter-spacing: -0.04em; color: #161616; margin: 0 0 12px; line-height: 1.05;
     }
     .bs-coming-desc {
-      font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.70; margin: 0;
+      font-size: 15px; color: rgba(22,22,22,0.60); line-height: 1.70; margin: 0;
     }
     .bs-coming-actions {
       display: flex; flex-direction: column; gap: 12px; flex-shrink: 0;
@@ -359,12 +361,12 @@
     .bs-btn-primary:hover { opacity: 0.88; }
     .bs-btn-secondary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.70); padding: 12px 24px; border-radius: 10px;
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.12);
+      color: rgba(22,22,22,0.70); padding: 12px 24px; border-radius: 10px;
       font-size: 13px; font-weight: 600;
       text-decoration: none; transition: background 0.2s; white-space: nowrap;
     }
-    .bs-btn-secondary:hover { background: rgba(255,255,255,0.10); color: #fff; }
+    .bs-btn-secondary:hover { background: rgba(0,0,0,0.08); color: #161616; }
 
     /* ── WATCH CTA ── */
     .bs-watch-section {
@@ -375,16 +377,16 @@
     }
     .bs-watch-card {
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,0,0,0.07);
+      background: rgba(0,0,0,0.03);
       padding: 32px 28px;
       text-decoration: none;
       transition: border-color 0.2s, background 0.2s, transform 0.2s;
       display: block;
     }
     .bs-watch-card:hover {
-      border-color: rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.06);
+      border-color: rgba(0,0,0,0.13);
+      background: rgba(0,0,0,0.05);
       transform: translateY(-2px);
     }
     .bs-watch-icon {
@@ -395,20 +397,15 @@
     .bs-watch-icon--yt { background: rgba(255,0,0,0.12); border: 1px solid rgba(255,0,0,0.20); }
     .bs-watch-icon--play { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.22); }
     .bs-watch-title {
-      font-size: 15px; font-weight: 800; color: #ffffff;
+      font-size: 15px; font-weight: 800; color: #161616;
       letter-spacing: -0.02em; margin: 0 0 6px;
     }
     .bs-watch-desc {
-      font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.60; margin: 0 0 18px;
+      font-size: 13px; color: rgba(22,22,22,0.55); line-height: 1.60; margin: 0 0 18px;
     }
     .bs-watch-link {
       font-size: 12px; font-weight: 700; color: var(--gold);
       display: inline-flex; align-items: center; gap: 5px;
-    }
-
-    /* ── FOOTER ── */
-    .site-footer {
-      background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%);
     }
 
     /* ── RESPONSIVE ── */
