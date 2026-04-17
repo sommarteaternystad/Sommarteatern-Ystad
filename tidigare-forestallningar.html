@@ -20,15 +20,11 @@
   <link rel="stylesheet" href="css/style.css?v=4">
   <style>
 
-    :root {
-      --gold: #c9a84c;
-      --crimson: #b83232;
-      --bg-dark: #06040a;
-    }
+    :root { --gold: #c9a84c; --crimson: #b83232; }
 
-    /* ── BODY & NAV ── */
-    body { background: #ffffff; }
-    .page-bg { position: fixed; inset: 0; z-index: -2; background: #ffffff; }
+    /* ── BODY ── */
+    body { background: #ffffff; padding-top: 67px; }
+    .page-bg { display: none; }
 
     .subpage-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -67,71 +63,74 @@
 
     .container { width: min(calc(100% - 32px), 1100px); margin: 0 auto; }
 
-    /* ─────────────────────────────────────────
-       GRID VIEW (ljus, varm ton)
-    ───────────────────────────────────────── */
-    #archive-view { padding-top: 0; padding-bottom: 80px; min-height: 100vh; background: #f2efe8; }
+    /* ═══════════════════════════════════════
+       ARCHIVE GRID VIEW
+    ═══════════════════════════════════════ */
+    #archive-view { background: #ffffff; }
 
-    /* Archive hero banner — ensemble photo */
     .archive-hero-banner {
       position: relative; height: 94vh; min-height: 640px;
       display: flex; align-items: flex-end;
-      overflow: visible; margin-bottom: 0;
-      padding-bottom: 22vh;
+      overflow: visible;
+      padding-bottom: 34vh;
     }
     .archive-hero-banner-bg {
       position: absolute; inset: 0;
       background-image: url('images/ensemble.jpg');
       background-size: cover; background-position: center 30%;
-      transform: scale(1.03); transition: transform 8s ease;
-      overflow: hidden;
     }
-    .archive-hero-banner:hover .archive-hero-banner-bg { transform: scale(1.0); }
     .archive-hero-banner::before {
       content: ''; position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(to bottom,
-        rgba(6,4,10,0.22) 0%,
-        rgba(6,4,10,0.48) 45%,
-        rgba(6,4,10,0.55) 70%,
-        rgba(6,4,10,0.20) 100%);
+        rgba(6,4,10,0.35) 0%,
+        rgba(6,4,10,0.65) 35%,
+        rgba(6,4,10,0.55) 55%,
+        rgba(6,4,10,0.20) 72%,
+        rgba(255,255,255,0.00) 82%,
+        rgba(255,255,255,1.00) 100%);
+    }
+    .archive-hero-banner::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 30%;
+      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+      pointer-events: none; z-index: 4;
     }
     .archive-hero-banner-content {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      padding: 0 0 40px;
-      max-width: min(calc(100% - 32px), 1100px); margin: 0 auto;
+      position: relative; z-index: 5;
+      width: min(calc(100% - 32px), 1100px); margin: 0 auto;
+      padding-bottom: 64px;
     }
     .archive-eyebrow {
-      display: block; font-size: 11px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--gold); margin-bottom: 10px; opacity: 0.95;
+      display: block; font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.22em;
+      color: var(--gold); margin-bottom: 14px; opacity: 0.90;
     }
     .archive-title {
-      font-size: clamp(36px, 5.5vw, 68px); font-weight: 900;
-      color: #161616; letter-spacing: -0.045em; line-height: 0.92;
-      margin: 0 0 12px;
-      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+      font-size: clamp(44px, 7vw, 88px); font-weight: 900;
+      color: #ffffff; letter-spacing: -0.04em; line-height: 0.9;
+      margin: 0 0 24px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
     }
     .archive-sub {
-      font-size: 16px; color: rgba(22,22,22,0.67); line-height: 1.6;
-      max-width: 480px; margin: 0;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.65;
+      max-width: 520px; margin: 0;
     }
 
-    /* Archive content area */
-    .archive-content { padding: 40px 0 0; }
+    .archive-content { padding: 48px 0 80px; }
 
     /* Decade tabs */
     .decade-tabs {
       display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 36px;
     }
     .decade-tab {
-      background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.10);
-      color: #6b6459; font-size: 12px; font-weight: 700;
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08);
+      color: rgba(22,22,22,0.55); font-size: 12px; font-weight: 700;
       padding: 6px 16px; border-radius: 999px; cursor: pointer;
       transition: all 0.18s; font-family: inherit;
     }
-    .decade-tab:hover, .decade-tab.active {
-      background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.45); color: #a07a28;
+    .decade-tab:hover { background: rgba(0,0,0,0.07); color: rgba(22,22,22,0.80); }
+    .decade-tab.active {
+      background: rgba(201,168,76,0.10); border-color: rgba(201,168,76,0.35); color: var(--gold);
     }
 
     /* Show grid */
@@ -157,7 +156,7 @@
     }
     .show-card-img-wrap {
       aspect-ratio: 2 / 3; overflow: hidden; position: relative;
-      background: #e8e4dc;
+      background: #f0eff0;
     }
     .show-card-img {
       width: 100%; height: 100%; object-fit: cover; object-position: center top;
@@ -167,7 +166,7 @@
     .show-card-no-img {
       width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: linear-gradient(160deg, #e8e4dc 0%, #ddd9d0 100%);
+      background: linear-gradient(160deg, #f0eff0 0%, #e8e8e8 100%);
       gap: 10px;
     }
     .show-card-no-img svg { opacity: 0.25; }
@@ -185,14 +184,14 @@
       text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px;
     }
     .show-card-title {
-      font-size: 14px; font-weight: 800; color: #161616;
+      font-size: 14px; font-weight: 800; color: #ffffff;
       letter-spacing: -0.02em; line-height: 1.2;
     }
     .show-card-body {
       padding: 12px 14px 14px; background: #fff;
     }
     .show-card-slogan {
-      font-size: 11px; color: #9a9088; line-height: 1.4;
+      font-size: 11px; color: rgba(22,22,22,0.50); line-height: 1.4;
       font-style: italic;
     }
     .show-card-arrow {
@@ -201,38 +200,38 @@
       margin-top: 8px;
     }
 
-    /* ─────────────────────────────────────────
-       WIKI VIEW (ljust, editorial)
-    ───────────────────────────────────────── */
+    /* ═══════════════════════════════════════
+       WIKI VIEW (show detail)
+    ═══════════════════════════════════════ */
     #wiki-view {
       display: none; min-height: 100vh;
-      background: #f2efe8;
+      background: #ffffff;
     }
 
-    /* Wiki topbar */
+    /* Wiki topbar (dark, matches nav) */
     .wiki-topbar {
-      background: #ffffff;
+      background: rgba(6,4,10,0.97);
       backdrop-filter: blur(20px);
       padding: 14px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .wiki-topbar-inner {
       display: flex; align-items: center; gap: 14px;
     }
     .wiki-back-btn {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(0,0,0,0.12);
-      color: rgba(22,22,22,0.65); font-size: 12px; font-weight: 700;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.72); font-size: 12px; font-weight: 700;
       padding: 0 16px; height: 32px; border-radius: 8px; cursor: pointer;
       display: inline-flex; align-items: center; gap: 6px;
       transition: background 0.15s, color 0.15s; font-family: inherit;
       flex-shrink: 0;
     }
-    .wiki-back-btn:hover { background: rgba(255,255,255,0.12); color: #161616; }
+    .wiki-back-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
     .wiki-breadcrumb {
-      font-size: 12px; color: rgba(22,22,22,0.47);
+      font-size: 12px; color: rgba(255,255,255,0.42);
       display: flex; align-items: center; gap: 6px;
     }
-    .wiki-breadcrumb span { color: rgba(22,22,22,0.6); font-weight: 600; }
+    .wiki-breadcrumb span { color: rgba(255,255,255,0.65); font-weight: 600; }
 
     /* Wiki hero (ensemble photo background) */
     .wiki-hero {
@@ -290,11 +289,11 @@
     }
     .wiki-show-title {
       font-size: clamp(36px, 5vw, 64px); font-weight: 900;
-      color: #161616; letter-spacing: -0.04em; line-height: 0.92;
+      color: #ffffff; letter-spacing: -0.04em; line-height: 0.92;
       margin: 0 0 14px;
     }
     .wiki-slogan {
-      font-size: 16px; color: rgba(22,22,22,0.53); font-style: italic;
+      font-size: 16px; color: rgba(255,255,255,0.55); font-style: italic;
       line-height: 1.5; display: block; margin-bottom: 28px;
       padding-left: 14px; border-left: 2px solid rgba(201,168,76,0.4);
     }
@@ -314,7 +313,7 @@
       letter-spacing: 0.1em; color: rgba(201,168,76,0.7); display: block; margin-bottom: 3px;
     }
     .fact-card-value {
-      font-size: 13px; font-weight: 700; color: #161616; line-height: 1.3;
+      font-size: 13px; font-weight: 700; color: #ffffff; line-height: 1.3;
     }
 
     /* Wiki nav (prev/next) */
@@ -322,17 +321,17 @@
       display: flex; gap: 8px; margin-top: 24px;
     }
     .wiki-nav-btn {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(0,0,0,0.10);
-      color: rgba(22,22,22,0.63); font-size: 11px; font-weight: 700;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65); font-size: 11px; font-weight: 700;
       padding: 0 14px; height: 30px; border-radius: 7px; cursor: pointer;
       display: inline-flex; align-items: center; gap: 5px; transition: all 0.15s;
       font-family: inherit; text-decoration: none;
     }
-    .wiki-nav-btn:hover { background: rgba(255,255,255,0.10); color: #161616; }
+    .wiki-nav-btn:hover { background: rgba(255,255,255,0.12); color: #ffffff; }
 
-    /* ── WIKI BODY (light) ── */
+    /* ── WIKI BODY ── */
     .wiki-body {
-      background: #f2efe8;
+      background: #ffffff;
     }
     .wiki-body-inner {
       display: grid;
@@ -347,10 +346,10 @@
       margin-bottom: 36px;
     }
     .wiki-section-title {
-      font-size: 20px; font-weight: 900; color: #1a1714;
+      font-size: 20px; font-weight: 900; color: #161616;
       letter-spacing: -0.03em; margin: 0 0 14px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #e0dbd0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       display: flex; align-items: center; gap: 8px;
     }
     .wiki-section-title::before {
@@ -358,45 +357,45 @@
       background: var(--gold); display: block;
     }
     .wiki-section-text {
-      font-size: 16px; line-height: 1.78; color: #2e2a24;
+      font-size: 16px; line-height: 1.78; color: rgba(22,22,22,0.82);
       white-space: pre-wrap;
     }
     .wiki-cast-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px;
     }
     .wiki-cast-row {
       display: flex; align-items: baseline; gap: 6px;
-      padding: 5px 0; border-bottom: 1px solid #e8e4dc;
+      padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
       font-size: 14px; line-height: 1.4;
     }
-    .wiki-cast-role { color: #6b6459; flex-shrink: 0; }
-    .wiki-cast-name { color: #1a1714; font-weight: 600; }
+    .wiki-cast-role { color: rgba(22,22,22,0.48); flex-shrink: 0; }
+    .wiki-cast-name { color: #161616; font-weight: 600; }
 
     /* Sidebar */
     .wiki-sidebar {}
     .wiki-sidebar-card {
-      background: #fff;
-      border: 1px solid #e0dbd0;
-      border-radius: 14px;
+      background: rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 16px;
       padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
     .sidebar-card-title {
-      font-size: 11px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.1em; color: #9a9088; margin-bottom: 14px;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.12em; color: rgba(22,22,22,0.38); margin-bottom: 14px;
     }
     .sidebar-fact-row {
       display: flex; flex-direction: column; gap: 2px;
-      padding: 10px 0; border-bottom: 1px solid #f0ece4;
+      padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .sidebar-fact-row:last-child { border-bottom: none; padding-bottom: 0; }
     .sidebar-fact-label {
-      font-size: 10px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.08em; color: #b8afa2;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: rgba(22,22,22,0.38);
     }
     .sidebar-fact-value {
-      font-size: 13px; font-weight: 600; color: #1a1714; line-height: 1.4;
+      font-size: 13px; font-weight: 600; color: #161616; line-height: 1.4;
     }
 
     /* Photo gallery */
@@ -416,17 +415,17 @@
     }
     .photo-grid img:hover { opacity: 0.85; transform: scale(1.02); }
     .photo-show-more {
-      width: 100%; background: rgba(0,0,0,0.04);
-      border: 1px solid #e0dbd0; color: #6b6459;
+      width: 100%; background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08); color: rgba(22,22,22,0.55);
       font-size: 12px; font-weight: 700; padding: 9px;
       border-radius: 8px; cursor: pointer; margin-top: 8px;
       font-family: inherit; transition: background 0.15s;
     }
-    .photo-show-more:hover { background: rgba(0,0,0,0.07); }
+    .photo-show-more:hover { background: rgba(0,0,0,0.06); }
 
     /* Lightbox */
     .lightbox {
-      position: fixed; inset: 0; background: #ffffff;
+      position: fixed; inset: 0; background: rgba(6,4,10,0.96);
       z-index: 500; display: none; align-items: center; justify-content: center;
       padding: 24px;
     }
@@ -437,14 +436,14 @@
     }
     .lightbox-close {
       position: fixed; top: 20px; right: 24px;
-      background: rgba(255,255,255,0.12); border: none; color: #161616;
+      background: rgba(255,255,255,0.10); border: none; color: #ffffff;
       width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
       font-size: 20px; display: flex; align-items: center; justify-content: center;
       font-family: inherit;
     }
     .lightbox-prev, .lightbox-next {
       position: fixed; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.10); border: none; color: #161616;
+      background: rgba(255,255,255,0.10); border: none; color: #ffffff;
       width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
       font-size: 18px; display: flex; align-items: center; justify-content: center;
       font-family: inherit; transition: background 0.15s;
@@ -452,10 +451,6 @@
     .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.20); }
     .lightbox-prev { left: 16px; }
     .lightbox-next { right: 16px; }
-
-    /* Footer override on light bg */
-    .site-footer { background: linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%); }
-    .site-footer .footer-wave-top { background: transparent !important; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
@@ -465,7 +460,6 @@
       .archive-hero-banner { height: 44vh; min-height: 280px; }
       .shows-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .wiki-hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
-      .wiki-hero::before { background: #ffffff; }
       .wiki-poster-wrap { width: 160px; }
       .wiki-slogan { border-left: none; padding-left: 0; text-align: center; }
       .wiki-body-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -484,7 +478,7 @@
     /* ── CAST NAME BUTTONS ── */
     .cast-name-btn {
       background: none; border: none; padding: 0; cursor: pointer; font: inherit;
-      color: #1a1714; font-weight: 600;
+      color: #161616; font-weight: 600;
       text-decoration: underline; text-decoration-color: rgba(201,168,76,0.5);
       text-underline-offset: 2px; transition: color 0.15s, text-decoration-color 0.15s;
     }
@@ -494,7 +488,7 @@
     .person-hero {
       background: linear-gradient(160deg, #0c0820 0%, #08060f 60%, #0a0415 100%);
       padding: 40px 0 60px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .person-hero-inner {
       display: flex; align-items: center; gap: 36px;
@@ -507,30 +501,30 @@
     }
     .person-avatar-ph {
       width: 110px; height: 110px; border-radius: 50%;
-      background: rgba(0,0,0,0.03);
-      border: 2px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.07);
+      border: 2px solid rgba(255,255,255,0.14);
       display: flex; align-items: center; justify-content: center;
     }
     .person-name {
-      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; color: #161616;
+      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; color: #ffffff;
       margin: 0 0 6px; letter-spacing: -0.025em; line-height: 1.1;
     }
     .person-subtitle {
-      font-size: 14px; color: rgba(22,22,22,0.48); margin: 0 0 24px;
+      font-size: 14px; color: rgba(255,255,255,0.55); margin: 0 0 24px;
       font-weight: 500;
     }
     .person-stats-row { display: flex; gap: 32px; flex-wrap: wrap; }
     .person-stat { display: flex; flex-direction: column; align-items: center; }
     .person-stat-val {
-      font-size: 2rem; font-weight: 800; color: #c9a84c; line-height: 1;
+      font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1;
     }
     .person-stat-label {
       font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
-      color: rgba(22,22,22,0.47); margin-top: 4px; text-align: center;
+      color: rgba(255,255,255,0.45); margin-top: 4px; text-align: center;
     }
 
     /* ── PERSON BODY ── */
-    .person-body { background: #f2efe8; padding: 56px 0 80px; }
+    .person-body { background: #ffffff; padding: 56px 0 80px; }
     .person-body-inner {
       display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start;
     }
@@ -542,60 +536,64 @@
     }
     .person-show-entry {
       display: flex; gap: 16px; align-items: flex-start;
-      background: #fff; border-radius: 14px; padding: 18px 20px;
-      margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;
+      background: rgba(0,0,0,0.02); border-radius: 14px; padding: 18px 20px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0,0,0,0.07);
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s; cursor: pointer;
     }
     .person-show-entry:hover {
-      box-shadow: 0 6px 24px rgba(0,0,0,0.12); transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10); transform: translateY(-2px);
+      border-color: rgba(201,168,76,0.28);
     }
     .person-show-poster-mini {
       width: 52px; height: 70px; object-fit: cover; border-radius: 7px; flex-shrink: 0;
-      background: #e8e4dc;
+      background: #f0eff0;
     }
     .person-show-poster-mini-ph {
       width: 52px; height: 70px; border-radius: 7px; flex-shrink: 0;
-      background: #e8e4dc; display: flex; align-items: center; justify-content: center;
+      background: #f0eff0; display: flex; align-items: center; justify-content: center;
     }
     .person-show-details { flex: 1; min-width: 0; }
     .person-show-year-tag {
-      font-size: 10px; font-weight: 700; color: #c9a84c; text-transform: uppercase;
+      font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase;
       letter-spacing: 0.12em; display: block; margin-bottom: 3px;
     }
     .person-show-title {
-      font-size: 16px; font-weight: 700; color: #1a1714; margin: 0 0 4px;
+      font-size: 16px; font-weight: 700; color: #161616; margin: 0 0 4px;
       line-height: 1.2;
     }
     .person-show-role {
-      font-size: 13px; color: #6b6459; margin: 0;
+      font-size: 13px; color: rgba(22,22,22,0.55); margin: 0;
     }
     .person-show-credits-list {
       margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px;
     }
     .person-show-credit-tag {
-      font-size: 11px; background: #f0ece4; color: #6b6459; border-radius: 5px;
-      padding: 2px 8px; font-weight: 600;
+      font-size: 11px; background: rgba(0,0,0,0.04); color: rgba(22,22,22,0.58);
+      border-radius: 5px; padding: 2px 8px; font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.07);
     }
     .person-show-perfs {
-      font-size: 11px; color: #aaa49a; margin-top: 5px;
+      font-size: 11px; color: rgba(22,22,22,0.38); margin-top: 5px;
     }
 
     /* Person sidebar */
     .person-sidebar-card {
-      background: #fff; border-radius: 16px; padding: 20px 22px; margin-bottom: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      background: rgba(0,0,0,0.02); border-radius: 16px; padding: 20px 22px; margin-bottom: 14px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
     .person-sidebar-card-title {
       font-size: 10px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.16em; color: #c9a84c; margin-bottom: 14px;
+      letter-spacing: 0.16em; color: var(--gold); margin-bottom: 14px;
     }
     .person-sidebar-stat-row {
       display: flex; justify-content: space-between; align-items: baseline;
-      padding: 8px 0; border-bottom: 1px solid #f0ece4; font-size: 13px;
+      padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 13px;
     }
     .person-sidebar-stat-row:last-child { border-bottom: none; }
-    .person-sidebar-stat-label { color: #6b6459; }
-    .person-sidebar-stat-val { font-weight: 700; color: #1a1714; }
+    .person-sidebar-stat-label { color: rgba(22,22,22,0.52); }
+    .person-sidebar-stat-val { font-weight: 700; color: #161616; }
 
     /* Person photo gallery */
     .person-photo-grid {
@@ -613,118 +611,6 @@
       .person-body-inner { grid-template-columns: 1fr; }
       .person-sidebar { order: -1; }
       .person-stats-row { gap: 20px; }
-    }
-
-  
-    /* ── HERO WHITE FADE ── */
-    .archive-hero-banner::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 28%;
-      background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
-      pointer-events: none; z-index: 4;
-    }
-    .archive-hero-text { position: relative; z-index: 5; }
-
-    /* ── CARD LIGHT STYLE BOOST ── */
-    [class$="-card"]:not(.subsite-card):not([class*="sponsor-logo"]),
-    [class*="-card "]:not(.subsite-card),
-    .glass-panel, .styrelse-panel {
-      box-shadow: 0 2px 18px rgba(0,0,0,0.07) !important;
-    }
-    
-  
-    /* ── Mörka foto-sektioner (inline bg) behåller vit text ── */
-    [style*="rgba(6,4,10"] { color: #fff; }
-    [style*="rgba(6,4,10"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(6,4,10"] [class*="-kicker"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn-gold,
-    [style*="rgba(6,4,10"] [class*="btn-gold"] { color: #0a0318 !important; }
-    [style*="rgba(6,4,10"] a[href]:not([class*="btn"]) { color: rgba(201,168,76,0.75); }
-
-    /* ── Wiki-hero: mörk bakgrund → vit text ── */
-    .wiki-hero { color: #fff; }
-    .wiki-hero * { color: inherit; }
-    .wiki-hero .wiki-show-title { color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.45); }
-    .wiki-hero .wiki-slogan { color: rgba(255,255,255,0.58) !important; text-shadow: none; }
-    .wiki-hero .wiki-year-pill { background: var(--gold) !important; color: #06040a !important; }
-    .wiki-hero [class*="kicker"],
-    .wiki-hero [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
-    .wiki-breadcrumb,
-    .wiki-breadcrumb * { color: rgba(255,255,255,0.52) !important; }
-    .wiki-breadcrumb span { color: rgba(255,255,255,0.70) !important; }
-    .wiki-nav-btn { color: rgba(255,255,255,0.65) !important; }
-    .wiki-nav-btn:hover { color: #fff !important; }
-    .fact-card { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.12) !important; }
-    .fact-card-value { color: #fff !important; }
-    /* Wiki body stays light */
-    .wiki-body * { color: inherit; text-shadow: none; }
-    .wiki-body { color: #1a1714 !important; }
-
-  
-    /* Extra: fler mörka inline-bg mönster → vit text */
-    [style*="rgba(8,6,18"] { color: #fff; }
-    [style*="rgba(8,6,18"] * { color: inherit; }
-    [style*="rgba(1,6,18"]  { color: #fff; }
-    [style*="rgba(1,6,18"]  * { color: inherit; }
-    [style*="rgba(14,10,22"] { color: #fff; }
-    [style*="rgba(14,10,22"] * { color: inherit; }
-    [style*="rgba(8,4,18"] { color: #fff; }
-    [style*="rgba(8,4,18"] * { color: inherit; }
-    [style*="rgba(6,4,10"] [class*="kicker"],
-    [style*="rgba(8,6,18"] [class*="kicker"],
-    [style*="rgba(1,6,18"]  [class*="kicker"],
-    [style*="rgba(6,4,10"] [class*="eyebrow"],
-    [style*="rgba(8,6,18"] [class*="eyebrow"],
-    [style*="rgba(1,6,18"]  [class*="eyebrow"] { color: var(--gold) !important; opacity: 0.85; }
-    [style*="rgba(6,4,10"] .btn,
-    [style*="rgba(8,6,18"] .btn,
-    [style*="rgba(1,6,18"]  .btn { color: inherit; }
-    .archive-hero-banner h1, .archive-hero-banner h2, .archive-hero-banner h3,
-    .archive-hero-banner p, .archive-hero-banner span, .archive-hero-banner a,
-    .archive-hero-banner [class*="title"], .archive-hero-banner [class*="subtitle"],
-    .archive-hero-banner [class*="eyebrow"], .archive-hero-banner [class*="kicker"],
-    .archive-hero-banner [class*="lead"], .archive-hero-banner [class*="desc"],
-    .archive-hero-banner [class*="sub"],
-    .archive-hero-text, .archive-hero-text * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.40);
-    }
-    .archive-hero-banner [class*="eyebrow"],
-    .archive-hero-banner [class*="kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90 !important;
-    }
-    .archive-hero-banner .btn-gold,
-    .archive-hero-banner [class*="btn-gold"] {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-
-  
-    /* ══ HERO: ALL TEXT WHITE ══ */
-    .archive-hero-banner * {
-      color: #ffffff !important;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
-    }
-    .archive-hero-banner [class*="eyebrow"],
-    .archive-hero-banner [class*="kicker"],
-    .archive-hero-banner [class*="-kicker"] {
-      color: var(--gold) !important;
-      text-shadow: none !important;
-      opacity: 0.90;
-    }
-    .archive-hero-banner .btn-gold,
-    .archive-hero-banner [class*="btn-gold"],
-    .archive-hero-banner a.btn {
-      color: #0a0318 !important;
-      text-shadow: none !important;
-    }
-    .archive-hero-banner .nav-pill-badge {
-      color: #fff !important;
-      text-shadow: none !important;
     }
 
     /* ── SHOW CAROUSEL ── */
@@ -828,7 +714,7 @@
     </div>
 
     <!-- Grid content -->
-    <div class="archive-content" style="margin-top: -200px; padding-top: 0; position: relative; z-index: 5;">
+    <div class="archive-content">
       <div class="container">
         <div class="decade-tabs" id="decadeTabs">
           <button class="decade-tab active" data-decade="all">Alla</button>
@@ -1014,7 +900,7 @@
     {
       title: 'Skattkammarön',
       year: 2025,
-      performances: null,
+      performances: 25,
       ensemble: 'images/ensemble.jpg',
       poster: 'images/skattkammarön2025.jpg',
       slogan: 'En äventyrlig musikal för hela familjen',
@@ -1025,7 +911,9 @@
         'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Max Ivarsson',
         'Ljud': 'Erik Thörnqvist, Ossian Höglund',
         'Premiär': '6 juli 2025',
-        'Sista föreställning': '3 augusti 2025'
+        'Sista föreställning': '3 augusti 2025',
+        'Publik': '5 294 besökare',
+        'Antal föreställningar': '25'
       },
       photos: { prefix: 'SKATT', count: 47 },
       sections: [
@@ -1063,13 +951,17 @@
             ['Diskare', 'Ida Sjö'],
             ['Piratdiskare', 'Loke Åkesson']
           ]
+        },
+        {
+          title: 'Publiken',
+          text: '5 294 besökare under 25 föreställningar — Sommarteaterns nya publikrekord och den bästa säsongen i föreningens historia. Skattkammarön satte ett nytt streck i protokollet, och siffran är ett kvitto på tjugo år av berättarkonst, gemenskap och kärlek till scenen.'
         }
       ]
     },
     {
       title: 'Hans & Greta',
       year: 2024,
-      performances: null,
+      performances: 25,
       ensemble: 'images/ensemble-hansgreta2024.jpg',
       poster: 'images/hansgreta2024.jpg',
       slogan: 'En läcker musikal för hela familjen',
@@ -1080,7 +972,9 @@
         'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Max Ivarsson, Hannes Nilsson',
         'Ljud': 'Erik Thörnqvist, Ossian Höglund',
         'Premiär': '7 juli 2024',
-        'Sista föreställning': '4 augusti 2024'
+        'Sista föreställning': '4 augusti 2024',
+        'Publik': '4 734 besökare',
+        'Antal föreställningar': '25'
       },
       photos: { prefix: 'HG', count: 42 },
       sections: [
@@ -1116,13 +1010,17 @@
             ['Theo Tålös', 'Jimmy Johansson'],
             ['Jobin', 'Adrian Skoog']
           ]
+        },
+        {
+          title: 'Publiken',
+          text: '4 734 besökare under 25 föreställningar. En sommar som visade att Sommarteatern lockar publik oavsett berättelse — oavsett om det handlar om gudar, riddare eller fattiga syskon i en bitter värld med en söt fasad.'
         }
       ]
     },
     {
       title: 'Romeo & Julia',
       year: 2023,
-      performances: null,
+      performances: 25,
       ensemble: 'images/ensemble-romeojulia2023.jpg',
       poster: 'images/romeojulia2023.jpg',
       slogan: 'En spännande musikal för hela familjen',
@@ -1133,7 +1031,9 @@
         'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Hannes Nilsson, Max Ivarsson',
         'Ljud': 'Erik Jönsson, Ludwig Thorstensson',
         'Premiär': '9 juli 2023',
-        'Sista föreställning': '6 augusti 2023'
+        'Sista föreställning': '6 augusti 2023',
+        'Publik': '4 437 besökare',
+        'Antal föreställningar': '25'
       },
       photos: { prefix: 'RJ', count: 69 },
       sections: [
@@ -1162,13 +1062,17 @@
             ['Pampen', 'Alexander Ståhl'],
             ['Rosa', 'Alicia Nilsson']
           ]
+        },
+        {
+          title: 'Publiken',
+          text: '4 437 besökare under 25 föreställningar. Romeo & Julia visade att Sommarteaterns publik inte sviktar — inte ens inför en av litteraturhistoriens mest tragiska kärlekshistorier.'
         }
       ]
     },
     {
       title: 'Törnrosa',
       year: 2022,
-      performances: null,
+      performances: 25,
       ensemble: 'images/ensemble-törnrosa2022.jpg',
       poster: 'images/törnrosa2022.jpg',
       slogan: 'En vass familjemusikal vid Åbergs Trädgård',
@@ -1178,13 +1082,19 @@
         'Musik': 'Frida Green, Christoffer Zaar',
         'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson, Hannes Nilsson',
         'Premiär': '10 juli 2022',
-        'Sista föreställning': '7 augusti 2022'
+        'Sista föreställning': '7 augusti 2022',
+        'Publik': '5 003 besökare',
+        'Antal föreställningar': '25'
       },
       photos: { folder: 'föreställningar/2022-tornrosa', prefix: 'Törnrosa', count: 42 },
       sections: [
         {
           title: 'Handling',
           text: 'Det har gått över en generation sedan kungen och drottningen mötte sitt oväntade öde. Det finns inte längre någon kvar i staden med minnen från tiden då träden blomstrade, men såren finns kvar. Ännu sörjer folket deras dotter i hemlighet, den lovade prinsessan som gick upp i rök.\n\nUnder ytan, bakom stängda dörrar finns grupper som lovat att inte ge upp förrän tronen rättmätigt är hennes, något som den tillförordnande regenten gör allt för att stoppa. Vi hoppar in i mitten av ett långt pågående krig mellan tyranni och frihet. Precis när hoppet börjar sina sker det som ena sidan fruktat och den andra drömt om. Hon är tillbaka.'
+        },
+        {
+          title: 'Publiken',
+          text: '5 003 besökare under 25 föreställningar — en av Sommarteaterns mest välbesökta säsonger och ett bevis på att den lojala publiken var tillbaka för fullt efter pandemiåren. Törnrosa bekräftade att berättelser om frihet och rättvisa alltid hittar hem.'
         },
         {
           title: 'Medverkande',
@@ -1207,7 +1117,7 @@
     {
       title: 'Kung Arthur',
       year: 2021,
-      performances: null,
+      performances: 25,
       ensemble: 'images/ensemble-kungarthur2021.jpg',
       poster: 'images/kungarthur2021.jpg',
       slogan: 'En legendarisk familjemusikal vid Åbergs Trädgård',
@@ -1217,13 +1127,19 @@
         'Musik': 'Frida Green, Christoffer Zaar',
         'Manus': 'Filip Jönsson, Hilda Ståhl, Anna Ståhl, Hannes Nilsson',
         'Premiär': '11 juli 2021',
-        'Sista föreställning': '8 augusti 2021'
+        'Sista föreställning': '8 augusti 2021',
+        'Publik': '3 403 besökare',
+        'Antal föreställningar': '25'
       },
       photos: { folder: 'föreställningar/2021-kung-arthur', prefix: 'KungArthur', count: 91 },
       sections: [
         {
           title: 'Handling',
           text: 'Ett kungarike i kris skriker efter hjälp — utan ledare är Britannia försvarslöst och rivaler världen över ser sin chans att slå till. Folket börjar viska en bortglömd legend om en sten, om ett svärd och om en kung. Allting vänds upp och ner när denna kung visar sig vara någon helt annan än förväntat.\n\nArthur är en helt vanlig kille som saknar alla de färdigheter som behövs för att kunna leda landet framåt. Men det är så det är skrivet och då också så det ska vara. Arthur drar svärdet och tvingas kämpa mot fördomar, förtryck och förakt i en berättelse om gemenskap under mörka moln. Under resan stöter han på ädla riddare och runda bord. Trollkarlar och magiska väsen. Vänner och fiender.'
+        },
+        {
+          title: 'Publiken',
+          text: '3 403 besökare under 25 föreställningar — en remarkabel siffra för en sommar som fortfarande präglades av pandemins efterdyningar. Publiken kom tillbaka, och det var tydligt att Sommarteatern hade saknats.'
         },
         {
           title: 'Medverkande',
@@ -1246,33 +1162,55 @@
     {
       title: 'Sommarteatern Genom Tiderna',
       year: 2020,
-      performances: null,
+      performances: 13,
       ensemble: null,
       poster: 'images/sommarteaterngenomtiderna2020.jpg',
       slogan: 'En jubileumsföreställning',
       facts: {
-        'Premiär': '1 augusti 2020',
-        'Sista föreställning': '9 augusti 2020'
+        'Regissör': 'Anna Ståhl, Hilda Ståhl',
+        'Premiär': '12 juli 2020',
+        'Sista föreställning': '9 augusti 2020',
+        'Publik': '650 besökare',
+        'Antal föreställningar': '13'
       },
       photos: null,
-      sections: []
+      sections: [
+        {
+          title: 'En annorlunda sommar',
+          text: 'Sommaren 2020 var ingen vanlig sommar. Pandemin lade sin skugga över hela världen och möjligheterna att samlas var kraftigt begränsade. Men Sommarteatern gav inte upp — i stället skapade Anna och Hilda Ståhl något alldeles eget: en jubileumsföreställning som blickade tillbaka på femton år av musik, berättelser och minnen.\n\nSommarteatern Genom Tiderna var en hyllning till allt som byggts upp sedan 2006 — en kväll av höjdpunkter, låtar och ögonblick som publiken burit med sig. Scenerna var färre, läktaren glesare av nödvändighet, men känslan var densamma som alltid: gemenskap under öppen himmel.'
+        },
+        {
+          title: 'Publiken',
+          text: '650 besökare under 13 föreställningar — en blygsam siffra på pappret, men enorm med tanke på omständigheterna. Varje besökare den sommaren valde att komma trots allt, och det glömmer vi inte.'
+        }
+      ]
     },
     {
       title: 'De Tre Musketörerna',
       year: 2019,
-      performances: null,
+      performances: 24,
       ensemble: 'images/ensemble-musketörerna2019.jpg',
       poster: 'images/detremusketörerna2019.jpg',
-      slogan: 'En fängslande musikal',
+      slogan: 'En för alla — alla för en',
       facts: {
         'Regissör': 'Hilda Ståhl, Anna Ståhl',
         'Musik': 'Frida Green, Christoffer Zaar',
         'Manus': 'Filip Jönsson, Hilda Ståhl, Anna Ståhl, Hannes Nilsson',
         'Premiär': '7 juli 2019',
-        'Sista föreställning': '4 augusti 2019'
+        'Sista föreställning': '4 augusti 2019',
+        'Publik': '5 031 besökare',
+        'Antal föreställningar': '24'
       },
       photos: { folder: 'föreställningar/2019-de-tre-musketorerna', prefix: 'DTM', count: 69 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'En för alla — alla för en. Den devisen var mer än ett slagord sommaren 2019. Anna och Hilda Ståhls version av Alexandre Dumas klassiker placerade D\'Artagnan — spelad av Ellen Leufstedt — i centrum av ett svek, en komplott och en lojalitet på liv och död.\n\nDe tre musketörerna Athos (Alexander Ståhl), Porthos (Max Ivarsson) och Aramis (Filip Jönsson) var en trio med gnistrar och kemi som publiken omedelbart föll för. Mot dem stod kardinalen (Hannes Nilsson) och den oförutsägbara Milady (Sofie Eriksson) — ett skurkpar värdigt Dumas bästa. Elin Malmborg gestaltade drottningen med en majestätisk stillhet mitt i kaoset.\n\nFrida Green och Christoffer Zaar bidrog med 14 originalkompositioner — det mest omfattande musikpaketet hittills.'
+        },
+        {
+          title: 'Publiken',
+          text: '5 031 besökare under 24 föreställningar — Sommarteaterns absoluta publikrekord vid den tidpunkten och den första säsongen med över 5 000 besökare. En milstolpe i föreningens historia, och ett kvitto på tjugo sommars ihärdigt arbete.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1291,19 +1229,29 @@
     {
       title: 'Herkules',
       year: 2018,
-      performances: null,
+      performances: 24,
       ensemble: 'images/ensemble-herkules2018.jpg',
       poster: 'images/herkules2018.jpg',
-      slogan: '',
+      slogan: 'En legendarisk musikal om gudar och hjältar',
       facts: {
         'Regissör': 'Hilda Ståhl',
         'Musikregi': 'Anna Ståhl',
         'Musik': 'Frida Green, Christoffer Zaar',
         'Premiär': '8 juli 2018',
-        'Sista föreställning': '5 augusti 2018'
+        'Sista föreställning': '5 augusti 2018',
+        'Publik': '3 902 besökare',
+        'Antal föreställningar': '24'
       },
       photos: { folder: 'föreställningar/2018-herkules', prefix: 'Hercules', count: 87 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Sommaren 2018 klev Sommarteatern upp på Olympen. Herkules — halvgud, hjälte och son till Zeus — kastas in i en värld av gudomliga intriger, mänskliga förväntningar och prövningar som testar allt han är gjord av. Max Ivarsson bar titelrollen med en energi som fyllde hela scenen, omgiven av ett gudapantheon av rang: Alexander Ståhl som Zeus, Nicole Holmquist som Hera, Anna Ståhl som Athena och Jimmy Johansson som Poseidon.\n\nFrida Green och Christoffer Zaar debuterade som kompositörsduo för Sommarteatern och levererade åtta originalkompositioner — ett samarbete som sedan dess blivit en central del av föreningens musikaliska identitet.'
+        },
+        {
+          title: 'Publiken',
+          text: '3 902 besökare under 24 föreställningar — en av de starkaste säsongerna dittills och ytterligare ett bevis på att Sommarteatern befäst sin ställning som en av Skånes mest uppskattade sommarscener.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1322,19 +1270,33 @@
     {
       title: 'Lilla Sjöjungfrun',
       year: 2017,
-      performances: null,
+      performances: 22,
       ensemble: 'images/ensemble-sjöjungfrun2017.jpg',
       poster: 'images/lillasjöjungfrun2017.jpg',
-      slogan: '',
+      slogan: 'En sommarsaga om längtan och mod',
       facts: {
         'Regissör': 'Hilda Ståhl',
         'Musikregi': 'Anna Ståhl',
-        'Musik': 'Frida Green, Christoffer Zaar',
+        'Musik': 'David Hansson',
         'Premiär': '9 juli 2017',
-        'Sista föreställning': '6 augusti 2017'
+        'Sista föreställning': '6 augusti 2017',
+        'Publik': '3 201 besökare',
+        'Antal föreställningar': '22'
       },
       photos: null,
       sections: [
+        {
+          title: 'Handling',
+          text: 'Med ett helt nyskrivet manus, fritt efter H.C. Andersens klassiska saga, skapade Anna och Hilda Ståhl sin egen version av en av världens mest älskade berättelser. Sedan urminnes tider har varje sjöjungfru fått en dag på sig att utforska markytan där människorna vandrar. När det är havskungens dotters tur tvingas hon välja mellan sitt gamla hem på bottnen och drömmen hon haft sedan hon var liten.\n\nMen livet på land visar sig vara annorlunda från vad den lilla sjöjungfrun förväntat sig. Spelad av Elin Malmborg med en sårbarhet och styrka i perfekt balans, tvingas hon i en kamp mot klockan konfrontera sina innersta osäkerheter — och sina djupaste känslor. Filip Jönsson spelade Alton, Jimmy Johansson kungen, och Anna Ståhl gestaltade Kusette.'
+        },
+        {
+          title: 'Musik och väder',
+          text: 'David Hanssons åtta originalkompositioner bar föreställningen genom en säsong som sommargudarna glömt bort. Regn, rusk och kyla — men publiken kom ändå. Och ensemblen spelade ändå.\n\nLilla Sjöjungfrun har med åren blivit en riktig favorit hos både publik och ensemble — en av de föreställningar som folk pratar om länge efteråt.'
+        },
+        {
+          title: 'Publiken',
+          text: '3 201 besökare under 22 föreställningar — ett nytt publikrekord, slaget trots en av säsongens blötaste somrar. Det säger allt om den lojalitet Sommarteatern byggt upp med sin publik.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1353,7 +1315,7 @@
     {
       title: 'Askungen',
       year: 2016,
-      performances: null,
+      performances: 24,
       ensemble: 'images/ensemble-askungen2016.jpg',
       poster: 'images/askungen2016.jpg',
       slogan: 'En förtrollad musikal för hela familjen',
@@ -1361,16 +1323,33 @@
         'Regissör': 'Hilda Ståhl, Anna Ståhl',
         'Musik': 'David Hansson',
         'Premiär': '3 juli 2016',
-        'Sista föreställning': '31 juli 2016'
+        'Sista föreställning': '31 juli 2016',
+        'Publik': '3 000 besökare',
+        'Antal föreställningar': '24'
       },
       photos: { folder: 'föreställningar/2016-askungen', prefix: 'Askungen', count: 34 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'I denna förtrollade familjemusikal fick publiken möta Fanny — Askungen — spelad av Elise Isaksson, en flicka som kämpar för att befria sig från orättvisans kedjor. Det visar sig svårare än hon trott när hennes maktgalna styvmor (Sofie Eriksson) och styvsystrar (Anna Ståhl, Eva-Lotta Larsson och Ellen Leufstedt) gör allt för att sätta käppar i hjulet.\n\nFannys hopp tänds när hennes väg korsas med en motvillig prins (Filip Jönsson) — vars position medför en chans att förändra kungariket på riktigt. Vem vet vad som är möjligt när man är snäll och visar mod? Och kanske med hjälp av en liten gnutta magi.'
+        },
+        {
+          title: 'Berättelsen och musiken',
+          text: 'Anna och Hilda Ståhl skapade en helt egen tolkning av den klassiska sagan utan att förlora hjärtat i historien. Med David Hanssons sju originalkompositioner som bärande stomme fick föreställningen en originell prägel — en Askungen som kände sig ny trots att berättelsen var gammal.\n\nAskungen mottogs otroligt bra av såväl gammal som ung, och under fyra veckor på fulla läktare uppskattades den av föräldrar, barn, barnbarn och många fler.'
+        },
+        {
+          title: 'Publiken',
+          text: '3 000 besökare under 24 föreställningar — ett nytt publikrekord och ännu ett bevis på att Sommarteatern nu hade en fast plats i det skånska sommarlandskapet. Siffran skulle inte stanna där länge.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Askungen/Fanny', 'Elise Isaksson'],
             ['Prinsen', 'Filip Jönsson'],
-            ['Styvmor', 'Sofie Eriksson']
+            ['Styvmor', 'Sofie Eriksson'],
+            ['Styvasyster', 'Anna Ståhl'],
+            ['Styvasyster', 'Eva-Lotta Larsson'],
+            ['Styvasyster', 'Ellen Leufstedt']
           ]
         }
       ]
@@ -1378,7 +1357,7 @@
     {
       title: 'Djungelboken',
       year: 2015,
-      performances: null,
+      performances: 24,
       ensemble: null,
       poster: 'images/djungelboken2015.jpg',
       slogan: 'En spännande familjemusikal',
@@ -1387,16 +1366,31 @@
         'Musik': 'Anna Ståhl, Lois Ivarsson',
         'Manus': 'Anna Ståhl, Hilda Ståhl, Filip Jönsson',
         'Premiär': '5 juli 2015',
-        'Sista föreställning': '2 augusti 2015'
+        'Sista föreställning': '2 augusti 2015',
+        'Publik': '2 800 besökare',
+        'Antal föreställningar': '24'
       },
       photos: { folder: 'föreställningar/2015-djungelboken', prefix: 'Djungelboken', count: 23 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Som vanligt fick berättelsen en rejäl make-over av Anna och Hilda Ståhl. Den här versionen av Djungelboken handlade om en lite äldre Mowgli — spelad av Filip Jönsson — som utforskar gränserna mellan att vara människa och djur. När en engelsk expedition anlände till hans djungel tvingades Mowgli välja mellan två helt olika världar och allt han kände till.\n\nPå vägen fick han hjälp av sina närmaste vänner. Framförallt av Baloo och Bagheera, förda till liv av det oöverträffade radarparet Alexander Ståhl och Jimmy Johansson. Men Mowglis uppmärksamhet delades också med den engelska flickan Lea, spelad av Tilda Persson — en röst utifrån som ställde frågor djungeln inte hade svar på.'
+        },
+        {
+          title: 'En blöt sommar med ett varmt hjärta',
+          text: 'Sommaren 2015 var ingen solsommar. Regn och rusk var trogna sällskap under stora delar av säsongen — och ironiskt nog hade ensemblen aldrig haft så tunna scenkläder. Men passion bakom och framför scen lyckades tina frusna kroppar och hålla energin vid liv.\n\nAv Mowglis äventyr lärde publiken att man inte ska döma någon på utseendet. Det är vad man har på insidan som räknas — ett budskap som tydligen gick hem trots vädret.'
+        },
+        {
+          title: 'Publiken',
+          text: '2 800 besökare under 24 föreställningar — en dramatisk ökning och ett nytt publikrekord som nästan fördubblat siffran från föregående år. Djungelboken visade att Sommarteatern nu spelade i en helt annan liga.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Mowgli', 'Filip Jönsson'],
             ['Baloo', 'Alexander Ståhl'],
-            ['Bagera', 'Jimmy Johansson']
+            ['Bagheera', 'Jimmy Johansson'],
+            ['Lea', 'Tilda Persson']
           ]
         }
       ]
@@ -1404,7 +1398,7 @@
     {
       title: 'Alice i Underlandet',
       year: 2014,
-      performances: null,
+      performances: 22,
       ensemble: null,
       poster: 'images/aliceiunderlandet2014.jpg',
       slogan: 'En musikal för hela familjen',
@@ -1412,15 +1406,30 @@
         'Regissör': 'Hilda Ståhl, Anna Ståhl',
         'Musik': 'David Hansson',
         'Premiär': '6 juli 2014',
-        'Sista föreställning': '3 augusti 2014'
+        'Sista föreställning': '3 augusti 2014',
+        'Publik': '1 540 besökare',
+        'Antal föreställningar': '22'
       },
       photos: { folder: 'föreställningar/2014-alice-i-underlandet', prefix: 'Aliceiunderlandet', count: 35 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Publiken fick följa den oskuldsfulla Alice som av ett rent sammanträffande hamnade i en mystisk ny värld fylld av fullkomligt galna invånare. Hand i hand kämpade de för att återta sitt hem från den onda Hjärterdamen — spelad med isande elegans av Anna Ståhl.\n\nEvelina Andersson bar titelrollen med en ledstjärnas lugn mitt i all tokighet och blev en förebild för många unga besökare som försöker hitta sin väg genom en värld som stundvis kan verka minst lika absurd som Underlandet. Filip Jönsson var ospilbar som den sprallige Hattmakaren — och med en svettpärla rinnande längs pannan i den outhärdliga hettan var han kanske mer autentisk än planerat.'
+        },
+        {
+          title: 'En het sommar',
+          text: 'Sommaren 2014 var en prövning i uthållighet. Både publik och ensemble kämpade mot en outhärdlig hetta kväll efter kväll — men ingen av dem vek undan. Det är det som är Sommarteatern: man spelar oavsett.'
+        },
+        {
+          title: 'Publiken',
+          text: '1 540 besökare under 22 föreställningar — tredje publikrekordet på tre år. Alice i Underlandet bekräftade att Sommarteatern nu hade en lojal och växande publik som kom tillbaka sommar efter sommar.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Alice', 'Evelina Andersson'],
             ['Hattmakaren', 'Filip Jönsson'],
+            ['Hjärterdamen', 'Anna Ståhl'],
             ['Kaninen', 'Jimmy Johansson']
           ]
         }
@@ -1429,7 +1438,7 @@
     {
       title: 'Snövit',
       year: 2013,
-      performances: null,
+      performances: 21,
       ensemble: null,
       poster: 'images/snövit2013.jpg',
       slogan: 'En klassisk saga som ni aldrig sett den förut',
@@ -1437,10 +1446,24 @@
         'Regissör': 'Hilda Ståhl, Anna Ståhl',
         'Musik': 'David Hansson',
         'Premiär': '7 juli 2013',
-        'Sista föreställning': '4 augusti 2013'
+        'Sista föreställning': '4 augusti 2013',
+        'Publik': '1 321 besökare',
+        'Antal föreställningar': '21'
       },
       photos: null,
       sections: [
+        {
+          title: 'Handling',
+          text: 'Snövit handlade om en flicka som kämpade för att återta sin fars kungarike från en ond drottning. Men vägen dit var krokigare än hon trott — när hennes väg korsades med sju excentriska dvärgar och en ännu mer excentrisk prins visade sig livet i skogen ha sina egna regler.\n\nMed Josefin Stridh i huvudrollen skapade Anna och Hilda Ståhl en ovanligt stark hjältinna — en Snövit som sällan väntade på att bli räddad och oftast själv fick rädda den charmigt inkompetente prinsen, spelad av Filip Jönsson med perfekt komisk precision. Anna Ståhl gestaltade den onda drottningen med en kyla som satte gäshud på läktaren.'
+        },
+        {
+          title: 'Budskapet',
+          text: 'Föreställningen stod som ett levande bevis för att man kan klara av vad som helst — vem man än är och var man än kommer ifrån. Det budskapet visade sig resonera djupt med publiken, och Sommarteatern slog återigen sitt publikrekord.'
+        },
+        {
+          title: 'Publiken',
+          text: '1 321 besökare såg Snövit under 21 föreställningar — ytterligare ett publikrekord. Två år i rad under Anna och Hildas ledning, två rekord. Mönstret börjades bli tydligt.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1454,24 +1477,39 @@
     {
       title: 'Peter Pan',
       year: 2012,
-      performances: null,
+      performances: 21,
       ensemble: null,
       poster: 'images/peterpan2012.jpg',
       slogan: 'Ett musikaliskt äventyr för hela familjen',
       facts: {
         'Regissör': 'Hilda Ståhl',
-        'Musik': 'Anna Ståhl',
+        'Musikregi': 'Anna Ståhl',
         'Premiär': '8 juli 2012',
-        'Sista föreställning': '5 augusti 2012'
+        'Sista föreställning': '5 augusti 2012',
+        'Publik': '1 197 besökare',
+        'Antal föreställningar': '21'
       },
       photos: { folder: 'föreställningar/2012-peter-pan', prefix: 'Peterpan', count: 10 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Den unga flickan Wendy följer föreställningens titelkaraktär på ett oförglömligt äventyr långt bort från vardagens trygghet. Peters hem, Aldriglandet, visar sig däremot inte vara det paradis som utlovats när Kapten Krok gör sitt yttersta för att förstöra deras planer. Tillsammans med Tingeling, de borttappade pojkarna och många fler blir det Peters och Wendys uppdrag att stoppa honom — och hitta hem igen.\n\nHampus Nilsson axlade titelrollen som en sångfågel av rang. Vid hans sida lyste Evelina Andersson som den oöverträffade Tingeling — en roll som snabbt gjort henne till en stor publikfavorit. Wendy spelades av Elise Isaksson och Kapten Krok av Alexander Ståhl.'
+        },
+        {
+          title: 'Anna och Hilda tar över',
+          text: 'Peter Pan var det första år som systerparet Anna och Hilda Ståhl officiellt tog över stafettpinnen som Sommarteaterns konstnärliga ledare — ett ansvar de bar med omedelbar bravur. Med ett nyskrivet manus och Annas egenkomponerade musik satte de sin prägel på den klassiska berättelsen och skapade något som kändes helt nytt.\n\nResultatet lät inte vänta på sig: Peter Pan slog Sommarteaterns dittills gällande publikrekord.'
+        },
+        {
+          title: 'Publiken',
+          text: '1 197 besökare såg Peter Pan under 21 föreställningar — ett nytt publikrekord för Sommarteatern vid den tidpunkten, och ett tydligt kvitto på att Anna och Hildas konstnärliga ledning omedelbart resonerade med publiken.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Peter Pan', 'Hampus Nilsson'],
             ['Wendy', 'Elise Isaksson'],
-            ['Tingeling', 'Evelina Andersson']
+            ['Tingeling', 'Evelina Andersson'],
+            ['Kapten Krok', 'Alexander Ståhl']
           ]
         }
       ]
@@ -1479,24 +1517,39 @@
     {
       title: 'Ture Sventon',
       year: 2011,
-      performances: null,
+      performances: 17,
       ensemble: null,
       poster: 'images/turesventon2011.jpg',
-      slogan: '',
+      slogan: 'Privatdetektiven som flög på matta',
       facts: {
         'Regissör': 'Thommy Hansson, Hilda Ståhl',
         'Musik': 'David Hansson',
         'Premiär': '10 juli 2011',
-        'Sista föreställning': '7 augusti 2011'
+        'Sista föreställning': '7 augusti 2011',
+        'Publik': '969 besökare',
+        'Antal föreställningar': '17'
       },
       photos: { folder: 'föreställningar/2011-ture-sventon', prefix: 'Turesventon', count: 4 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Den semelsuktande privatdetektiven Ture Sventon — spelad av Jimmy Johansson — fick sommaren 2011 i uppdrag att lösa mysteriet med den försvunna pokalen. På vägen stöter han på skvallrande tanter i Lingonboda, den listiga boven Ville Vessla (Filip Jönsson) med kumpaner, och den gåtfulle mattförsäljaren Omar (Hampus Nilsson).\n\nHela sommaren fick Ture och Omar flyga fram och tillbaka över hustaken i Stockholm på Omars magiska matta — till hela publikens förtjusning. Anna Ståhl spelade Tures sekreterare Fröken Jansson med den timing och precision som publiken redan lärt sig älska.'
+        },
+        {
+          title: 'Ett ledarbyte',
+          text: 'Ture Sventon var Thommy Hanssons sista produktion som regissör — ett definitivt avslut på en grundareras, och ett varmt tack till den man som startade alltihop 2006.\n\nDåvarande regiassistenten Hilda Ståhl klev under säsongen upp vid sidan om Thommy och tog gradvis över rodret, snart med sin syster Anna som konstnärlig partner. Det var ett generationsskifte som skulle forma Sommarteatern för decennier framöver — och det märktes redan den sommaren på scen.'
+        },
+        {
+          title: 'Publiken',
+          text: '969 besökare såg Ture Sventon under säsongens 17 föreställningar. En sommar som i det tysta bar på ett historiskt skifte — och en publiksiffra som snart skulle se dramatiska uppgångar.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Ture Sventon', 'Jimmy Johansson'],
             ['Fröken Jansson', 'Anna Ståhl'],
-            ['Ville Vessla', 'Filip Jönsson']
+            ['Ville Vessla', 'Filip Jönsson'],
+            ['Omar', 'Hampus Nilsson']
           ]
         }
       ]
@@ -1504,18 +1557,32 @@
     {
       title: 'Pelle Svanslös',
       year: 2010,
-      performances: null,
+      performances: 20,
       ensemble: null,
       poster: 'images/pellesvanslös2010.jpg',
-      slogan: '',
+      slogan: 'En ny scen och en ny generation',
       facts: {
         'Regissör': 'Thommy Hansson, Hilda Ståhl',
         'Musik': 'David Hansson',
         'Premiär': '4 juli 2010',
-        'Sista föreställning': '1 augusti 2010'
+        'Sista föreställning': '1 augusti 2010',
+        'Publik': '1 500 besökare',
+        'Antal föreställningar': '20'
       },
       photos: { folder: 'föreställningar/2010-pelle-svanslös', prefix: 'Pellesvanslös', start: 2, count: 4 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Gösta Knutssons klassiska berättelse om den svanslöse katten Pelle och hans kamp mot den ondskefulle Måns tog form på Sommarteaterns nyinvigda scen sommaren 2010. En scen som sedan dess utgjort hjärtat i varje sommarproduktion.\n\nFilip Jönsson klev in i titelrollen med den charm och scennärvaro som snabbt skulle göra honom till ett av Sommarteaterns mest älskade ansikten. Elise Isaksson spelade Maja Gräddnos och Alexander Ståhl gestaltade antagonisten Måns — ett möte som satte gnistor. Thommy Hansson och Hilda Ståhl delade regin, och David Hansson var tillbaka med fem nyskrivna låtar.'
+        },
+        {
+          title: 'En ny era',
+          text: 'Den nybyggda scenen förändrade allt. För första gången hade ensemblen ett fast, ordentligt scenrum att arbeta med — höjd, djup och vingar som möjliggjorde en helt annan visuell berättarförmåga. Det var även sommaren en ny generation klev fram i de större rollerna, och det märktes. Publiken märkte det också.\n\nDet var en av de finaste somrarna i mannaminne, och solen satt kvar länge varje kväll. En uppskattad föreställning av såväl publik som skådespelare — och ett slags stilla löfte om vad Sommarteatern höll på att bli.'
+        },
+        {
+          title: 'Publiken',
+          text: '1 500 besökare välkomnade den nya scenen och den nya generationen. En solid siffra som visade att Sommarteatern hade hittat sin publik — och att publiken hade hittat hem.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1529,17 +1596,31 @@
     {
       title: 'Ronja Rövardotter',
       year: 2009,
-      performances: null,
+      performances: 21,
       ensemble: null,
       poster: 'images/ronja2009.jpg',
-      slogan: '',
+      slogan: 'En rövardotter och en vän för livet',
       facts: {
         'Regissör': 'Thommy Hansson',
         'Premiär': '5 juli 2009',
-        'Sista föreställning': '2 augusti 2009'
+        'Sista föreställning': '2 augusti 2009',
+        'Publik': '1 470 besökare',
+        'Antal föreställningar': '21'
       },
       photos: { folder: 'föreställningar/2009-ronja-rovardotter', prefix: 'RONJA', count: 1 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Astrid Lindgrens tidlösa berättelse om rövardottern som växer upp i Mattisborgen fick liv på Sommarteaterns scen sommaren 2009. Ronja — fri, vild och nyfiken — utforskar skogen och möter sin ödesbestämda vän Birk Borkasson, son till rivalernas rövarchef. En vänskap som kostar mer än någon av dem förutsett.\n\nHuvudrollen delades av Elise Isaksson och Olivia Nevelin, en lösning som gav berättelsen ett unikt djup och publik vid fler föreställningar chansen att uppleva sina egna versioner av Ronja. Filip Jönsson gestaltade Birk. Thommy Hansson regisserade.\n\nScenen var vid den här tiden ännu inte byggd — vi spelade på marken, med en fin borg och ett helvetesgap som Birk föll ner i vid varje föreställning. Utan sufflett, utan säkerhetsnät för det oväntade — precis som det ska vara.'
+        },
+        {
+          title: 'Musiken',
+          text: 'Det här var ett av få år utan helt egenskriven originalmusik i samma form som för- och efterföljande säsonger. Men det satte också ribban tydligt: från och med nästa år skulle ny musik vara en självklar del av varje produktion — och det har den förblivit sedan dess.'
+        },
+        {
+          title: 'Publiken',
+          text: '1 470 besökare såg Ronja Rövardotter under sommaren 2009 — det var den första säsongen vi registrerade publikantal, och siffran lade grunden för vad som sedan blivit en stolt tradition att följa från år till år.'
+        },
         {
           title: 'Medverkande',
           cast: [
@@ -1552,23 +1633,33 @@
     {
       title: 'Bombi Bitt och Jag',
       year: 2008,
-      performances: null,
+      performances: 18,
       ensemble: null,
       poster: 'images/bombibitt2008.jpg',
-      slogan: '',
+      slogan: 'En kärleksförklaring till Österlen',
       facts: {
         'Regissör': 'Thommy Hansson',
         'Musik': 'David Hansson',
         'Premiär': '14 juli 2008',
-        'Sista föreställning': '31 juli 2008'
+        'Sista föreställning': '31 juli 2008',
+        'Antal föreställningar': '18'
       },
       photos: { folder: 'föreställningar/2008-bombi-bitt', prefix: 'Bombibitt', count: 6 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'Sommaren 2008 slog vi på stort och satte upp två föreställningar: Bombi Bitt och Jag för en äldre publik, och Klas Klättermus för de allra minsta.\n\nHistorien om Bombi Bitt — baserad på Fritiof Nilsson Piratens roman — utspelar sig på Österlen, där pojken Eli träffar sin framtida bäste vän Bombi Bitt. Tillsammans ger de sig ut på sommareventyr i hettan: de jagar den beryktade hornålen, räddar Tosterups kyrksilver, stöter på den outtröttlige äventyraren Nils Galilei och besöker Kiviks marknad med alla dess dofter och oväntade möten.\n\nBombi Bitt spelades av Hampus Nilsson, Eli av William Nilsson och Nils Galilei av Martin Ekdahl. Thommy Hansson stod för regin och gjorde även ett litet gästspel som den äldre Eli — berättarrösten som blickar tillbaka på den oförglömliga sommaren.'
+        },
+        {
+          title: 'Musiken',
+          text: 'David Hansson var tillbaka och levererade ytterligare en samling originalkompositioner — nio stycken som med tiden blivit några av Sommarteaterns mest älskade klassiker. Inte minst "Vakna på Österlen", en hyllning till den skånska landsbygden som fortfarande sjungs med igenkänning av publiken.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Bombi Bitt', 'Hampus Nilsson'],
             ['Eli', 'William Nilsson'],
+            ['Nils Galilei', 'Martin Ekdahl'],
             ['Vricklund', 'Jimmy Johansson']
           ]
         }
@@ -1577,24 +1668,34 @@
     {
       title: 'Robin Hood',
       year: 2007,
-      performances: null,
+      performances: 25,
       ensemble: null,
       poster: 'images/robinhood2007.jpg',
-      slogan: 'En unik föreställning, för första gången i Ystad',
+      slogan: 'Under bar himmel för första gången',
       facts: {
         'Regissör': 'Thommy Hansson',
         'Musik': 'David Hansson',
         'Premiär': '9 juli 2007',
-        'Sista föreställning': '5 augusti 2007'
+        'Sista föreställning': '5 augusti 2007',
+        'Antal föreställningar': '25'
       },
       photos: { folder: 'föreställningar/2007-robin-hood', prefix: 'RobinHood', count: 10 },
       sections: [
+        {
+          title: 'Handling',
+          text: 'I hjärtat av Sherwood skog kämpade det onda mot det goda, de rika mot de fattiga — och det var Robins uppdrag att skapa balans däremellan, på sitt eget lilla sätt. Med en pilbåge, ett gäng lojala följeslagare och en orubblig övertygelse om rättvisa gav sig Robin Hood i kast med makten.\n\nDen onde duon Prins John och Sir Orm, gestaltade av Anna Ståhl och Jimmy Johansson, lät inget tillfälle gå till spillo för att göra livet surt för Nottinghams befolkning. Men Robin, spelad av Martin Ekdahl, var dem alltid ett steg före — med charm, list och ett hjärta på rätt ställe.'
+        },
+        {
+          title: 'Två traditioner föds',
+          text: 'Robin Hood var ett jubileumsår på fler än ett sätt. Det var första sommaren vi spelade under bar himmel i stället för under tält — en tradition som sedan dess aldrig brutits. Vad som börjat som ett experiment visade sig bli en av Sommarteaterns absoluta signaturer: det öppna scenrummet med skånsk sommarluft och en stjärnhimmel som kuliss.\n\nDet var också första gången David Hansson satte sin musikaliska prägel på föreställningen. Hans handskrivna melodier och känsla för dramaturgi i musiken blev omedelbart en del av Sommarteaterns identitet, och han skulle sedan återvända säsong efter säsong. Nio originalkompositioner, framförda under bar himmel — ett arv som fortfarande lever i ensemblen.'
+        },
         {
           title: 'Medverkande',
           cast: [
             ['Robin Hood', 'Martin Ekdahl'],
             ['Marion', 'Ebba Dahlberg / Elinor Diaz'],
-            ['Prins John', 'Anna Ståhl']
+            ['Prins John', 'Anna Ståhl'],
+            ['Sir Orm', 'Jimmy Johansson']
           ]
         }
       ]
@@ -1602,17 +1703,30 @@
     {
       title: 'Lejonkungen',
       year: 2006,
-      performances: null,
+      performances: 25,
       ensemble: null,
       poster: 'images/lejonkungen2006.jpg',
-      slogan: '',
+      slogan: 'Sommarteaterns allra första föreställning',
       facts: {
         'Regissör': 'Thommy Hansson',
         'Premiär': '4 juli 2006',
-        'Sista föreställning': '25 juli 2006'
+        'Sista föreställning': '25 juli 2006',
+        'Antal föreställningar': '25'
       },
       photos: null,
-      sections: []
+      sections: [
+        {
+          title: 'Handling',
+          text: 'Sommaren 2006 planterade Sommarteatern Ystad sin första pålspark ute i Åbergs trädgård i Öja — en plats som sedan dess blivit vår permanenta spelplats. Föga anade vi då att det vi startade den sommaren skulle växa till vad det blivit idag.\n\nLejonkungen spelades under ett gigantiskt cirkustält, och med facit i hand kan man konstatera att valet av tält under en av säsongens varmaste somrar inte var det klurigaste beslutet. Men stämningen var elektrisk och entusiasmen obruten.\n\nFöreställningen regisserades av Thommy Hansson. Simba gestaltades av Anton Engström som liten och av Martin Ekdahl i vuxen gestalt — en dubbel titelroll som skapade ett omedelbart djup i berättelsen om hämnd, ansvar och att hitta sin plats i världen.'
+        },
+        {
+          title: 'Medverkande',
+          cast: [
+            ['Simba (ung)', 'Anton Engström'],
+            ['Simba (vuxen)', 'Martin Ekdahl']
+          ]
+        }
+      ]
     }
   ];
 
@@ -1758,7 +1872,7 @@
               // Handle split names like "Elise Isaksson / Olivia Nevelin"
               const nameHtml = name.split('/').map(n => n.trim())
                 .map(n => `<button class="cast-name-btn" onclick="openPerson('${n.replace(/'/g,"\\'")}', ${currentShowIndex})">${n}</button>`)
-                .join('<span style="color:#9a9088"> / </span>');
+                .join('<span style="color:rgba(22,22,22,0.45)"> / </span>');
               return `<div class="wiki-cast-row">
                 <span class="wiki-cast-role">${role}</span>
                 <span class="wiki-cast-name">${nameHtml}</span>
@@ -1783,8 +1897,6 @@
     // Show wiki, hide grid
     document.getElementById('archive-view').style.display = 'none';
     document.getElementById('wiki-view').style.display = 'block';
-    document.body.style.background = '#06040a';
-    document.querySelector('.site-footer').style.background = 'linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%)';
   }
 
   function buildPhotoSection(show, container) {
@@ -1922,14 +2034,14 @@
     navCard.innerHTML = `<div class="sidebar-card-title">Arkivet</div>`;
     SHOWS.slice(0, 8).forEach((s, i) => {
       const row = document.createElement('div');
-      row.style.cssText = 'padding:7px 0;border-bottom:1px solid #f0ece4;cursor:pointer;';
-      row.innerHTML = `<span style="font-size:12px;font-weight:700;color:${i === currentShowIndex ? '#c9a84c' : '#1a1714'}">${s.year} — ${s.title}</span>`;
+      row.style.cssText = 'padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.06);cursor:pointer;';
+      row.innerHTML = `<span style="font-size:12px;font-weight:700;color:${i === currentShowIndex ? '#c9a84c' : '#161616'}">${s.year} — ${s.title}</span>`;
       row.onclick = () => openWiki(i);
       navCard.appendChild(row);
     });
     if (SHOWS.length > 8) {
       const more = document.createElement('div');
-      more.style.cssText = 'padding-top:8px;font-size:11px;color:#9a9088;';
+      more.style.cssText = 'padding-top:8px;font-size:11px;color:rgba(22,22,22,0.45);';
       more.textContent = `+ ${SHOWS.length - 8} fler föreställningar i arkivet`;
       navCard.appendChild(more);
     }
@@ -1944,8 +2056,6 @@
   document.getElementById('backBtn').addEventListener('click', () => {
     document.getElementById('wiki-view').style.display = 'none';
     document.getElementById('archive-view').style.display = 'block';
-    document.body.style.background = '#f2efe8';
-    document.querySelector('.site-footer').style.background = 'transparent';
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
 
@@ -2145,8 +2255,6 @@
     // Show person view, hide wiki view
     document.getElementById('wiki-view').style.display = 'none';
     document.getElementById('person-view').style.display = 'block';
-    document.body.style.background = '#06040a';
-    document.querySelector('.site-footer').style.background = 'linear-gradient(160deg, #08080e 0%, #0c0c14 60%, #070710 100%)';
   }
 
   function buildPersonSidebar(name, person, uniqueShows, slug) {
@@ -2178,7 +2286,7 @@
     // Photo gallery card — try to load images/persons/SLUG/1.jpg to /9.jpg
     var photoCard = document.createElement('div');
     photoCard.className = 'person-sidebar-card';
-    photoCard.innerHTML = '<div class="person-sidebar-card-title">Bilder</div><div class="person-photo-grid" id="personPhotoGrid"></div><p style="font-size:11px;color:#9a9088;margin-top:10px;" id="personPhotoHint">Laddar bilder…</p>';
+    photoCard.innerHTML = '<div class="person-sidebar-card-title">Bilder</div><div class="person-photo-grid" id="personPhotoGrid"></div><p style="font-size:11px;color:rgba(22,22,22,0.45);margin-top:10px;" id="personPhotoHint">Laddar bilder…</p>';
     sidebar.appendChild(photoCard);
 
     // Lazy-load photos by probing
@@ -2230,13 +2338,10 @@
   document.getElementById('personBackBtn').addEventListener('click', function() {
     closePerson();
     document.getElementById('wiki-view').style.display = 'block';
-    document.body.style.background = '#06040a';
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
 
   // ─── INIT ───
-  document.body.style.background = '#f2efe8';
-  document.querySelector('.site-footer').style.background = 'transparent';
   renderGrid('all');
 
   // ─── HASH DEEP-LINK (from bilder.html poster links) ───
