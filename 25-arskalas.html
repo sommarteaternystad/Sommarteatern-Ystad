@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25-årskalas med jubileumskonsert — Sommarteatern Ystad</title>
+  <meta name="description" content="Sommarteatern Ystad fyller 25 år! Fira med oss den 14 juni kl. 13–17 på området i Öja. Gratis inträde, tävlingar, utställare – och jubileumskonsert med Frida Green, Hannes Nilsson m.fl.">
+  <link rel="canonical" href="https://sommarteaternystad.com/25-arskalas.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sommarteatern Ystad">
+  <meta property="og:title" content="25-årskalas med jubileumskonsert — Sommarteatern Ystad">
+  <meta property="og:description" content="Fira Sommarteaterns 25-årsjubileum den 14 juni! Gratis inträde på området, jubileumskonsert kl. 14.30 (biljett 100 kr). Frida Green, Hannes Nilsson, Match Made in Heaven, Bradders m.fl.">
+  <meta property="og:image" content="https://sommarteaternystad.com/images/25konsert.jpg">
+  <meta property="og:url" content="https://sommarteaternystad.com/25-arskalas.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/sommarteater-logo-yellow.png">
+  <link rel="apple-touch-icon" href="images/sommarteater-logo-yellow.png">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "25-årskalas med jubileumskonsert — Sommarteatern Ystad",
+    "url": "https://sommarteaternystad.com/25-arskalas.html",
+    "image": "https://sommarteaternystad.com/images/25konsert.jpg",
+    "description": "Sommarteatern Ystad fyller 25 år och firar med ett stort kalas i Öja. Gratis inträde på området, jubileumskonsert med artister, tävlingar och utställare.",
+    "startDate": "2026-06-14T13:00",
+    "endDate": "2026-06-14T17:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Sommarteatern Ystad — Öja",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Öja",
+        "addressLocality": "Ystad",
+        "addressCountry": "SE"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Sommarteatern Ystad",
+      "url": "https://sommarteaternystad.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://nortic.se/ticket/event/81618",
+      "price": "100",
+      "priceCurrency": "SEK",
+      "availability": "https://schema.org/InStock",
+      "description": "Jubileumskonsert – biljett 100 kr. Inträde till området är gratis."
+    }
+  }
+  </script>
+  <style>
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+
+    body {
+      padding-top: 67px;
+      background-color: #05080f;
+    }
+
+    /* ══════════════════════════════════════════
+       STICKY NAV
+    ══════════════════════════════════════════ */
+
+    .subpage-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(5, 8, 15, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .subpage-nav-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      padding: 0; height: auto; min-height: 66px;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      line-height: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-right: 22px;
+      margin-right: 22px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 0 10px rgba(201,168,76,0.32));
+      display: block;
+    }
+
+    .subpage-nav .nav-pills-row {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .subpage-nav .nav-pill {
+      min-height: 30px;
+      line-height: 30px;
+      padding: 0 13px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .subpage-nav .nav-pill:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .subpage-nav .nav-pill--active {
+      background: linear-gradient(135deg, rgba(201,168,76,0.28) 0%, rgba(201,168,76,0.12) 100%);
+      outline: 1.5px solid rgba(201,168,76,0.55);
+      outline-offset: -1.5px;
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+
+    .kal-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .kal-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/25konsert.jpg');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .kal-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,8,15,0.30) 0%,
+        rgba(5,8,15,0.15) 25%,
+        rgba(5,8,15,0.55) 65%,
+        rgba(5,8,15,0.96) 100%
+      );
+    }
+
+    .kal-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 80px;
+    }
+
+    .kal-hero-inner {
+      max-width: min(calc(100% - 32px), 1280px);
+      margin: 0 auto;
+    }
+
+    .kal-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .kal-hero-title {
+      font-size: clamp(52px, 10vw, 130px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.88;
+      color: #ffffff;
+      margin: 0 0 10px;
+      text-shadow: 0 4px 60px rgba(0,0,0,0.50);
+    }
+
+    .kal-hero-subtitle {
+      font-size: clamp(18px, 3.2vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--gold);
+      margin: 0 0 36px;
+      opacity: 0.92;
+    }
+
+    .kal-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    .kal-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 0 32px 0 0;
+    }
+
+    .kal-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .kal-meta-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.90);
+      letter-spacing: -0.02em;
+    }
+
+    .kal-meta-sep {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.14);
+      margin: 0 32px 0 0;
+      flex-shrink: 0;
+    }
+
+    .kal-hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════
+       CONTENT SECTIONS
+    ══════════════════════════════════════════ */
+
+    .kal-section {
+      padding: 80px 0;
+    }
+
+    .kal-section--dark {
+      background: #05080f;
+    }
+
+    .kal-section--light {
+      background: #0a0f1c;
+    }
+
+    .kal-container {
+      max-width: min(calc(100% - 32px), 1200px);
+      margin: 0 auto;
+    }
+
+    .kal-section-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 14px;
+      opacity: 0.8;
+    }
+
+    .kal-section-title {
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: #ffffff;
+      margin: 0 0 24px;
+    }
+
+    .kal-section-lead {
+      font-size: clamp(15px, 2vw, 18px);
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+      max-width: 680px;
+      margin: 0 0 48px;
+    }
+
+    /* ══════════════════════════════════════════
+       ARTIST LINEUP
+    ══════════════════════════════════════════ */
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .artist-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .artist-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(201,168,76,0.28);
+    }
+
+    .artist-card--more {
+      border-style: dashed;
+      opacity: 0.55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .artist-number {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 10px;
+      opacity: 0.65;
+    }
+
+    .artist-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      line-height: 1.15;
+      margin: 0 0 6px;
+    }
+
+    .artist-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+    }
+
+    .artist-more-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.38);
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    /* ══════════════════════════════════════════
+       PROGRAM
+    ══════════════════════════════════════════ */
+
+    .program-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .program-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .program-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .program-time {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--gold);
+      flex-shrink: 0;
+      min-width: 64px;
+      padding-top: 2px;
+    }
+
+    .program-body {}
+
+    .program-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+
+    .program-note {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.55;
+    }
+
+    .program-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      padding: 3px 9px;
+      border-radius: 5px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .program-badge--free {
+      background: rgba(50,200,110,0.18);
+      color: #3ecf8e;
+      border: 1px solid rgba(62,207,142,0.25);
+    }
+
+    .program-badge--ticket {
+      background: rgba(201,168,76,0.18);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.30);
+    }
+
+    /* ══════════════════════════════════════════
+       INFO GRID
+    ══════════════════════════════════════════ */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 28px;
+    }
+
+    .info-card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .info-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+
+    .info-card-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.65;
+    }
+
+    .info-card-text strong {
+      color: rgba(255,255,255,0.82);
+    }
+
+    /* ══════════════════════════════════════════
+       CHARITY BANNER
+    ══════════════════════════════════════════ */
+
+    .charity-banner {
+      background: linear-gradient(135deg, rgba(201,168,76,0.14) 0%, rgba(201,168,76,0.05) 100%);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 20px;
+      padding: 40px 44px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .charity-logo-wrap {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+    }
+
+    .charity-logo {
+      width: 160px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.30));
+    }
+
+    .charity-body { flex: 1; min-width: 200px; }
+
+    .charity-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+
+    .charity-text {
+      font-size: 14.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════
+       CTA BLOCK
+    ══════════════════════════════════════════ */
+
+    .kal-cta-block {
+      background: linear-gradient(135deg, #0d1526 0%, #070b14 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .kal-cta-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      opacity: 0.7;
+    }
+
+    .kal-cta-title {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #ffffff;
+      margin: 0 0 14px;
+    }
+
+    .kal-cta-note {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 36px;
+    }
+
+    .kal-cta-price {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.50);
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+    }
+
+    .kal-cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER BACK LINK
+    ══════════════════════════════════════════ */
+
+    .back-bar {
+      background: #05080f;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    .back-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover { color: rgba(255,255,255,0.7); }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+
+    @media (max-width: 760px) {
+      .kal-hero { min-height: 92vh; }
+      .kal-hero-content { padding-bottom: 52px; }
+      .kal-section { padding: 56px 0; }
+      .lineup-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .program-item { gap: 18px; }
+      .program-time { min-width: 52px; font-size: 13px; }
+      .charity-banner { padding: 28px 24px; gap: 24px; flex-direction: column; align-items: center; text-align: center; }
+      .charity-logo-wrap { width: 140px; }
+      .charity-logo { width: 140px; }
+      .kal-cta-block { padding: 64px 0; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .lineup-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .kal-meta-item { padding-right: 18px; }
+      .kal-meta-sep { margin: 0 18px 0 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════ -->
+  <nav class="subpage-nav" role="navigation" aria-label="Sidonavigation">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Hem">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+      </a>
+      <div class="nav-pills-row">
+        <a href="index.html" class="nav-pill">Hem</a>
+        <a href="oliver-twist.html" class="nav-pill">Oliver Twist 2026</a>
+        <a href="25-arskalas.html" class="nav-pill nav-pill--active">25-årskalas</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om oss</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="kal-hero">
+    <div class="kal-hero-bg"></div>
+    <div class="kal-hero-content">
+      <div class="kal-hero-inner">
+        <p class="kal-eyebrow">Sommarteatern Ystad · 25 år</p>
+        <h1 class="kal-hero-title">25-årskalas</h1>
+        <p class="kal-hero-subtitle">med jubileumskonsert</p>
+        <div class="kal-hero-meta">
+          <div class="kal-meta-item">
+            <span class="kal-meta-label">Datum</span>
+            <span class="kal-meta-value">14 juni 2026</span>
+          </div>
+          <div class="kal-meta-sep"></div>
+          <div class="kal-meta-item">
+            <span class="kal-meta-label">Tid</span>
+            <span class="kal-meta-value">kl. 13.00–17.00</span>
+          </div>
+          <div class="kal-meta-sep"></div>
+          <div class="kal-meta-item">
+            <span class="kal-meta-label">Plats</span>
+            <span class="kal-meta-value">Öja, Ystad</span>
+          </div>
+          <div class="kal-meta-sep"></div>
+          <div class="kal-meta-item">
+            <span class="kal-meta-label">Inträde till området</span>
+            <span class="kal-meta-value">Gratis</span>
+          </div>
+        </div>
+        <div class="kal-hero-actions">
+          <a href="https://nortic.se/ticket/event/81618" target="_blank" rel="noopener" class="btn btn-gold">Köp konsertbiljett</a>
+          <a href="#program" class="btn btn-ghost">Se programmet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       INTRO
+  ══════════════════════════════════════════ -->
+  <section class="kal-section kal-section--dark">
+    <div class="kal-container">
+      <p class="kal-section-kicker">Ett jubileum att fira</p>
+      <h2 class="kal-section-title">25 år av magi i Öja</h2>
+      <p class="kal-section-lead">
+        Teater i Öja spelades redan innan — men det var år 2001 som Föreningen Sommarteatern Ystad bildades och allt fick sin form. En scen under öppen himmel, ett gäng med teater i blodet och ett Ystad som aldrig riktigt visste vad det hade att vänta sig. Sedan dess har tusentals besökare varje sommar tagit sig ut till Öja för att uppleva något som är svårt att sätta ord på — men som man aldrig glömmer.
+      </p>
+      <p class="kal-section-lead" style="margin-bottom: 0;">
+        Den 14 juni slår vi upp portarna för ett riktigt kalas. Hela området är öppet och inträdet är gratis. Utforska, träffa gamla bekanta, tävla, shoppa — och avsluta eftermiddagen med jubileumskonserten kl. 14.30 när scenen återigen fylls av musik och glada ansikten.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       PROGRAM
+  ══════════════════════════════════════════ -->
+  <section class="kal-section kal-section--light" id="program">
+    <div class="kal-container">
+      <p class="kal-section-kicker">Dagens program</p>
+      <h2 class="kal-section-title">Vad händer när?</h2>
+
+      <div class="program-list">
+        <div class="program-item">
+          <span class="program-time">13.00</span>
+          <div class="program-body">
+            <p class="program-label">Portarna öppnar <span class="program-badge program-badge--free">Gratis inträde</span></p>
+            <p class="program-note">Välkommen in! Utforska området, besök utställare och mat- och dryckesförsäljning. Tävlingar och aktiviteter för hela familjen pågår under hela eftermiddagen.</p>
+          </div>
+        </div>
+        <div class="program-item">
+          <span class="program-time">14.30</span>
+          <div class="program-body">
+            <p class="program-label">Jubileumskonsert <span class="program-badge program-badge--ticket">Biljett krävs</span></p>
+            <p class="program-note">Scenen tänds och jubileet kickar igång på riktigt. Artister från 25 år av Sommarteatern samlat på en och samma scen — en eftermiddag du inte vill missa.</p>
+          </div>
+        </div>
+        <div class="program-item">
+          <span class="program-time">17.00</span>
+          <div class="program-body">
+            <p class="program-label">Eventet avslutas</p>
+            <p class="program-note">Tack för att du var med och firade. Vi ses igen till sommarens föreställningar!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       ARTISTER
+  ══════════════════════════════════════════ -->
+  <section class="kal-section kal-section--dark">
+    <div class="kal-container">
+      <p class="kal-section-kicker">Jubileumskonserten · kl. 14.30</p>
+      <h2 class="kal-section-title">Artisterna</h2>
+      <p class="kal-section-lead">
+        Jubileumskonserten är ingen vanlig konsert. Sommarteaterns nuvarande ensemble och deltagare som tidigare varit med i ensembeln kliver upp på scen — sida vid sida med lokala gästartister — för att tolka Sommarteaterns egna låtar. Inte som de lät från början, utan i helt nya tappningar. Bekanta melodier i ny skrud, med alla de röster och personligheter som format 25 år av teater i Öja.
+      </p>
+
+      <div class="lineup-grid">
+        <div class="artist-card">
+          <p class="artist-number">Artist 01</p>
+          <h3 class="artist-name">Frida Green</h3>
+          <p class="artist-desc">En röst och närvaro som spelat en stor roll i Sommarteaterns historia.</p>
+        </div>
+        <div class="artist-card">
+          <p class="artist-number">Artist 02</p>
+          <h3 class="artist-name">Hannes Nilsson</h3>
+          <p class="artist-desc">Producent och ett av ansiktena bakom Sommarteatern Ystad.</p>
+        </div>
+        <div class="artist-card">
+          <p class="artist-number">Artist 03</p>
+          <h3 class="artist-name">Match Made in Heaven</h3>
+          <p class="artist-desc">Med musik och energi som sitter kvar länge efter att scenlamporna slocknat.</p>
+        </div>
+        <div class="artist-card">
+          <p class="artist-number">Artist 04</p>
+          <h3 class="artist-name">Bradders</h3>
+          <p class="artist-desc">Sätter stämningen och håller energin uppe — precis som det ska vara på ett kalas.</p>
+        </div>
+        <div class="artist-card artist-card--more">
+          <p class="artist-more-text">+ Fler artister<br>tillkommer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       AKTIVITETER & INFO
+  ══════════════════════════════════════════ -->
+  <section class="kal-section kal-section--light">
+    <div class="kal-container">
+      <p class="kal-section-kicker">På området · gratis inträde</p>
+      <h2 class="kal-section-title">Mer på kalaset</h2>
+      <p class="kal-section-lead">
+        Jubileumskonserten är kronan på verket — men det händer mycket mer under eftermiddagen. Hela området är öppet och det är gratis att komma in.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">🎯</div>
+          <h3 class="info-card-title">Tävlingar</h3>
+          <p class="info-card-text">Delta i roliga tävlingar för både stora och små. Chansen att vinna fina priser väntar.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🛍️</div>
+          <h3 class="info-card-title">Utställare</h3>
+          <p class="info-card-text">Lokala och regionala aktörer på plats. Bläddra, provsmaka och upptäck.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🍔</div>
+          <h3 class="info-card-title">Mat & dryck</h3>
+          <p class="info-card-text">Food trucks och försäljning på området. Det finns något för alla smakar.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🎭</div>
+          <h3 class="info-card-title">25 år av minnen</h3>
+          <p class="info-card-text"><strong>2001–2026.</strong> Blicka tillbaka på resan — bilder, historier och nostalgi från alla säsonger.</p>
+        </div>
+      </div>
+
+      <div class="charity-banner">
+        <div class="charity-logo-wrap">
+          <img src="images/GuG-Logotyp-röd-RGB.png" alt="Clowner utan gränser" class="charity-logo">
+        </div>
+        <div class="charity-body">
+          <h3 class="charity-title">Hela kalaset är en insamling för Clowner utan gränser</h3>
+          <p class="charity-text">
+            Det här är inte bara ett jubileum — det är ett sätt att ge tillbaka. <strong style="color:rgba(255,255,255,0.80);">Allt överskott från konsertbiljetterna</strong> går oavkortat till Clowner utan gränser. Detsamma gäller <strong style="color:rgba(255,255,255,0.80);">all försäljning i vårt eget café</strong> och <strong style="color:rgba(255,255,255,0.80);">alla tävlingar och aktiviteter</strong> på området under dagen.
+          </p>
+          <p class="charity-text" style="margin-top: 12px;">
+            Våra foodtrucks och utställare väljer själva hur de vill bidra till insamlingen — på sitt eget vis och i sin egen takt. Tillsammans hoppas vi samla ihop något som faktiskt gör skillnad.
+          </p>
+          <p class="charity-text" style="margin-top: 12px;">
+            Clowner utan gränser sprider skratt och hopp till barn i kris och konflikt runt om i världen. Eftersom Sommarteatern tror på teaterns kraft att lysa upp — även i mörkret — känns det som ett självklart jubileumsval.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       BILJETTER CTA
+  ══════════════════════════════════════════ -->
+  <section class="kal-cta-block">
+    <div class="kal-container">
+      <p class="kal-cta-label">Jubileumskonserten · 14 juni · kl. 14.30</p>
+      <h2 class="kal-cta-title">Säkra din plats på konserten</h2>
+      <p class="kal-cta-note">Inträde till området är gratis — konsertbiljetten kostar 100 kr</p>
+      <div>
+        <span class="kal-cta-price">🎫 Biljett konsert: 100 kr &nbsp;·&nbsp; Område: Gratis</span>
+      </div>
+      <div class="kal-cta-actions" style="margin-top: 32px;">
+        <a href="https://nortic.se/ticket/event/81618" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:16px; padding: 0 36px; height: 52px; line-height: 52px;">Köp biljett →</a>
+        <a href="index.html" class="btn btn-ghost" style="font-size:15px; padding: 0 28px; height: 52px; line-height: 52px;">Tillbaka till startsidan</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       BACK
+  ══════════════════════════════════════════ -->
+  <div class="back-bar">
+    <a href="index.html" class="back-link">← Tillbaka till Sommarteatern Ystad</a>
+  </div>
+
+</body>
+</html>
