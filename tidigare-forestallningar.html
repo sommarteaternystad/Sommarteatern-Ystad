@@ -2751,21 +2751,31 @@
       avatarPh.style.display = 'flex';
     };
 
-    // Stats
-    var uniqueShows = [];
+    // Stats — separera scen-roller från produktionsroller
+    var castShows = [];
     person.castRoles.forEach(function(r) {
-      if (!uniqueShows.includes(r.show)) uniqueShows.push(r.show);
+      if (!castShows.includes(r.show)) castShows.push(r.show);
     });
+
+    // uniqueShows = alla föreställningar (för tidslinje och år-spann)
+    var uniqueShows = castShows.slice();
     person.productionRoles.forEach(function(r) {
       if (!uniqueShows.includes(r.show)) uniqueShows.push(r.show);
     });
+
     var firstYear = Math.min.apply(null, uniqueShows.map(function(s){ return s.year; }));
     var lastYear  = Math.max.apply(null, uniqueShows.map(function(s){ return s.year; }));
     var yearsSpan = uniqueShows.length > 1 ? (lastYear - firstYear + 1) : 1;
 
-    var totalPerfs = uniqueShows.reduce(function(sum, s) {
+    // Spelningar räknas bara för föreställningar personen var på scen i
+    var totalPerfs = castShows.reduce(function(sum, s) {
       return sum + (s.performances || 0);
     }, 0);
+
+    // Produktionsbidrag = föreställningar med enbart produktionsroll (inte på scen)
+    var productionOnlyCount = uniqueShows.filter(function(s) {
+      return !castShows.includes(s);
+    }).length;
 
     // Subtitle
     var subtitleParts = [];
@@ -2780,12 +2790,21 @@
     // Stats row
     var statsEl = document.getElementById('personStatsRow');
     var statsHTML = '';
-    statsHTML += '<div class="person-stat"><span class="person-stat-val">' + uniqueShows.length + '</span><span class="person-stat-label">Föreställningar</span></div>';
+
+    if (castShows.length > 0) {
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + castShows.length + '</span><span class="person-stat-label">Säsonger på scen</span></div>';
+    }
+    if (productionOnlyCount > 0) {
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + productionOnlyCount + '</span><span class="person-stat-label">Produktionsbidrag</span></div>';
+    }
+    if (castShows.length === 0 && productionOnlyCount === 0) {
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + uniqueShows.length + '</span><span class="person-stat-label">Föreställningar</span></div>';
+    }
     if (uniqueShows.length > 1) {
       statsHTML += '<div class="person-stat"><span class="person-stat-val">' + yearsSpan + '</span><span class="person-stat-label">År med Sommarteatern</span></div>';
     }
     if (totalPerfs > 0) {
-      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + totalPerfs + '</span><span class="person-stat-label">Spelningar totalt</span></div>';
+      statsHTML += '<div class="person-stat"><span class="person-stat-val">' + totalPerfs + '</span><span class="person-stat-label">Spelningar på scen</span></div>';
     }
     statsEl.innerHTML = statsHTML;
 
