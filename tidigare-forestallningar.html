@@ -2373,7 +2373,7 @@
         if (!sec.cast) return;
         sec.cast.forEach(function(pair) {
           const role = pair[0], rawName = pair[1];
-          rawName.split('/').map(function(n){ return n.trim(); }).forEach(function(name) {
+          rawName.split(/[\/,]/).map(function(n){ return n.trim(); }).forEach(function(name) {
             addPerson(name);
             persons[name].castRoles.push({ show: show, role: role });
           });
