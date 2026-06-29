@@ -1571,6 +1571,83 @@
       .nancy-accent { float: none; width: 100%; margin: 0 0 20px; }
     }
 
+    /* ══════════════════════════════════════════
+       KARAKTÄRSGALLERI
+    ══════════════════════════════════════════ */
+
+    .ot-char-slideshow {
+      position: relative;
+      width: 100%;
+      height: clamp(360px, 58vw, 660px);
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      background: #0a0418;
+    }
+    .ot-cs-track { position: absolute; inset: 0; }
+    .ot-cs-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center 12%;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      animation: otCsKenBurns 9s ease-in-out infinite alternate;
+    }
+    .ot-cs-slide.active { opacity: 1; }
+    @keyframes otCsKenBurns {
+      from { transform: scale(1.00) translate(0,0); }
+      to   { transform: scale(1.07) translate(-1%, -1%); }
+    }
+    .ot-cs-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,4,28,0.05) 0%, rgba(10,4,28,0.10) 60%, rgba(10,4,28,0.62) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .ot-cs-dots {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+      z-index: 4;
+    }
+    .ot-cs-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.30);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .ot-cs-dot.active { background: var(--gold); transform: scale(1.5); }
+
+    .ot-char-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 130px;
+      gap: 10px;
+    }
+    .ot-char-tile {
+      grid-row: span 2;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.04);
+    }
+    .ot-char-tile--wide { grid-column: span 2; }
+    .ot-char-tile img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 16%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .ot-char-tile:hover img { transform: scale(1.06); }
+
+    @media (max-width: 900px) {
+      .ot-char-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 120px; }
+    }
+    @media (max-width: 600px) {
+      .ot-char-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 110px; gap: 8px; }
+      .ot-char-slideshow { border-radius: 14px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1908,6 +1985,83 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════
+       KARAKTÄRSGALLERI — kostymbilder
+  ════════════════════════════════════════ -->
+  <section class="ot-section" id="karaktarer" style="border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+
+      <span class="ot-kicker">Möt rollerna</span>
+      <h2 class="ot-h2" style="margin-bottom: 8px;">Karaktärsgalleri</h2>
+      <p class="ot-body" style="max-width: 640px; margin-bottom: 36px;">En försmak av 1800-talets London genom Sommarteaterns ensemble — fotograferade i full kostym i höstens guldljus.</p>
+
+      <div class="ot-char-slideshow" id="otCharSlideshow" aria-label="Bilder på karaktärerna i Oliver Twist">
+        <div class="ot-cs-track" id="otCsTrack"></div>
+        <div class="ot-cs-fade" aria-hidden="true"></div>
+        <div class="ot-cs-dots" id="otCsDots" aria-hidden="true"></div>
+      </div>
+
+      <div class="ot-char-grid" id="otCharGrid"></div>
+
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      var charPath = "images/Oliver Twist Karaktärsbilder/OliverTwistKaraktär";
+
+      var slideNums = [1,3,5,6,8,9,12,14,16,19,21,23,27,30,33,35,37,40,43,46];
+      var track  = document.getElementById('otCsTrack');
+      var dotsEl = document.getElementById('otCsDots');
+      var current = 0, els = [], dots = [], timer;
+
+      slideNums.forEach(function(n, i){
+        var div = document.createElement('div');
+        div.className = 'ot-cs-slide';
+        div.style.backgroundImage = "url('" + charPath + n + ".jpg')";
+        if (i === 0) div.classList.add('active');
+        track.appendChild(div);
+        els.push(div);
+
+        var dot = document.createElement('div');
+        dot.className = 'ot-cs-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', function(){ goTo(i); });
+        dotsEl.appendChild(dot);
+        dots.push(dot);
+      });
+
+      function goTo(n){
+        clearTimeout(timer);
+        els[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slideNums.length) % slideNums.length;
+        els[current].classList.add('active');
+        dots[current].classList.add('active');
+        timer = setTimeout(function(){ goTo(current + 1); }, 4200);
+      }
+      timer = setTimeout(function(){ goTo(1); }, 4200);
+
+      // Mosaik-galleri med resterande bilder
+      var allNums = [];
+      for (var i = 1; i <= 46; i++) allNums.push(i);
+      var gridNums = allNums.filter(function(n){ return slideNums.indexOf(n) === -1; });
+      var wideSet = [7, 11, 13, 17, 25, 32, 39];
+
+      var grid = document.getElementById('otCharGrid');
+      gridNums.forEach(function(n){
+        var tile = document.createElement('div');
+        tile.className = 'ot-char-tile' + (wideSet.indexOf(n) !== -1 ? ' ot-char-tile--wide' : '');
+        var img = document.createElement('img');
+        img.src = charPath + n + '.jpg';
+        img.alt = 'Oliver Twist — kostymbild';
+        img.loading = 'lazy';
+        tile.appendChild(img);
+        grid.appendChild(tile);
+      });
+    })();
+  </script>
 
 
   <!-- ═══════════════════════════════════════
