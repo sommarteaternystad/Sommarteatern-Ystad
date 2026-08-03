@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robin Hood 2027 — Sommarteatern Ystad</title>
+  <meta name="description" content="Sommaren 2027 tar Sommarteatern Ystad sig an Robin Hood — i helt ny tappning med ny musik och ett helt nytt manus.">
+  <link rel="canonical" href="https://sommarteaternystad.com/robin-hood.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sommarteatern Ystad">
+  <meta property="og:title" content="Robin Hood 2027 — Sommarteatern Ystad">
+  <meta property="og:description" content="Sommaren 2027 tar Sommarteatern Ystad sig an Robin Hood — i helt ny tappning med ny musik och ett helt nytt manus.">
+  <meta property="og:image" content="https://sommarteaternystad.com/images/Robin Hood 2026.jpg">
+  <meta property="og:url" content="https://sommarteaternystad.com/robin-hood.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/sommarteater-logo-yellow.png">
+  <link rel="apple-touch-icon" href="images/sommarteater-logo-yellow.png">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <style>
+
+    body {
+      padding-top: 67px;
+      background-color: #04080a;
+    }
+
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: radial-gradient(ellipse at 60% 0%, rgba(20,50,20,0.55) 0%, transparent 65%),
+                  radial-gradient(ellipse at 0% 80%, rgba(10,30,15,0.40) 0%, transparent 60%),
+                  #04080a;
+    }
+
+    /* ── HERO ── */
+    .rh-hero {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: min(90vh, 780px);
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .rh-hero-poster {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .rh-hero-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .rh-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(4,8,10,0.10) 0%,
+        rgba(4,8,10,0.20) 40%,
+        rgba(4,8,10,0.70) 70%,
+        rgba(4,8,10,1.00) 100%
+      );
+    }
+
+    .rh-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 24px 60px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .rh-eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(100,200,100,0.75);
+      margin-bottom: 18px;
+    }
+
+    .rh-hero-title {
+      font-size: clamp(52px, 10vw, 110px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 20px;
+      text-shadow: 0 4px 32px rgba(0,0,0,0.60);
+    }
+
+    .rh-hero-title em {
+      font-style: normal;
+      color: #c9a84c;
+    }
+
+    .rh-coming {
+      font-size: clamp(15px, 2.5vw, 18px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── CONTENT SECTION ── */
+    .rh-section {
+      padding: 72px 0 96px;
+      position: relative;
+    }
+
+    .rh-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .rh-kicker {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.70);
+      margin-bottom: 18px;
+    }
+
+    .rh-h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin: 0 0 28px;
+    }
+
+    .rh-body {
+      font-size: 17px;
+      line-height: 1.78;
+      color: rgba(255,255,255,0.60);
+      margin: 0;
+    }
+
+    .rh-divider {
+      width: 48px;
+      height: 2px;
+      background: rgba(201,168,76,0.35);
+      margin: 40px auto;
+      border-radius: 2px;
+    }
+
+    /* ── TEASER CARD ── */
+    .rh-teaser-card {
+      margin-top: 56px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px 40px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rh-teaser-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .rh-teaser-row:last-child { margin-bottom: 0; }
+
+    .rh-teaser-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(100,180,100,0.12);
+      border: 1px solid rgba(100,180,100,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rh-teaser-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 3px;
+    }
+
+    .rh-teaser-text span {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* ── NOTIFY ── */
+    .rh-notify {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rh-notify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 28px;
+      background: rgba(201,168,76,0.10);
+      border: 1px solid rgba(201,168,76,0.30);
+      border-radius: 999px;
+      color: rgba(201,168,76,0.90);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .rh-notify-btn:hover {
+      background: rgba(201,168,76,0.18);
+      border-color: rgba(201,168,76,0.50);
+    }
+
+    /* ── BACK LINK ── */
+    .rh-back {
+      display: flex;
+      justify-content: center;
+      padding: 0 0 64px;
+    }
+
+    .rh-back a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .rh-back a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .rh-hero-content { padding-bottom: 48px; }
+      .rh-teaser-card { padding: 28px 24px; }
+      .rh-section { padding: 56px 0 72px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER / NAV
+  ════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="header-logo" aria-label="Sommarteatern Ystad – startsida">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad" width="36" height="36">
+      </a>
+      <nav class="header-nav" aria-label="Huvudnavigation">
+        <a href="oliver-twist.html">Oliver Twist 2026</a>
+        <a href="robin-hood.html" class="active">Robin Hood 2027</a>
+        <a href="om-sommarteatern.html">Om oss</a>
+        <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
+        <a href="bilder.html">Bilder</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobilnavigation">
+        <a href="index.html">Hem</a>
+        <a href="oliver-twist.html">Oliver Twist 2026</a>
+        <a href="robin-hood.html">Robin Hood 2027</a>
+        <a href="om-sommarteatern.html">Om Sommarteatern</a>
+        <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
+        <a href="bilder.html">Bilder</a>
+        <a href="musik.html">Musik</a>
+        <a href="bakom-scenen.html">Bakom Scenen</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="sponsorer.html">Sponsorer</a>
+        <a href="press.html">Press</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="rh-hero">
+    <div class="rh-hero-poster">
+      <img src="images/Robin Hood 2026.jpg" alt="Robin Hood 2027 — affisch">
+    </div>
+    <div class="rh-hero-overlay" aria-hidden="true"></div>
+    <div class="rh-hero-content">
+      <span class="rh-eyebrow">Sommarteatern Ystad · Nästa sommar</span>
+      <h1 class="rh-hero-title">Robin<br><em>Hood</em></h1>
+      <p class="rh-coming">Kommer sommaren 2027</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       TEASER TEXT
+  ════════════════════════════════════════ -->
+  <section class="rh-section">
+    <div class="rh-inner">
+
+      <span class="rh-kicker">Nästa kapitel</span>
+      <h2 class="rh-h2">En ny historia om en gammal legend</h2>
+      <p class="rh-body">För 20 år sedan spelades Robin Hood i Öja — då i originalversion. Sommaren 2027 ger vi oss på Robin Hood igen, men som vanligt kommer det ske i helt ny tappning med ny musik och ett helt nytt manus med en egen story.</p>
+
+      <div class="rh-divider"></div>
+
+      <div class="rh-teaser-card">
+
+        <div class="rh-teaser-row">
+          <div class="rh-teaser-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(100,200,100,0.80)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="rh-teaser-text">
+            <strong>Sommaren 2027</strong>
+            <span>Utomhusscenen i Öja, Ystad</span>
+          </div>
+        </div>
+
+        <div class="rh-teaser-row">
+          <div class="rh-teaser-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(100,200,100,0.80)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="rh-teaser-text">
+            <strong>Ny musik &amp; nytt manus</strong>
+            <span>Egenskriven musik och en helt ny story — Sommarteaterns variant av legenden.</span>
+          </div>
+        </div>
+
+        <div class="rh-teaser-row">
+          <div class="rh-teaser-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(100,200,100,0.80)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="rh-teaser-text">
+            <strong>20-årsminne</strong>
+            <span>Förra gången Robin Hood spelades i Öja var för 20 år sedan. Nu är det dags igen.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rh-notify">
+        <a href="https://www.instagram.com/sommarteaternystad" target="_blank" rel="noopener" class="rh-notify-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Följ oss på Instagram för uppdateringar
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="rh-back">
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Tillbaka till startsidan
+    </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <div class="footer-wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C180,70 360,0 540,35 C720,70 900,5 1080,38 C1260,70 1380,20 1440,35 L1440,90 L0,90 Z" fill="#09090f"/>
+      <path d="M0,50 C200,85 400,15 600,50 C800,85 1000,18 1200,52 C1320,72 1400,38 1440,52 L1440,90 L0,90 Z" fill="#040408"/>
+    </svg>
+  </div>
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-col footer-col--brand">
+          <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad logotyp" class="footer-logo">
+          <address class="footer-address">
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Replokalen</strong><br>Björnstjernegatan 18<br>271 39 Ystad</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Utomhusteatern i Öja</strong><br>Karlshemsvägen 51<br>271 98 Ystad</div>
+            </div>
+          </address>
+          <p class="footer-org">Org.nr: 848001-2452</p>
+          <p class="footer-contact-info"><a href="mailto:info@sommarteaternystad.com">info@sommarteaternystad.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/sommarteaternystad" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/sommarteaternystad" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/sommarteaternystad" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0e0421"/></svg></a>
+            <a href="https://open.spotify.com/artist/4pmNC2xbj6um2liat7TkAV?si=EuePuzmDSCyxpMC6P5fuGw" class="social-btn" aria-label="Spotify" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.8 7.5.5" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7.5 11c3-1.2 6.5-1 9 .8" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 8.5c3.5-1.5 7.5-1.2 10.5 1" stroke="#0e0421" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col--nav">
+          <p class="footer-col-title">Sommarteatern</p>
+          <nav class="footer-nav" aria-label="Sidfotslänkar">
+            <a href="om-sommarteatern.html">Om Sommarteatern</a>
+            <a href="oliver-twist.html">Oliver Twist 2026</a>
+            <a href="robin-hood.html">Robin Hood 2027</a>
+            <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
+            <a href="bilder.html">Bilder</a>
+            <a href="musik.html">Musik</a>
+            <a href="bakom-scenen.html">Bakom Scenen</a>
+            <a href="om-sommarteatern.html#bli-medlem">Bli Medlem</a>
+            <a href="presentkort.html">Presentkort</a>
+            <a href="merch.html">Webbshop</a>
+            <a href="press.html">Press</a>
+            <a href="sponsorer.html">Sponsorer</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="tillgänglighet.html">Tillgänglighet</a>
+            <a href="utomhusteatern-i-oja.html">Utomhusteatern i Öja</a>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col--subsites">
+          <p class="footer-col-title">Sommarteaterns världar</p>
+          <div class="footer-subsites">
+            <a href="https://teaterskolan.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(100,60,180,0.35);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/TEATERSKOLAN LOGO.png" alt="Teaterskolan"></div>
+              <div class="subsite-text"><strong>Teaterskolan</strong><span>Kurser för alla åldrar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://jul.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,130,70,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/julhoslogo.png" alt="Jul hos Sommarteatern"></div>
+              <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column: 1 / -1; border-left: 2px solid rgba(201,168,76,0.38);">
+              <div class="subsite-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.80)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2027 Föreningen Sommarteatern Ystad · Org.nr 848001-2452</p>
+        <div class="footer-bottom-links">
+          <a href="tillgänglighet.html">Tillgänglighet</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="press.html">Press</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=4" defer></script>
+
+</body>
+</html>
