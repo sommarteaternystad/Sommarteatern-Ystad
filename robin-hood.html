@@ -267,44 +267,33 @@
 </head>
 <body>
 
+  <div class="page-bg" aria-hidden="true"></div>
+
   <!-- ═══════════════════════════════════════
-       HEADER / NAV
+       STICKY NAV
   ════════════════════════════════════════ -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner container">
-      <a href="index.html" class="header-logo" aria-label="Sommarteatern Ystad – startsida">
-        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad" width="36" height="36">
+  <header class="subpage-nav">
+    <div class="container subpage-nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
+        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
       </a>
-      <nav class="header-nav" aria-label="Huvudnavigation">
-        <a href="oliver-twist.html">Oliver Twist 2026</a>
-        <a href="robin-hood.html" class="active">Robin Hood 2027</a>
-        <a href="om-sommarteatern.html">Om oss</a>
-        <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
-        <a href="bilder.html">Bilder</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <nav aria-label="Mobilnavigation">
-        <a href="index.html">Hem</a>
-        <a href="oliver-twist.html">Oliver Twist 2026</a>
-        <a href="robin-hood.html">Robin Hood 2027</a>
-        <a href="om-sommarteatern.html">Om Sommarteatern</a>
-        <a href="tidigare-forestallningar.html">Tidigare föreställningar</a>
-        <a href="bilder.html">Bilder</a>
-        <a href="musik.html">Musik</a>
-        <a href="bakom-scenen.html">Bakom Scenen</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="sponsorer.html">Sponsorer</a>
-        <a href="press.html">Press</a>
+      <nav class="nav-pills-row" aria-label="Sidnavigation">
+        <a href="index.html" class="nav-pill">Start</a>
+        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
+          <span class="nav-pill-badge">2026</span>Oliver Twist
+        </a>
+        <a href="#" class="nav-pill nav-pill--show nav-pill--active" style="background:rgba(60,120,60,0.20); border-color:rgba(80,160,80,0.40); color:rgba(140,220,140,0.95);">
+          <span class="nav-pill-badge" style="background:rgba(70,150,70,0.85);">2027</span>Robin Hood
+        </a>
+        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
+        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
+        <a href="bilder.html" class="nav-pill">Bilder</a>
+        <a href="musik.html" class="nav-pill">Musik</a>
+        <a href="kontakt.html" class="nav-pill">Kontakt</a>
+        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
       </nav>
     </div>
   </header>
-
-  <div class="page-bg" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════
        HERO
@@ -454,9 +443,19 @@
               <div class="subsite-text"><strong>Jul hos Sommarteatern</strong><span>Julgranar, marknad &amp; konserter</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <a href="https://sommarteaternplay.com" class="subsite-card" target="_blank" rel="noopener" style="border-left: 2px solid rgba(40,80,180,0.38);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/SOMMARTEATERN PLAY LOGGA.png" alt="Sommarteatern Play"></div>
+              <div class="subsite-text"><strong>Sommarteatern Play</strong><span>Streama föreställningar</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="merch.html" class="subsite-card" style="border-left: 2px solid rgba(40,80,160,0.32);">
+              <div class="subsite-icon subsite-icon--img"><img src="images/webbshop.png" alt="Webbshop"></div>
+              <div class="subsite-text"><strong>Webbshop</strong><span>Merchandise &amp; presenter</span></div>
+              <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
             <a href="https://medlem.sommarteaternystad.com" class="subsite-card" target="_blank" rel="noopener" style="grid-column: 1 / -1; border-left: 2px solid rgba(201,168,76,0.38);">
-              <div class="subsite-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.80)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <div class="subsite-icon" style="background: linear-gradient(135deg, #1a3a5c 0%, #0a1e38 100%); display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.90)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <div class="subsite-text"><strong>För Medlemmar</strong><span>Nyhetsbrev, protokoll &amp; förmåner</span></div>
               <svg class="subsite-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
