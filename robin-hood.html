@@ -20,16 +20,71 @@
   <link rel="stylesheet" href="css/style.css?v=4">
   <style>
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      padding-top: 67px;
       background: #030608;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
     }
 
-    /* ── HERO: full viewport below nav ── */
+    /* ── FLOATING NAV ── */
+    .rh-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 32px;
+      transition: background 0.5s, backdrop-filter 0.5s, padding 0.4s;
+    }
+
+    .rh-nav.rh-nav--scrolled {
+      background: rgba(3,6,8,0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 14px 32px;
+    }
+
+    .rh-nav-logo {
+      display: block;
+      text-decoration: none;
+    }
+
+    .rh-nav-logo img {
+      height: 26px;
+      width: auto;
+      opacity: 0.55;
+      transition: opacity 0.3s;
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.20));
+    }
+
+    .rh-nav.rh-nav--scrolled .rh-nav-logo img {
+      opacity: 0.80;
+    }
+
+    .rh-nav-logo:hover img { opacity: 1; }
+
+    .rh-nav-back {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.2s;
+    }
+
+    .rh-nav-back:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── HERO: TRUE FULL SCREEN ── */
     .rh-hero {
       position: relative;
-      height: calc(100vh - 67px);
-      min-height: 520px;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
     }
 
@@ -46,52 +101,53 @@
       display: block;
     }
 
+    /* Subtle vignette — keep poster visible */
     .rh-hero-overlay {
       position: absolute;
       inset: 0;
       background:
         linear-gradient(to bottom,
-          rgba(3,6,8,0.25) 0%,
-          rgba(3,6,8,0.05) 30%,
-          rgba(3,6,8,0.45) 68%,
+          rgba(3,6,8,0.18) 0%,
+          rgba(3,6,8,0.00) 25%,
+          rgba(3,6,8,0.30) 62%,
           rgba(3,6,8,1.00) 100%
         ),
         linear-gradient(to right,
-          rgba(3,6,8,0.55) 0%,
-          rgba(3,6,8,0.00) 28%,
-          rgba(3,6,8,0.00) 72%,
-          rgba(3,6,8,0.55) 100%
+          rgba(3,6,8,0.45) 0%,
+          rgba(3,6,8,0.00) 22%,
+          rgba(3,6,8,0.00) 78%,
+          rgba(3,6,8,0.45) 100%
         );
     }
 
+    /* Content: pinned to bottom of hero */
     .rh-hero-content {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 0 24px 56px;
+      padding: 0 32px 52px;
       text-align: center;
       z-index: 2;
     }
 
-    .rh-hero-eyebrow {
+    .rh-hero-year {
       display: block;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: rgba(201,168,76,0.65);
-      margin-bottom: 18px;
+      color: rgba(201,168,76,0.55);
+      margin-bottom: 16px;
     }
 
     .rh-hero-title {
-      font-size: clamp(68px, 15vw, 150px);
+      font-size: clamp(72px, 16vw, 160px);
       font-weight: 900;
-      line-height: 0.87;
-      letter-spacing: -0.04em;
+      line-height: 0.85;
+      letter-spacing: -0.045em;
       color: #fff;
-      margin: 0;
-      text-shadow: 0 4px 48px rgba(0,0,0,0.40);
+      text-shadow: 0 8px 64px rgba(0,0,0,0.55);
     }
 
     .rh-hero-title em {
@@ -99,44 +155,63 @@
       color: #c9a84c;
     }
 
-    .rh-hero-sub {
-      margin-top: 22px;
-      font-size: 15px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.38);
+    .rh-hero-coming {
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.32);
     }
 
-    /* ── CONTENT ── */
-    .rh-content {
-      max-width: 580px;
+    /* Scroll indicator */
+    .rh-scroll-hint {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      opacity: 0.28;
+      animation: rh-bob 2.2s ease-in-out infinite;
+    }
+
+    @keyframes rh-bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    /* ── TEXT SECTION ── */
+    .rh-section {
+      max-width: 560px;
       margin: 0 auto;
-      padding: 96px 24px 80px;
+      padding: 100px 28px 88px;
       text-align: center;
     }
 
     .rh-kicker {
       display: block;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: rgba(201,168,76,0.55);
-      margin-bottom: 28px;
+      color: rgba(201,168,76,0.50);
+      margin-bottom: 32px;
     }
 
     .rh-body {
       font-size: 18px;
-      line-height: 1.82;
-      color: rgba(255,255,255,0.52);
-      margin: 0;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.48);
     }
 
     .rh-rule {
-      width: 36px;
+      width: 32px;
       height: 1px;
-      background: rgba(201,168,76,0.28);
-      margin: 48px auto;
+      background: rgba(201,168,76,0.24);
+      margin: 52px auto;
     }
 
     .rh-cta {
@@ -144,25 +219,31 @@
       align-items: center;
       gap: 10px;
       padding: 14px 30px;
-      border: 1px solid rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 999px;
-      color: rgba(255,255,255,0.62);
-      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.25s, color 0.25s;
     }
 
     .rh-cta:hover {
-      border-color: rgba(255,255,255,0.30);
-      color: rgba(255,255,255,0.88);
+      border-color: rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 0;
     }
 
     @media (max-width: 600px) {
-      .rh-hero-content { padding-bottom: 44px; }
-      .rh-content { padding: 72px 24px 64px; }
-      .rh-body { font-size: 17px; }
+      .rh-nav { padding: 18px 20px; }
+      .rh-nav.rh-nav--scrolled { padding: 12px 20px; }
+      .rh-hero-content { padding: 0 20px 44px; }
+      .rh-section { padding: 80px 22px 72px; }
     }
 
   </style>
@@ -170,50 +251,42 @@
 <body>
 
   <!-- ═══════════════════════════════════════
-       STICKY NAV
+       FLOATING NAV — transparent over hero
   ════════════════════════════════════════ -->
-  <header class="subpage-nav">
-    <div class="container subpage-nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="Sommarteatern Ystad">
-        <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
-      </a>
-      <nav class="nav-pills-row" aria-label="Sidnavigation">
-        <a href="index.html" class="nav-pill">Start</a>
-        <a href="oliver-twist.html" class="nav-pill nav-pill--show">
-          <span class="nav-pill-badge">2026</span>Oliver Twist
-        </a>
-        <a href="#" class="nav-pill nav-pill--show nav-pill--active" style="background:rgba(60,120,60,0.20); border-color:rgba(80,160,80,0.40); color:rgba(140,220,140,0.95);">
-          <span class="nav-pill-badge" style="background:rgba(70,150,70,0.85);">2027</span>Robin Hood
-        </a>
-        <a href="om-sommarteatern.html" class="nav-pill">Om Sommarteatern</a>
-        <a href="tidigare-forestallningar.html" class="nav-pill">Tidigare föreställningar</a>
-        <a href="bilder.html" class="nav-pill">Bilder</a>
-        <a href="musik.html" class="nav-pill">Musik</a>
-        <a href="kontakt.html" class="nav-pill">Kontakt</a>
-        <a href="#footer" class="nav-pill nav-pill--more">Mer ↓</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="rh-nav" id="rh-nav" aria-label="Sidnavigation">
+    <a href="index.html" class="rh-nav-logo" aria-label="Sommarteatern Ystad — tillbaka till startsidan">
+      <img src="images/sommarteater-logo-yellow.png" alt="Sommarteatern Ystad">
+    </a>
+    <a href="index.html" class="rh-nav-back">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Tillbaka
+    </a>
+  </nav>
 
   <!-- ═══════════════════════════════════════
-       HERO
+       HERO — full viewport
   ════════════════════════════════════════ -->
   <section class="rh-hero" aria-label="Robin Hood 2027">
     <div class="rh-hero-bg">
       <img src="images/Robin Hood 2026.jpg" alt="Robin Hood 2027 — affisch" fetchpriority="high">
     </div>
     <div class="rh-hero-overlay" aria-hidden="true"></div>
+
     <div class="rh-hero-content">
-      <span class="rh-hero-eyebrow">Sommarteatern Ystad · Nästa sommar</span>
+      <span class="rh-hero-year">Sommarteatern Ystad · 2027</span>
       <h1 class="rh-hero-title">Robin<br><em>Hood</em></h1>
-      <p class="rh-hero-sub">Kommer sommaren 2027</p>
+      <p class="rh-hero-coming">Kommer sommaren 2027</p>
+    </div>
+
+    <div class="rh-scroll-hint" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════
        TEASER TEXT
   ════════════════════════════════════════ -->
-  <div class="rh-content">
+  <div class="rh-section">
     <span class="rh-kicker">Nästa kapitel</span>
     <p class="rh-body">För 20 år sedan spelades Robin Hood i Öja — då i originalversion. Sommaren 2027 ger vi oss på Robin Hood igen, men som vanligt kommer det ske i helt ny tappning med ny musik och ett helt nytt manus med en egen story.</p>
     <div class="rh-rule" aria-hidden="true"></div>
@@ -325,7 +398,13 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4" defer></script>
+  <script>
+    // Transparent nav → frosted glass on scroll
+    const nav = document.getElementById('rh-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('rh-nav--scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
 
 </body>
 </html>
