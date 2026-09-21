@@ -24,6 +24,22 @@
       background: #ffffff;
     }
 
+    .subpage-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(1, 6, 18, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .subpage-nav-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      padding: 0; height: auto; min-height: 66px;
+    }
     .nav-logo {
       flex-shrink: 0;
       line-height: 1;
@@ -34,7 +50,59 @@
       margin-right: 22px;
       border-right: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-logo img { height: 48px; width: auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)); display: block; }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 0 10px rgba(201,168,76,0.32));
+      display: block;
+    }
+    .subpage-nav .nav-pills-row {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      overflow: visible;
+    }
+    .subpage-nav .nav-pill {
+      min-height: 30px;
+      line-height: 30px;
+      padding: 0 13px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: -0.01em;
+    }
+    .subpage-nav .nav-pill:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      transform: none;
+      box-shadow: none;
+    }
+    .subpage-nav .nav-pill--show {
+      background: linear-gradient(135deg, var(--crimson) 0%, #b05510 100%);
+      color: #fff;
+    }
+    .subpage-nav .nav-pill--active {
+      outline: 1.5px solid rgba(201,168,76,0.55);
+      outline-offset: -1.5px;
+      color: var(--gold);
+    }
+    .subpage-nav .nav-pill--more {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.38);
+    }
+    .subpage-nav .nav-pill--more:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.70);
+    }
 
     /* ── HERO ── */
     .idb-hero {
