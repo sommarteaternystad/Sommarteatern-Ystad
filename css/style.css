@@ -375,6 +375,46 @@ h2 {
   max-width: 480px;
 }
 
+/* ─── NEWS TILE med affisch (Teater Workshop) ─── */
+.news-tile-poster {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  height: calc(100% - 80px);
+  aspect-ratio: 297 / 420;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  transform: rotate(2deg);
+  transition: transform 0.25s ease;
+}
+.news-tile-poster:hover { transform: rotate(0deg) scale(1.02); }
+.news-tile-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.news-tile-inner--poster .news-tile-title,
+.news-tile-inner--poster .news-tile-desc,
+.news-tile-inner--poster .news-tile-kicker { position: relative; z-index: 1; }
+.news-tile-inner--poster { min-height: 440px; }
+.news-tile-inner--poster .news-tile-desc { max-width: 440px; }
+.news-tile-inner--poster .btn { align-self: flex-start; }
+.news-tile-note {
+  margin: 18px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 900px) {
+  .news-tile-inner--poster { justify-content: flex-start; }
+  .news-tile-poster {
+    position: relative;
+    top: auto; right: auto;
+    height: auto;
+    width: min(260px, 70%);
+    margin: 0 0 26px;
+    transform: rotate(-2deg);
+  }
+}
+
 /* ─── ACTIVITIES SEPARATOR ─── */
 .activities-divider {
   display: flex;
